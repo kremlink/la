@@ -1,0 +1,107 @@
+@include exports("@path:components\_game.scss"){/*@path:components\_game.scss*/
+  @include kfs(rotate){
+    50%{
+      @include trf('rotateY(30deg)');
+      perspective:200px;
+    }
+  };
+  @include kfs(move){
+    50%{
+      @include trf(translate(-20px,0));
+    }
+  };
+  //---
+  .overlay169{
+    @include abs($t:0,$b:0,$l:0,$r:0);
+    height:56.25vw; //h:w=9/16
+    max-height:100vh;
+    max-width:177.7777vh; //16/9=1.778
+    margin:auto;
+    background:rgba(#fff,0.5);
+    opacity:0;
+    visibility:hidden;
+    @include trs('opacity #{$anim} ease-in-out');
+    &.shown{
+      opacity:1;
+      visibility:visible;
+    }
+    .wobble-pop{
+      @include flx(display,flex);
+      height:100%;
+    }
+    .w-p-outer{
+      margin:auto;
+      @include anim('rotate 6s infinite');
+    }
+    .w-p-wrap{
+      position:relative;
+      padding:16px 30px;
+      background:rgba(#fff,0.5);
+      @include trs('transform #{$anim} linear');
+    }
+    .w-p-cont{
+      @include anim('move 6s infinite');
+      background:#ddd;
+    }
+    .w-p-p{
+      @include abs($l:0,$r:0,$t:-1px);
+      div{
+        border-top:1px solid orange;
+        width:0;
+        @include trs('width linear');
+      }
+    }
+    .w-p-p-text{
+      @include abs($l:0,$t:-17px);
+      font-size:14px;
+      color:orange;
+    }
+    .w-p-text{
+      font-size:26px;
+      line-height:1;
+      color:#fff;
+      text-transform:uppercase;
+      text-align:center;
+    }
+  }
+  //other
+  .loader-pop{
+    @include abs($l:0,$r:0,$t:0,$b:0);
+    @include trs('opacity #{$anim} ease-in-out');
+    @extend %loader;
+    z-index:1;
+    background-color:#eee;
+    .loaded &{
+      opacity:0;
+      pointer-events:none;
+    }
+  }
+  .orientation-pop{
+    @include abs($l:0,$r:0,$t:0,$b:0);
+    display:none;
+    background:#fff;
+    font-size:30px;
+    line-height:30px;
+    z-index:1;
+    @include flx(justify-content,center);
+    @include flx(align-items,center);
+    .too-small &{
+      @include flx(display,flex);
+    }
+  }
+  .start-pop{
+    @include abs($l:0,$r:0,$t:0,$b:0);
+    @include flx(display,flex);
+    background:#eee;
+    @include trs('opacity #{$anim} ease-in-out');
+    .start &{
+      opacity:0;
+      pointer-events:none;
+    }
+    div{
+      font-size:20px;
+      margin:auto;
+      cursor:pointer;
+    }
+  }
+}
