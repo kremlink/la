@@ -3,7 +3,7 @@ export const data={
 
  },
  view:{
-  el:'.overlay169',
+  el:'.overlay-block',
   shownCls:'shown'
  }
 };

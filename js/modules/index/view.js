@@ -18,7 +18,7 @@ export function init(app,modules){
   events:events,
   el:data.view.el,
   initialize:function(){
-   this.playerView=new PlayerView;
+   this.playerView=new PlayerView({timecodes:data.timecodes});
    this.mainView=new MainView;
 
    if(!matchMedia(data.minViewport).matches)
@@ -30,16 +30,29 @@ export function init(app,modules){
    this.listenTo(app.get('aggregator'),'page:fs',this.fs);
   },
   playerReady:function(){
-   this.$el.imagesLoaded(()=>{
-    this.$el.addClass(data.view.loadedCls);
+   let self=this,
+    res=this.$el.find('video,audio'),
+    ctr=[];
 
+   res.each(function(i){
+     this.addEventListener('loadeddata',function(){console.log(this.readyState);
+      if(this.readyState>=3)
+      {
+       ctr[i]=true;
+       if(ctr[res.length-1])
+       {
+        self.$el.imagesLoaded(()=>{
+         self.$el.addClass(data.view.loadedCls);
+        });
+       }
+      }
+     });
    });
   },
   start:function(){
+   $('.ov-video')[0].play();
    this.$el.addClass(data.view.startCls);
-   //if(app.get('isMobile'))
-    //document.documentElement.requestFullscreen();
-   app.get('aggregator').trigger('player:play');//TODO: uncomment
+   this.playerView.play();
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);

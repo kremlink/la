@@ -3,45 +3,30 @@ import {data} from './data.js';
 
 export let PlayerView=Backbone.View.extend({
  el:data.view.el,
- initialize:function(){
+ initialize:function(opts){
+  this.timecodes=opts.timecodes;
   this.player=videojs(this.el,{},()=>{
    this.prepare();
   });
   this.listenTo(app.get('aggregator'),'player:play',this.play);
+  this.listenTo(app.get('aggregator'),'player:pause',this.pause);
  },
  prepare:function(){
   let touched={};
 
   app.get('aggregator').trigger('player:ready');
   this.player.on('pause',()=>{
-   if(app.get('isMobile'))
-   {
-    if(document.fullscreenElement)
-     document.exitFullscreen();
-   }else
-   {
-    if(this.player.isFullscreen())
-     this.player.exitFullscreen();
-   }
-   app.get('aggregator').trigger('main:toggle',true);
+   /*if(document.fullscreenElement)
+    document.exitFullscreen();*/
+   //app.get('aggregator').trigger('main:toggle',true);
   });
   this.player.on('play',()=>{
-   app.get('aggregator').trigger('main:toggle',false);
-   if(app.get('isMobile'))//TODO: already fullscreen, just add class for fixed video
-    document.documentElement.requestFullscreen();else
-    this.player.requestFullscreen();
+   //app.get('aggregator').trigger('main:toggle',false);
+   /*document.documentElement.requestFullscreen();*/
   });
-  if(app.get('isMobile'))
-  {
-   document.addEventListener('fullscreenchange',()=>{
-    app.get('aggregator').trigger('main:fs',document.fullscreenElement);
-   },false);
-  }else
-  {
-   this.player.on('fullscreenchange',()=>{
-    app.get('aggregator').trigger('page:fs',this.player.isFullscreen());
-   });
-  }
+  /*document.addEventListener('fullscreenchange',()=>{
+   app.get('aggregator').trigger('page:fs',document.fullscreenElement);
+  },false);*/
 
   this.player.on('touchstart',e=>{
    touched.x=e.touches[0].pageX;
@@ -58,10 +43,24 @@ export let PlayerView=Backbone.View.extend({
     }
    }
   });
+
+  this.player.on('timeupdate',()=>{
+   for(let [x,y] of Object.entries(this.timecodes))
+   {
+    if(this.player.currentTime()>y.time&&!y.invoked)
+    {
+     app.get('aggregator').trigger('main:step',x);
+     y.invoked=true;
+    }
+   }
+  });
  },
  play:function(){
   if(this.player.paused)
+  {
+   //document.documentElement.requestFullscreen();//TODO: uncomment!
    this.player.play();
+  }
  },
  pause:function(){
   this.player.pause();

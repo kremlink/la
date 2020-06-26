@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<video
+			<video muted
 					class="video-js"
 					controls
 					preload="auto"
@@ -23,13 +23,26 @@
 					</a>
 				</p>
 			</video>
-			<div class="overlay169">
-                <div class="wobble-pop">
-                    <div class="w-p-wrap">
-                        <div class="w-p-p-text">0</div>
-                        <div class="w-p-p"><div></div></div>
-                        <div class="w-p-cont">
-                            <div class="w-p-text">взять координацию на себя</div>
+			<div class="overlay-block">
+                <div class="ov-wrap step1">
+                    <video class="ov-video" preload="auto" loop>
+                        <source src="../BokehNightDriving.mp4" type="video/mp4" />
+                    </video>
+                    <div class="wobble-pop">
+                        <div class="w-p-outer">
+                            <div class="w-p-wrap">
+                                <svg class="w-p-bg">
+                                    <use xlink:href="#icon-shared-button-bottom"></use>
+                                </svg>
+                                <div class="w-p-p-text">0</div>
+                                <div class="w-p-p"><div></div></div>
+                                <div class="w-p-cont">
+                                    <svg class="w-p-text">
+                                        <use xlink:href="#icon-shared-button-top"></use>
+                                    </svg>
+                                    <!--<div class="w-p-text">взять координацию на себя</div>-->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,5 +56,8 @@
                 Возможно, вам поможет поворот девайса.
             </div>
 		</div>
+        <div class="safe-hide-svg">
+            @@include('components/shared-sprite.svg')
+        </div>
 	</body>
 </html>

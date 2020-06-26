@@ -433,8 +433,7 @@ body {
 /*@path:components\_game.scss*/
 @keyframes rotate {
   50% {
-    transform: rotateY(30deg);
-    perspective: 200px;
+    transform:  rotateY(-20deg);
   }
 }
 @keyframes move {
@@ -442,67 +441,37 @@ body {
     transform: translate(-20px, 0);
   }
 }
-.overlay169 {
+.overlay-block {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  height: 56.25vw;
-  max-height: 100vh;
-  max-width: 177.7777vh;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.5);
+  background: #000;
   opacity: 0;
   visibility: hidden;
+  z-index: 1;
   transition: opacity 0.3s ease-in-out;
 }
-.overlay169.shown {
+.overlay-block.shown {
   opacity: 1;
   visibility: visible;
 }
-.overlay169 .wobble-pop {
-  display: flex;
-  height: 100%;
-}
-.overlay169 .w-p-outer {
-  margin: auto;
-  animation: rotate 6s infinite;
-}
-.overlay169 .w-p-wrap {
+.overlay-block .ov-wrap {
+  height: 56.25vw;
+  max-height: 100vh;
+  max-width: 177.7777vh;
+  display: none;
   position: relative;
-  padding: 16px 30px;
-  background: rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s linear;
+  margin: auto;
 }
-.overlay169 .w-p-cont {
-  animation: move 6s infinite;
-  background: #ddd;
+.overlay-block .ov-wrap.shown {
+  display: block;
 }
-.overlay169 .w-p-p {
+.overlay-block .ov-video {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: 0;
-  top: -1px;
-  right: 0;
-}
-.overlay169 .w-p-p div {
-  border-top: 1px solid orange;
-  width: 0;
-  transition: width linear;
-}
-.overlay169 .w-p-p-text {
-  position: absolute;
-  left: 0;
-  top: -17px;
-  font-size: 14px;
-  color: orange;
-}
-.overlay169 .w-p-text {
-  font-size: 26px;
-  line-height: 1;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
 }
 
 .loader-pop {
@@ -582,6 +551,76 @@ body {
 }
 .video-js .vjs-fullscreen-control {
   display: none;
+}
+
+/*@path:components\_wobble.scss*/
+.wobble-pop {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  perspective: 800px;
+}
+
+.w-p-outer {
+  margin: auto;
+  animation: rotate 20s linear infinite;
+}
+
+.w-p-wrap {
+  position: relative;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.w-p-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.w-p-cont {
+  animation: move 20s infinite;
+  padding: 6px;
+  position: relative;
+}
+
+.w-p-p {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  right: 0;
+}
+.w-p-p div {
+  border-top: 1px solid orange;
+  width: 0;
+  transition: width linear;
+}
+
+.w-p-p-text {
+  position: absolute;
+  left: 0;
+  top: -17px;
+  font-size: 14px;
+  color: orange;
+}
+
+.w-p-text {
+  /*font-size:26px;
+  line-height:1;
+  color:#fff;
+  text-transform:uppercase;
+  text-align:center;*/
+  width: 32.94vw;
+  height: 5.445vw;
+}
+@media (min-aspect-ratio: 16/9) {
+  .w-p-text {
+    width: 58.56vh;
+    height: 9.68vh;
+  }
 }
 
 /*@path:partials\_index.scss*/
