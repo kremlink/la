@@ -430,17 +430,8 @@ body {
 
 /*@path:base\_exts.scss*/
 /*@path:components\_footer.scss*/
-/*@path:components\_game.scss*/
-@keyframes rotate {
-  50% {
-    transform:  rotateY(-20deg);
-  }
-}
-@keyframes move {
-  50% {
-    transform: translate(-20px, 0);
-  }
-}
+/*@path:components\_header.scss*/
+/*@path:components\_main.scss*/
 .overlay-block {
   position: absolute;
   left: 0;
@@ -472,6 +463,17 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+.overlay-block .pulse-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translate(-50%, 0);
+  width: 11.25%;
+  height: 20%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .loader-pop {
@@ -527,7 +529,6 @@ body {
   cursor: pointer;
 }
 
-/*@path:components\_header.scss*/
 /*@path:components\_shared.scss*/
 /*@path:components\_video.scss*/
 .video-container {
@@ -554,11 +555,43 @@ body {
 }
 
 /*@path:components\_wobble.scss*/
+@keyframes rotate {
+  50% {
+    transform:  rotateY(-20deg);
+  }
+}
+@keyframes move {
+  50% {
+    transform: translate(-20px, 0);
+  }
+}
 .wobble-pop {
   display: flex;
-  align-items: center;
   height: 100%;
   perspective: 800px;
+}
+.wobble-pop.big .w-p-outer {
+  margin-top: 0;
+  top: 25%;
+  position: relative;
+}
+.wobble-pop.big .w-p-wrap {
+  padding: 0;
+  cursor: default;
+  transition: none;
+}
+.wobble-pop.big .w-p-cont {
+  padding: 0;
+}
+.wobble-pop.big .w-p-text {
+  width: 52.85vw;
+  height: 17.03vw;
+}
+@media (min-aspect-ratio: 16/9) {
+  .wobble-pop.big .w-p-text {
+    width: 93.95vh;
+    height: 30.27vh;
+  }
 }
 
 .w-p-outer {

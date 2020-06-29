@@ -1,5 +1,8 @@
 export const data={
- timecodes:{step1:{time:2,invoked:false}},
+ timecodes:{
+  /*step1:{time:2,invoked:false},*/
+  step2:{time:1,invoked:false}
+  },
  events:{
   'start':'.start-pop div',
  },

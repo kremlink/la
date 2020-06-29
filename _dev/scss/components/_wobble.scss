@@ -1,9 +1,42 @@
 @include exports("@path:components\_wobble.scss"){/*@path:components\_wobble.scss*/
+  @include kfs(rotate){
+    50%{
+      @include trf(' rotateY(-20deg)');
+    }
+  };
+  @include kfs(move){
+    50%{
+      @include trf(translate(-20px,0));
+    }
+  };
+
   .wobble-pop{
     @include flx(display,flex);
-    @include flx(align-items,center);
     height:100%;
     perspective:800px;
+    &.big{
+      .w-p-outer{
+        margin-top:0;
+        top:25%;
+        position:relative;
+      }
+      .w-p-wrap{
+        padding:0;
+        cursor:default;
+        @include trs('none');
+      }
+      .w-p-cont{
+        padding:0;
+      }
+      .w-p-text{
+        width:52.85vw;
+        height:17.03vw;
+        @media (min-aspect-ratio:16/9){
+          width:93.95vh;
+          height:30.27vh;
+        }
+      }
+    }
   }
   .w-p-outer{
     margin:auto;
