@@ -4,7 +4,7 @@ import {data} from './data.js';
 let events={};
 events[`click ${data.events.click}`]='click';
 
-export let Step1View=Backbone.View.extend({
+export let VibrateView=Backbone.View.extend({
  el:data.view.el,
  events:events,
  initialize:function(){
@@ -25,6 +25,7 @@ export let Step1View=Backbone.View.extend({
 
   this.$wobble=this.$(data.button.wobble);
   this.$pr=this.$(data.button.pText);
+  this.wait=null;
 
   _.debounce(()=>{
    $(data.button.pDiv).css({transitionDuration:data.button.progress+'s',width:'100%'});
@@ -49,10 +50,18 @@ export let Step1View=Backbone.View.extend({
   },data.button.timerDivider);
  },
  click:function(){
+  clearTimeout(this.wait);
   app.get('aggregator').trigger('main:toggle',false);
   this.toggle(false);
  },
  toggle:function(f){
   this.$el.toggleClass(data.view.shownCls,f);
+  if(f)
+  {
+   this.wait=setTimeout(()=>{
+    console.log('fired!');
+    this.click();
+   },data.wait)
+  }
  },
 });

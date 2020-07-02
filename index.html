@@ -43,7 +43,32 @@
 				</p>
 			</video>
 			<div class="overlay-block">
-                <div class="ov-wrap step1">
+                <div class="ov-wrap start">
+                    <div class="wobble-pop">
+                        <div class="w-p-outer">
+                            <div class="w-p-wrap">
+                                <svg class="w-p-bg">
+                                    <use xlink:href="#icon-shared-text-bg"></use>
+                                </svg>
+                                <img class="w-p-pulse" src="images/pulse-btn.png" alt=""/>
+                                <div class="w-p-cont">
+                                    <svg class="w-p-text">
+                                        <use xlink:href="#icon-shared-text-top-w-text"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pulse-btn">
+                        <img src="images/pulse-btn.png" alt=""/>
+                    </div>
+                    <!--<div class="pulse-btn">
+                        <div class="p-b-clip">
+                            <div class="p-b-pulse"></div>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="ov-wrap vibrate">
                     <video class="ov-video" preload="auto" loop>
                         <source src="../BokehNightDriving.mp4" type="video/mp4" />
                     </video>
@@ -65,26 +90,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="ov-wrap step2">
+                <div class="ov-wrap qs">
                     <video class="ov-video" preload="auto" loop>
                         <source src="../BokehNightDriving.mp4" type="video/mp4" />
                     </video>
-                    <div class="wobble-pop big">
+                    <div class="wobble-pop">
                         <div class="w-p-outer">
                             <div class="w-p-wrap">
-                                <svg class="w-p-bg">
-                                    <use xlink:href="#icon-shared-text-bg"></use>
-                                </svg>
+                                <div class="w-p-bg"></div>
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-shared-text-top-w-text"></use>
-                                    </svg>
+                                    <div class="w-p-text"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="pulse-btn"></div>
+                    <div class="next-err">Жми "да"</div>
+                    <div class="next-block">
+                        <svg class="next">
+                            <use xlink:href="#icon-shared-button-top"></use>
+                        </svg>
+                        <svg class="no">
+                            <use xlink:href="#icon-shared-button-top"></use>
+                        </svg>
+                    </div>
+                    <div class="next-list"></div>
+                    <div class="pulse-btn">
+                        <div class="p-b-clip">
+                            <div class="p-b-pulse"></div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="the-anim">
+                <img src="images/pulse-btn.png" alt=""/>
+            </div>
+            <div class="the-timer">
+                <svg class="the-t-bg">
+                    <use xlink:href="#icon-shared-clock-bg"></use>
+                </svg>
+                <div class="the-t-text">36:00:00</div>
             </div>
             <div class="start-pop">
                 <div>Play</div>
@@ -705,5 +749,8 @@
     
 </symbol></svg>
         </div>
+        <script type="text/template" id="next-list-item-template">
+           <div><%= text %></div>
+        </script>
 	</body>
 </html>

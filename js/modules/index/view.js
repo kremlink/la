@@ -24,30 +24,41 @@ export function init(app,modules){
    if(!matchMedia(data.minViewport).matches)
     this.$el.addClass(data.view.tooSmallCls);
    $(window).on('resize',_.debounce(function(){
-    //location.reload();TODO: uncomment
+    //location.reload();//TODO: uncomment
    },200));
    this.listenTo(app.get('aggregator'),'player:ready',this.playerReady);
    this.listenTo(app.get('aggregator'),'page:fs',this.fs);
+   this.listenTo(app.get('aggregator'),'page:timer',this.timer);
   },
-  playerReady:function(){
-   let self=this,
+  playerReady:function(){//inconsistent loadeddata event with multiple videos
+   this.loaded();
+   /*let self=this,
     res=this.$el.find('video,audio'),
-    ctr=[];
+    ctr=[],
+   wait=setTimeout(()=>this.loaded(),data.waitLoad);
 
    res.each(function(i){
-     this.addEventListener('loadeddata',function(){console.log(this.readyState);
+     this.addEventListener('loadeddata',function(){
+      console.log(this.readyState);//TODO: remove
       if(this.readyState>=3)
       {
        ctr[i]=true;
        if(ctr[res.length-1])
        {
         self.$el.imagesLoaded(()=>{
-         self.$el.addClass(data.view.loadedCls);
+         clearTimeout(wait);
+         self.loaded();
         });
        }
       }
      });
-   });
+   });*/
+  },
+  loaded:function(){
+   this.$el.addClass(data.view.loadedCls);
+  },
+  timer:function(){
+   this.$el.addClass(data.view.timerCls);
   },
   start:function(){
    $('.ov-video')[0].play();

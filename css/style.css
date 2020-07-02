@@ -442,38 +442,305 @@ body {
   opacity: 0;
   visibility: hidden;
   z-index: 1;
+  font-size: 1.575vw;
+  line-height: 1.25;
   transition: opacity 0.3s ease-in-out;
+  /*
+     @keyframes p-b-clip{
+        0%,100%{clip-path:polygon(0 0,100% 0,100% 2px,0 2px);}
+        25%{clip-path:polygon(0 0,2px 0,2px 100%,0 100%);}
+        50%{clip-path:polygon(0 calc(100% - 2px),100% calc(100% - 2px),100% 100%,0 100%);}
+        75%{clip-path:polygon(calc(100% - 2px) 0,100% 0,100% 100%,calc(100% - 2px) 100%);}
+      }
+      @keyframes p-b-pulse{
+        0% {
+          @include trf(scale(.9));
+        }
+        70% {
+          @include trf(scale(1));
+          box-shadow:0 0 0 20px #fff;
+        }
+        100% {
+          @include trf(scale(.9));
+          box-shadow:0 0 0 0 #fff;
+        }
+      }
+  
+      .pulse-btn{
+        @include center($b:15%);
+        width:11.25%;
+        height:20%;
+        background:rgba(#000,0.5);
+        border-radius:50%;
+        cursor:pointer;
+      }
+      .p-b-clip{
+        @include abs($l:30%,$t:30%);
+        @include trf(rotate(45deg));
+        width:40%;
+        height:40%;
+        background:rgba(#000,0.5);
+        &:before,&:after{
+          content:'';
+          @include abs($l:-10%,$r:-10%,$t:-10%,$b:-10%);
+          z-index:-1;
+          box-shadow:inset 0 0 0 1px #fff;
+          animation:p-b-clip 8s linear infinite;
+        }
+        &:before{
+          animation-delay:-4s;
+        }
+      }
+      .p-b-pulse{
+        border-radius:50%;
+        box-shadow:0 0 0 0 rgba(#fff,.5);
+        animation:p-b-pulse 1.5s infinite;
+        @include abs($l:15%,$t:15%);
+        width:70%;
+        height:70%;
+        background:#fff;
+      }*/
+}
+@media (min-aspect-ratio: 16/9) {
+  .overlay-block {
+    font-size: 2.8vh;
+  }
 }
 .overlay-block.shown {
   opacity: 1;
   visibility: visible;
 }
 .overlay-block .ov-wrap {
+  width: 100%;
   height: 56.25vw;
   max-height: 100vh;
   max-width: 177.7777vh;
-  display: none;
-  position: relative;
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
 }
 .overlay-block .ov-wrap.shown {
+  top: auto;
+}
+.overlay-block .ov-wrap.start {
+  background: #000;
+}
+.overlay-block .ov-wrap.start.shown .wobble-pop {
+  visibility: visible;
+}
+.overlay-block .ov-wrap.start.shown .w-p-outer {
+  top: 25%;
+  opacity: 1;
+}
+.overlay-block .ov-wrap.start.shown .pulse-btn {
+  bottom: 15%;
+  opacity: 1;
+}
+.overlay-block .ov-wrap.start .wobble-pop {
+  visibility: hidden;
+}
+.overlay-block .ov-wrap.start .w-p-outer {
+  margin: 0 auto;
+  top: 20%;
+  opacity: 0;
+  transition: all 0.3s ease-in-out 2.7s;
+}
+.overlay-block .ov-wrap.start .w-p-pulse {
+  position: absolute;
+  left: 5.92%;
+  top: 14.89%;
+  width: 24.88%;
+}
+.overlay-block .ov-wrap.start .w-p-text {
+  width: 52.85vw;
+  height: 17.03vw;
+}
+@media (min-aspect-ratio: 16/9) {
+  .overlay-block .ov-wrap.start .w-p-text {
+    width: 93.95vh;
+    height: 30.27vh;
+  }
+}
+.overlay-block .ov-wrap.start .pulse-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0);
+  width: 11.25%;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease-in-out 2.7s;
+}
+.overlay-block .ov-wrap.start .pulse-btn img {
+  width: 100%;
+}
+.overlay-block .ov-wrap.vibrate .w-p-outer {
+  margin: auto;
+}
+.overlay-block .ov-wrap.vibrate .w-p-wrap {
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.overlay-block .ov-wrap.vibrate .w-p-cont {
+  padding: 6px;
+}
+.overlay-block .ov-wrap.vibrate .w-p-text {
+  width: 32.94vw;
+  height: 5.445vw;
+}
+@media (min-aspect-ratio: 16/9) {
+  .overlay-block .ov-wrap.vibrate .w-p-text {
+    width: 58.56vh;
+    height: 9.68vh;
+  }
+}
+.overlay-block .ov-wrap.vibrate .w-p-p {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  right: 0;
+}
+.overlay-block .ov-wrap.vibrate .w-p-p div {
+  border-top: 1px solid orange;
+  width: 0;
+  transition: width linear;
+}
+.overlay-block .ov-wrap.vibrate .w-p-p-text {
+  position: absolute;
+  left: 0;
+  top: -17px;
+  font-size: 0.8em;
+  color: orange;
+}
+.overlay-block .ov-wrap.qs .w-p-outer {
+  top: 10%;
+}
+.overlay-block .ov-wrap.qs .w-p-bg {
+  background: rgba(238, 238, 238, 0.5);
+}
+.overlay-block .ov-wrap.qs .w-p-text {
+  opacity: 0;
+  color: #fff;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .ov-wrap.qs .w-p-text.shown {
+  opacity: 1;
+}
+.overlay-block .ov-wrap.qs .pulse-btn {
+  display: none;
+}
+.overlay-block .ov-wrap.go .pulse-btn {
   display: block;
+}
+.overlay-block .ov-wrap.err .next-err {
+  opacity: 1;
 }
 .overlay-block .ov-video {
   width: 100%;
   height: 100%;
   position: absolute;
 }
-.overlay-block .pulse-btn {
+.overlay-block .next-err {
   position: absolute;
   left: 50%;
-  bottom: 15%;
+  top: 25%;
   transform: translate(-50%, 0);
-  width: 11.25%;
-  height: 20%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
+  width: 50%;
+  opacity: 0;
+  color: #ff0;
+  text-align: center;
+  font-size: 2em;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .next-err.shown {
+  opacity: 1;
+}
+.overlay-block .next-block {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, 0);
+  width: 70%;
+  height: 10%;
+}
+.overlay-block .next-block .next, .overlay-block .next-block .no {
   cursor: pointer;
+  width: 40%;
+  height: 100%;
+}
+.overlay-block .next-list {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, 0);
+  width: 50%;
+  color: #fff;
+  font-size: 1em;
+}
+.overlay-block .next-list div {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .next-list div.shown {
+  opacity: 1;
+}
+
+.the-anim {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11.54%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out 1.8s;
+}
+.timer .the-anim {
+  opacity: 1;
+}
+.the-anim img {
+  width: 100%;
+}
+
+.the-timer {
+  z-index: 1;
+  width: 8%;
+  padding-bottom: 1.5515151515%;
+  color: #fff;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: auto;
+  right: 50%;
+  transition: opacity 0.3s ease-in-out 0.3s,top 0.3s ease-in-out 1.2s,right 0.3s ease-in-out 1.2s,transform 0.3s ease-in-out 1.2s;
+}
+.timer .the-timer {
+  opacity: 1;
+  top: 20px;
+  right: 2px;
+  transform: none;
+}
+.the-timer .the-t-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.the-timer .the-t-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 .loader-pop {
@@ -570,40 +837,14 @@ body {
   height: 100%;
   perspective: 800px;
 }
-.wobble-pop.big .w-p-outer {
-  margin-top: 0;
-  top: 25%;
-  position: relative;
-}
-.wobble-pop.big .w-p-wrap {
-  padding: 0;
-  cursor: default;
-  transition: none;
-}
-.wobble-pop.big .w-p-cont {
-  padding: 0;
-}
-.wobble-pop.big .w-p-text {
-  width: 52.85vw;
-  height: 17.03vw;
-}
-@media (min-aspect-ratio: 16/9) {
-  .wobble-pop.big .w-p-text {
-    width: 93.95vh;
-    height: 30.27vh;
-  }
-}
 
 .w-p-outer {
-  margin: auto;
+  position: relative;
   animation: rotate 20s linear infinite;
 }
 
 .w-p-wrap {
   position: relative;
-  padding: 6px;
-  cursor: pointer;
-  transition: transform 1s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 .w-p-bg {
@@ -616,44 +857,7 @@ body {
 
 .w-p-cont {
   animation: move 20s infinite;
-  padding: 6px;
   position: relative;
-}
-
-.w-p-p {
-  position: absolute;
-  left: 0;
-  top: -1px;
-  right: 0;
-}
-.w-p-p div {
-  border-top: 1px solid orange;
-  width: 0;
-  transition: width linear;
-}
-
-.w-p-p-text {
-  position: absolute;
-  left: 0;
-  top: -17px;
-  font-size: 14px;
-  color: orange;
-}
-
-.w-p-text {
-  /*font-size:26px;
-  line-height:1;
-  color:#fff;
-  text-transform:uppercase;
-  text-align:center;*/
-  width: 32.94vw;
-  height: 5.445vw;
-}
-@media (min-aspect-ratio: 16/9) {
-  .w-p-text {
-    width: 58.56vh;
-    height: 9.68vh;
-  }
 }
 
 /*@path:partials\_index.scss*/

@@ -45,14 +45,13 @@ export let PlayerView=Backbone.View.extend({
   });
 
   this.player.on('timeupdate',()=>{
-   for(let [x,y] of Object.entries(this.timecodes))
-   {
-    if(this.player.currentTime()>y.time&&!y.invoked)
+   this.timecodes.forEach((o,i)=>{
+    if(this.player.currentTime()>o.time&&!o.invoked)
     {
-     app.get('aggregator').trigger('main:step',x);
-     y.invoked=true;
+     app.get('aggregator').trigger('main:step',i);
+     o.invoked=true;
     }
-   }
+   });
   });
  },
  play:function(){

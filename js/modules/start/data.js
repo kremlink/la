@@ -3,7 +3,7 @@ export const data={
   'click':'.pulse-btn',
  },
  view:{
-  el:'.ov-wrap.step2',
+  el:'.ov-wrap.start',
   shownCls:'shown'
  }
 };
