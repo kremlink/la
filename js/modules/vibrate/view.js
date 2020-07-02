@@ -5,9 +5,8 @@ let events={};
 events[`click ${data.events.click}`]='click';
 
 export let VibrateView=Backbone.View.extend({
- el:data.view.el,
  events:events,
- initialize:function(){
+ initialize:function(opts){
   let x=0,
    y=0,
    pCtr=0,
@@ -23,6 +22,7 @@ export let VibrateView=Backbone.View.extend({
     this.$wobble.css('transform',`translate(${x}px,${y}px)`);
    };
 
+  this.setElement(data.view.el[opts.vibrate]);
   this.$wobble=this.$(data.button.wobble);
   this.$pr=this.$(data.button.pText);
   this.wait=null;

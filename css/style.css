@@ -544,7 +544,7 @@ body {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
-  transition: all 0.3s ease-in-out 2.7s;
+  transition: all 0.3s ease-in-out 2.1s;
 }
 .overlay-block .ov-wrap.start .w-p-pulse {
   position: absolute;
@@ -571,7 +571,7 @@ body {
   background: #fff;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.3s ease-in-out 2.7s;
+  transition: all 0.3s ease-in-out 2.1s;
 }
 .overlay-block .ov-wrap.start .pulse-btn img {
   width: 100%;

@@ -19,7 +19,7 @@ export function init(app,modules){
   el:data.view.el,
   initialize:function(){
    this.playerView=new PlayerView({timecodes:data.timecodes});
-   this.mainView=new MainView;
+   this.mainView=new MainView({timecodes:data.timecodes});
 
    if(!matchMedia(data.minViewport).matches)
     this.$el.addClass(data.view.tooSmallCls);

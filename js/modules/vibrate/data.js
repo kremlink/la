@@ -4,7 +4,10 @@ export const data={
   'click':'.w-p-outer',
  },
  view:{
-  el:'.ov-wrap.vibrate',
+  el:{
+   one:'.ov-wrap.vibrate.v1',
+   two:'.ov-wrap.vibrate.v2'
+  },
   shownCls:'shown'
  },
  button:{

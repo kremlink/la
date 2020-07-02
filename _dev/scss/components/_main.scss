@@ -46,7 +46,7 @@
           margin:0 auto;
           top:20%;
           opacity:0;
-          @include trs('all #{$anim} ease-in-out #{$anim*9}');
+          @include trs('all #{$anim} ease-in-out #{$anim*7}');
         }
         .w-p-pulse{
           @include abs($l:5.92%,$t:14.89%);
@@ -66,7 +66,7 @@
           background:#fff;
           cursor:pointer;
           opacity:0;
-          @include trs('all #{$anim} ease-in-out #{$anim*9}');
+          @include trs('all #{$anim} ease-in-out #{$anim*7}');
           img{
             width:100%;
           }

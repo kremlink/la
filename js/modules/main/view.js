@@ -4,13 +4,14 @@ import {VibrateView} from '../vibrate/view.js';
 import {QsView} from '../qs/view.js';
 import {data} from './data.js';
 
-let stepViews=[StartView,VibrateView,QsView],
+let stepViews=[QsView,VibrateView,VibrateView,StartView],
  events={};
 
 export let MainView=Backbone.View.extend({
  events:events,
  el:data.view.el,
- initialize:function(){
+ initialize:function(opts){
+  this.timecodes=opts.timecodes;
   this.listenTo(app.get('aggregator'),'main:toggle',this.toggle);
   this.listenTo(app.get('aggregator'),'main:step',this.step);
  },
@@ -19,7 +20,7 @@ export let MainView=Backbone.View.extend({
   app.get('aggregator').trigger(f?'player:pause':'player:play');
  },
  step:function(i){
-  let stepView=new stepViews[i];
+  let stepView=new stepViews[i]({vibrate:this.timecodes[i].vibrate});
 
   this.toggle(true);
   stepView.toggle(true);
