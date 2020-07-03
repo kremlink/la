@@ -6,6 +6,10 @@
   background: url(../images/loader.gif) center no-repeat;
 }
 
+.overlay-block .ov-wrap.qs .next-list {
+  box-sizing: border-box;
+}
+
 /*@path:base\_vars.scss*/
 /*@path:base\_normalize.scss*/
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -618,10 +622,32 @@ body {
 .overlay-block .ov-wrap.qs .w-p-outer {
   top: 10%;
 }
+.overlay-block .ov-wrap.qs .w-p-wrap {
+  margin: 0 auto;
+  width: 52.85vw;
+  height: 17.03vw;
+}
+@media (min-aspect-ratio: 16/9) {
+  .overlay-block .ov-wrap.qs .w-p-wrap {
+    width: 93.95vh;
+    height: 30.27vh;
+  }
+}
+.overlay-block .ov-wrap.qs .qs-ava {
+  position: absolute;
+  left: 2em;
+  top: -2em;
+  height: 3em;
+  background: #fff;
+}
 .overlay-block .ov-wrap.qs .w-p-bg {
-  background: rgba(238, 238, 238, 0.5);
+  width: 100%;
+  height: 100%;
 }
 .overlay-block .ov-wrap.qs .w-p-text {
+  position: absolute;
+  left: 4em;
+  top: 4em;
   opacity: 0;
   color: #fff;
   text-align: center;
@@ -630,65 +656,90 @@ body {
 .overlay-block .ov-wrap.qs .w-p-text.shown {
   opacity: 1;
 }
-.overlay-block .ov-wrap.qs .pulse-btn {
-  display: none;
+.overlay-block .ov-wrap.qs .next-block {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
 }
-.overlay-block .ov-wrap.go .pulse-btn {
-  display: block;
+.overlay-block .ov-wrap.qs .next-block .yes, .overlay-block .ov-wrap.qs .next-block .no {
+  cursor: pointer;
+  width: 5%;
+  background: #fff;
+  margin: 0 2em;
+  position: relative;
 }
-.overlay-block .ov-wrap.err .next-err {
+.overlay-block .ov-wrap.qs .next-block .yes.good div:nth-child(1), .overlay-block .ov-wrap.qs .next-block .no.good div:nth-child(1) {
   opacity: 1;
+}
+.overlay-block .ov-wrap.qs .next-block .yes.bad div:nth-child(2), .overlay-block .ov-wrap.qs .next-block .no.bad div:nth-child(2) {
+  opacity: 1;
+}
+.overlay-block .ov-wrap.qs .next-block .yes div, .overlay-block .ov-wrap.qs .next-block .no div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .ov-wrap.qs .next-block .yes div:nth-child(1), .overlay-block .ov-wrap.qs .next-block .no div:nth-child(1) {
+  background: #0f0;
+}
+.overlay-block .ov-wrap.qs .next-block .yes div:nth-child(2), .overlay-block .ov-wrap.qs .next-block .no div:nth-child(2) {
+  background: #f00;
+}
+.overlay-block .ov-wrap.qs .next-block img {
+  width: 100%;
+}
+.overlay-block .ov-wrap.qs .next-msg {
+  margin-top: 1em;
+  text-align: center;
+  opacity: 0;
+  color: #ff0;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .ov-wrap.qs .next-msg.shown {
+  opacity: 1;
+}
+.overlay-block .ov-wrap.qs .next-list {
+  margin: 1em auto 0 auto;
+  color: #fff;
+  position: relative;
+  width: 52.85vw;
+  height: 17.03vw;
+  padding: 4em 0 0 4em;
+}
+@media (min-aspect-ratio: 16/9) {
+  .overlay-block .ov-wrap.qs .next-list {
+    width: 93.95vh;
+    height: 30.27vh;
+  }
+}
+.overlay-block .ov-wrap.qs .n-l-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.overlay-block .ov-wrap.qs .n-l-inner {
+  position: relative;
+}
+.overlay-block .ov-wrap.qs .n-l-inner div {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay-block .ov-wrap.qs .n-l-inner div.shown {
+  opacity: 1;
+}
+.overlay-block .ov-wrap.qs .n-l-dots {
+  position: relative;
 }
 .overlay-block .ov-video {
   width: 100%;
   height: 100%;
   position: absolute;
-}
-.overlay-block .next-err {
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, 0);
-  width: 50%;
-  opacity: 0;
-  color: #ff0;
-  text-align: center;
-  font-size: 2em;
-  transition: opacity 0.3s ease-in-out;
-}
-.overlay-block .next-err.shown {
-  opacity: 1;
-}
-.overlay-block .next-block {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translate(-50%, 0);
-  width: 70%;
-  height: 10%;
-}
-.overlay-block .next-block .next, .overlay-block .next-block .no {
-  cursor: pointer;
-  width: 40%;
-  height: 100%;
-}
-.overlay-block .next-list {
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, 0);
-  width: 50%;
-  color: #fff;
-  font-size: 1em;
-}
-.overlay-block .next-list div {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-.overlay-block .next-list div.shown {
-  opacity: 1;
 }
 
 .the-anim {

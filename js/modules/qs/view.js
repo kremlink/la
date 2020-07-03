@@ -2,9 +2,8 @@ import {app} from '../../bf/base.js';
 import {data} from './data.js';
 
 let events={};
-events[`click ${data.events.next}`]='next';
+events[`click ${data.events.yes}`]='yes';
 events[`click ${data.events.no}`]='no';
-events[`click ${data.events.go}`]='go';
 
 export let QsView=Backbone.View.extend({
  el:data.view.el,
@@ -13,35 +12,60 @@ export let QsView=Backbone.View.extend({
  initialize:function(){
   let $li;
 
+  this.$msg=this.$(data.view.msg);
+
   this.ctr=0;
-  this.$text=this.$(data.view.text).text(data.choose[0]).addClass(data.view.shownCls).on('transitionend',(e)=>{
-   if(!this.$text.hasClass(data.view.shownCls)&&this.ctr<data.choose.length-1)
+  this.$chosen=null;
+  this.changing=false;
+  this.$text=this.$(data.view.text).text(data.choose[this.ctr].text).addClass(data.view.shownCls);
+  this.$msg.on('transitionend',()=>{
+   if(this.$msg.hasClass(data.view.shownCls))
    {
-    console.log(e.originalEvent);
-    $li=$(this.liTemplate({text:data.choose[this.ctr]}));
-    this.$text.addClass(data.view.shownCls).text(data.choose[this.ctr+1]);
+    this.$chosen.removeClass(data.view.goodCls+' '+data.view.badCls);
+    $li=!data.choose[this.ctr].hidden?$(this.liTemplate({text:data.choose[this.ctr].text})):null;
     this.ctr++;
-    if(this.ctr===data.choose.length)
+    if($li)
     {
-     this.stop=true;
-     this.$el.removeClass(data.view.errCls).addClass(data.view.goCls);
-     this.$text.addClass(data.view.shownCls);
+     this.$list.append($li);
+     _.debounce(()=>$li.addClass(data.view.shownCls),0)();
     }
-    this.$list.append($li);
-    _.debounce(()=>$li.addClass(data.view.shownCls),0)();
+    setTimeout(()=>this.$msg.removeClass(data.view.shownCls),data.wait);
+   }else
+   {
+    this.$text.removeClass(data.view.shownCls);
+   }
+  });
+  this.$text.on('transitionend',()=>{
+   let end=this.ctr===data.choose.length;
+
+   if(this.$text.hasClass(data.view.shownCls))
+   {
+    this.changing=end;
+    if(end)
+     setTimeout(()=>this.go(),data.wait);
+
+   }else
+   {
+    this.$text.addClass(data.view.shownCls).text(end?data.endText:data.choose[this.ctr].text);
    }
   });
   this.$list=this.$(data.view.list);
  },
- next:function(){
-  if(!this.stop)
+ yes:function(e){
+  if(!this.changing)
   {
-   this.$el.removeClass(data.view.errCls);
-   this.$text.removeClass(data.view.shownCls);
+   this.changing=true;
+   this.$msg.text(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
+   this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
  },
- no:function(){
-  this.$el.addClass(data.view.errCls);
+ no:function(e){
+  if(!this.changing)
+  {
+   this.changing=true;
+   this.$msg.text(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
+   this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
+  }
  },
  go:function(){
   app.get('aggregator').trigger('main:toggle',false);
