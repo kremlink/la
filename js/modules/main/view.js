@@ -2,9 +2,11 @@ import {app} from '../../bf/base.js';
 import {StartView} from '../start/view.js';
 import {VibrateView} from '../vibrate/view.js';
 import {QsView} from '../qs/view.js';
+import {MapView} from '../map/view.js';
+import {CatchView} from '../catch/view.js';
 import {data} from './data.js';
 
-let stepViews=[QsView,VibrateView,VibrateView,StartView],
+let stepViews=[MapView/*StartView,VibrateView,VibrateView,QsView,CatchView*/],
  events={};
 
 export let MainView=Backbone.View.extend({

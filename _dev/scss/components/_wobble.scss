@@ -1,10 +1,10 @@
 @include exports("@path:components\_wobble.scss"){/*@path:components\_wobble.scss*/
-  @include kfs(rotate){
+  @include kfs(w-rotate){
     50%{
-      @include trf(' rotateY(-20deg)');
+      @include trf('rotateY(-20deg)');
     }
   };
-  @include kfs(move){
+  @include kfs(w-move){
     50%{
       @include trf(translate(-20px,0));
     }
@@ -17,10 +17,13 @@
   }
   .w-p-outer{
     position:relative;
-    @include anim('rotate 20s linear infinite');
+    @include anim('w-rotate 20s ease-in-out infinite');
   }
   .w-p-wrap{
     position:relative;
+  }
+  .w-p-t-ov{
+    @include abs($l:11.36%,$t:23.84%);
   }
   .w-p-bg{
     @include abs($l:0,$t:0);
@@ -28,7 +31,7 @@
     height:100%;
   }
   .w-p-cont{
-    @include anim('move 20s infinite');
+    @include anim('w-move 20s infinite');
     position:relative;
   }
 }

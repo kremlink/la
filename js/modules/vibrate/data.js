@@ -1,9 +1,10 @@
 export const data={
  wait:5000,
  events:{
-  'click':'.w-p-outer',
+  'click':'.w-p-outer,.pulse-btn',
  },
  view:{
+  video:'.ov-video',
   el:{
    one:'.ov-wrap.vibrate.v1',
    two:'.ov-wrap.vibrate.v2'

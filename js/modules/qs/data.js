@@ -9,6 +9,7 @@ export const data={
   'no':'.next-block .no'
  },
  view:{
+  video:'.ov-video',
   el:'.ov-wrap.qs',
   shownCls:'shown',
   goCls:'go',

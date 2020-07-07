@@ -13,11 +13,12 @@ export let QsView=Backbone.View.extend({
   let $li;
 
   this.$msg=this.$(data.view.msg);
+  this.$video=this.$(data.view.video);
 
   this.ctr=0;
   this.$chosen=null;
   this.changing=false;
-  this.$text=this.$(data.view.text).text(data.choose[this.ctr].text).addClass(data.view.shownCls);
+  this.$text=this.$(data.view.text).html(data.choose[this.ctr].text).addClass(data.view.shownCls);
   this.$msg.on('transitionend',()=>{
    if(this.$msg.hasClass(data.view.shownCls))
    {
@@ -46,7 +47,7 @@ export let QsView=Backbone.View.extend({
 
    }else
    {
-    this.$text.addClass(data.view.shownCls).text(end?data.endText:data.choose[this.ctr].text);
+    this.$text.addClass(data.view.shownCls).html(end?data.endText:data.choose[this.ctr].text);
    }
   });
   this.$list=this.$(data.view.list);
@@ -55,7 +56,7 @@ export let QsView=Backbone.View.extend({
   if(!this.changing)
   {
    this.changing=true;
-   this.$msg.text(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
+   this.$msg.html(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
  },
@@ -63,7 +64,7 @@ export let QsView=Backbone.View.extend({
   if(!this.changing)
   {
    this.changing=true;
-   this.$msg.text(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
+   this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
  },
@@ -73,5 +74,6 @@ export let QsView=Backbone.View.extend({
  },
  toggle:function(f){
   this.$el.toggleClass(data.view.shownCls,f);
+  this.$video[0][f?'play':'pause']();
  },
 });

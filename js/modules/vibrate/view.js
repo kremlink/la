@@ -23,6 +23,7 @@ export let VibrateView=Backbone.View.extend({
    };
 
   this.setElement(data.view.el[opts.vibrate]);
+  this.$video=this.$(data.view.video);
   this.$wobble=this.$(data.button.wobble);
   this.$pr=this.$(data.button.pText);
   this.wait=null;
@@ -56,6 +57,7 @@ export let VibrateView=Backbone.View.extend({
  },
  toggle:function(f){
   this.$el.toggleClass(data.view.shownCls,f);
+  this.$video[0][f?'play':'pause']();
   if(f)
   {
    this.wait=setTimeout(()=>{
