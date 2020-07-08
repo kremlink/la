@@ -6,7 +6,7 @@ import {MapView} from '../map/view.js';
 import {CatchView} from '../catch/view.js';
 import {data} from './data.js';
 
-let stepViews=[MapView/*StartView,VibrateView,VibrateView,QsView,CatchView*/],
+let stepViews=[CatchView/*StartView,VibrateView,VibrateView,QsView,MapView,CatchView*/],
  events={};
 
 export let MainView=Backbone.View.extend({

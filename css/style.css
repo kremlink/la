@@ -434,6 +434,54 @@ body {
 }
 
 /*@path:base\_exts.scss*/
+.shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+  pointer-events: auto;
+}
+.shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+  top: 25%;
+  opacity: 1;
+}
+.shown.ov-wrap.catch .pulse-btn, .shown.ov-wrap.map .pulse-btn, .shown.ov-wrap.start .pulse-btn {
+  bottom: 15%;
+  opacity: 1;
+}
+.ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+  margin: 0 auto;
+  top: 20%;
+  opacity: 0;
+  transition: all 0.9s ease-in-out;
+}
+.ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+  position: absolute;
+  left: 5.92%;
+  top: 14.89%;
+  width: 24.88%;
+  transform: scale(-1, 1);
+}
+.ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+  color: #fff;
+}
+.ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+  width: 33.56em;
+  height: 10.81em;
+}
+.ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, 0);
+  width: 11.25%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.9s ease-in-out;
+}
+.ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+  width: 100%;
+}
+
 /*@path:components\_footer.scss*/
 /*@path:components\_header.scss*/
 /*@path:components\_main.scss*/
@@ -532,52 +580,11 @@ body {
 .ov-wrap.start {
   background: #000;
 }
-.ov-wrap.start.shown .wobble-pop {
-  visibility: visible;
-}
-.ov-wrap.start.shown .w-p-outer {
-  top: 25%;
-  opacity: 1;
-}
-.ov-wrap.start.shown .pulse-btn {
-  bottom: 15%;
-  opacity: 1;
-}
-.ov-wrap.start .wobble-pop {
-  visibility: hidden;
-}
 .ov-wrap.start .w-p-outer {
-  margin: 0 auto;
-  top: 20%;
-  opacity: 0;
-  transition: all 0.9s ease-in-out 1.5s;
-}
-.ov-wrap.start .w-p-pulse {
-  position: absolute;
-  left: 5.92%;
-  top: 14.89%;
-  width: 24.88%;
-  transform: scale(-1, 1);
-}
-.ov-wrap.start .w-p-cont {
-  color: #fff;
-}
-.ov-wrap.start .w-p-text {
-  width: 33.56em;
-  height: 10.81em;
+  transition-delay: 1.5s;
 }
 .ov-wrap.start .pulse-btn {
-  position: absolute;
-  left: 50%;
-  bottom: 10%;
-  transform: translate(-50%, 0);
-  width: 11.25%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.9s ease-in-out 1.5s;
-}
-.ov-wrap.start .pulse-btn img {
-  width: 100%;
+  transition-delay: 1.5s;
 }
 .ov-wrap.vibrate.v2 .pulse-btn {
   width: 11.25%;
@@ -753,17 +760,6 @@ body {
   opacity: 1;
   visibility: visible;
 }
-.ov-wrap.map.shown .wobble-pop {
-  pointer-events: auto;
-}
-.ov-wrap.map.shown .w-p-outer {
-  top: 25%;
-  opacity: 1;
-}
-.ov-wrap.map.shown .pulse-btn {
-  bottom: 15%;
-  opacity: 1;
-}
 .ov-wrap.map.ok .wobble-pop {
   pointer-events: none;
 }
@@ -801,44 +797,30 @@ body {
 .ov-wrap.map.err .w-p-t-ov div:nth-child(3) {
   display: none;
 }
-.ov-wrap.map .wobble-pop {
-  pointer-events: none;
-}
 .ov-wrap.map .w-p-outer {
-  margin: 0 auto;
-  top: 20%;
-  opacity: 0;
-  transition: all 0.9s ease-in-out 1.5s;
-}
-.ov-wrap.map .w-p-pulse {
-  position: absolute;
-  left: 5.92%;
-  top: 14.89%;
-  width: 24.88%;
-  transform: scale(-1, 1);
-}
-.ov-wrap.map .w-p-cont {
-  color: #fff;
-}
-.ov-wrap.map .w-p-text {
-  width: 33.56em;
-  height: 10.81em;
-}
-.ov-wrap.map .w-p-t-ov div:nth-child(n+2) {
-  display: none;
+  transition-delay: 1.5s;
 }
 .ov-wrap.map .pulse-btn {
-  position: absolute;
-  left: 50%;
-  bottom: 10%;
-  transform: translate(-50%, 0);
-  width: 11.25%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.9s ease-in-out 1.5s;
+  transition-delay: 1.5s;
 }
-.ov-wrap.map .pulse-btn img {
-  width: 100%;
+.ov-wrap.catch.ok .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.catch.ok .w-p-outer, .ov-wrap.catch.ok .pulse-btn {
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.ov-wrap.catch.ok .catch-block {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ov-wrap.catch .w-p-outer {
+  transition-delay: 0.6s;
+}
+.ov-wrap.catch .pulse-btn {
+  transition-delay: 0.6s;
 }
 
 .ov-video {
@@ -862,6 +844,24 @@ body {
   100% {
     transform: translate(-50%,-50%) rotate(-360deg);
   }
+}
+.catch-block {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 0, 0, 0.3);
+}
+.catch-block .thing {
+  cursor: pointer;
+  position: absolute;
+  height: 5%;
+  background: #eee;
+  transition: left 0s ease-in-out,top 0s ease-in-out;
 }
 .map-circles {
   position: absolute;

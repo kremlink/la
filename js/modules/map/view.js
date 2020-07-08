@@ -32,5 +32,5 @@ export let MapView=Backbone.View.extend({
  },
  toggle:function(f){
   this.$el.toggleClass(data.view.shownCls,f);
- },
+ }
 });

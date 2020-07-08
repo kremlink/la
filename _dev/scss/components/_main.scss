@@ -85,49 +85,12 @@
     }
     &.start{
       background:#000;
-      &.shown{
-        .wobble-pop{
-          visibility:visible;
-        }
-        .w-p-outer{
-          top:25%;
-          opacity:1;
-        }
-        .pulse-btn{
-          bottom:15%;
-          opacity:1;
-        }
-      }
-      .wobble-pop{
-        visibility:hidden;
-      }
+      @extend %text-btn;
       .w-p-outer{
-        margin:0 auto;
-        top:20%;
-        opacity:0;
-        @include trs('all #{$anim*3} ease-in-out #{$anim*5}');
-      }
-      .w-p-pulse{
-        @include abs($l:5.92%,$t:14.89%);
-        width:24.88%;
-        @include trf(scale(-1,1));
-      }
-      .w-p-cont{
-        color:#fff;
-      }
-      .w-p-text{
-        width:33.56em;
-        height:10.81em;
+        transition-delay:$anim*5;
       }
       .pulse-btn{
-        @include center($b:10%);
-        width:11.25%;
-        cursor:pointer;
-        opacity:0;
-        @include trs('all #{$anim*3} ease-in-out #{$anim*5}');
-        img{
-          width:100%;
-        }
+        transition-delay:$anim*5;
       }
     }
     &.vibrate{
@@ -282,21 +245,11 @@
     }
     &.map{
       background:url(#{$path}map-bg1.png) center/cover no-repeat;
+      @extend %text-btn;
       &.shown{
         .map-circles{
           opacity:1;
           visibility:visible;
-        }
-        .wobble-pop{
-          pointer-events:auto;
-        }
-        .w-p-outer{
-          top:25%;
-          opacity:1;
-        }
-        .pulse-btn{
-          bottom:15%;
-          opacity:1;
         }
       }
       &.ok{
@@ -346,39 +299,38 @@
           }
         }
       }
-      .wobble-pop{
-        pointer-events:none;
-      }
       .w-p-outer{
-        margin:0 auto;
-        top:20%;
-        opacity:0;
-        @include trs('all #{$anim*3} ease-in-out #{$anim*5}');
-      }
-      .w-p-pulse{
-        @include abs($l:5.92%,$t:14.89%);
-        width:24.88%;
-        @include trf(scale(-1,1));
-      }
-      .w-p-cont{
-        color:#fff;
-      }
-      .w-p-text{
-        width:33.56em;
-        height:10.81em;
-      }
-      .w-p-t-ov div:nth-child(n+2){
-        display:none;
+        transition-delay:$anim*5;
       }
       .pulse-btn{
-        @include center($b:10%);
-        width:11.25%;
-        cursor:pointer;
-        opacity:0;
-        @include trs('all #{$anim*3} ease-in-out #{$anim*5}');
-        img{
-          width:100%;
+        transition-delay:$anim*5;
+      }
+    }
+    &.catch{
+      @extend %text-btn;
+      &.shown{
+
+      }
+      &.ok{
+        .wobble-pop{
+          pointer-events:none;
         }
+        .w-p-outer,.pulse-btn{
+          opacity:0;
+          transition-delay:0s;
+          transition-duration:$anim;
+          pointer-events:none;
+        }
+        .catch-block{
+          opacity:1;
+          pointer-events:auto;
+        }
+      }
+      .w-p-outer{
+        transition-delay:$anim*2;
+      }
+      .pulse-btn{
+        transition-delay:$anim*2;
       }
     }
   }
@@ -406,6 +358,24 @@
     }
   };
 
+  .catch-block{
+    opacity:0;
+    pointer-events:none;
+    @include trs('opacity #{$anim} ease-in-out');
+    @include abs($l:0,$r:0,$t:0,$b:0);
+    background:rgba(#f00,0.3);
+    .thing{
+      cursor:pointer;
+      position:absolute;
+      height:5%;
+      background:#eee;
+      @include trs('left 0s ease-in-out,top 0s ease-in-out');
+      &.no{
+
+      }
+    }
+  }
+  //---
   .map-circles{
     position:absolute;
     width:100%;

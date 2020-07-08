@@ -1,12 +1,19 @@
 export const data={
- wait:1000,
- msgs:[{text:'No1'},{go:true,text:'YES!'},{text:'No2'}],
+ maxD:8,
+ minSpeed:0.4,
+ maxSpeed:10,
+ minSh:5,
+ maxSh:10,
+ things:[{width:5,src:''},{width:8,src:'',no:true},{width:3,src:''}],
  events:{
-  'click':'.circle'
+  'click':'.pulse-btn'
  },
  view:{
   el:'.ov-wrap.catch',
-  msg:'.msg',
-  shownCls:'shown'
+  into:'.catch-block',
+  thingCls:'thing',
+  shownCls:'shown',
+  startCls:'ok',
+  noCls:'no'
  }
 };
