@@ -23,7 +23,7 @@ export let QsView=Backbone.View.extend({
    if(this.$msg.hasClass(data.view.shownCls))
    {
     this.$chosen.removeClass(data.view.goodCls+' '+data.view.badCls);
-    $li=!data.choose[this.ctr].hidden?$(this.liTemplate({text:data.choose[this.ctr].text})):null;
+    $li=!data.choose[this.ctr].hidden?$(this.liTemplate({text:data.choose[this.ctr].text.slice(0, -1)})):null;
     this.ctr++;
     if($li)
     {

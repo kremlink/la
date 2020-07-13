@@ -7,7 +7,7 @@
   background: url(../images/loader.gif) center no-repeat;
 }
 
-.ov-wrap.qs .n-l-cont {
+.qs-block .l-cont {
   box-sizing: border-box;
 }
 
@@ -434,51 +434,53 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.catch .pulse-btn, .shown.ov-wrap.map .pulse-btn, .shown.ov-wrap.start .pulse-btn {
+.shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+  width: 11.25%;
+  cursor: pointer;
+}
+.ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
   transform: translate(-50%, 0);
-  width: 11.25%;
-  cursor: pointer;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -493,7 +495,7 @@ body {
   bottom: 0;
   background: #000;
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
   z-index: 1;
   font-size: 1.575vw;
   line-height: 1.25;
@@ -561,7 +563,7 @@ body {
 }
 .overlay-block.shown {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }
 
 .ov-wrap {
@@ -577,22 +579,21 @@ body {
 .ov-wrap.shown {
   top: auto;
 }
-.ov-wrap.start {
-  background: #000;
-}
 .ov-wrap.start .w-p-outer {
   transition-delay: 1.5s;
 }
-.ov-wrap.start .pulse-btn {
+.ov-wrap.start .pulse-btn.start {
   transition-delay: 1.5s;
+}
+.ov-wrap.vibrate.v2 {
+  background: url(../../1ser/PNG/1-19-I.png) center/cover no-repeat;
 }
 .ov-wrap.vibrate.v2 .pulse-btn {
   width: 11.25%;
   cursor: pointer;
   position: absolute;
-  left: 50%;
-  bottom: 10%;
-  transform: translate(-50%, 0);
+  left: 18%;
+  bottom: 8%;
 }
 .ov-wrap.vibrate.v2 .pulse-btn img {
   width: 100%;
@@ -659,99 +660,11 @@ body {
   left: 3em;
   top: 2.5em;
   opacity: 0;
-  text-align: center;
   font-size: 1.1em;
   transition: opacity 0.3s ease-in-out;
 }
 .ov-wrap.qs .w-p-text.shown {
   opacity: 1;
-}
-.ov-wrap.qs .qs-ava {
-  position: absolute;
-  left: 1.95em;
-  top: -2.85em;
-  height: 4em;
-}
-.ov-wrap.qs .next-block {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-}
-.ov-wrap.qs .next-block .yes, .ov-wrap.qs .next-block .no {
-  cursor: pointer;
-  width: 6.5em;
-  margin: 0 2em;
-  position: relative;
-}
-.ov-wrap.qs .next-block .yes.good img:nth-child(1), .ov-wrap.qs .next-block .no.good img:nth-child(1) {
-  opacity: 1;
-}
-.ov-wrap.qs .next-block .yes.bad img:nth-child(2), .ov-wrap.qs .next-block .no.bad img:nth-child(2) {
-  opacity: 1;
-}
-.ov-wrap.qs .next-block img {
-  width: 100%;
-}
-.ov-wrap.qs .next-block img:nth-child(1), .ov-wrap.qs .next-block img:nth-child(2) {
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-}
-.ov-wrap.qs .next-msg {
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-.ov-wrap.qs .next-msg.shown {
-  opacity: 1;
-}
-.ov-wrap.qs .next-list {
-  position: relative;
-  height: 15.6em;
-}
-.ov-wrap.qs .n-l-bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.ov-wrap.qs .n-l-cont {
-  position: relative;
-  padding: 5em 0 0 4.1em;
-  height: 100%;
-  animation: w-move 20s infinite;
-}
-.ov-wrap.qs .n-l-c-bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.ov-wrap.qs .n-l-pulse {
-  position: absolute;
-  left: 2em;
-  top: 1.75em;
-  width: 5em;
-  transform: scale(-1, 1);
-}
-.ov-wrap.qs .n-l-inner {
-  position: relative;
-}
-.ov-wrap.qs .n-l-inner div {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-.ov-wrap.qs .n-l-inner div.shown {
-  opacity: 1;
-}
-.ov-wrap.qs .n-l-dots {
-  position: relative;
 }
 .ov-wrap.map {
   background: url(../images/map-bg1.png) center/cover no-repeat;
@@ -763,7 +676,7 @@ body {
 .ov-wrap.map.ok .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.map.ok .w-p-outer, .ov-wrap.map.ok .pulse-btn {
+.ov-wrap.map.ok .w-p-outer, .ov-wrap.map.ok .pulse-btn.start {
   opacity: 0;
   transition-delay: 0s;
   transition-duration: 0.3s;
@@ -779,7 +692,7 @@ body {
 .ov-wrap.map.done .wobble-pop {
   pointer-events: auto;
 }
-.ov-wrap.map.done .w-p-outer, .ov-wrap.map.done .pulse-btn {
+.ov-wrap.map.done .w-p-outer, .ov-wrap.map.done .pulse-btn.start {
   opacity: 1;
   transition-delay: 0s;
   transition-duration: 0.3s;
@@ -803,30 +716,312 @@ body {
 .ov-wrap.map .pulse-btn {
   transition-delay: 1.5s;
 }
-.ov-wrap.catch.ok .wobble-pop {
+.ov-wrap.map .w-p-t-ov div:nth-child(n+2) {
+  display: none;
+}
+.ov-wrap.catch.game-start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.catch.ok .w-p-outer, .ov-wrap.catch.ok .pulse-btn {
+.ov-wrap.catch.game-start .w-p-outer, .ov-wrap.catch.game-start .pulse-btn.start {
   opacity: 0;
   transition-delay: 0s;
   transition-duration: 0.3s;
   pointer-events: none;
 }
-.ov-wrap.catch.ok .catch-block {
+.ov-wrap.catch.game-start .catch-block {
   opacity: 1;
   pointer-events: auto;
+}
+.ov-wrap.catch.in-game .catch-block .pulse-btn {
+  display: none;
+}
+.ov-wrap.catch.in-game.choose1 .game:nth-child(4) {
+  pointer-events: auto;
+  opacity: 1;
+}
+.ov-wrap.catch.in-game.choose2 .game:nth-child(5) {
+  pointer-events: auto;
+  opacity: 1;
+}
+.ov-wrap.catch.in-game.choose3 .game:nth-child(6) {
+  pointer-events: auto;
+  opacity: 1;
+}
+.ov-wrap.catch.done1 .pulse-btn:nth-child(1) {
+  display: none;
+}
+.ov-wrap.catch.done2 .pulse-btn:nth-child(2) {
+  display: none;
+}
+.ov-wrap.catch.done3 .pulse-btn:nth-child(3) {
+  display: none;
 }
 .ov-wrap.catch .w-p-outer {
   transition-delay: 0.6s;
 }
-.ov-wrap.catch .pulse-btn {
+.ov-wrap.catch .pulse-btn.start {
   transition-delay: 0.6s;
+}
+.ov-wrap.scheme {
+  background: url(../../1ser/PNG/1-17-I.jpg) center/cover no-repeat;
+}
+.ov-wrap.scheme.scheme-start .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.scheme.scheme-start .w-p-outer.start, .ov-wrap.scheme.scheme-start .pulse-btn.start {
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.ov-wrap.scheme.scheme-start .scheme-block {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ov-wrap.scheme.scheme-done .scheme-block {
+  pointer-events: none;
+}
+.ov-wrap.scheme .scheme-block .w-p-outer {
+  top: 0;
 }
 
 .ov-video {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.scheme-block {
+  perspective: 1500px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 88.07%;
+  height: 82.5%;
+}
+.scheme-block .viewport {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 94.62%;
+  height: 89.79%;
+}
+.scheme-block .thing {
+  position: absolute;
+  width: 12.5%;
+  padding-bottom: 12.5%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.scheme-block .thing:hover .hover {
+  opacity: 1;
+}
+.scheme-block .thing.correct .done {
+  opacity: 1;
+}
+.scheme-block svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.scheme-block .done, .scheme-block .hover {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.scheme-block .w-p-outer {
+  height: 100%;
+}
+.scheme-block .w-p-wrap, .scheme-block .w-p-cont {
+  height: 100%;
+}
+
+.qs-block .ava {
+  position: absolute;
+  left: 1.95em;
+  top: -2.85em;
+  height: 4em;
+}
+.qs-block .next {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+.qs-block .next .yes, .qs-block .next .no {
+  cursor: pointer;
+  width: 6.5em;
+  margin: 0 2em;
+  position: relative;
+}
+.qs-block .next .yes.good img:nth-child(1), .qs-block .next .no.good img:nth-child(1) {
+  opacity: 1;
+}
+.qs-block .next .yes.bad img:nth-child(2), .qs-block .next .no.bad img:nth-child(2) {
+  opacity: 1;
+}
+.qs-block .next img {
+  width: 100%;
+}
+.qs-block .next img:nth-child(1), .qs-block .next img:nth-child(2) {
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.qs-block .msg {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.qs-block .msg.shown {
+  opacity: 1;
+}
+.qs-block .list {
+  position: relative;
+  height: 15.6em;
+}
+.qs-block .l-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.qs-block .l-cont {
+  position: relative;
+  padding: 5em 0 0 4.1em;
+  height: 100%;
+  animation: w-move 20s infinite;
+}
+.qs-block .l-c-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.qs-block .l-pulse {
+  position: absolute;
+  left: 2em;
+  top: 1.75em;
+  width: 5em;
+  transform: scale(-1, 1);
+}
+.qs-block .l-inner {
+  position: relative;
+}
+.qs-block .l-inner div {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.qs-block .l-inner div.shown {
+  opacity: 1;
+}
+.qs-block .l-dots {
+  position: relative;
+}
+
+@keyframes catch-fail {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(0px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+.catch-block {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.catch-block .game {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.catch-block .thing {
+  cursor: pointer;
+  position: absolute;
+  transition: left 0s ease-in-out,top 0s ease-in-out;
+}
+.catch-block .thing.no {
+  animation: catch-fail .3s linear infinite;
+}
+.catch-block .thing.drop {
+  pointer-events: none;
+  transition: left 0.3s ease-in-out,top 0.3s ease-in-out,transform 0.3s ease-in-out,opacity 0.3s ease-in-out 0.15s;
+}
+.catch-block .thing.good {
+  z-index: 1;
+}
+.catch-block .thing img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.catch-block .pulse-btn {
+  position: absolute;
+  opacity: 1;
+}
+.catch-block .pulse-btn:nth-child(1) {
+  left: 8.41%;
+  top: 53.22%;
+}
+.catch-block .pulse-btn:nth-child(2) {
+  left: 18.07%;
+  top: 79.46%;
+}
+.catch-block .pulse-btn:nth-child(3) {
+  left: 79.67%;
+  top: 62.5%;
 }
 
 @keyframes map-rotate1 {
@@ -844,24 +1039,6 @@ body {
   100% {
     transform: translate(-50%,-50%) rotate(-360deg);
   }
-}
-.catch-block {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 0, 0, 0.3);
-}
-.catch-block .thing {
-  cursor: pointer;
-  position: absolute;
-  height: 5%;
-  background: #eee;
-  transition: left 0s ease-in-out,top 0s ease-in-out;
 }
 .map-circles {
   position: absolute;

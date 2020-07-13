@@ -3,7 +3,7 @@
     @include abs($t:0,$b:0,$l:0,$r:0);
     background:#000;
     opacity:0;
-    visibility:hidden;
+    pointer-events:none;
     z-index:1;
     font-size:1.575vw;
     line-height:1.25;
@@ -13,7 +13,7 @@
     @include trs('opacity #{$anim} ease-in-out');
     &.shown{
       opacity:1;
-      visibility:visible;
+      pointer-events:auto;
     }
     //---
     /*
@@ -84,21 +84,21 @@
       top:auto;
     }
     &.start{
-      background:#000;
       @extend %text-btn;
       .w-p-outer{
         transition-delay:$anim*5;
       }
-      .pulse-btn{
+      .pulse-btn.start{
         transition-delay:$anim*5;
       }
     }
     &.vibrate{
       &.v2{
+        background:url(../../1ser/PNG/1-19-I.png) center/cover no-repeat;
         .pulse-btn{
           width:11.25%;
           cursor:pointer;
-          @include center($b:10%);
+          @include abs($l:18%,$b:8%);
           img{
             width:100%;
           }
@@ -159,88 +159,11 @@
       .w-p-text{
         @include abs($l:3em,$t:2.5em);
         opacity:0;
-        text-align:center;
         font-size:1.1em;
         @include trs('opacity #{$anim} ease-in-out');
         &.shown{
           opacity:1;
         }
-      }
-      .qs-ava{
-        @include abs($l:1.95em,$t:-2.85em);
-        height:4em;
-      }
-      .next-block{
-        margin-top:1em;
-        @include flx(display,flex);
-        @include flx(justify-content,center);
-        .yes,.no{
-          cursor:pointer;
-          width:6.5em;
-          margin:0 2em;
-          position:relative;
-          &.good img:nth-child(1){
-            opacity:1;
-          }
-          &.bad img:nth-child(2){
-            opacity:1;
-          }
-        }
-        img{
-          width:100%;
-          &:nth-child(1),&:nth-child(2){
-            @include trs('opacity #{$anim} ease-in-out');
-            @include abs($l:0,$r:0,$t:0,$b:0);
-            opacity:0;
-          }
-        }
-      }
-      .next-msg{
-        text-align:center;
-        opacity:0;
-        @include trs('opacity #{$anim} ease-in-out');
-        &.shown{
-          opacity:1;
-        }
-      }
-      .next-list{
-        position:relative;
-        height:15.6em;
-      }
-      .n-l-bg{
-        width:100%;
-        height:100%;
-        @include abs($l:0,$t:0);
-      }
-      .n-l-cont{
-        position:relative;
-        padding:5em 0 0 4.1em;
-        height:100%;
-        @extend %bxz;
-        @include anim('w-move 20s infinite');
-      }
-      .n-l-c-bg{
-        width:100%;
-        height:100%;
-        @include abs($l:0,$t:0);
-      }
-      .n-l-pulse{
-        @include abs($l:2em,$t:1.75em);
-        width:5em;
-        @include trf(scale(-1,1));
-      }
-      .n-l-inner{
-        position:relative;
-        div{
-          opacity:0;
-          @include trs('opacity #{$anim} ease-in-out');
-          &.shown{
-            opacity:1;
-          }
-        }
-      }
-      .n-l-dots{
-        position:relative;
       }
     }
     &.map{
@@ -256,7 +179,7 @@
         .wobble-pop{
           pointer-events:none;
         }
-        .w-p-outer,.pulse-btn{
+        .w-p-outer,.pulse-btn.start{
           opacity:0;
           transition-delay:0s;
           transition-duration:$anim;
@@ -274,7 +197,7 @@
         .wobble-pop{
           pointer-events:auto;
         }
-        .w-p-outer,.pulse-btn{
+        .w-p-outer,.pulse-btn.start{
           opacity:1;
           transition-delay:0s;
           transition-duration:$anim;
@@ -305,17 +228,17 @@
       .pulse-btn{
         transition-delay:$anim*5;
       }
+      .w-p-t-ov div:nth-child(n+2){
+        display:none;
+      }
     }
     &.catch{
       @extend %text-btn;
-      &.shown{
-
-      }
-      &.ok{
+      &.game-start{
         .wobble-pop{
           pointer-events:none;
         }
-        .w-p-outer,.pulse-btn{
+        .w-p-outer,.pulse-btn.start{
           opacity:0;
           transition-delay:0s;
           transition-duration:$anim;
@@ -326,11 +249,57 @@
           pointer-events:auto;
         }
       }
+      &.in-game{
+        .catch-block{
+          .pulse-btn{
+            display:none;
+          }
+        }
+        @for $x from 1 through 3{
+          &.choose#{$x} .game:nth-child(#{$x + 3}){
+            pointer-events:auto;
+            opacity:1;
+          }
+        }
+      }
+      @for $x from 1 through 3{
+        &.done#{$x} .pulse-btn:nth-child(#{$x}){
+          display:none;
+        }
+      }
       .w-p-outer{
         transition-delay:$anim*2;
       }
       .pulse-btn{
-        transition-delay:$anim*2;
+        &.start{
+          transition-delay:$anim*2;
+        }
+      }
+    }
+    &.scheme{
+      background:url(../../1ser/PNG/1-17-I.jpg) center/cover no-repeat;
+      @extend %text-btn;
+      &.scheme-start{
+        .wobble-pop{
+          pointer-events:none;
+        }
+        .w-p-outer.start,.pulse-btn.start{
+          opacity:0;
+          transition-delay:0s;
+          transition-duration:$anim;
+          pointer-events:none;
+        }
+        .scheme-block{
+          opacity:1;
+          pointer-events:auto;
+        }
+      }
+      &.scheme-done .scheme-block{
+        pointer-events:none;
+
+      }
+      .scheme-block .w-p-outer{
+        top:0;
       }
     }
   }
@@ -339,6 +308,195 @@
     width:100%;
     height:100%;
     position:absolute;
+  }
+  //---
+  .scheme-block{
+    perspective:1500px;
+    opacity:0;
+    pointer-events:none;
+    @include trs('opacity #{$anim} ease-in-out');
+    @include center();
+    width:88.07%;
+    height:82.5%;
+    .viewport{
+      @include center();
+      width:94.62%;
+      height:89.79%;
+    }
+    .thing{
+      position:absolute;
+      width:12.5%;
+      padding-bottom:12.5%;
+      cursor:pointer;
+      @include trs('transform #{$anim} ease-in-out');
+      &:hover .hover{
+        opacity:1;
+      }
+      &.correct{
+        .done{
+          opacity:1;
+        }
+      }
+    }
+    svg{
+      position:absolute;
+      width:100%;
+      height:100%;
+    }
+    .done,.hover{
+      opacity:0;
+      @include trs('opacity #{$anim} ease-in-out');
+    }
+    .w-p-outer{
+      height:100%;
+      //animation:none;//remove
+    }
+    .w-p-wrap,.w-p-cont{
+      height:100%;
+      //animation:none;//remove
+    }
+  }
+  //---
+  .qs-block{
+    .ava{
+      @include abs($l:1.95em,$t:-2.85em);
+      height:4em;
+    }
+    .next{
+      margin-top:1em;
+      @include flx(display,flex);
+      @include flx(justify-content,center);
+      .yes,.no{
+        cursor:pointer;
+        width:6.5em;
+        margin:0 2em;
+        position:relative;
+        &.good img:nth-child(1){
+          opacity:1;
+        }
+        &.bad img:nth-child(2){
+          opacity:1;
+        }
+      }
+      img{
+        width:100%;
+        &:nth-child(1),&:nth-child(2){
+          @include trs('opacity #{$anim} ease-in-out');
+          @include abs($l:0,$r:0,$t:0,$b:0);
+          opacity:0;
+        }
+      }
+    }
+    .msg{
+      text-align:center;
+      opacity:0;
+      @include trs('opacity #{$anim} ease-in-out');
+      &.shown{
+        opacity:1;
+      }
+    }
+    .list{
+      position:relative;
+      height:15.6em;
+    }
+    .l-bg{
+      width:100%;
+      height:100%;
+      @include abs($l:0,$t:0);
+    }
+    .l-cont{
+      position:relative;
+      padding:5em 0 0 4.1em;
+      height:100%;
+      @extend %bxz;
+      @include anim('w-move 20s infinite');
+    }
+    .l-c-bg{
+      width:100%;
+      height:100%;
+      @include abs($l:0,$t:0);
+    }
+    .l-pulse{
+      @include abs($l:2em,$t:1.75em);
+      width:5em;
+      @include trf(scale(-1,1));
+    }
+    .l-inner{
+      position:relative;
+      div{
+        opacity:0;
+        @include trs('opacity #{$anim} ease-in-out');
+        &.shown{
+          opacity:1;
+        }
+      }
+    }
+    .l-dots{
+      position:relative;
+    }
+  }
+  //---
+  @keyframes catch-fail{
+    0%{transform:translate(2px,1px) rotate(0deg);}
+    10%{transform:translate(-1px,-2px) rotate(-1deg);}
+    20%{transform:translate(-3px,0px) rotate(1deg);}
+    30%{transform:translate(0px,2px) rotate(0deg);}
+    40%{transform:translate(1px,-1px) rotate(1deg);}
+    50%{transform:translate(-1px,2px) rotate(-1deg);}
+    60%{transform:translate(-3px,1px) rotate(0deg);}
+    70%{transform:translate(2px,1px) rotate(-1deg);}
+    80%{transform:translate(-1px,-1px) rotate(1deg);}
+    90%{transform:translate(2px,2px) rotate(0deg);}
+    100%{transform:translate(1px,-2px) rotate(-1deg);}
+  }
+  .catch-block{
+    opacity:0;
+    pointer-events:none;
+    @include trs('opacity #{$anim} ease-in-out');
+    @include abs($l:0,$r:0,$t:0,$b:0);
+    @include no-sel();
+    .game{
+      opacity:0;
+      pointer-events:none;
+      @include trs('opacity #{$anim} ease-in-out');
+      @include abs($l:0,$r:0,$t:0,$b:0);
+    }
+    .thing{
+      cursor:pointer;
+      position:absolute;
+      @include trs('left 0s ease-in-out,top 0s ease-in-out');
+      &.no{
+        @include anim('catch-fail .3s linear infinite');
+      }
+      &.drop{
+        pointer-events:none;
+        @include trs('left #{$anim} ease-in-out,top #{$anim} ease-in-out,transform #{$anim} ease-in-out,opacity #{$anim} ease-in-out #{$anim/2}');
+      }
+      &.good{
+        z-index:1;
+      }
+      img{
+        width:100%;
+        height:100%;
+        pointer-events:none;
+      }
+    }
+    .pulse-btn{
+      position:absolute;
+      opacity:1;
+      &:nth-child(1){
+        left:8.41%;
+        top:53.22%;
+      }
+      &:nth-child(2){
+        left:18.07%;
+        top:79.46%;
+      }
+      &:nth-child(3){
+        left:79.67%;
+        top:62.5%;
+      }
+    }
   }
   //---
   @include kfs(map-rotate1){
@@ -358,24 +516,6 @@
     }
   };
 
-  .catch-block{
-    opacity:0;
-    pointer-events:none;
-    @include trs('opacity #{$anim} ease-in-out');
-    @include abs($l:0,$r:0,$t:0,$b:0);
-    background:rgba(#f00,0.3);
-    .thing{
-      cursor:pointer;
-      position:absolute;
-      height:5%;
-      background:#eee;
-      @include trs('left 0s ease-in-out,top 0s ease-in-out');
-      &.no{
-
-      }
-    }
-  }
-  //---
   .map-circles{
     position:absolute;
     width:100%;

@@ -57,11 +57,11 @@ export let VibrateView=Backbone.View.extend({
  },
  toggle:function(f){
   this.$el.toggleClass(data.view.shownCls,f);
-  this.$video[0][f?'play':'pause']();
+  if(this.$video.length)
+   this.$video[0][f?'play':'pause']();
   if(f)
   {
    this.wait=setTimeout(()=>{
-    console.log('fired!');
     this.click();
    },data.wait)
   }

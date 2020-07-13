@@ -1,0 +1,21 @@
+export const data={
+ wait:1500,
+ things:[{index:1,type:2,correct:0},{index:2,type:2,correct:1},{index:3,type:2,correct:0},{index:5,type:3,correct:1},{index:6,type:1,correct:1},
+  {index:9,type:1,correct:0},{index:10,type:1,correct:0},{index:11,type:1,correct:0},{index:13,type:1,correct:0},{index:14,type:2,correct:0},{index:15,type:3,correct:2},
+  {index:17,type:3,correct:2},{index:18,type:3,correct:0},{index:20,type:1,correct:0},{index:21,type:3,correct:0},{index:22,type:2,correct:2},
+  {index:26,type:2,correct:2},{index:28,type:2,correct:3},{index:29,type:3,correct:3},{index:30,type:1,correct:1}],
+ events:{
+  'start':'.pulse-btn.start'
+ },
+ view:{
+  thTemplate:'#scheme-thing-template',
+  video:'.ov-video',
+  el:'.ov-wrap.scheme',
+  into:'.viewport',
+  doneCls:'scheme-done',
+  thingCls:'thing',
+  shownCls:'shown',
+  startCls:'scheme-start',
+  correctCls:'correct'
+ }
+};

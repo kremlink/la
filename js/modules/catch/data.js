@@ -1,19 +1,41 @@
 export const data={
- maxD:8,
+ divide:0.66,
+ maxD:{x:23.33,y:41.48},
  minSpeed:0.4,
- maxSpeed:10,
+ maxSpeed:5,
  minSh:5,
  maxSh:10,
- things:[{width:5,src:''},{width:8,src:'',no:true},{width:3,src:''}],
+ drop:{left:'30.5%',top:'73%',opacity:0,transform:'scale(0.5)'},
+ shakeDur:600,
+ winWait:1000,
+ things:[
+  [{width:12.27,no:0,left:76.17,top:5.16},{width:3.72,no:0,left:30.26,top:43.19},{width:4.74,no:0,left:37.44,top:31.30},
+   {width:17.89,no:1,left:30.89,top:6.79},{width:12.97,no:0,left:62.45,top:17.81},{width:7.63,no:0,left:6.40,top:74.08},
+   {width:7.6,no:0,left:18.36,top:14.32},{width:4.79,no:0,left:5.53,top:7.10},{width:9.53,no:0,left:5.55,top:61.83},
+   {width:6.56,no:0,left:37.62,top:62.93},{width:7.42,no:1,left:18.44,top:37.84},{width:20.39,no:1,left:72.11,top:36.16}],
+  [{width:9.4,no:0,left:14.02,top:10.68},{width:13.7,no:0,left:29.94,top:18.14},{width:9.09,no:0,left:63.88,top:51.99},
+   {width:13.78,no:0,left:20.82,top:47.64},{width:14.53,no:0,left:79.60,top:13.14},{width:3.1,no:1,left:71.42,top:15.50},
+   {width:8.57,no:1,left:5.45,top:60.10},{width:9.51,no:1,left:77.36,top:69.49}],
+  [{width:18.54,no:0,left:28.99,top:43.50},{width:21.85,no:0,left:7.14,top:16.43},{width:15.26,no:0,left:69.11,top:6.17},
+   {width:15.7,no:1,left:75.19,top:67.05},{width:15.73,no:1,left:15.72,top:75.16}]
+ ],
  events:{
-  'click':'.pulse-btn'
+  'start':'.pulse-btn.start',
+  'choose':'.catch-block .pulse-btn'
  },
  view:{
+  thTemplate:'#catch-thing-item-template',
+  video:'.ov-video',
   el:'.ov-wrap.catch',
-  into:'.catch-block',
+  into:'.game',
   thingCls:'thing',
   shownCls:'shown',
-  startCls:'ok',
-  noCls:'no'
+  startCls:'game-start',
+  inGameCLs:'in-game',
+  chooseCls:'choose',
+  doneCls:'done',
+  noCls:'no',
+  dropCls:'drop',
+  goodCls:'good'
  }
 };
