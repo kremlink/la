@@ -10,6 +10,7 @@ export const data={
  view:{
   thTemplate:'#scheme-thing-template',
   video:'.ov-video',
+  soundBg:'.sounds[data-what=scheme-bg]',
   el:'.ov-wrap.scheme',
   into:'.viewport',
   doneCls:'scheme-done',

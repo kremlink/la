@@ -10,9 +10,11 @@ export let SchemeView=Backbone.View.extend({
  events:events,
  thTemplate:_.template($(data.view.thTemplate).html()),
  angles:[],
+ $sBg:$(data.view.soundBg),
  initialize:function(){
   let s='';
 
+  this.$video=this.$(data.view.video);
   data.things.forEach((o)=>{
    this.angles.push(Math.floor(Math.random()*4));
    s+=this.thTemplate($.extend(o,{angle:this.angles[this.angles.length-1]*90,already:this.checkCorrect(this.angles.length-1)}));
@@ -27,6 +29,9 @@ export let SchemeView=Backbone.View.extend({
   this.$el.addClass(data.view.startCls);
  },
  toggle:function(f){
+  this.$sBg[0][f?'play':'pause']();
+  if(this.$video.length)
+   this.$video[0][f?'play':'pause']();
   this.$el.toggleClass(data.view.shownCls,f);
  },
  choose:function(e){

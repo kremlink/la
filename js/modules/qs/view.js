@@ -9,6 +9,8 @@ export let QsView=Backbone.View.extend({
  el:data.view.el,
  events:events,
  liTemplate:_.template($(data.view.liTemplate).html()),
+ $sPlus:$(data.view.soundPlus),
+ $sMinus:$(data.view.soundMinus),
  initialize:function(){
   let $li;
 
@@ -55,6 +57,7 @@ export let QsView=Backbone.View.extend({
  yes:function(e){
   if(!this.changing)
   {
+   this.$sPlus[0].play();
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
@@ -63,6 +66,7 @@ export let QsView=Backbone.View.extend({
  no:function(e){
   if(!this.changing)
   {
+   this.$sMinus[0].play();
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);

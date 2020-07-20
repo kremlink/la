@@ -493,12 +493,16 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  background: #000;
   opacity: 0;
   pointer-events: none;
+  background: #000;
   z-index: 1;
   font-size: 1.575vw;
   line-height: 1.25;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   transition: opacity 0.3s ease-in-out;
   /*
      @keyframes p-b-clip{
@@ -564,6 +568,7 @@ body {
 .overlay-block.shown {
   opacity: 1;
   pointer-events: auto;
+  transition-duration: 0s;
 }
 
 .ov-wrap {
@@ -571,13 +576,14 @@ body {
   height: 56.25vw;
   max-height: 100vh;
   max-width: 177.7777vh;
+  margin-top: -5000px;
   position: absolute;
   left: 50%;
-  top: 100%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .ov-wrap.shown {
-  top: auto;
+  margin-top: 0;
 }
 .ov-wrap.start .w-p-outer {
   transition-delay: 1.5s;
@@ -585,15 +591,17 @@ body {
 .ov-wrap.start .pulse-btn.start {
   transition-delay: 1.5s;
 }
-.ov-wrap.vibrate.v2 {
-  background: url(../../1ser/PNG/1-19-I.png) center/cover no-repeat;
-}
 .ov-wrap.vibrate.v2 .pulse-btn {
   width: 11.25%;
   cursor: pointer;
   position: absolute;
   left: 18%;
   bottom: 8%;
+}
+.ov-wrap.vibrate.v2 .pulse-btn.shifted {
+  left: 72.7%;
+  bottom: auto;
+  top: 73.7%;
 }
 .ov-wrap.vibrate.v2 .pulse-btn img {
   width: 100%;
@@ -658,7 +666,7 @@ body {
 .ov-wrap.qs .w-p-text {
   position: absolute;
   left: 3em;
-  top: 2.5em;
+  top: 2.4em;
   opacity: 0;
   font-size: 1.1em;
   transition: opacity 0.3s ease-in-out;
@@ -762,9 +770,6 @@ body {
 .ov-wrap.catch .pulse-btn.start {
   transition-delay: 0.6s;
 }
-.ov-wrap.scheme {
-  background: url(../../1ser/PNG/1-17-I.jpg) center/cover no-repeat;
-}
 .ov-wrap.scheme.scheme-start .wobble-pop {
   pointer-events: none;
 }
@@ -789,6 +794,7 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
+  background: center/contain no-repeat;
 }
 
 .scheme-block {
@@ -972,10 +978,6 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 .catch-block .game {
   opacity: 0;
@@ -992,6 +994,9 @@ body {
   position: absolute;
   transition: left 0s ease-in-out,top 0s ease-in-out;
 }
+.catch-block .thing:hover img + img {
+  opacity: 1;
+}
 .catch-block .thing.no {
   animation: catch-fail .3s linear infinite;
 }
@@ -1006,6 +1011,13 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+.catch-block .thing img + img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 .catch-block .pulse-btn {
   position: absolute;
@@ -1090,6 +1102,20 @@ body {
   pointer-events: none;
 }
 
+@keyframes timer-notif {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .the-anim {
   position: absolute;
   top: 0;
@@ -1140,6 +1166,17 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+}
+.the-timer .the-t-pop {
+  position: absolute;
+  top: 50%;
+  right: 120%;
+  transform: translate(0, -50%);
+  white-space: nowrap;
+  opacity: 0;
+}
+.the-timer .the-t-pop.rem {
+  animation: timer-notif 2s linear reverse;
 }
 
 .loader-pop {

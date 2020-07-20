@@ -61,7 +61,6 @@ export function init(app,modules){
    this.$el.addClass(data.view.timerCls);
   },
   start:function(){
-   $('.ov-video')[0].play();
    this.$el.addClass(data.view.startCls);
    this.playerView.play();
   },

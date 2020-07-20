@@ -18,3 +18,4 @@ app.set({dest:'objects.isMobile',object:matchMedia(index.data.mobViewport).match
 $(()=>{
  index.init(app,modules);
 });
+//TODO: make prototypes for all views with video p/p call in it

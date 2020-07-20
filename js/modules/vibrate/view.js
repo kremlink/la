@@ -7,6 +7,21 @@ events[`click ${data.events.click}`]='click';
 export let VibrateView=Backbone.View.extend({
  events:events,
  initialize:function(opts){
+  this.setElement(data.view.el[opts.vibrate]);
+  this.$video=this.$(data.view.video);
+  this.$btn=this.$(data.events.click);
+
+  if(opts.vibrate==='one')
+   this.vibrate();
+  if(opts.vibrate==='two')
+   this.shift();
+ },
+ shift:function(){
+  this.$video.on('timeupdate',()=>{
+   this.$btn.toggleClass(data.view.twoMoveBtnCls,this.$video[0].currentTime>data.twoMoveBtnTime);
+  });
+ },
+ vibrate:function(){
   let x=0,
    y=0,
    pCtr=0,
@@ -22,16 +37,14 @@ export let VibrateView=Backbone.View.extend({
     this.$wobble.css('transform',`translate(${x}px,${y}px)`);
    };
 
-  this.setElement(data.view.el[opts.vibrate]);
-  this.$video=this.$(data.view.video);
   this.$wobble=this.$(data.button.wobble);
   this.$pr=this.$(data.button.pText);
   this.wait=null;
 
   _.debounce(()=>{
-   $(data.button.pDiv).css({transitionDuration:data.button.progress+'s',width:'100%'});
+   $(data.button.pDiv).css({transitionDuration:data.wait/1000+'s',width:'100%'});
    wTrs();
-   },0)();
+  },0)();
   this.$wobble.on('transitionend',(e)=>{
    if(e.originalEvent.propertyName==='transform')
    {
@@ -44,10 +57,10 @@ export let VibrateView=Backbone.View.extend({
    let text;
 
    pCtr++;
-   if(pCtr>data.button.progress/data.button.timerDivider*1000)
+   if(pCtr>data.wait/data.button.timerDivider)
     clearTimeout(int);
    text=pCtr*data.button.timerDivider/1000;
-   this.$pr.text(text>data.button.progress?data.button.progress:text);
+   this.$pr.text(text>data.wait?data.wait/1000:text);
   },data.button.timerDivider);
  },
  click:function(){

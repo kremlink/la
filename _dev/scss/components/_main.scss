@@ -1,12 +1,13 @@
 @include exports("@path:components\_main.scss"){/*@path:components\_main.scss*/
   .overlay-block{
     @include abs($t:0,$b:0,$l:0,$r:0);
-    background:#000;
     opacity:0;
     pointer-events:none;
+    background:#000;
     z-index:1;
     font-size:1.575vw;
     line-height:1.25;
+    @include no-sel();
     @media (min-aspect-ratio:16/9){
       font-size:2.8vh;
     }
@@ -14,6 +15,7 @@
     &.shown{
       opacity:1;
       pointer-events:auto;
+      transition-duration:0s;
     }
     //---
     /*
@@ -79,9 +81,10 @@
     height:56.25vw; //h:w=9/16
     max-height:100vh;
     max-width:177.7777vh; //16/9=1.778
-    @include center($t:100%);
+    margin-top:-5000px;
+    @include center();
     &.shown{
-      top:auto;
+      margin-top:0;
     }
     &.start{
       @extend %text-btn;
@@ -94,11 +97,15 @@
     }
     &.vibrate{
       &.v2{
-        background:url(../../1ser/PNG/1-19-I.png) center/cover no-repeat;
         .pulse-btn{
           width:11.25%;
           cursor:pointer;
           @include abs($l:18%,$b:8%);
+          &.shifted{
+            left:72.7%;
+            bottom:auto;
+            top:73.7%;
+          }
           img{
             width:100%;
           }
@@ -157,7 +164,7 @@
         height:100%;
       }
       .w-p-text{
-        @include abs($l:3em,$t:2.5em);
+        @include abs($l:3em,$t:2.4em);
         opacity:0;
         font-size:1.1em;
         @include trs('opacity #{$anim} ease-in-out');
@@ -277,7 +284,6 @@
       }
     }
     &.scheme{
-      background:url(../../1ser/PNG/1-17-I.jpg) center/cover no-repeat;
       @extend %text-btn;
       &.scheme-start{
         .wobble-pop{
@@ -308,6 +314,7 @@
     width:100%;
     height:100%;
     position:absolute;
+    background: center/contain no-repeat;
   }
   //---
   .scheme-block{
@@ -454,7 +461,6 @@
     pointer-events:none;
     @include trs('opacity #{$anim} ease-in-out');
     @include abs($l:0,$r:0,$t:0,$b:0);
-    @include no-sel();
     .game{
       opacity:0;
       pointer-events:none;
@@ -465,6 +471,9 @@
       cursor:pointer;
       position:absolute;
       @include trs('left 0s ease-in-out,top 0s ease-in-out');
+      &:hover img+img{
+        opacity:1;
+      }
       &.no{
         @include anim('catch-fail .3s linear infinite');
       }
@@ -479,6 +488,11 @@
         width:100%;
         height:100%;
         pointer-events:none;
+        @include trs('opacity #{$anim} ease-in-out');
+        &+img{
+          @include abs($l:0,$t:0);
+          opacity:0;
+        }
       }
     }
     .pulse-btn{
@@ -563,6 +577,21 @@
     }
   }
   //---
+  @include kfs(timer-notif){
+    0%{
+      opacity:0;
+    }
+    40%{
+      opacity:1;
+    }
+    60%{
+      opacity:1;
+    }
+    100%{
+      opacity:0;
+    }
+  };
+
   .the-anim{
     @include abs($r:0,$t:0);
     width:11.54%;
@@ -600,8 +629,16 @@
       height:100%;
     }
     .the-t-text{
-     @include center();
+      @include center();
       white-space:nowrap;
+    }
+    .the-t-pop{
+      @include center($r:120%);
+      white-space:nowrap;
+      opacity:0;
+      &.rem{
+        @include anim('timer-notif 2s linear reverse');
+      }
     }
   }
   //other

@@ -1,5 +1,6 @@
 export const data={
- wait:5000,
+ wait:30000,
+ twoMoveBtnTime:5,
  events:{
   'click':'.w-p-outer,.pulse-btn',
  },
@@ -9,11 +10,11 @@ export const data={
    one:'.ov-wrap.vibrate.v1',
    two:'.ov-wrap.vibrate.v2'
   },
-  shownCls:'shown'
+  shownCls:'shown',
+  twoMoveBtnCls:'shifted'
  },
  button:{
   spread:100,
-  progress:20,
   timerDivider:39,
   wobbleDuration:{spread:1.5,shift:0.5},
   wobble:'.w-p-wrap',

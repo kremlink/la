@@ -22,7 +22,7 @@ export let PlayerView=Backbone.View.extend({
   });
   this.player.on('play',()=>{
    //app.get('aggregator').trigger('main:toggle',false);
-   /*document.documentElement.requestFullscreen();*/
+   //document.documentElement.requestFullscreen();//TODO: uncomment
   });
   /*document.addEventListener('fullscreenchange',()=>{
    app.get('aggregator').trigger('page:fs',document.fullscreenElement);
@@ -46,7 +46,7 @@ export let PlayerView=Backbone.View.extend({
 
   this.player.on('timeupdate',()=>{
    this.timecodes.forEach((o,i)=>{
-    if(this.player.currentTime()>o.time&&!o.invoked)
+    if(this.player.currentTime()>o.start&&!o.invoked)
     {
      app.get('aggregator').trigger('main:step',i);
      o.invoked=true;
@@ -54,10 +54,11 @@ export let PlayerView=Backbone.View.extend({
    });
   });
  },
- play:function(){
+ play:function(time=-1){
   if(this.player.paused)
   {
-   //document.documentElement.requestFullscreen();//TODO: uncomment!
+   if(~time)
+    this.player.currentTime(time);
    this.player.play();
   }
  },
