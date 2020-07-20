@@ -1,4 +1,5 @@
 export const data={
+ wait:4000,
  yesIndex:0,
  events:{
   'click':'.circle',

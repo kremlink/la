@@ -1174,6 +1174,7 @@ body {
   transform: translate(0, -50%);
   white-space: nowrap;
   opacity: 0;
+  color: #f00;
 }
 .the-timer .the-t-pop.rem {
   animation: timer-notif 2s linear reverse;

@@ -9,7 +9,7 @@ import {SchemeView} from '../scheme/view.js';
 import {TimerView} from '../timer/view.js';
 import {data} from './data.js';
 
-let stepViews=[VibrateView/*StartView,VibrateView,VibrateView,QsView,MapView,CatchView,SchemeView*/],
+let stepViews=[MapView/*StartView,VibrateView,VibrateView,QsView,MapView,CatchView,SchemeView*/],
  events={};
 
 export let MainView=Backbone.View.extend({
@@ -32,6 +32,8 @@ export let MainView=Backbone.View.extend({
 
   this.currentIndex=i;
   stepView.toggle(true);
+  if(i===0)
+   app.get('aggregator').trigger('page:timer');
   this.toggle(true);
  }
 });

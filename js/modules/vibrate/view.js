@@ -1,14 +1,18 @@
-import {app} from '../../bf/base.js';
+import {BaseIntView} from '../BaseInteractiveView.js';
 import {data} from './data.js';
 
 let events={};
 events[`click ${data.events.click}`]='click';
 
-export let VibrateView=Backbone.View.extend({
+export let VibrateView=BaseIntView.extend({
  events:events,
  initialize:function(opts){
-  this.setElement(data.view.el[opts.vibrate]);
-  this.$video=this.$(data.view.video);
+  BaseIntView.prototype.initialize.apply(this,[{
+   el:data.view.el[opts.vibrate],
+   data:data,
+   after:this.click
+  }]);
+
   this.$btn=this.$(data.events.click);
 
   if(opts.vibrate==='one')
@@ -64,19 +68,6 @@ export let VibrateView=Backbone.View.extend({
   },data.button.timerDivider);
  },
  click:function(){
-  clearTimeout(this.wait);
-  app.get('aggregator').trigger('main:toggle',false);
-  this.toggle(false);
- },
- toggle:function(f){
-  this.$el.toggleClass(data.view.shownCls,f);
-  if(this.$video.length)
-   this.$video[0][f?'play':'pause']();
-  if(f)
-  {
-   this.wait=setTimeout(()=>{
-    this.click();
-   },data.wait)
-  }
- },
+  this.away();
+ }
 });

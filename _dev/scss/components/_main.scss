@@ -636,6 +636,7 @@
       @include center($r:120%);
       white-space:nowrap;
       opacity:0;
+      color:#f00;
       &.rem{
         @include anim('timer-notif 2s linear reverse');
       }

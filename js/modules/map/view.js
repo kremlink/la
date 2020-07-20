@@ -1,16 +1,19 @@
-import {app} from '../../bf/base.js';
 import {data} from './data.js';
+import {BaseIntView} from '../BaseInteractiveView.js';
 
 let events={};
 events[`click ${data.events.click}`]='click';
 events[`click ${data.events.go}`]='go';
 
-export let MapView=Backbone.View.extend({
+export let MapView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  done:false,
  initialize:function(){
-
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data,
+   after:this.away
+  }]);
  },
  click:function(e){
   let ind=$(e.target).index();
@@ -22,15 +25,7 @@ export let MapView=Backbone.View.extend({
  },
  go:function(){
   if(this.done)
-  {
-   app.get('aggregator').trigger('main:toggle',false);
-   this.toggle(false);
-  }else
-  {
+   this.away();else
    this.$el.addClass(data.view.okCls);
-  }
- },
- toggle:function(f){
-  this.$el.toggleClass(data.view.shownCls,f);
  }
 });
