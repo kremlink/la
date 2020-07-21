@@ -4,15 +4,15 @@ let data;
 
 export let BaseIntView=Backbone.View.extend({
  initialize:function(opts){
-  this.after=opts.after;
   data=opts.data;
   if(opts.el)
    this.setElement(opts.el);
   this.$video=this.$(data.view.video);
+  this.toggle(true);
  },
- away:function(){
+ away:function(failed=false){
   clearTimeout(this.wait);
-  app.get('aggregator').trigger('main:toggle',false);
+  app.get('aggregator').trigger('main:toggle',false,failed);
   this.toggle(false);
  },
  toggle:function(f){
@@ -22,7 +22,7 @@ export let BaseIntView=Backbone.View.extend({
   if(f)
   {
    this.wait=setTimeout(()=>{
-    this.after();
+    this.away(true);
    },data.wait);
   }
  }

@@ -1,5 +1,6 @@
 export const data={
- wait:2000,
+ wait:120000,
+ time:2000,
  choose:[{text:'Прозвонить больницы?',yes:true,msg:['Да, надо убедиться, что пропавший туда не поступал.','Надо убедиться, что пропавший туда не поступал.']},
   {text:'Отправить людей на разведку?',yes:true,msg:['Да, время дорого, дети уходят далеко.','Время дорого, дети уходят далеко.']},
   {text:'Искать в тишине?',hidden:true,msg:['Это делается в последнюю очередь. Мысли позитивно.',' Нет, это делается в последнюю очередь. Мысли позитивно.']},
@@ -14,6 +15,7 @@ export const data={
  },
  view:{
   video:'.ov-video',
+  soundBg:'.sounds[data-what=qs-bg]',
   soundPlus:'.sounds[data-what=qs-plus]',
   soundMinus:'.sounds[data-what=qs-minus]',
   el:'.ov-wrap.qs',

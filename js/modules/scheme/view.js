@@ -1,11 +1,11 @@
-import {app} from '../../bf/base.js';
 import {data} from './data.js';
+import {BaseIntView} from '../BaseInteractiveView.js';
 
 let events={};
 events[`click ${data.events.start}`]='start';
 events[`click .${data.view.thingCls}`]='choose';
 
-export let SchemeView=Backbone.View.extend({
+export let SchemeView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  thTemplate:_.template($(data.view.thTemplate).html()),
@@ -14,7 +14,10 @@ export let SchemeView=Backbone.View.extend({
  initialize:function(){
   let s='';
 
-  this.$video=this.$(data.view.video);
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data
+  }]);
+
   data.things.forEach((o)=>{
    this.angles.push(Math.floor(Math.random()*4));
    s+=this.thTemplate($.extend(o,{angle:this.angles[this.angles.length-1]*90,already:this.checkCorrect(this.angles.length-1)}));
@@ -29,10 +32,8 @@ export let SchemeView=Backbone.View.extend({
   this.$el.addClass(data.view.startCls);
  },
  toggle:function(f){
+  BaseIntView.prototype.toggle.apply(this,[f]);
   this.$sBg[0][f?'play':'pause']();
-  if(this.$video.length)
-   this.$video[0][f?'play':'pause']();
-  this.$el.toggleClass(data.view.shownCls,f);
  },
  choose:function(e){
   let thing=$(e.currentTarget),
@@ -50,9 +51,8 @@ export let SchemeView=Backbone.View.extend({
   {
    this.$el.addClass(data.view.doneCls);
    setTimeout(()=>{
-    app.get('aggregator').trigger('main:toggle',false);
-    this.toggle(false);
-   },data.wait);
+    this.away();
+   },data.time);
   }
  }
 });

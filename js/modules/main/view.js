@@ -23,15 +23,16 @@ export let MainView=Backbone.View.extend({
 
   new TimerView;
  },
- toggle:function(f){
+ toggle:function(f,failed=false){
   app.get('aggregator').trigger(f?'player:pause':'player:play',this.timecodes[this.currentIndex].end);
   this.$el.toggleClass(data.view.shownCls,f);
+  if(failed)
+   app.get('aggregator').trigger('timer:update',this.timecodes[this.currentIndex]);
  },
  step:function(i){
-  let stepView=new stepViews[i]({vibrate:this.timecodes[i].vibrate});
+  new stepViews[i]({vibrate:this.timecodes[i].vibrate});
 
   this.currentIndex=i;
-  stepView.toggle(true);
   if(i===0)
    app.get('aggregator').trigger('page:timer');
   this.toggle(true);

@@ -1,5 +1,6 @@
 export const data={
- wait:1500,
+ wait:300000,
+ time:1500,
  things:[{index:1,type:2,correct:0},{index:2,type:2,correct:1},{index:3,type:2,correct:0},{index:5,type:3,correct:1},{index:6,type:1,correct:1},
   {index:9,type:1,correct:0},{index:10,type:1,correct:0},{index:11,type:1,correct:0},{index:13,type:1,correct:0},{index:14,type:2,correct:0},{index:15,type:3,correct:2},
   {index:17,type:3,correct:2},{index:18,type:3,correct:0},{index:20,type:1,correct:0},{index:21,type:3,correct:0},{index:22,type:2,correct:2},

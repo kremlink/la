@@ -5,12 +5,6 @@
     pointer-events:none;
     background:#000;
     z-index:1;
-    font-size:1.575vw;
-    line-height:1.25;
-    @include no-sel();
-    @media (min-aspect-ratio:16/9){
-      font-size:2.8vh;
-    }
     @include trs('opacity #{$anim} ease-in-out');
     &.shown{
       opacity:1;
@@ -201,6 +195,9 @@
         }
       }
       &.done{
+        .circle,.mark{
+          display:none;
+        }
         .wobble-pop{
           pointer-events:auto;
         }
@@ -607,8 +604,7 @@
   }
   .the-timer{
     z-index:1;
-    width:8%;
-    padding-bottom:8%*64/330;
+    padding:0 4em 8em*64/330 4em;
     color:#fff;
     opacity:0;
     visibility:hidden;

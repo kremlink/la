@@ -9,8 +9,7 @@ export let VibrateView=BaseIntView.extend({
  initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
    el:data.view.el[opts.vibrate],
-   data:data,
-   after:this.click
+   data:data
   }]);
 
   this.$btn=this.$(data.events.click);

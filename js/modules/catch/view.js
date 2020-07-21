@@ -1,5 +1,5 @@
-import {app} from '../../bf/base.js';
 import {data} from './data.js';
+import {BaseIntView} from '../BaseInteractiveView.js';
 
 let mri=function(min,max){
   return Math.floor(Math.random()*(max-min+1))+min;
@@ -25,7 +25,7 @@ events[`click ${data.events.start}`]='start';
 events[`click ${data.events.choose}`]='choose';
 events[`click .${data.view.thingCls}`]='add';
 
-export let CatchView=Backbone.View.extend({
+export let CatchView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  pData:[],
@@ -38,7 +38,9 @@ export let CatchView=Backbone.View.extend({
    s,
    tmp;
 
-  this.$video=this.$(data.view.video);
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data
+  }]);
 
   for(let i=0;i<data.things.length;i++)
   {
@@ -50,7 +52,7 @@ export let CatchView=Backbone.View.extend({
     //tmp={x:mri(0,100-data.maxD.x),y:mri(0,100-data.maxD.y)};
     tmp={x:o.left,y:o.top};
     this.pData[i].coords.push(tmp);
-    s+=this.thTemplate({cls:data.view.thingCls+(!o.no?' '+data.view.goodCls:''),width:o.width*data.divide,left:tmp.x,top:tmp.y,i1:i+1,i2:j+1});
+    s+=this.thTemplate({cls:data.view.thingCls+(!o.no?' '+data.view.goodCls:''),width:o.width*data.divide*(o.mult?o.mult:1),left:tmp.x,top:tmp.y,i1:i+1,i2:j+1});
    });
 
    this.$(data.view.into).eq(i).html(s).find('.'+data.view.thingCls).each(function(j){
@@ -90,11 +92,6 @@ export let CatchView=Backbone.View.extend({
  start:function(){
   this.$el.addClass(data.view.startCls);
  },
- toggle:function(f){
-  this.$el.toggleClass(data.view.shownCls,f);
-  if(this.$video.length)
-   this.$video[0][f?'play':'pause']();
- },
  choose:function(e){
   this.index=$(e.currentTarget).index();
   this.$el.addClass(data.view.inGameCLs+' '+data.view.chooseCls+(this.index+1));
@@ -119,8 +116,7 @@ export let CatchView=Backbone.View.extend({
      this.$el.removeClass(data.view.inGameCLs+' '+data.view.chooseCls+(this.index+1)).addClass(data.view.doneCls+(this.index+1));
      if(this.done===data.things.length)
      {
-      app.get('aggregator').trigger('main:toggle',false);
-      this.toggle(false);
+      this.away();
      }
     },data.winWait);
   }

@@ -11,8 +11,7 @@ export let MapView=BaseIntView.extend({
  done:false,
  initialize:function(){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data,
-   after:this.away
+   data:data
   }]);
  },
  click:function(e){

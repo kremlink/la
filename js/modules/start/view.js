@@ -9,8 +9,7 @@ export let StartView=BaseIntView.extend({
  events:events,
  initialize:function(){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data,
-   after:this.away
+   data:data
   }]);
  },
  click:function(){

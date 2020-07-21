@@ -1,21 +1,25 @@
-import {app} from '../../bf/base.js';
 import {data} from './data.js';
+import {BaseIntView} from '../BaseInteractiveView.js';
 
 let events={};
 events[`click ${data.events.yes}`]='yes';
 events[`click ${data.events.no}`]='no';
 
-export let QsView=Backbone.View.extend({
+export let QsView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  liTemplate:_.template($(data.view.liTemplate).html()),
+ $sBg:$(data.view.soundBg),
  $sPlus:$(data.view.soundPlus),
  $sMinus:$(data.view.soundMinus),
  initialize:function(){
   let $li;
 
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data
+  }]);
+
   this.$msg=this.$(data.view.msg);
-  this.$video=this.$(data.view.video);
 
   this.ctr=0;
   this.$chosen=null;
@@ -32,7 +36,7 @@ export let QsView=Backbone.View.extend({
      this.$list.append($li);
      _.debounce(()=>$li.addClass(data.view.shownCls),0)();
     }
-    setTimeout(()=>this.$msg.removeClass(data.view.shownCls),data.wait);
+    setTimeout(()=>this.$msg.removeClass(data.view.shownCls),data.time);
    }else
    {
     this.$text.removeClass(data.view.shownCls);
@@ -45,8 +49,7 @@ export let QsView=Backbone.View.extend({
    {
     this.changing=end;
     if(end)
-     setTimeout(()=>this.go(),data.wait);
-
+     setTimeout(()=>this.go(),data.time);
    }else
    {
     this.$text.addClass(data.view.shownCls).html(end?data.endText:data.choose[this.ctr].text);
@@ -72,12 +75,11 @@ export let QsView=Backbone.View.extend({
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
  },
- go:function(){
-  app.get('aggregator').trigger('main:toggle',false);
-  this.toggle(false);
- },
  toggle:function(f){
-  this.$el.toggleClass(data.view.shownCls,f);
-  this.$video[0][f?'play':'pause']();
+  BaseIntView.prototype.toggle.apply(this,[f]);
+  this.$sBg[0][f?'play':'pause']();
  },
+ go:function(){
+  this.away();
+ }
 });

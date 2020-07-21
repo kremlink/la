@@ -422,7 +422,16 @@ html {
 
 body {
   height: 100%;
-  font: 14px/18px "Montserrat", sans-serif;
+  font: 1.575vw/1.25 "Montserrat", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (min-aspect-ratio: 16/9) {
+  body {
+    font-size: 2.8vh;
+  }
 }
 
 #wrap {
@@ -497,12 +506,6 @@ body {
   pointer-events: none;
   background: #000;
   z-index: 1;
-  font-size: 1.575vw;
-  line-height: 1.25;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   transition: opacity 0.3s ease-in-out;
   /*
      @keyframes p-b-clip{
@@ -559,11 +562,6 @@ body {
         height:70%;
         background:#fff;
       }*/
-}
-@media (min-aspect-ratio: 16/9) {
-  .overlay-block {
-    font-size: 2.8vh;
-  }
 }
 .overlay-block.shown {
   opacity: 1;
@@ -696,6 +694,9 @@ body {
 }
 .ov-wrap.map.ok .mark {
   display: block;
+}
+.ov-wrap.map.done .circle, .ov-wrap.map.done .mark {
+  display: none;
 }
 .ov-wrap.map.done .wobble-pop {
   pointer-events: auto;
@@ -1134,8 +1135,7 @@ body {
 
 .the-timer {
   z-index: 1;
-  width: 8%;
-  padding-bottom: 1.5515151515%;
+  padding: 0 4em 1.5515151515em 4em;
   color: #fff;
   opacity: 0;
   visibility: hidden;

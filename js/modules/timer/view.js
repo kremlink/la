@@ -23,12 +23,10 @@ export let TimerView=Backbone.View.extend({
    this.$timer.text(s2t(this.time+(--this.ctr)));
   },1000);
   this.listenTo(app.get('aggregator'),'timer:update',this.change);
-
-  //app.get('aggregator').trigger('timer:update',{time:-30,text:'lol'});
  },
  change:function(opts){
-  this.time+=opts.time;
-  this.$pop.text(opts.text).on('animationend',()=>{
+  this.time+=opts.rem;
+  this.$pop.text(opts.remText).on('animationend',()=>{
    this.$pop.removeClass(data.view.remCls)
   }).addClass(data.view.remCls);
  }
