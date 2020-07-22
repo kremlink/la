@@ -18,7 +18,7 @@ export function init(app,modules){
   events:events,
   el:data.view.el,
   initialize:function(){
-   this.playerView=new PlayerView({timecodes:data.timecodes});
+   this.playerView=new PlayerView({timecodes:data.timecodes});//TODO: uncomment
    this.mainView=new MainView({timecodes:data.timecodes});
 
    if(!matchMedia(data.minViewport).matches)
@@ -26,9 +26,12 @@ export function init(app,modules){
    $(window).on('resize',_.debounce(function(){
     //location.reload();//TODO: uncomment
    },200));
+   document.addEventListener('contextmenu',e=>e.preventDefault());
    this.listenTo(app.get('aggregator'),'player:ready',this.playerReady);
    this.listenTo(app.get('aggregator'),'page:fs',this.fs);
    this.listenTo(app.get('aggregator'),'page:timer',this.timer);
+   this.listenTo(app.get('aggregator'),'main:step',this.pause);
+   this.listenTo(app.get('aggregator'),'player:play',this.play);
   },
   playerReady:function(){//inconsistent loadeddata event with multiple videos
    this.loaded();
@@ -61,11 +64,20 @@ export function init(app,modules){
    this.$el.addClass(data.view.timerCls);
   },
   start:function(){
-   this.$el.addClass(data.view.startCls);
-   this.playerView.play();
+   this.$el.addClass(data.view.preStartCls);
+   setTimeout(()=>{
+    this.$el.addClass(data.view.startCls);
+    this.playerView.play();//TODO: uncomment
+   },data.waitBtn);
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);
+  },
+  pause:function(){
+   this.$el.addClass(data.view.pauseCls);
+  },
+  play:function(){
+   this.$el.removeClass(data.view.pauseCls);
   }
  }));
 }

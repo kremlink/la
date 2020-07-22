@@ -14,7 +14,12 @@ export let TimerView=Backbone.View.extend({
  timer:null,
  ctr:0,
  initialize:function(){
-  $('#wrap').addClass('timer');
+  /*$('#wrap').addClass('start loaded');//TODO:remove
+  setTimeout(()=>{
+   $('.ov-wrap.map').addClass('shown');
+   $('.overlay-block').addClass('shown');
+   },100);//TODO:remove*/
+  //this.$el.remove();//TODO:remove
   this.time=data.start;
   this.$timer=this.$(data.view.txt).text(s2t(this.time));
   this.$pop=this.$(data.view.pop);

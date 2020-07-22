@@ -8,10 +8,8 @@
 		<div id="wrap">
 			<video muted
 					class="video-js"
-					controls
-					preload="auto"
-					poster="../poster.jpg"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
-                <source src="../oceans.mp4" type="video/mp4" />
+					controls> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+                <!--<source src="../test.mp4" type="video/mp4" />-->
 				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
 				<p class="vjs-no-js">
 					To view this video please enable JavaScript, and consider upgrading to a
@@ -53,7 +51,7 @@
                     </div>-->
                 </div>
                 <div class="ov-wrap vibrate v1">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-14-I_LESHII V MASHINE.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -75,7 +73,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap vibrate v2">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />
                     </video>
                     <div class="pulse-btn">
@@ -184,7 +182,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap catch">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/01-21_KOMNATA SASHKI_SOLO.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -231,7 +229,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap scheme">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-17-I_SHTAB_1.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -273,6 +271,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="ov-before">
+                    <svg>
+                        <use xlink:href="#icon-shared-pop-poloski1"></use>
+                    </svg>
+                </div>
             </div>
             <div class="the-anim">
                 <img src="images/pulse-btn.png" alt=""/>
@@ -285,7 +288,9 @@
                 <div class="the-t-pop"></div>
             </div>
             <div class="start-pop">
-                <div>Play</div>
+                <div style="background-image: url(images/start-bg.svg);"></div>
+                <div style="background-image: url(images/start-button-p.svg);"></div>
+                <div style="background-image: url(images/start-button.svg);"></div>
             </div>
             <div class="loader-pop"></div>
             <div class="orientation-pop">
@@ -306,8 +311,8 @@
         </script>
         <script type="text/template" id="catch-thing-item-template">
             <div class="<%= cls %>" style="width:<%= width %>%;left:<%= left %>%;top:<%= top %>%;">
-                <img src="images/packing-<%= i1 %>-<%= i2 %>-p.png" />
-                <img src="images/packing-<%= i1 %>-<%= i2 %>.png" />
+                <img src="images/packing/packing-<%= i1 %>-<%= i2 %>-p.png" />
+                <img src="images/packing/packing-<%= i1 %>-<%= i2 %>.png" />
             </div>
         </script>
         <script type="text/template" id="scheme-thing-template">

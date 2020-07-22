@@ -9,7 +9,7 @@ import {SchemeView} from '../scheme/view.js';
 import {TimerView} from '../timer/view.js';
 import {data} from './data.js';
 
-let stepViews=[MapView/*StartView,VibrateView,VibrateView,QsView,MapView,CatchView,SchemeView*/],
+let stepViews=[StartView,VibrateView,VibrateView,QsView,MapView,CatchView,SchemeView],
  events={};
 
 export let MainView=Backbone.View.extend({
@@ -24,7 +24,10 @@ export let MainView=Backbone.View.extend({
   new TimerView;
  },
  toggle:function(f,failed=false){
-  app.get('aggregator').trigger(f?'player:pause':'player:play',this.timecodes[this.currentIndex].end);
+  if(f)
+   setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
+   app.get('aggregator').trigger('player:play',this.timecodes[this.currentIndex].end);
+
   this.$el.toggleClass(data.view.shownCls,f);
   if(failed)
    app.get('aggregator').trigger('timer:update',this.timecodes[this.currentIndex]);

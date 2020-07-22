@@ -19,6 +19,7 @@
 <script src="js/lib/backbone.min.js"></script>
 <script src="js/lib/backbone.localStorage.js"></script>
 <script src="js/lib/video.min.js"></script>
+<script src="js/lib/silvermine-videojs-quality-selector.min.js"></script>
 <script src="js/app.js" type="module"></script>
 
 <!--<script src="js/built.min.js"></script>-->
@@ -27,10 +28,8 @@
 		<div id="wrap">
 			<video muted
 					class="video-js"
-					controls
-					preload="auto"
-					poster="../poster.jpg"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
-                <source src="../oceans.mp4" type="video/mp4" />
+					controls> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+                <!--<source src="../test.mp4" type="video/mp4" />-->
 				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
 				<p class="vjs-no-js">
 					To view this video please enable JavaScript, and consider upgrading to a
@@ -72,7 +71,7 @@
                     </div>-->
                 </div>
                 <div class="ov-wrap vibrate v1">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-14-I_LESHII V MASHINE.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -94,7 +93,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap vibrate v2">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />
                     </video>
                     <div class="pulse-btn">
@@ -203,7 +202,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap catch">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/01-21_KOMNATA SASHKI_SOLO.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -250,7 +249,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap scheme">
-                    <video class="ov-video" preload="auto" loop>
+                    <video class="ov-video" preload="auto" loop muted>
                         <source src="../1ser/MP4/1-17-I_SHTAB_1.mp4" type="video/mp4" />
                     </video>
                     <div class="wobble-pop">
@@ -292,6 +291,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="ov-before">
+                    <svg>
+                        <use xlink:href="#icon-shared-pop-poloski1"></use>
+                    </svg>
+                </div>
             </div>
             <div class="the-anim">
                 <img src="images/pulse-btn.png" alt=""/>
@@ -304,7 +308,9 @@
                 <div class="the-t-pop"></div>
             </div>
             <div class="start-pop">
-                <div>Play</div>
+                <div style="background-image: url(images/start-bg.svg);"></div>
+                <div style="background-image: url(images/start-button-p.svg);"></div>
+                <div style="background-image: url(images/start-button.svg);"></div>
             </div>
             <div class="loader-pop"></div>
             <div class="orientation-pop">
@@ -318,7 +324,9 @@
         <audio class="sounds" data-what="qs-minus" src="../1ser/MP3/button_minus.mp3" preload="auto"></audio>
         <audio class="sounds" data-what="qs-plus" src="../1ser/MP3/button_plus.mp3" preload="auto"></audio>
         <div class="safe-hide-svg">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><defs/><defs>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><clipPath id="pop-poloski2-a">
+        <path d="M0 0h3840v2160H0z"/>
+    </clipPath></defs><defs>
         <radialGradient id="button-bottom-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-600 0 0 -88 630 102)">
             <stop offset="0" style="stop-color:#000;stop-opacity:.19"/>
             <stop offset="1" style="stop-color:#000;stop-opacity:.12"/>
@@ -1795,7 +1803,9 @@
             <stop offset="0" style="stop-color:#df8998;stop-opacity:1"/>
             <stop offset="1" style="stop-color:#e5b99d;stop-opacity:1"/>
         </linearGradient>
-    </defs><symbol id="icon-shared-button-bottom" viewBox="0 0 1265 209" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+    <clipPath id="pop-poloski2-a">
+        <path d="M0 0h3840v2160H0z"/>
+    </clipPath></defs><symbol id="icon-shared-button-bottom" viewBox="0 0 1265 209" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
     <path style="fill:url(#button-bottom-a)" d="M30 19h1205v171H30z"/>
     <path style="fill:#fff;fill-opacity:.5" d="M30 198h3v11h-3zM1232 198h3v11h-3zM27 187h6v6h-6zM1232 187h6v6h-6zM11 187h11v3H11zM1243 187h11v3h-11zM11 19h11v3H11zM1243 19h11v3h-11zM27 16h6v6h-6zM1232 16h6v6h-6zM30 0h3v11h-3zM1232 0h3v11h-3z"/>
     
@@ -2185,6 +2195,14 @@
     <path d="M200 400V0" style="fill:none;stroke:url(#pipes-elements-t-y-a);stroke-width:10px"/>
     <path d="M400 200H200" style="fill:none;stroke:url(#pipes-elements-t-y-b);stroke-width:10px"/>
     
+</symbol><symbol id="icon-shared-pop-poloski1" viewBox="0 0 3842 2162" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:1.5">
+    <path d="M201.39 2161.8L1178.04 0M994.916 2161.8L.487 0M120.63 2161.8L1802.82 0M862.861 2161.8L2363.49.901M532.769 0L1969.5 2161.8M2420.9.901L959.113 2161.8M551.1 0l1504.15 2161.8M1004.38 2161.8L2683.13.901M3640.41 0l-976.65 2161.8M2846.89 0l994.43 2161.8M3721.17 0L2038.99 2161.8M2978.94 0L1477.69 2161.8M3309.03 2161.8L1872.31 0M1420.29 2161.8L2882.69 0M3290.7 2161.8L1786.56 0M2837.42 0L1157.98 2161.8" style="fill:none;stroke:#fff;stroke-opacity:.5;stroke-width:1px"/>
+</symbol><symbol id="icon-shared-pop-poloski2" viewBox="0 0 3840 2160" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
+    <path style="fill:none" d="M0 0h3840v2160H0z"/>
+    
+    <g clip-path="url(#pop-poloski2-a)">
+        <path d="M230 0l2160 2160M0 1288l872 872M1702 0l2138 2138M3036 0l804 804M966 0l2160 2160M0 552l1608 1608M0 1564l596 596M2438 0l1402 1402M3772 0l68 68M276 0l2160 2160M0 1242l918 918M1748 0l2092 2092M3082 0l758 758M1012 0l2160 2160M0 506l1654 1654M0 1518l642 642M2484 0l1356 1356M3818 0l22 22M46 0l2160 2160M0 1472l688 688M1518 0l2160 2160M0 0l2160 2160M782 0l2160 2160M0 736l1424 1424M0 1748l412 412M2254 0l1586 1586M3588 0l252 252M322 0l2160 2160M0 1196l964 964M1794 0l2046 2046M3128 0l712 712M1058 0l2160 2160M0 460l1700 1700M2530 0l1310 1310M506 0l2160 2160M0 1012l1148 1148M0 2024l136 136M0 2070l90 90M1978 0l1862 1862M3312 0l528 528M1242 0l2160 2160M0 276l1884 1884M2714 0l1126 1126M92 0l2160 2160M0 1426l734 734M1564 0l2160 2160M828 0l2160 2160M0 690l1470 1470M0 1702l458 458M2300 0l1540 1540M3634 0l206 206M368 0l2160 2160M0 1150l1010 1010M1840 0l2000 2000M3174 0l666 666M1104 0l2160 2160M0 414l1746 1746M2576 0l1264 1264M552 0l2160 2160M0 966l1194 1194M0 1978l182 182M2024 0l1816 1816M3358 0l482 482M1288 0l2160 2160M0 230l1930 1930M2760 0l1080 1080M138 0l2160 2160M0 1380l780 780M1610 0l2160 2160M2944 0l896 896M874 0l2160 2160M0 644l1516 1516M0 1656l504 504M2346 0l1494 1494M3680 0l160 160M414 0l2160 2160M0 1104l1056 1056M1886 0l1954 1954M3220 0l620 620M1150 0l2160 2160M0 368l1792 1792M2622 0l1218 1218M598 0l2160 2160M0 920l1240 1240M0 1932l228 228M2070 0l1770 1770M3404 0l436 436M1334 0l2160 2160M0 184l1976 1976M2806 0l1034 1034M184 0l2160 2160M0 1334l826 826M1656 0l2160 2160M2990 0l850 850M920 0l2160 2160M0 598l1562 1562M0 1610l550 550M2392 0l1448 1448M3726 0l114 114M1472 0l2160 2160M0 46l2114 2114M736 0l2160 2160M0 782l1378 1378M0 1794l366 366M2208 0l1632 1632M3542 0l298 298M460 0l2160 2160M0 1058l1102 1102M0 2116l44 44M1932 0l1908 1908M3266 0l574 574M1196 0l2160 2160M0 322l1838 1838M2668 0l1172 1172M644 0l2160 2160M0 874l1286 1286M0 1886l274 274M2116 0l1724 1724M3450 0l390 390M1380 0l2160 2160M0 138l2022 2022M2852 0l988 988M690 0l2160 2160M0 828l1332 1332M0 1840l320 320M2162 0l1678 1678M3496 0l344 344M1426 0l2160 2160M0 92l2068 2068M2898 0l942 942" style="fill:none;stroke:#fff;stroke-opacity:.5;stroke-width:2px"/>
+    </g>
 </symbol><symbol id="icon-shared-question-bg-add" viewBox="0 0 1890 327" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
     <path d="M171.304 124.604c1.365.405 2.411 1.067 3.136 1.984.725.917 1.088 2.048 1.088 3.392 0 1.984-.752 3.531-2.256 4.64-1.504 1.109-3.653 1.664-6.448 1.664h-11.04v-22.4h10.432c2.603 0 4.629.501 6.08 1.504 1.451 1.003 2.176 2.432 2.176 4.288 0 1.109-.277 2.085-.832 2.928-.555.843-1.333 1.509-2.336 2zm-10.368-1.44h4.832c1.131 0 1.984-.229 2.56-.688.576-.459.864-1.136.864-2.032 0-.875-.293-1.547-.88-2.016-.587-.469-1.435-.704-2.544-.704h-4.832v5.44zm5.696 9.28c2.432 0 3.648-.96 3.648-2.88 0-1.856-1.216-2.784-3.648-2.784h-5.696v5.664h5.696zM185.928 118.812c2.667 0 4.715.635 6.144 1.904 1.429 1.269 2.144 3.184 2.144 5.744v9.824h-4.672v-2.144c-.939 1.6-2.688 2.4-5.248 2.4-1.323 0-2.469-.224-3.44-.672-.971-.448-1.712-1.067-2.224-1.856-.512-.789-.768-1.685-.768-2.688 0-1.6.603-2.859 1.808-3.776 1.205-.917 3.067-1.376 5.584-1.376h3.968c0-1.088-.331-1.925-.992-2.512s-1.653-.88-2.976-.88a8.69 8.69 0 0 0-2.704.432c-.885.288-1.637.677-2.256 1.168l-1.792-3.488c.939-.661 2.064-1.173 3.376-1.536a15.108 15.108 0 0 1 4.048-.544zm-.384 14.368c.853 0 1.611-.197 2.272-.592.661-.395 1.131-.976 1.408-1.744v-1.76H185.8c-2.048 0-3.072.672-3.072 2.016 0 .64.251 1.147.752 1.52s1.189.56 2.064.56zM215.08 119.068v17.216h-4.992v-13.12h-5.44l-.16 3.04c-.085 2.261-.299 4.139-.64 5.632-.341 1.493-.896 2.667-1.664 3.52-.768.853-1.835 1.28-3.2 1.28-.725 0-1.589-.128-2.592-.384l.256-4.096c.341.043.587.064.736.064.747 0 1.307-.272 1.68-.816.373-.544.624-1.237.752-2.08s.224-1.957.288-3.344l.256-6.912h14.72zM236.616 127.74c0 .064-.032.512-.096 1.344h-13.024c.235 1.067.789 1.909 1.664 2.528.875.619 1.963.928 3.264.928.896 0 1.691-.133 2.384-.4.693-.267 1.339-.688 1.936-1.264l2.656 2.88c-1.621 1.856-3.989 2.784-7.104 2.784-1.941 0-3.659-.379-5.152-1.136-1.493-.757-2.645-1.808-3.456-3.152-.811-1.344-1.216-2.869-1.216-4.576 0-1.685.4-3.205 1.2-4.56a8.404 8.404 0 0 1 3.296-3.168c1.397-.757 2.96-1.136 4.688-1.136 1.685 0 3.211.363 4.576 1.088a7.941 7.941 0 0 1 3.216 3.12c.779 1.355 1.168 2.928 1.168 4.72zm-8.928-5.152c-1.131 0-2.08.32-2.848.96-.768.64-1.237 1.515-1.408 2.624h8.48c-.171-1.088-.64-1.957-1.408-2.608-.768-.651-1.707-.976-2.816-.976zm-3.36-5.888c-.64 0-1.173-.208-1.6-.624-.427-.416-.64-.944-.64-1.584 0-.64.213-1.168.64-1.584.427-.416.96-.624 1.6-.624.64 0 1.168.208 1.584.624.416.416.624.944.624 1.584 0 .64-.208 1.168-.624 1.584-.416.416-.944.624-1.584.624zm6.464 0c-.64 0-1.168-.208-1.584-.624-.416-.416-.624-.944-.624-1.584 0-.64.208-1.168.624-1.584.416-.416.944-.624 1.584-.624.64 0 1.173.208 1.6.624.427.416.64.944.64 1.584 0 .64-.213 1.168-.64 1.584-.427.416-.96.624-1.6.624zM248.04 129.756h-2.592v6.528h-4.992v-17.216h4.992v6.688h2.688l4.672-6.688h5.312l-6.016 8.256 6.432 8.96h-5.888l-4.608-6.528zM269.32 125.276h9.056v4h-9.056zM291.464 119.068h4.96v10.24l8.384-10.24h4.576v17.216h-4.96v-10.24l-8.352 10.24h-4.608v-17.216zM314.184 119.068h4.96v6.72h7.488v-6.72h4.992v17.216h-4.992v-6.432h-7.488v6.432h-4.96v-17.216zM360.168 127.612c0 2.667-.891 4.773-2.672 6.32-1.781 1.547-4.325 2.437-7.632 2.672v5.888h-4.576v-5.888c-3.307-.235-5.851-1.115-7.632-2.64-1.781-1.525-2.672-3.643-2.672-6.352 0-2.667.88-4.736 2.64-6.208 1.76-1.472 4.315-2.325 7.664-2.56v-6.304h4.576v6.304c3.307.235 5.851 1.099 7.632 2.592 1.781 1.493 2.672 3.552 2.672 6.176zm-20.352 0c0 1.536.437 2.72 1.312 3.552.875.832 2.261 1.355 4.16 1.568v-10.016c-1.899.192-3.285.688-4.16 1.488s-1.312 1.936-1.312 3.408zm10.048 5.12c1.899-.213 3.291-.736 4.176-1.568.885-.832 1.328-2.016 1.328-3.552 0-1.472-.443-2.608-1.328-3.408-.885-.8-2.277-1.296-4.176-1.488v10.016zM371.624 136.54c-1.813 0-3.44-.379-4.88-1.136-1.44-.757-2.565-1.808-3.376-3.152-.811-1.344-1.216-2.869-1.216-4.576 0-1.707.405-3.232 1.216-4.576.811-1.344 1.936-2.395 3.376-3.152 1.44-.757 3.067-1.136 4.88-1.136 1.813 0 3.435.379 4.864 1.136 1.429.757 2.549 1.808 3.36 3.152.811 1.344 1.216 2.869 1.216 4.576 0 1.707-.405 3.232-1.216 4.576-.811 1.344-1.931 2.395-3.36 3.152-1.429.757-3.051 1.136-4.864 1.136zm0-4.096c1.28 0 2.331-.432 3.152-1.296.821-.864 1.232-2.021 1.232-3.472s-.411-2.608-1.232-3.472c-.821-.864-1.872-1.296-3.152-1.296s-2.336.432-3.168 1.296c-.832.864-1.248 2.021-1.248 3.472s.416 2.608 1.248 3.472c.832.864 1.888 1.296 3.168 1.296zM394.632 118.812c1.6 0 3.056.368 4.368 1.104a7.932 7.932 0 0 1 3.088 3.104c.747 1.333 1.12 2.885 1.12 4.656s-.373 3.323-1.12 4.656a7.932 7.932 0 0 1-3.088 3.104c-1.312.736-2.768 1.104-4.368 1.104-2.197 0-3.925-.693-5.184-2.08v8.032h-4.992v-23.424h4.768v1.984c1.237-1.493 3.04-2.24 5.408-2.24zm-.864 13.632c1.28 0 2.331-.432 3.152-1.296.821-.864 1.232-2.021 1.232-3.472s-.411-2.608-1.232-3.472c-.821-.864-1.872-1.296-3.152-1.296s-2.331.432-3.152 1.296c-.821.864-1.232 2.021-1.232 3.472s.411 2.608 1.232 3.472c.821.864 1.872 1.296 3.152 1.296zM420.488 123.164h-8.832v13.12h-4.96v-17.216h13.792v4.096z" style="fill:#fff;fill-rule:nonzero"/>
 </symbol><symbol id="icon-shared-question-bg" viewBox="0 0 1890 327" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
@@ -2315,8 +2333,8 @@
         </script>
         <script type="text/template" id="catch-thing-item-template">
             <div class="<%= cls %>" style="width:<%= width %>%;left:<%= left %>%;top:<%= top %>%;">
-                <img src="images/packing-<%= i1 %>-<%= i2 %>-p.png" />
-                <img src="images/packing-<%= i1 %>-<%= i2 %>.png" />
+                <img src="images/packing/packing-<%= i1 %>-<%= i2 %>-p.png" />
+                <img src="images/packing/packing-<%= i1 %>-<%= i2 %>.png" />
             </div>
         </script>
         <script type="text/template" id="scheme-thing-template">

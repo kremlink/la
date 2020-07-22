@@ -14,6 +14,8 @@ export let PlayerView=Backbone.View.extend({
  prepare:function(){
   let touched={};
 
+  this.player.controlBar.addChild('QualitySelector');
+  this.player.src(data.quality);
   app.get('aggregator').trigger('player:ready');
   this.player.on('pause',()=>{
    /*if(document.fullscreenElement)
