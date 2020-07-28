@@ -1,20 +1,8 @@
 export const data={
  touchPlayRadius:20,
- quality:[
-  {
-   src:'../test.mp4',
-   label:'auto',
-   selected:true
-  },
-  {
-   src:'../oceans.mp4',
-   label:'720P'
-  },
-  {
-   src:'../oceans1.mp4',
-   label:'480P'
-  }
- ],
+ testSpeedFile:'images/dl-speed.jpg',
+ redirect:'',
+ quality:[],
  view:{
   el:'.video-js'
  }

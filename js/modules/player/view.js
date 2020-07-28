@@ -1,22 +1,55 @@
 import {app} from '../../bf/base.js';
-import {data} from './data.js';
+import {data as dat} from './data.js';
+let data=app.configure({player:dat}).player;
 
 export let PlayerView=Backbone.View.extend({
  el:data.view.el,
  initialize:function(opts){
   this.timecodes=opts.timecodes;
-  this.player=videojs(this.el,{},()=>{
+  this.player=videojs(this.el,{
+   controlBar:{
+    children:[
+     "playToggle",
+     "volumeMenuButton",
+     "progressControl",
+     "currentTimeDisplay",
+     "timeDivider",
+     "durationDisplay"
+    ]
+   },
+   plugins:{
+
+   }
+  },()=>{
    this.prepare();
   });
   this.listenTo(app.get('aggregator'),'player:play',this.play);
   this.listenTo(app.get('aggregator'),'player:pause',this.pause);
  },
  prepare:function(){
-  let touched={};
+  let touched={},
+   time=Date.now(),
+   xhr,br,size;
 
-  this.player.controlBar.addChild('QualitySelector');
-  this.player.src(data.quality);
-  app.get('aggregator').trigger('player:ready');
+  xhr=new XMLHttpRequest();
+  xhr.open('GET',data.testSpeedFile+'?'+time,true);
+  xhr.responseType='blob';
+  xhr.onload=()=>{
+   let index;
+   size=xhr.response.size/1024/1024*8;
+   time=(Date.now()-time)/1000;
+   br=size/time;
+   index=data.quality.findIndex((o)=>o.speed[0]<br&&o.speed[1]>=br);
+   //console.log(br,index);
+
+   data.quality.unshift({selected:true,label:'auto',src:data.quality[index].src+'?'+Date.now()});
+   this.player.controlBar.addChild('QualitySelector');
+   this.player.src(data.quality);
+
+   app.get('aggregator').trigger('player:ready');
+  };
+  xhr.send();
+
   this.player.on('pause',()=>{
    /*if(document.fullscreenElement)
     document.exitFullscreen();*/
@@ -24,7 +57,10 @@ export let PlayerView=Backbone.View.extend({
   });
   this.player.on('play',()=>{
    //app.get('aggregator').trigger('main:toggle',false);
-   //document.documentElement.requestFullscreen();//TODO: uncomment
+   document.documentElement.requestFullscreen();//TODO: uncomment
+  });
+  this.player.on('ended',()=>{
+   location.href=data.redirect;
   });
   /*document.addEventListener('fullscreenchange',()=>{
    app.get('aggregator').trigger('page:fs',document.fullscreenElement);

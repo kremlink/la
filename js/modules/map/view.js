@@ -1,5 +1,5 @@
 import {data} from './data.js';
-import {BaseIntView} from '../BaseInteractiveView.js';
+import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
 events[`click ${data.events.click}`]='click';

@@ -27,6 +27,7 @@ export const data={
  view:{
   thTemplate:'#catch-thing-item-template',
   video:'.ov-video',
+  soundBg:'.sounds[data-what=catch-bg]',
   el:'.ov-wrap.catch',
   into:'.game',
   thingCls:'thing',

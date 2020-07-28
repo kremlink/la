@@ -1,5 +1,5 @@
 import {data} from './data.js';
-import {BaseIntView} from '../BaseInteractiveView.js';
+import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
 events[`click ${data.events.start}`]='start';
@@ -10,7 +10,6 @@ export let SchemeView=BaseIntView.extend({
  events:events,
  thTemplate:_.template($(data.view.thTemplate).html()),
  angles:[],
- $sBg:$(data.view.soundBg),
  initialize:function(){
   let s='';
 
@@ -30,10 +29,6 @@ export let SchemeView=BaseIntView.extend({
  },
  start:function(){
   this.$el.addClass(data.view.startCls);
- },
- toggle:function(f){
-  BaseIntView.prototype.toggle.apply(this,[f]);
-  this.$sBg[0][f?'play':'pause']();
  },
  choose:function(e){
   let thing=$(e.currentTarget),

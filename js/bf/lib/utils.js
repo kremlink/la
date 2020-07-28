@@ -261,7 +261,7 @@ utils={
    imgs=imgs?imgs.add(img):img;
   }
 
-  imgs.imagesLoaded(function(){
+  return imgs.imagesLoaded(function(){
    if(opts.elements)
    {
     opts.elements.each(function(i){

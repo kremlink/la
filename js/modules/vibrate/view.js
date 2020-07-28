@@ -1,4 +1,4 @@
-import {BaseIntView} from '../BaseInteractiveView.js';
+import {BaseIntView} from '../baseInteractive/view.js';
 import {data} from './data.js';
 
 let events={};
@@ -9,7 +9,8 @@ export let VibrateView=BaseIntView.extend({
  initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
    el:data.view.el[opts.vibrate],
-   data:data
+   data:data,
+   vibrate:opts.vibrate
   }]);
 
   this.$btn=this.$(data.events.click);
@@ -20,8 +21,22 @@ export let VibrateView=BaseIntView.extend({
    this.shift();
  },
  shift:function(){
+  let once;
+
   this.$video.on('timeupdate',()=>{
-   this.$btn.toggleClass(data.view.twoMoveBtnCls,this.$video[0].currentTime>data.twoMoveBtnTime);
+   let f=this.$video[0].currentTime>data.twoMoveBtnTime.when;
+
+   if(!f)
+   {
+    once=false;
+    this.$btn.toggleClass(data.view.twoMoveBtnCls,false);
+   }
+   if(f&&!once)
+   {
+    this.$video[0].currentTime=data.twoMoveBtnTime.where;
+    once=true;
+    this.$btn.toggleClass(data.view.twoMoveBtnCls,f);
+   }
   });
  },
  vibrate:function(){
@@ -42,7 +57,6 @@ export let VibrateView=BaseIntView.extend({
 
   this.$wobble=this.$(data.button.wobble);
   this.$pr=this.$(data.button.pText);
-  this.wait=null;
 
   _.debounce(()=>{
    $(data.button.pDiv).css({transitionDuration:data.wait/1000+'s',width:'100%'});

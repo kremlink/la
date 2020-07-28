@@ -9,6 +9,35 @@
       @include trf(translate(-20px,0));
     }
   };
+  @include kfs(w-move-right){
+    50%{
+      @include trf(translate(20px,0));
+    }
+  };
+  @include kfs(w-move-both){
+    25%{
+      @include trf(translate(-20px,0));
+    }
+    75%{
+      @include trf(translate(20px,0));
+    }
+  };
+  @include kfs(w-rotate-both){
+    25%{
+      @include trf('rotateY(-20deg)');
+    }
+    75%{
+      @include trf('rotateY(20deg)');
+    }
+    100%{
+      @include trf('rotateY(0deg)');
+    }
+  };
+  @include kfs(w-rotate-right){
+    50%{
+      @include trf('rotateY(20deg)');
+    }
+  };
 
   .wobble-pop{
     @include flx(display,flex);

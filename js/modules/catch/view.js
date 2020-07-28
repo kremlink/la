@@ -1,5 +1,5 @@
 import {data} from './data.js';
-import {BaseIntView} from '../BaseInteractiveView.js';
+import {BaseIntView} from '../baseInteractive/view.js';
 
 let mri=function(min,max){
   return Math.floor(Math.random()*(max-min+1))+min;

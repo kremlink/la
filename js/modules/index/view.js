@@ -1,11 +1,12 @@
+import {app} from '../../bf/base.js';
 import {MainView} from '../main/view.js';
 import {PlayerView} from '../player/view.js';
-import {data} from './data.js';
+//import {data} from './data.js';
 
 export {data} from './data.js';
 
-//import {data as dat} from './data.js';
-//let data=app.configure({index:dat}).index;
+import {data as dat} from './data.js';
+let data=app.configure({index:dat}).index;
 
 let events={};
 events[`click ${data.events.start}`]='start';
@@ -18,44 +19,48 @@ export function init(app,modules){
   events:events,
   el:data.view.el,
   initialize:function(){
-   this.playerView=new PlayerView({timecodes:data.timecodes});//TODO: uncomment
-   this.mainView=new MainView({timecodes:data.timecodes});
+   let mob=!matchMedia(data.minViewport).matches;
 
-   if(!matchMedia(data.minViewport).matches)
-    this.$el.addClass(data.view.tooSmallCls);
-   $(window).on('resize',_.debounce(function(){
-    //location.reload();//TODO: uncomment
+   new MainView({timecodes:data.timecodes});
+
+   this.$el.toggleClass(data.view.tooSmallCls,mob);
+   $(window).on('resize',_.debounce(()=>{
+    mob=!matchMedia(data.minViewport).matches;
+    this.$el.toggleClass(data.view.tooSmallCls,mob);
+    //app.get('aggregator').trigger(mob?'player:pause':'player:play');//TODO: check if paused
    },200));
    document.addEventListener('contextmenu',e=>e.preventDefault());
-   this.listenTo(app.get('aggregator'),'player:ready',this.playerReady);
+   this.listenTo(app.get('aggregator'),'player:ready',this.loaded);
    this.listenTo(app.get('aggregator'),'page:fs',this.fs);
    this.listenTo(app.get('aggregator'),'page:timer',this.timer);
    this.listenTo(app.get('aggregator'),'main:step',this.pause);
    this.listenTo(app.get('aggregator'),'player:play',this.play);
+   this.prepare();
   },
-  playerReady:function(){//inconsistent loadeddata event with multiple videos
-   this.loaded();
-   /*let self=this,
-    res=this.$el.find('video,audio'),
-    ctr=[],
-   wait=setTimeout(()=>this.loaded(),data.waitLoad);
+  prepare:function(){//inconsistent loadeddata event with multiple videos
+   let imgs=[],
+   wait=[];
 
-   res.each(function(i){
-     this.addEventListener('loadeddata',function(){
-      console.log(this.readyState);//TODO: remove
-      if(this.readyState>=3)
+   for(let [x,y] of Object.entries(data.preload))
+   {
+    if(y.imgs){
+     imgs=y.imgs.map(t=>x+t);
+    }
+    if(y.i)
+    {
+     imgs=[];
+     for(let i=1;i<=y.i;i++)
+     {
+      for(let j=1;j<=y.j[i-1];j++)
       {
-       ctr[i]=true;
-       if(ctr[res.length-1])
-       {
-        self.$el.imagesLoaded(()=>{
-         clearTimeout(wait);
-         self.loaded();
-        });
-       }
+       imgs.push(x+y.tmpl1.replace('[i]',i).replace('[j]',j));
+       imgs.push(x+y.tmpl2.replace('[i]',i).replace('[j]',j));
       }
-     });
-   });*/
+     }
+    }
+    wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
+   }
+   $.when(wait).then(()=>this.playerView=new PlayerView({timecodes:data.timecodes}));
   },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);

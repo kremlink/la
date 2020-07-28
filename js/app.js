@@ -2,13 +2,14 @@ import {app} from './bf/base.js';
 
 import * as index from './modules/index/view.js';
 
+import {utils} from './bf/lib/utils.js';
 //import {Toggle} from './bf/lib/toggle.js';
 //------------------------
 const modules=app.get('helpers.html').data('app').split(',');
 //------------------------
 app.init({
  //plugins:[Toggle],
- plugins:[],
+ plugins:[{object:utils,name:'utils'}],
  settings:{}
 });
 
@@ -18,4 +19,3 @@ app.set({dest:'objects.isMobile',object:matchMedia(index.data.mobViewport).match
 $(()=>{
  index.init(app,modules);
 });
-//TODO: make prototypes for all views with video p/p call in it

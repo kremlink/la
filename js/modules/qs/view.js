@@ -1,5 +1,5 @@
 import {data} from './data.js';
-import {BaseIntView} from '../BaseInteractiveView.js';
+import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
 events[`click ${data.events.yes}`]='yes';
@@ -9,7 +9,6 @@ export let QsView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  liTemplate:_.template($(data.view.liTemplate).html()),
- $sBg:$(data.view.soundBg),
  $sPlus:$(data.view.soundPlus),
  $sMinus:$(data.view.soundMinus),
  initialize:function(){
@@ -74,10 +73,6 @@ export let QsView=BaseIntView.extend({
    this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
- },
- toggle:function(f){
-  BaseIntView.prototype.toggle.apply(this,[f]);
-  this.$sBg[0][f?'play':'pause']();
  },
  go:function(){
   this.away();
