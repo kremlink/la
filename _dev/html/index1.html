@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html data-app='{"modules":["index"],"index":2}'>
+    <head>
+		@@include('components/head.html')
+        @@include('components/scripts.html')
+	</head>
+	<body>
+		<div id="wrap">
+			<video playsinline
+					class="video-js"
+					controls
+                    preload="auto"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+                <source src="../test.mp4" type="video/mp4" />
+				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
+				<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a
+					web browser that
+					<a href="https://videojs.com/html5-video-support/" target="_blank">
+						supports HTML5 video
+					</a>
+				</p>
+			</video>
+			<div class="overlay-block">
+                <div class="ov-wrap start">
+                    <div class="ov-video" style="background-image: url(images/first-bg.jpg);"></div>
+                    <div class="wobble-pop">
+                        <div class="w-p-outer">
+                            <div class="w-p-wrap">
+                                <svg class="w-p-bg">
+                                    <use xlink:href="#icon-shared-text-bg"></use>
+                                </svg>
+                                <img class="w-p-pulse" src="images/pulse-btn.png" alt=""/>
+                                <div class="w-p-cont">
+                                    <svg class="w-p-text">
+                                        <use xlink:href="#icon-shared-text-top"></use>
+                                    </svg>
+                                    <div class="w-p-t-ov">
+                                        Это интерактивное приключение, в котором <br>ты увидишь, какие задачи и проблемы возникают <br>перед членами отряда.<br>
+                                        Каждое решение имеет свою цену. <br>Твой противник — само время.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pulse-btn start">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <!--<div class="pulse-btn">
+                        <div class="p-b-clip">
+                            <div class="p-b-pulse"></div>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="ov-wrap vibrate v2">
+                    <video class="ov-video" preload="auto" loop muted>
+                        <source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />
+                    </video>
+                    <div class="pulse-btn">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                </div>
+                <div class="ov-before">
+                    <svg>
+                        <use xlink:href="#icon-shared-pop-poloski1"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="the-anim">
+                <img src="images/pulse-btn.png" alt=""/>
+            </div>
+            <div class="the-timer continued">
+                <svg class="the-t-bg">
+                    <use xlink:href="#icon-shared-clock-bg"></use>
+                </svg>
+                <div class="the-t-text"></div>
+                <div class="the-t-pop"></div>
+            </div>
+            <div class="start-pop">
+                <div style="background-image: url(images/start-bg.svg);"></div>
+                <div style="background-image: url(images/start-button-p.svg);"></div>
+                <div style="background-image: url(images/start-button.svg);"></div>
+            </div>
+            <div class="loader-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="l"></div>
+            </div>
+            <div class="orientation-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="text">
+                    Экран слишком мал :(<br/>
+                    Возможно, вам поможет поворот девайса.
+                </div>
+            </div>
+		</div>
+        <audio class="sounds" data-what="the-btn" src="../1ser/MP3/button.mp3" preload="auto"></audio>
+        <div class="safe-hide-svg">
+            @@include('components/shared-sprite.svg')
+        </div>
+	</body>
+</html>

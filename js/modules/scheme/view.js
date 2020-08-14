@@ -8,10 +8,11 @@ events[`click .${data.view.thingCls}`]='choose';
 export let SchemeView=BaseIntView.extend({
  el:data.view.el,
  events:events,
- thTemplate:_.template($(data.view.thTemplate).html()),
  angles:[],
  initialize:function(){
   let s='';
+
+  this.thTemplate=_.template($(data.view.thTemplate).html());
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data

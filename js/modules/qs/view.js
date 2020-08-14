@@ -8,11 +8,12 @@ events[`click ${data.events.no}`]='no';
 export let QsView=BaseIntView.extend({
  el:data.view.el,
  events:events,
- liTemplate:_.template($(data.view.liTemplate).html()),
  $sPlus:$(data.view.soundPlus),
  $sMinus:$(data.view.soundMinus),
  initialize:function(){
   let $li;
+
+  this.liTemplate=_.template($(data.view.liTemplate).html());
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data
@@ -28,7 +29,7 @@ export let QsView=BaseIntView.extend({
    if(this.$msg.hasClass(data.view.shownCls))
    {
     this.$chosen.removeClass(data.view.goodCls+' '+data.view.badCls);
-    $li=!data.choose[this.ctr].hidden?$(this.liTemplate({text:data.choose[this.ctr].text.slice(0, -1)})):null;
+    $li=!data.choose[this.ctr].hidden?$(this.liTemplate({text:data.choose[this.ctr].text.slice(0,-1)})):null;
     this.ctr++;
     if($li)
     {
@@ -59,7 +60,7 @@ export let QsView=BaseIntView.extend({
  yes:function(e){
   if(!this.changing)
   {
-   this.$sPlus[0].play();
+   this[data.choose[this.ctr].yes?'$sPlus':'$sMinus'][0].play();
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
@@ -68,7 +69,7 @@ export let QsView=BaseIntView.extend({
  no:function(e){
   if(!this.changing)
   {
-   this.$sMinus[0].play();
+   this[!data.choose[this.ctr].yes?'$sPlus':'$sMinus'][0].play();
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);

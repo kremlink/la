@@ -6,7 +6,8 @@ import {PlayerView} from '../player/view.js';
 export {data} from './data.js';
 
 import {data as dat} from './data.js';
-let data=app.configure({index:dat}).index;
+let data=app.configure({index:dat}).index,
+    epIndex;
 
 let events={};
 events[`click ${data.events.start}`]='start';
@@ -21,7 +22,9 @@ export function init(app,modules){
   initialize:function(){
    let mob=!matchMedia(data.minViewport).matches;
 
-   new MainView({timecodes:data.timecodes});
+   epIndex=app.get('epIndex');
+
+   new MainView({timecodes:data.timecodes[epIndex]});
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
    $(window).on('resize',_.debounce(()=>{
@@ -41,7 +44,7 @@ export function init(app,modules){
    let imgs=[],
    wait=[];
 
-   for(let [x,y] of Object.entries(data.preload))
+   for(let [x,y] of Object.entries(data.preload[epIndex]))
    {
     if(y.imgs){
      imgs=y.imgs.map(t=>x+t);
@@ -60,7 +63,7 @@ export function init(app,modules){
     }
     wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
    }
-   $.when(wait).then(()=>this.playerView=new PlayerView({timecodes:data.timecodes}));
+   $.when(wait).then(()=>this.playerView=new PlayerView({timecodes:data.timecodes[epIndex]}));
   },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);
@@ -69,17 +72,15 @@ export function init(app,modules){
    this.$el.addClass(data.view.timerCls);
   },
   start:function(){
-   this.$el.addClass(data.view.preStartCls);
-   setTimeout(()=>{
-    this.$el.addClass(data.view.startCls);
-    this.playerView.play();//TODO: uncomment
-   },data.waitBtn);
+   this.$el.addClass(data.view.startCls);
+   this.playerView.play();//TODO: uncomment
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);
   },
-  pause:function(){
-   this.$el.addClass(data.view.pauseCls);
+  pause:function(i){
+   if(!data.timecodes[epIndex][i].checkpoint)
+    this.$el.addClass(data.view.pauseCls);
   },
   play:function(){
    this.$el.removeClass(data.view.pauseCls);

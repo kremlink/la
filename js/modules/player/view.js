@@ -1,16 +1,19 @@
 import {app} from '../../bf/base.js';
 import {data as dat} from './data.js';
-let data=app.configure({player:dat}).player;
+let data=app.configure({player:dat}).player,
+    epIndex;
 
 export let PlayerView=Backbone.View.extend({
  el:data.view.el,
  initialize:function(opts){
+ epIndex=app.get('epIndex');
+
   this.timecodes=opts.timecodes;
   this.player=videojs(this.el,{
    controlBar:{
     children:[
      "playToggle",
-     "volumeMenuButton",
+     "VolumePanel",
      "progressControl",
      "currentTimeDisplay",
      "timeDivider",
@@ -39,17 +42,18 @@ export let PlayerView=Backbone.View.extend({
    size=xhr.response.size/1024/1024*8;
    time=(Date.now()-time)/1000;
    br=size/time;
-   index=data.quality.findIndex((o)=>o.speed[0]<br&&o.speed[1]>=br);
+   index=data.quality[epIndex].findIndex((o)=>o.speed[0]<br&&o.speed[1]>=br);
    //console.log(br,index);
 
-   data.quality.unshift({selected:true,label:'auto',src:data.quality[index].src+'?'+Date.now()});
+   data.quality[epIndex].unshift({selected:true,label:'auto',src:data.quality[epIndex][index].src+'?'+Date.now()});
    this.player.controlBar.addChild('QualitySelector');
-   this.player.src(data.quality);
+   this.player.src(data.quality[epIndex]);
 
    app.get('aggregator').trigger('player:ready');
   };
   xhr.send();
-
+  if(!data._production)
+   this.player.muted(true);
   this.player.on('pause',()=>{
    /*if(document.fullscreenElement)
     document.exitFullscreen();*/
@@ -57,7 +61,8 @@ export let PlayerView=Backbone.View.extend({
   });
   this.player.on('play',()=>{
    //app.get('aggregator').trigger('main:toggle',false);
-   document.documentElement.requestFullscreen();//TODO: uncomment
+   if(data._production)
+    document.documentElement.requestFullscreen();//TODO: uncomment
   });
   this.player.on('ended',()=>{
    location.href=data.redirect;

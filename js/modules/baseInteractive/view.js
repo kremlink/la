@@ -12,7 +12,10 @@ export let BaseIntView=Backbone.View.extend({
   this.$sound=$(data.sound);
   this.toggle(true);
 
-  $(data.theBtn).on('click',()=>this.$sound[0]['play']());
+  $(data.theBtn).on('click',()=>{
+   this.$sound[0].currentTime=0;
+   this.$sound[0]['play']();
+  });
  },
  away:function(failed=false){
   clearTimeout(this.wait);

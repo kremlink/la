@@ -32,15 +32,19 @@ export let CatchView=BaseIntView.extend({
  index:-1,
  counter:[],
  done:0,
- thTemplate:_.template($(data.view.thTemplate).html()),
  initialize:function(){
   let self=this,
    s,
    tmp;
 
+  this.thTemplate=_.template($(data.view.thTemplate).html());
+
   BaseIntView.prototype.initialize.apply(this,[{
    data:data
   }]);
+
+  this.$sGood=$(data.view.soundGood);
+  this.$sBad=$(data.view.soundBad);
 
   for(let i=0;i<data.things.length;i++)
   {
@@ -103,10 +107,14 @@ export let CatchView=BaseIntView.extend({
 
   if(data.things[this.index][index].no)
   {
+   this.$sBad[0].currentTime=0;
+   this.$sBad[0].play();
    item.addClass(data.view.noCls);
    setTimeout(()=>item.removeClass(data.view.noCls),data.shakeDur);
   }else
   {
+   this.$sGood[0].currentTime=0;
+   this.$sGood[0].play();
    this.pData[this.index].stop[index]=true;
    item.css('transition','');
    setTimeout(()=>item.addClass(data.view.dropCls).css(data.drop),0);

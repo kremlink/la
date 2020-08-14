@@ -1,5 +1,7 @@
+import {app} from '../../bf/base.js';
 import {BaseIntView} from '../baseInteractive/view.js';
-import {data} from './data.js';
+import {data as dat} from './data.js';
+let data=app.configure({vibrate:dat}).vibrate;
 
 let events={};
 events[`click ${data.events.click}`]='click';

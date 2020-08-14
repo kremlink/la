@@ -1,0 +1,17 @@
+@include exports("@path:components\_ep2.scss"){/*@path:components\_ep2.scss*/
+  .ov-wrap{
+    &.ep2-simple{
+      @extend %text-btn;
+      .w-p-outer{
+        transition-delay:$anim*5;
+        @include anim('w-rotate-both 20s ease-in-out infinite');
+      }
+      .pulse-btn.start{
+        transition-delay:$anim*5;
+      }
+      .w-p-cont{
+        @include anim('w-move-both 20s infinite');
+      }
+    }
+  }
+}
