@@ -2,7 +2,7 @@
 /*@path:core\_base.scss*/
 /*@path:core\_mixins.scss*/
 /*@path:core\_exts.scss*/
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic");
 .qs-block .l-cont {
   box-sizing: border-box;
 }
@@ -1091,7 +1091,7 @@ body {
   transition-duration: 0.3s;
   pointer-events: none;
 }
-.ov-wrap.cartogr.ok .next {
+.ov-wrap.cartogr.ok .next, .ov-wrap.cartogr.ok .g-m {
   opacity: 1;
 }
 .ov-wrap.cartogr.ok .bg:nth-child(2) {
@@ -1126,6 +1126,14 @@ body {
   display: none;
 }
 
+@keyframes cartogr-item {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .cartogr-block {
   position: absolute;
   width: 100%;
@@ -1163,6 +1171,62 @@ body {
 }
 .cartogr-block .g-item {
   position: absolute;
+}
+.cartogr-block .g-item.active {
+  cursor: pointer;
+}
+.cartogr-block .g-item.active:hover:after {
+  opacity: 1;
+}
+.cartogr-block .g-item.good img:nth-child(1) {
+  animation: cartogr-item 1.5s linear;
+}
+.cartogr-block .g-item.bad img:nth-child(2) {
+  animation: cartogr-item 1.5s linear;
+}
+.cartogr-block .g-item:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.cartogr-block .g-item img {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+}
+.cartogr-block .g-m {
+  transform: translate(-50%, -50%);
+  font-size: 0.5em;
+  position: absolute;
+  width: 3em;
+  height: 1.5em;
+  line-height: 1.5em;
+  background: #2c2c30;
+  color: #a5a5ac;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+.cartogr-block .g-m.hidden {
+  display: none;
+}
+.cartogr-block .n-h {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  position: absolute;
+  left: 1.7em;
+  top: -1em;
 }
 
 /*@path:components\_footer.scss*/
