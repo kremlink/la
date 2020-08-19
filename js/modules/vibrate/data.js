@@ -1,6 +1,9 @@
 export const data={
  wait:30000,
- twoMoveBtnTime:{when:6,where:6.4},
+ twoMoveBtnTime:{
+  two:{when:6,where:6.4},
+  three:{when:3,where:3.4}
+ },
  events:{
   'click':'.w-p-outer,.pulse-btn',
  },
@@ -8,14 +11,17 @@ export const data={
   video:'.ov-video',
   el:{
    one:'.ov-wrap.vibrate.v1',
-   two:'.ov-wrap.vibrate.v2'
+   two:'.ov-wrap.vibrate.v2',
+   three:'.ov-wrap.vibrate.v3'
   },
   soundBg:{
    one:'.sounds[data-what=v1-bg]',
-   two:'.sounds[data-what=v2-bg]'
+   two:'.sounds[data-what=v2-bg]',
+   three:'.sounds[data-what=v3-bg]'
   },
   shownCls:'shown',
-  twoMoveBtnCls:'shifted'
+  twoMoveBtnCls:'shifted',
+  errCls:'incorr'
  },
  button:{
   spread:100,

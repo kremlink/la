@@ -22,7 +22,7 @@
 			</video>
 			<div class="overlay-block">
                 <div class="ov-wrap start">
-                    <div class="ov-video" style="background-image: url(images/first-bg.jpg);"></div>
+                    <div class="ov-video" style="background-image: url(images/map-bg1.png);"></div>
                     <div class="wobble-pop">
                         <div class="w-p-outer">
                             <div class="w-p-wrap">
@@ -51,11 +51,73 @@
                         </div>
                     </div>-->
                 </div>
-                <div class="ov-wrap vibrate v2">
+                <div class="ov-wrap vibrate v3">
                     <video class="ov-video" preload="auto" loop muted>
-                        <source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />
+                        <source src="../test.mp4" type="video/mp4" />
+                        <!--<source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />-->
                     </video>
+                    <div class="pulse-btn corr">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <div class="pulse-btn incorr">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <div class="pulse-btn incorr">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                </div>
+                <div class="ov-wrap simple">
                     <div class="pulse-btn">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <div class="pulse-btn">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <div class="pulse-btn">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                </div>
+                <div class="ov-wrap cartogr">
+                    <div class="cartogr-block">
+                        <svg class="bg">
+                            <use xlink:href="#icon-shared-2-17-map-bg"></use>
+                        </svg>
+                        <svg class="bg">
+                            <use xlink:href="#icon-shared-2-17-map-grid"></use>
+                        </svg>
+                        <div class="grid">
+                        
+                        </div>
+                        <div class="next">
+                            <svg>
+                                <use xlink:href="#icon-shared-2-17-map-next"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="wobble-pop">
+                        <div class="w-p-outer">
+                            <div class="w-p-wrap">
+                                <svg class="w-p-bg">
+                                    <use xlink:href="#icon-shared-text-bg"></use>
+                                </svg>
+                                <img class="w-p-pulse" src="images/pulse-btn.png" alt=""/>
+                                <div class="w-p-cont">
+                                    <svg class="w-p-text">
+                                        <use xlink:href="#icon-shared-text-top"></use>
+                                    </svg>
+                                    <div class="w-p-t-ov">
+                                        <div>
+                                            Стартовый текст
+                                        </div>
+                                        <div>
+                                            Конечный текст
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pulse-btn start">
                         <img src="images/but-click.png" alt=""/>
                     </div>
                 </div>
@@ -93,6 +155,13 @@
             </div>
 		</div>
         <audio class="sounds" data-what="the-btn" src="../1ser/MP3/button.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="v3-bg" src="../1ser/MP3/1_19_bg.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="cartogr-bg" src="../2ser/MP3/2-17-music.mp3" preload="auto" loop></audio>
+        <script type="text/template" id="cartogr-item-template">
+            <div class="g-item" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
+                <%= text %>
+            </div>
+        </script>
         <div class="safe-hide-svg">
             @@include('components/shared-sprite.svg')
         </div>

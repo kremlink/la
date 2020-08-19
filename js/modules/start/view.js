@@ -5,9 +5,10 @@ let events={};
 events[`click ${data.events.click}`]='click';
 
 export let StartView=BaseIntView.extend({
- el:data.view.el,
  events:events,
- initialize:function(){
+ initialize:function(opts){
+  this.setElement(data.view.el[opts.simple]);
+
   BaseIntView.prototype.initialize.apply(this,[{
    data:data
   }]);

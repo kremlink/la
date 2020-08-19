@@ -19,14 +19,14 @@ export let VibrateView=BaseIntView.extend({
 
   if(opts.vibrate==='one')
    this.vibrate();
-  if(opts.vibrate==='two')
-   this.shift();
+  if(opts.vibrate==='two'||opts.vibrate==='three')
+   this.shift(opts.vibrate);
  },
- shift:function(){
+ shift:function(type){
   let once;
 
   this.$video.on('timeupdate',()=>{
-   let f=this.$video[0].currentTime>data.twoMoveBtnTime.when;
+   let f=this.$video[0].currentTime>data.twoMoveBtnTime[type].when;
 
    if(!f)
    {
@@ -35,7 +35,7 @@ export let VibrateView=BaseIntView.extend({
    }
    if(f&&!once)
    {
-    this.$video[0].currentTime=data.twoMoveBtnTime.where;
+    this.$video[0].currentTime=data.twoMoveBtnTime[type].where;
     once=true;
     this.$btn.toggleClass(data.view.twoMoveBtnCls,f);
    }
@@ -82,7 +82,7 @@ export let VibrateView=BaseIntView.extend({
    this.$pr.text(text>data.wait?data.wait/1000:text);
   },data.button.timerDivider);
  },
- click:function(){
-  this.away();
+ click:function(e){
+  this.away($(e.currentTarget).hasClass(data.view.errCls));
  }
 });

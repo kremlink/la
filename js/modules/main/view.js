@@ -5,6 +5,7 @@ import {QsView} from '../qs/view.js';
 import {MapView} from '../map/view.js';
 import {CatchView} from '../catch/view.js';
 import {SchemeView} from '../scheme/view.js';
+import {CartogrView} from '../cartogr/view.js';
 
 import {TimerView} from '../timer/view.js';
 import {data as dat} from './data.js';
@@ -45,7 +46,7 @@ export let MainView=Backbone.View.extend({
    app.get('aggregator').trigger('timer:update',this.timecodes[i]);
   }else
   {
-   eval(`new ${data.stepViews[epIndex][i]}({vibrate:'${this.timecodes[i].vibrate}'})`);
+   eval(`new ${data.stepViews[epIndex][i]}({vibrate:'${this.timecodes[i].vibrate}',simple:'${this.timecodes[i].simple}'})`);
 
    this.currentIndex=i;
    this.toggle(true);

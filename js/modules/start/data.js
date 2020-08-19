@@ -4,7 +4,10 @@ export const data={
   'click':'.pulse-btn'
  },
  view:{
-  el:'.ov-wrap.start',
+  el:{
+   one:'.ov-wrap.start',
+   two:'.ov-wrap.simple'
+  },
   shownCls:'shown'
  }
 };
