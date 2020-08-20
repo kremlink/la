@@ -1097,6 +1097,9 @@ body {
 .ov-wrap.cartogr.ok .bg:nth-child(2) {
   opacity: 1;
 }
+.ov-wrap.cartogr.done .cartogr-block:after {
+  opacity: 0.5;
+}
 .ov-wrap.cartogr.done .wobble-pop {
   pointer-events: auto;
 }
@@ -1143,6 +1146,18 @@ body {
   visibility: hidden;
   transition: opacity 0.6s ease-in-out;
 }
+.cartogr-block:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
 .cartogr-block .grid {
   position: absolute;
   left: 0;
@@ -1160,6 +1175,15 @@ body {
   opacity: 0;
   transition: opacity 0.6s ease-in-out 0.6s;
 }
+.cartogr-block .next img {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.cartogr-block .next img.active {
+  opacity: 1;
+}
 .cartogr-block .bg:nth-child(2) {
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
@@ -1172,10 +1196,14 @@ body {
 .cartogr-block .g-item {
   position: absolute;
 }
-.cartogr-block .g-item.active {
+.cartogr-block .g-item.active:not(.done) {
   cursor: pointer;
 }
-.cartogr-block .g-item.active:hover:after {
+.cartogr-block .g-item.active:not(.done):hover:after {
+  opacity: 1;
+}
+.cartogr-block .g-item.done img:nth-child(3) {
+  transition: opacity 0.3s ease-in-out;
   opacity: 1;
 }
 .cartogr-block .g-item.good img:nth-child(1) {

@@ -86,6 +86,9 @@
         }
       }
       &.done{
+        .cartogr-block:after{
+          opacity:.5;
+        }
         .wobble-pop{
           pointer-events:auto;
         }
@@ -137,6 +140,14 @@
     overflow:hidden;
     visibility:hidden;
     @include trs('opacity #{$anim*2} ease-in-out');
+    &:after{
+      content:'';
+      pointer-events:none;
+      @include abs($l:0,$r:0,$t:0,$b:0);
+      background:#000;
+      opacity:0;
+      @include trs('opacity #{$anim} ease-in-out');
+    }
     .grid{
       @include abs($t:-3.3%,$b:-3.3%,$l:0,$r:0);
       background:rgba(#fff,0.3);
@@ -147,6 +158,15 @@
       height:14em;
       opacity:0;
       @include trs('opacity #{$anim*2} ease-in-out #{$anim*2}');
+      img{
+        width:100%;
+        position:absolute;
+        opacity:0;
+        @include trs('opacity #{$anim} ease-in-out');
+        &.active{
+          opacity:1;
+        }
+      }
     }
     .bg:nth-child(2){
       opacity:0;
@@ -159,9 +179,15 @@
     }
     .g-item{
       position:absolute;
-      &.active{
+      &.active:not(.done){
         cursor:pointer;
         &:hover:after{
+          opacity:1;
+        }
+      }
+      &.done{
+        img:nth-child(3){
+          @include trs('opacity #{$anim} ease-in-out');
           opacity:1;
         }
       }
