@@ -122,6 +122,39 @@
                         <img src="images/but-click.png" alt=""/>
                     </div>
                 </div>
+                <div class="ov-wrap forest">
+                    <video class="ov-video" preload="auto" loop muted>
+                        <source src="../test.mp4" type="video/mp4" />
+                        <!--<source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />-->
+                    </video>
+                    <div class="forest-block">
+                    
+                    </div>
+                    <div class="wobble-pop">
+                        <div class="w-p-outer">
+                            <div class="w-p-wrap">
+                                <svg class="w-p-bg">
+                                    <use xlink:href="#icon-shared-2-14-text-bg"></use>
+                                </svg>
+                                <img class="w-p-pulse" src="images/pulse-btn.png" alt=""/>
+                                <div class="w-p-cont">
+                                    <svg class="w-p-text">
+                                        <use xlink:href="#icon-shared-2-14-text-top"></use>
+                                    </svg>
+                                    <div class="w-p-t-ov">
+                                        Стартовый текст
+                                        <svg class="w-p-text">
+                                            <use xlink:href="#icon-shared-2-14-text-pic"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pulse-btn start">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                </div>
                 <div class="ov-before">
                     <svg>
                         <use xlink:href="#icon-shared-pop-poloski1"></use>
@@ -158,6 +191,8 @@
         <audio class="sounds" data-what="the-btn" src="../1ser/MP3/button.mp3" preload="auto"></audio>
         <audio class="sounds" data-what="v3-bg" src="../1ser/MP3/1_19_bg.mp3" preload="auto" loop></audio>
         <audio class="sounds" data-what="cartogr-bg" src="../2ser/MP3/2-17-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="qs-minus" src="../1ser/MP3/button_minus.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="qs-plus" src="../1ser/MP3/button_plus.mp3" preload="auto"></audio>
         <script type="text/template" id="cartogr-item-template">
             <div class="g-item<%= active?' active':'' %>" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
                 <img src="images/but-good.png" alt=""/>
@@ -174,6 +209,24 @@
         </script>
         <script type="text/template" id="cartogr-next-template">
             <img src="images/2-17/prev/2-17-prev-<%= index %>.png" alt=""/>
+        </script>
+        <script type="text/template" id="forest-item-template">
+            <div class="g-item" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
+                <img src="images/2-14/2-14-grid-<%= index %>.png" alt=""/>
+                <svg>
+                    <use xlink:href="#icon-shared-2-14-hover"></use>
+                </svg>
+            </div>
+        </script>
+        <script type="text/template" id="forest-hline-template">
+            <svg class="g-hor" style="top:<%= top %>%;">
+                <use xlink:href="#icon-shared-2-14-horizontal"></use>
+            </svg>
+        </script>
+        <script type="text/template" id="forest-vline-template">
+            <svg class="g-ver" style="top:<%= left %>%;">
+                <use xlink:href="#icon-shared-2-14-vert"></use>
+            </svg>
         </script>
         <div class="safe-hide-svg">
             @@include('components/shared-sprite.svg')

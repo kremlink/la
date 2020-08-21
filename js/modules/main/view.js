@@ -6,6 +6,7 @@ import {MapView} from '../map/view.js';
 import {CatchView} from '../catch/view.js';
 import {SchemeView} from '../scheme/view.js';
 import {CartogrView} from '../cartogr/view.js';
+import {ForestView} from '../forest/view.js';
 
 import {TimerView} from '../timer/view.js';
 import {data as dat} from './data.js';

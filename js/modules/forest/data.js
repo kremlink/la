@@ -1,0 +1,30 @@
+export const data={
+ wait:300000,
+ grid:[8,6],
+ seq:[0,1,8,2,9,16,3,10,17,24,4,11,18,25,32,5,12,19,26,33,40,6,13,20,27,34,41,7,14,21,28,35,42,15,22,29,36,43,23,30,37,44,31,38,45,39,46,47],
+ events:{
+  'go':'.pulse-btn',
+  'gItem':'.g-item.active'
+ },
+ view:{
+  video:'.ov-video',
+  el:'.ov-wrap.forest',
+  $grid:'.forest-block',
+  hlTmpl:'#forest-hline-template',
+  vlTmpl:'#forest-hline-template',
+  //soundBg:'.sounds[data-what=cartogr-bg]',
+  soundPlus:'.sounds[data-what=qs-plus]',
+  soundMinus:'.sounds[data-what=qs-minus]',
+  okCls:'ok',
+  shownCls:'shown',
+  item:{
+   tmpl:'#forest-item-template',
+   activeCls:'active',
+   anim:.02,
+   iniCls:'ini',
+   doneCls:'done',
+   goodCls:'good',
+   badCls:'bad'
+  }
+ }
+};

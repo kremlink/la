@@ -439,45 +439,45 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
+.shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.cartogr .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.cartogr .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.cartogr .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.cartogr .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.cartogr .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.cartogr .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
   width: 11.25%;
   cursor: pointer;
 }
-.ov-wrap.cartogr .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
+.ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -485,7 +485,7 @@ body {
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.cartogr .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -1128,6 +1128,105 @@ body {
 .ov-wrap.cartogr .w-p-t-ov div:nth-child(2) {
   display: none;
 }
+.ov-wrap.forest.shown .w-p-outer {
+  top: 15%;
+}
+.ov-wrap.forest.ok .forest-block {
+  opacity: 1;
+  visibility: visible;
+}
+.ov-wrap.forest.ok .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.forest.ok .w-p-outer, .ov-wrap.forest.ok .pulse-btn.start {
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.ov-wrap.forest .w-p-outer {
+  transition-delay: 1.5s;
+  animation: w-rotate-both 20s ease-in-out infinite;
+}
+.ov-wrap.forest .w-p-cont {
+  animation: w-move-both 20s infinite;
+}
+.ov-wrap.forest .w-p-text {
+  height: 17.04em;
+}
+.ov-wrap.forest .w-p-t-ov {
+  right: 11.36%;
+}
+.ov-wrap.forest .w-p-t-ov svg {
+  display: block;
+  margin: 1.5em auto 0 auto;
+  width: 100%;
+  height: 5em;
+}
+.ov-wrap.forest .pulse-btn {
+  transition-delay: 1.5s;
+}
+
+.forest-block {
+  position: absolute;
+  left: 10%;
+  top: 4.07%;
+  right: 10%;
+  bottom: 4.07%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.3s ease-in-out;
+}
+.forest-block .g-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.forest-block .g-item.ini {
+  opacity: 1;
+}
+.forest-block .g-item.active {
+  cursor: pointer;
+  filter: grayscale(1);
+}
+.forest-block .g-item.active:hover svg {
+  opacity: 1;
+}
+.forest-block .g-item.done {
+  filter: brightness(50%);
+}
+.forest-block .g-item.done img {
+  bottom: -15%;
+}
+.forest-block .g-item.done .arr {
+  display: none;
+}
+.forest-block .g-item img {
+  position: absolute;
+  bottom: -9.05%;
+  width: 100%;
+  pointer-events: none;
+  transition: bottom 0.3s ease-in-out;
+}
+.forest-block .g-item svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.forest-block .g-hor {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+.forest-block .g-ver {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
 
 @keyframes cartogr-item {
   50% {
@@ -1164,7 +1263,6 @@ body {
   top: -3.3%;
   right: 0;
   bottom: -3.3%;
-  background: rgba(255, 255, 255, 0.3);
 }
 .cartogr-block .next {
   position: absolute;
@@ -1206,11 +1304,8 @@ body {
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 }
-.cartogr-block .g-item.good img:nth-child(1) {
-  animation: cartogr-item 1.5s linear;
-}
 .cartogr-block .g-item.bad img:nth-child(2) {
-  animation: cartogr-item 1.5s linear;
+  animation: cartogr-item 0.5s linear;
 }
 .cartogr-block .g-item:after {
   content: "";
@@ -1222,7 +1317,7 @@ body {
   border: 1px solid #fff;
   background: rgba(255, 255, 255, 0.15);
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
 }
 .cartogr-block .g-item img {
   position: absolute;

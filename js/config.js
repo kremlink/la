@@ -46,7 +46,7 @@ export let config={
  'main':{
   stepViews:{
    '1':[/*'StartView','VibrateView','VibrateView','QsView','MapView','CatchView','SchemeView',*/'StartView','Checkpoint','VibrateView','Checkpoint'],
-   '2':['Checkpoint','CartogrView','CartogrView'/*,'StartView','VibrateView','StartView'*/]
+   '2':['Checkpoint','ForestView'/*,'StartView','VibrateView','StartView','CartogrView'*/]
   }
  },
  'player':{
