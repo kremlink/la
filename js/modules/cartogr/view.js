@@ -9,9 +9,9 @@ export let CartogrView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  done:false,
- itemTemplate:_.template($(data.view.item.tmpl).html()),
- mTemplate:_.template($(data.view.mTmpl).html()),
- nextTemplate:_.template($(data.view.nextTmpl).html()),
+ itemTemplate:null,
+ mTemplate:null,
+ nextTemplate:null,
  $grid:null,
  $next:null,
  $previews:null,
@@ -24,6 +24,9 @@ export let CartogrView=BaseIntView.extend({
    data:data
   }]);
 
+  this.itemTemplate=_.template($(data.view.item.tmpl).html());
+  this.mTemplate=_.template($(data.view.mTmpl).html());
+  this.nextTemplate=_.template($(data.view.nextTmpl).html());
   this.$grid=this.$(data.view.$grid);
   this.$next=this.$(data.view.$next);
 

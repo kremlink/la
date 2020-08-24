@@ -8,25 +8,57 @@ events[`click ${data.events.click}`]='click';
 
 export let VibrateView=BaseIntView.extend({
  events:events,
+ vibrate:null,
  initialize:function(opts){
+  this.vibrate=opts.vibrate;
   BaseIntView.prototype.initialize.apply(this,[{
-   el:data.view.el[opts.vibrate],
+   el:data.view.el[this.vibrate],
    data:data,
-   vibrate:opts.vibrate
+   vibrate:this.vibrate
   }]);
 
   this.$btn=this.$(data.events.click);
 
-  if(opts.vibrate==='one')
-   this.vibrate();
-  if(opts.vibrate==='two'||opts.vibrate==='three')
-   this.shift(opts.vibrate);
+  switch (this.vibrate)
+  {
+   case 'one':
+    this.vibr();
+    break;
+   case 'two':
+    this.shift();
+  }
  },
- shift:function(type){
+ vid:function(no){
+  let trsFlag=true;
+
+  if(!no)
+  {
+   this.away();
+  }else
+  {
+   this.$btn.addClass(data.view.hiddenCls);
+   this.$video.on('ended',() =>{
+    this.away(true);
+   }).on('transitionend',()=>{
+    if(trsFlag)
+    {
+     this.$video[0].src=data.ep2videoSrc;
+     this.$video[0].loop=false;
+     this.$video[0].play().then(()=>{
+      this.$video.removeClass(data.view.hiddenCls);
+     });
+    }
+
+    trsFlag=false;
+   }).addClass(data.view.hiddenCls);
+
+  }
+ },
+ shift:function(){
   let once;
 
   this.$video.on('timeupdate',()=>{
-   let f=this.$video[0].currentTime>data.twoMoveBtnTime[type].when;
+   let f=this.$video[0].currentTime>data.twoMoveBtnTime.when;
 
    if(!f)
    {
@@ -35,13 +67,13 @@ export let VibrateView=BaseIntView.extend({
    }
    if(f&&!once)
    {
-    this.$video[0].currentTime=data.twoMoveBtnTime[type].where;
+    this.$video[0].currentTime=data.twoMoveBtnTime.where;
     once=true;
     this.$btn.toggleClass(data.view.twoMoveBtnCls,f);
    }
   });
  },
- vibrate:function(){
+ vibr:function(){
   let x=0,
    y=0,
    pCtr=0,
@@ -83,6 +115,12 @@ export let VibrateView=BaseIntView.extend({
   },data.button.timerDivider);
  },
  click:function(e){
-  this.away($(e.currentTarget).hasClass(data.view.errCls));
+  if(this.vibrate==='three')
+  {
+   this.vid($(e.currentTarget).hasClass(data.view.errCls));
+  }else
+  {
+   this.away();
+  }
  }
 });

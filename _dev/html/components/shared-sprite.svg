@@ -2112,7 +2112,7 @@
     <path d="M78.413 34.436L78.768 2.5a1.437 1.437 0 0 1 2.13-1.261l93.95 53.205L81.67 4.907l.348 31.356a1.812 1.812 0 0 1-1.812 1.813L4.94 38.68l.04 31.47c6.836.026 26.592.107 44.144.23 16.518.117 31.082.279 31.082.279 1.085 0 1.965.88 1.965 1.965l-.348 31.111 93.025-49.291-93.879 53.335a1.586 1.586 0 0 1-2.35-1.391l-.356-31.778c-4.497.048-16.22.167-29.139.258-21.636.152-46.624.24-46.624.24a2.484 2.484 0 0 1-2.484-2.484l.047-36.361A2.437 2.437 0 0 1 2.5 33.827l75.913.609z" style="fill:url(#2-14-arrow-a)"/>
     
 </symbol><symbol id="icon-shared-2-14-horizontal" viewBox="0 0 3274 2" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
-    <path d="M1 1h3272" style="fill:none;stroke:url(#2-14-horizontal-a);stroke-width:2px"/>
+    <path vector-effect="non-scaling-stroke" d="M1 1h3272" style="fill:none;stroke:url(#2-14-horizontal-a);stroke-width:2px"/>
     
 </symbol><symbol id="icon-shared-2-14-hover" viewBox="0 0 386 334" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
     <path d="M.646 1.354l332 332 .708-.708-332-332-.708.708z" style="fill:url(#2-14-hover-a)"/>
@@ -2292,7 +2292,7 @@
     <path d="M1976 994H86v-11h3v8h1884v-8h3v11z" style="fill:url(#2-14-text-top-b)"/>
     
 </symbol><symbol id="icon-shared-2-14-vert" viewBox="0 0 2 2162" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5">
-    <path d="M1 1v2160" style="fill:none;stroke:url(#2-14-vert-a);stroke-width:2px"/>
+    <path vector-effect="non-scaling-stroke" d="M1 1v2160" style="fill:none;stroke:url(#2-14-vert-a);stroke-width:2px"/>
     
 </symbol><symbol id="icon-shared-2-17-map-bg" viewBox="0 0 3840 2160" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
     <path style="fill:none" d="M0 0h3840v2160H0z"/>

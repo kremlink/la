@@ -1,9 +1,6 @@
 export const data={
  wait:30000,
- twoMoveBtnTime:{
-  two:{when:6,where:6.4},
-  three:{when:3,where:3.4}
- },
+ twoMoveBtnTime:{when:6,where:6.4},
  events:{
   'click':'.w-p-outer,.pulse-btn',
  },
@@ -21,7 +18,8 @@ export const data={
   },
   shownCls:'shown',
   twoMoveBtnCls:'shifted',
-  errCls:'incorr'
+  errCls:'incorr',
+  hiddenCls:'hidden'
  },
  button:{
   spread:100,

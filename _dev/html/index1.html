@@ -62,9 +62,6 @@
                     <div class="pulse-btn incorr">
                         <img src="images/but-click.png" alt=""/>
                     </div>
-                    <div class="pulse-btn incorr">
-                        <img src="images/but-click.png" alt=""/>
-                    </div>
                 </div>
                 <div class="ov-wrap simple">
                     <div class="pulse-btn">
@@ -213,9 +210,14 @@
         <script type="text/template" id="forest-item-template">
             <div class="g-item" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
                 <img src="images/2-14/2-14-grid-<%= index %>.png" alt=""/>
-                <svg>
+                <svg class="hover">
                     <use xlink:href="#icon-shared-2-14-hover"></use>
                 </svg>
+                <div class="arr">
+                    <svg>
+                        <use xlink:href="#icon-shared-2-14-arrow"></use>
+                    </svg>
+                </div>
             </div>
         </script>
         <script type="text/template" id="forest-hline-template">
@@ -224,7 +226,7 @@
             </svg>
         </script>
         <script type="text/template" id="forest-vline-template">
-            <svg class="g-ver" style="top:<%= left %>%;">
+            <svg class="g-ver" style="left:<%= left %>%;">
                 <use xlink:href="#icon-shared-2-14-vert"></use>
             </svg>
         </script>

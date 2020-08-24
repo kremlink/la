@@ -136,6 +136,10 @@
     height:100%;
     position:absolute;
     background: center/contain no-repeat;
+    @include trs('opacity #{$anim/2} ease-in-out');
+    &.hidden{
+      opacity:0;
+    }
   }
   //---
   @include kfs(timer-notif){

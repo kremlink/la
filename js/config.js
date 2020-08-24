@@ -23,7 +23,7 @@ export let config={
    ],
    '2':[
     {start:1,checkpoint:true},
-    {start:2,end:3,invoked:false,rem:-30,remText:'Минус полминуты'}
+    {start:2,end:3,invoked:false,vibrate:'three',rem:-30,remText:'Минус полминуты'}
     /*{start:4,end:5,invoked:false,vibrate:'three',rem:-30,remText:'Минус полминуты'},
     {start:6,end:7,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}*/
    ]
@@ -46,8 +46,11 @@ export let config={
  'main':{
   stepViews:{
    '1':[/*'StartView','VibrateView','VibrateView','QsView','MapView','CatchView','SchemeView',*/'StartView','Checkpoint','VibrateView','Checkpoint'],
-   '2':['Checkpoint','ForestView'/*,'StartView','VibrateView','StartView','CartogrView'*/]
+   '2':['Checkpoint','VibrateView'/*'Checkpoint','StartView','VibrateView','StartView','CartogrView,'ForestView''*/]
   }
+ },
+ 'vibrate':{
+  ep2videoSrc:'../BokehNightDriving.mp4',
  },
  'player':{
   redirect:'episodes.html',
