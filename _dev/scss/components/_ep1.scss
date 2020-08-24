@@ -2,6 +2,16 @@
   .ov-wrap{
     &.start{
       @extend %text-btn;
+      &.shown{
+        .ov-video+.ov-video{
+          opacity:1;
+          transition-duration:$anim;
+          transition-delay:$anim*4;
+        }
+      }
+      .ov-video+.ov-video{
+        opacity:0;
+      }
       .w-p-outer{
         transition-delay:$anim*5;
         @include anim('w-rotate-both 20s ease-in-out infinite');

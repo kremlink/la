@@ -490,6 +490,14 @@ body {
 }
 
 /*@path:components\_ep1.scss*/
+.ov-wrap.start.shown .ov-video + .ov-video {
+  opacity: 1;
+  transition-duration: 0.3s;
+  transition-delay: 1.2s;
+}
+.ov-wrap.start .ov-video + .ov-video {
+  opacity: 0;
+}
 .ov-wrap.start .w-p-outer {
   transition-delay: 1.5s;
   animation: w-rotate-both 20s ease-in-out infinite;
