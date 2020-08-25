@@ -439,45 +439,45 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
+.shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
   width: 11.25%;
   cursor: pointer;
 }
-.ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
+.ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -485,7 +485,7 @@ body {
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -626,8 +626,6 @@ body {
 }
 .ov-wrap.map.done .w-p-outer, .ov-wrap.map.done .pulse-btn.start {
   opacity: 1;
-  transition-delay: 0s;
-  transition-duration: 0.3s;
   pointer-events: auto;
 }
 .ov-wrap.map.done .w-p-t-ov div:nth-child(1) {
@@ -649,7 +647,7 @@ body {
 .ov-wrap.map .w-p-cont {
   animation: w-move-both 20s infinite;
 }
-.ov-wrap.map .pulse-btn {
+.ov-wrap.map .pulse-btn.start {
   transition-delay: 1.5s;
 }
 .ov-wrap.map .w-p-t-ov div:nth-child(n+2) {
@@ -1032,52 +1030,81 @@ body {
 }
 
 /*@path:components\_ep2.scss*/
+.ov-wrap.vibrate.v3.shown .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.vibrate.v3.shown .w-p-outer, .ov-wrap.vibrate.v3.shown .pulse-btn.start {
+  opacity: 0;
+  pointer-events: none;
+}
+.ov-wrap.vibrate.v3.done .wobble-pop {
+  pointer-events: auto;
+}
+.ov-wrap.vibrate.v3.done .w-p-outer, .ov-wrap.vibrate.v3.done .pulse-btn.start {
+  opacity: 1;
+  pointer-events: auto;
+}
 .ov-wrap.vibrate.v3 .pulse-btn {
   width: 11.25%;
   cursor: pointer;
   position: absolute;
 }
-.ov-wrap.vibrate.v3 .pulse-btn.corr {
-  left: 10%;
+.ov-wrap.vibrate.v3 .pulse-btn.incorr {
   top: 10%;
 }
-.ov-wrap.vibrate.v3 .pulse-btn.incorr {
-  left: 30%;
-  top: 30%;
+.ov-wrap.vibrate.v3 .pulse-btn.corr {
+  top: 20%;
 }
-.ov-wrap.vibrate.v3 .pulse-btn.hidden {
+.ov-wrap.vibrate.v3 .pulse-btn:not(.start) {
+  width: 14em;
+  height: 2.3em;
+  left: 10%;
+}
+.ov-wrap.vibrate.v3 .pulse-btn:not(.start).hidden {
   display: none;
 }
 .ov-wrap.vibrate.v3 .pulse-btn img {
   width: 100%;
 }
-.ov-wrap.simple .pulse-btn {
-  cursor: pointer;
-  position: absolute;
-  left: 20%;
-  top: 20%;
-  width: 20%;
-}
-.ov-wrap.simple .pulse-btn:nth-child(2) {
-  left: 40%;
-  top: 40%;
-}
-.ov-wrap.simple .pulse-btn:nth-child(3) {
-  left: 60%;
-  top: 60%;
-}
-.ov-wrap.simple .pulse-btn img {
+.ov-wrap.vibrate.v3 .pulse-btn svg {
   width: 100%;
+  height: 100%;
 }
-.ov-wrap.simple .w-p-outer {
-  transition-delay: 1.5s;
+.ov-wrap.vibrate.v3 .w-p-outer {
   animation: w-rotate-both 20s ease-in-out infinite;
 }
-.ov-wrap.simple .pulse-btn.start {
-  transition-delay: 1.5s;
+.ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.vibrate.v3 .pulse-btn.start {
+  transition-delay: 0s;
+  transition-duration: 0.3s;
 }
-.ov-wrap.simple .w-p-cont {
+.ov-wrap.vibrate.v3 .w-p-wrap {
+  cursor: default;
+}
+.ov-wrap.vibrate.v3 .w-p-cont {
   animation: w-move-both 20s infinite;
+}
+.ov-wrap.map.v2.show-btns .pulse-btn:not(.start) {
+  display: block;
+}
+.ov-wrap.map.v2.hide-btn .pulse-btn.corr {
+  display: none;
+}
+.ov-wrap.map.v2.done .pulse-btn:not(.start) {
+  display: none;
+}
+.ov-wrap.map.v2 .pulse-btn:not(.start) {
+  display: none;
+  position: absolute;
+  top: 30%;
+}
+.ov-wrap.map.v2 .pulse-btn:not(.start).corr {
+  left: 10%;
+}
+.ov-wrap.map.v2 .pulse-btn:not(.start).err {
+  left: 30%;
+}
+.ov-wrap.map.v2 .pulse-btn:not(.start).err + .err {
+  left: 50%;
 }
 .ov-wrap.cartogr.shown .cartogr-block {
   opacity: 1;
@@ -1106,8 +1133,6 @@ body {
 }
 .ov-wrap.cartogr.done .w-p-outer, .ov-wrap.cartogr.done .pulse-btn.start {
   opacity: 1;
-  transition-delay: 0s;
-  transition-duration: 0.3s;
   pointer-events: auto;
 }
 .ov-wrap.cartogr.done .w-p-t-ov div:nth-child(1) {

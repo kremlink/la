@@ -10,7 +10,8 @@ export let StartView=BaseIntView.extend({
   this.setElement(data.view.el[opts.simple]);
 
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   data:data,
+   type:opts.simple
   }]);
  },
  click:function(){

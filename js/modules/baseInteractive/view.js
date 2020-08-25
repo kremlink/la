@@ -5,10 +5,11 @@ export let BaseIntView=Backbone.View.extend({
  data:null,
  initialize:function(opts){
   this.data=opts.data;
+  this.type=opts.type;
   if(opts.el)
    this.setElement(opts.el);
   this.$video=this.$(this.data.view.video);
-  this.$sBg=opts.vibrate?$(this.data.view.soundBg[opts.vibrate]):$(this.data.view.soundBg);
+  this.$sBg=this.type&&this.data.view.soundBg?$(this.data.view.soundBg[this.type]):$(this.data.view.soundBg);
   this.$sound=$(data.sound);
   this.toggle(true);
 
@@ -32,7 +33,7 @@ export let BaseIntView=Backbone.View.extend({
   {
    this.wait=setTimeout(()=>{
     this.away(true);
-   },this.data.wait);
+   },this.data.wait[this.type]);
   }
  }
 });

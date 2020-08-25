@@ -14,7 +14,7 @@ export let VibrateView=BaseIntView.extend({
   BaseIntView.prototype.initialize.apply(this,[{
    el:data.view.el[this.vibrate],
    data:data,
-   vibrate:this.vibrate
+   type:this.vibrate
   }]);
 
   this.$btn=this.$(data.events.click);
@@ -38,7 +38,7 @@ export let VibrateView=BaseIntView.extend({
   {
    this.$btn.addClass(data.view.hiddenCls);
    this.$video.on('ended',() =>{
-    this.away(true);
+    this.$el.addClass(data.view.doneCls);
    }).on('transitionend',()=>{
     if(trsFlag)
     {
@@ -51,7 +51,6 @@ export let VibrateView=BaseIntView.extend({
 
     trsFlag=false;
    }).addClass(data.view.hiddenCls);
-
   }
  },
  shift:function(){
@@ -115,9 +114,13 @@ export let VibrateView=BaseIntView.extend({
   },data.button.timerDivider);
  },
  click:function(e){
+  let click=$(e.currentTarget);
+
   if(this.vibrate==='three')
   {
-   this.vid($(e.currentTarget).hasClass(data.view.errCls));
+   if(click.hasClass(data.view.startCls))
+    this.away(true);else
+    this.vid(click.hasClass(data.view.errCls));
   }else
   {
    this.away();

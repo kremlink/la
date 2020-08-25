@@ -141,8 +141,6 @@
         }
         .w-p-outer,.pulse-btn.start{
           opacity:1;
-          transition-delay:0s;
-          transition-duration:$anim;
           pointer-events:auto;
         }
         .w-p-t-ov div{
@@ -171,7 +169,7 @@
       .w-p-cont{
         @include anim('w-move-both 20s infinite');
       }
-      .pulse-btn{
+      .pulse-btn.start{
         transition-delay:$anim*5;
       }
       .w-p-t-ov div:nth-child(n+2){

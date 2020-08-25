@@ -1,5 +1,8 @@
 export const data={
- wait:40000,
+ wait:{
+  one:40000,
+  two:40000
+ },
  events:{
   'click':'.pulse-btn'
  },

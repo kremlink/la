@@ -9,7 +9,7 @@ export let config={
     {start:3,end:4,invoked:false,vibrate:'one',rem:-30,remText:'Минус полминуты'},
     {start:5,end:6,invoked:false,vibrate:'two',rem:-30,remText:'Минус полминуты'},
     {start:7,end:8,invoked:false,rem:-60,remText:'Минус 2 минуты'},
-    {start:9,end:10,invoked:false,rem:-30,remText:'Минус полминуты'},
+    {start:9,end:10,invoked:false,map:'one',rem:-30,remText:'Минус полминуты'},
     {start:11,end:12,invoked:false,rem:-180,remText:'Минус 3 минуты'},
     {start:13,end:14,invoked:false,rem:-300,remText:'Минус 5 минут'}
 
@@ -23,7 +23,7 @@ export let config={
    ],
    '2':[
     {start:1,checkpoint:true},
-    {start:2,end:3,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
+    {start:2,end:3,invoked:false,map:'two',rem:-30,remText:'Минус полминуты'}
     /*{start:1,checkpoint:true},
     {start:2,end:3,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
     {start:4,end:5,invoked:false,vibrate:'three',rem:-30,remText:'Минус полминуты'},
@@ -49,8 +49,8 @@ export let config={
  },
  'main':{
   stepViews:{
-   '1':['StartView','VibrateView','VibrateView','QsView','MapView','CatchView','SchemeView',/*'StartView','Checkpoint','VibrateView','Checkpoint'*/],
-   '2':['Checkpoint','StartView'/*'Checkpoint','StartView','VibrateView','StartView','CartogrView','ForestView'*/]
+   '1':['MapView'/*'StartView','VibrateView','VibrateView','QsView','MapView','CatchView','SchemeView',*/],
+   '2':['Checkpoint','MapView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView'*/]
   }
  },
  'vibrate':{

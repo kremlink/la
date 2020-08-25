@@ -47,7 +47,7 @@ export let MainView=Backbone.View.extend({
    app.get('aggregator').trigger('timer:update',this.timecodes[i]);
   }else
   {
-   eval(`new ${data.stepViews[epIndex][i]}({vibrate:'${this.timecodes[i].vibrate}',simple:'${this.timecodes[i].simple}'})`);
+   eval(`new ${data.stepViews[epIndex][i]}(${JSON.stringify(this.timecodes[i])})`);
 
    this.currentIndex=i;
    this.toggle(true);

@@ -1,8 +1,12 @@
 export const data={
- wait:30000,
+ wait:{
+  one:30000,
+  two:30000,
+  three:30000
+ },
  twoMoveBtnTime:{when:6,where:6.4},
  events:{
-  'click':'.w-p-outer,.pulse-btn',
+  'click':'.click,.pulse-btn'
  },
  view:{
   video:'.ov-video',
@@ -14,12 +18,14 @@ export const data={
   soundBg:{
    one:'.sounds[data-what=v1-bg]',
    two:'.sounds[data-what=v2-bg]',
-   three:'.sounds[data-what=v3-bg]'
+   //three:'.sounds[data-what=v3-bg]'
   },
   shownCls:'shown',
   twoMoveBtnCls:'shifted',
   errCls:'incorr',
-  hiddenCls:'hidden'
+  hiddenCls:'hidden',
+  startCls:'start',
+  doneCls:'done'
  },
  button:{
   spread:100,
