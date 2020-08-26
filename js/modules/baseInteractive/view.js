@@ -33,7 +33,7 @@ export let BaseIntView=Backbone.View.extend({
   {
    this.wait=setTimeout(()=>{
     this.away(true);
-   },this.data.wait[this.type]);
+   },this.type?this.data.wait[this.type]:this.data.wait);
   }
  }
 });

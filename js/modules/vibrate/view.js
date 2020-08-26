@@ -10,16 +10,16 @@ export let VibrateView=BaseIntView.extend({
  events:events,
  vibrate:null,
  initialize:function(opts){
-  this.vibrate=opts.vibrate;
+  this.type=opts.vibrate;
   BaseIntView.prototype.initialize.apply(this,[{
-   el:data.view.el[this.vibrate],
+   el:data.view.el[this.type],
    data:data,
-   type:this.vibrate
+   type:this.type
   }]);
 
   this.$btn=this.$(data.events.click);
 
-  switch (this.vibrate)
+  switch (this.type)
   {
    case 'one':
     this.vibr();
@@ -116,7 +116,7 @@ export let VibrateView=BaseIntView.extend({
  click:function(e){
   let click=$(e.currentTarget);
 
-  if(this.vibrate==='three')
+  if(this.type==='three')
   {
    if(click.hasClass(data.view.startCls))
     this.away(true);else

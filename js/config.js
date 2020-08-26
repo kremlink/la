@@ -5,31 +5,40 @@ export let config={
     /*{start:1,end:2,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
     {start:6,rem:-3600,remText:'Минус час',checkpoint:true}*/
 
-    {start:1,end:2,invoked:false,simple:'one',rem:-40,remText:'Минус 40 секунд'},
-    {start:3,end:4,invoked:false,vibrate:'one',rem:-30,remText:'Минус полминуты'},
-    {start:5,end:6,invoked:false,vibrate:'two',rem:-30,remText:'Минус полминуты'},
-    {start:7,end:8,invoked:false,rem:-60,remText:'Минус 2 минуты'},
-    {start:9,end:10,invoked:false,map:'one',rem:-30,remText:'Минус полминуты'},
-    {start:11,end:12,invoked:false,rem:-180,remText:'Минус 3 минуты'},
-    {start:13,end:14,invoked:false,rem:-300,remText:'Минус 5 минут'}
+    // {start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
+    // {start:448.4,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+     {start:1,end:2,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
+    // {start:528.36,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+    // {start:559.52,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+    // {start:570.36,end:584.26,invoked:false,vibrate:'two',rem:-3600,remText:'потерян 1 час'},
+    // {start:838.9,end:865.52,invoked:false,rem:-3600,remText:'потерян 1 час'},
+    // {start:1175.44,end:1205.1,invoked:false,map:'one',rem:-7200,remText:'потеряно 2 часа'},
+    // {start:605.72,end:632.36,invoked:false,rem:-1800,remText:'потеряно 30 минут'},
+    // {start:680.94,end:699.1,invoked:false,rem:-3600,remText:'потерян 1 час'},
+    // {start:756.1,rem:-3600,remText:'потерян 1 час',checkpoint:true}
 
-    /*{start:444.46,end:447.4,invoked:false,simple:'one',rem:-40,remText:'Минус 40 секунд'},
-    {start:471.3,end:482.72,invoked:false,vibrate:'one',rem:-30,remText:'Минус полминуты'},
-    {start:571.46,end:583.36,invoked:false,vibrate:'two',rem:-30,remText:'Минус полминуты'},
-    {start:846.58,end:869.8,invoked:false,rem:-60,remText:'Минус 2 минуты'},
-    {start:1182.22,end:1209.68,invoked:false,rem:-30,remText:'Минус полминуты'},
-    {start:687.62,end:703.68,invoked:false,rem:-180,remText:'Минус 3 минуты'},
-    {start:612.3,end:637.04,invoked:false,rem:-300,remText:'Минус 5 минут'}*/
+    /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
+   {start:448.4,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+   {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
+   {start:528.36,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+   {start:559.52,rem:-1800,remText:'потеряно 30 минут',checkpoint:true},
+   {start:570.36,end:584.26,invoked:false,vibrate:'two',rem:-3600,remText:'потерян 1 час'},
+   {start:838.9,end:865.52,invoked:false,rem:-3600,remText:'потерян 1 час'},
+   {start:1175.44,end:1205.1,invoked:false,map:'one',rem:-7200,remText:'потеряно 2 часа'},
+   {start:605.72,end:632.36,invoked:false,rem:-1800,remText:'потеряно 30 минут'},
+   {start:680.94,end:699.1,invoked:false,rem:-3600,remText:'потерян 1 час'},
+   {start:756.1,rem:-3600,remText:'потерян 1 час',checkpoint:true}*/
    ],
    '2':[
     {start:1,checkpoint:true},
-    {start:2,end:3,invoked:false,map:'two',rem:-30,remText:'Минус полминуты'}
-    /*{start:1,checkpoint:true},
-    {start:2,end:3,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
-    {start:4,end:5,invoked:false,vibrate:'three',rem:-30,remText:'Минус полминуты'},
-    {start:6,end:7,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'},
-    {start:8,end:9,invoked:false,rem:-30,remText:'Минус полминуты'},
-    {start:10,end:11,invoked:false,rem:-30,remText:'Минус полминуты'}*/
+    {start:2,end:3,invoked:false,map:'three',rem:-30,remText:'Минус полминуты'}
+    // {start:1,checkpoint:true},
+    // {start:2,end:3,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
+    // {start:4,end:5,invoked:false,vibrate:'three',rem:-30,remText:'Минус полминуты'},
+    // {start:6,end:7,invoked:false,map:'two',rem:-30,remText:'Минус полминуты'},
+    // //{start:8,end:9,invoked:false,rem:-30,remText:'Минус полминуты'},
+    // //{start:10,end:11,invoked:false,rem:-30,remText:'Минус полминуты'},
+    // {start:10,end:11,invoked:false,map:'three',rem:-30,remText:'Минус полминуты'}
    ]
   },
   preload:{
@@ -49,8 +58,8 @@ export let config={
  },
  'main':{
   stepViews:{
-   '1':['MapView'/*'StartView','VibrateView','VibrateView','QsView','MapView','CatchView','SchemeView',*/],
-   '2':['Checkpoint','MapView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView'*/]
+   '1':[/*'StartView','Checkpoint',*/'VibrateView'/*,'Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'*/],
+   '2':['Checkpoint','CartogrView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView','MapView'*/]
   }
  },
  'vibrate':{
@@ -58,6 +67,7 @@ export let config={
  },
  'player':{
   redirect:'episodes.html',
+  _production:true,
   quality:{
    '1':[
     {

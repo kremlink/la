@@ -17,7 +17,7 @@ export const data={
   },
   soundBg:{
    one:'.sounds[data-what=v1-bg]',
-   two:'.sounds[data-what=v2-bg]',
+   two:'.sounds[data-what=v2-bg]'
    //three:'.sounds[data-what=v3-bg]'
   },
   shownCls:'shown',

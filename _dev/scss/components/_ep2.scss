@@ -60,32 +60,64 @@
         @include anim('w-move-both 20s infinite');
       }
     }
-    &.map.v2{
-      &.show-btns{
+    &.map{
+      &.v2{
+        &.show-btns{
+          .pulse-btn:not(.start){
+            display:block;
+          }
+        }
+        &.hide-btn{
+          .pulse-btn.corr{
+            display:none;
+          }
+        }
+        &.done{
+          .pulse-btn:not(.start){
+            display:none;
+          }
+        }
         .pulse-btn:not(.start){
-          display:block;
-        }
-      }
-      &.hide-btn{
-        .pulse-btn.corr{
           display:none;
+          position:absolute;
+          &.corr{
+            left:10%;
+            top:55%;
+          }
+          &.err{
+            top:40%;
+            left:30%;
+            &+.err{
+              left:60%;
+            }
+          }
         }
       }
-      &.done{
+      &.v3{
+        &.ok{
+          .pulse-btn:not(.start){
+            display:block;
+          }
+        }
+        &.done{
+          .pulse-btn:not(.start){
+            display:none;
+          }
+        }
         .pulse-btn:not(.start){
           display:none;
-        }
-      }
-      .pulse-btn:not(.start){
-        display:none;
-        @include abs($t:30%);
-        &.corr{
-          left:10%;
-        }
-        &.err{
-          left:30%;
-          &+.err{
-            left:50%;
+          position:absolute;
+          &.corr{
+            left:55%;
+            top:70%;
+          }
+          &.err{
+            left:5%;
+            top:20%;
+            &+.err{
+              left:30%;
+              top:50%;
+            }
           }
         }
       }
@@ -350,15 +382,12 @@
         }
       }
       &.done{
-        img:nth-child(3){
+        img:nth-child(2){
           @include trs('opacity #{$anim} ease-in-out');
           opacity:1;
         }
       }
-      &.good img:nth-child(1){
-        //animation:cartogr-item 1.5s linear;
-      }
-      &.bad img:nth-child(2){
+      &.bad img:nth-child(1){
         animation:cartogr-item .5s linear;
       }
       &:after{

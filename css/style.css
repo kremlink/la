@@ -1095,16 +1095,39 @@ body {
 .ov-wrap.map.v2 .pulse-btn:not(.start) {
   display: none;
   position: absolute;
-  top: 30%;
 }
 .ov-wrap.map.v2 .pulse-btn:not(.start).corr {
   left: 10%;
+  top: 55%;
 }
 .ov-wrap.map.v2 .pulse-btn:not(.start).err {
+  top: 40%;
   left: 30%;
 }
 .ov-wrap.map.v2 .pulse-btn:not(.start).err + .err {
-  left: 50%;
+  left: 60%;
+}
+.ov-wrap.map.v3.ok .pulse-btn:not(.start) {
+  display: block;
+}
+.ov-wrap.map.v3.done .pulse-btn:not(.start) {
+  display: none;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start) {
+  display: none;
+  position: absolute;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start).corr {
+  left: 55%;
+  top: 70%;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start).err {
+  left: 5%;
+  top: 20%;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start).err + .err {
+  left: 30%;
+  top: 50%;
 }
 .ov-wrap.cartogr.shown .cartogr-block {
   opacity: 1;
@@ -1361,11 +1384,11 @@ body {
 .cartogr-block .g-item.active:not(.done):hover:after {
   opacity: 1;
 }
-.cartogr-block .g-item.done img:nth-child(3) {
+.cartogr-block .g-item.done img:nth-child(2) {
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 }
-.cartogr-block .g-item.bad img:nth-child(2) {
+.cartogr-block .g-item.bad img:nth-child(1) {
   animation: cartogr-item 0.5s linear;
 }
 .cartogr-block .g-item:after {

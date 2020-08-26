@@ -7,7 +7,6 @@ events[`click ${data.events.btnClick}`]='btnClick';
 events[`click ${data.events.go}`]='go';
 
 export let MapView=BaseIntView.extend({
- el:data.view.el,
  events:events,
  done:false,
  initialize:function(opts){
@@ -15,10 +14,11 @@ export let MapView=BaseIntView.extend({
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data,
+   el:data.view.el[this.type],
    type:opts.map
   }]);
 
-  if(this.type==='two')
+  if(this.type==='two'||this.type==='three')
   {
    this.$video=this.$(data.view.vid);
    this.video();
@@ -27,22 +27,27 @@ export let MapView=BaseIntView.extend({
  video:function(){
   let once=[];
 
-  this.$video.on('timeupdate',()=>{
-   if(this.$video[0].currentTime>data.showBtnsTime.when)
-   {
-    this.$el.addClass(data.view.showBtnsTimeCls);
-    if(!once[0])
-     this.$video[0].currentTime=data.showBtnsTime.where;
-    once[0]=true;
-   }
-   if(this.$video[0].currentTime>data.hideBtnTime.when)
-   {
-    this.$el.addClass(data.view.hideBtnTimeCls);
-    if(!once[0])
-     this.$video[0].currentTime=data.hideBtnTime.where;
-    once[1]=true;
-   }
-  }).on('ended',()=>{
+  if(this.type==='two')
+  {
+   this.$video.on('timeupdate',()=>{
+    if(this.$video[0].currentTime>data.showBtnsTime.when)
+    {
+     this.$el.addClass(data.view.showBtnsTimeCls);
+     //if(!once[0])
+      //this.$video[0].currentTime=data.showBtnsTime.where;
+     once[0]=true;
+    }
+    if(this.$video[0].currentTime>data.hideBtnTime.when)
+    {
+     this.$el.addClass(data.view.hideBtnTimeCls);
+     //if(!once[1])
+      //this.$video[0].currentTime=data.hideBtnTime.where;
+     once[1]=true;
+    }
+   });
+  }
+
+  this.$video.on('ended',()=>{
    this.$el.addClass(data.view.doneCls+' '+data.view.errCls);
    this.done=true;
   });
@@ -71,7 +76,7 @@ export let MapView=BaseIntView.extend({
   }else
   {
    this.$el.addClass(data.view.okCls);
-   if(this.type==='two')
+   if(this.type==='two'||this.type==='three')
     this.$video[0].play();
   }
  }

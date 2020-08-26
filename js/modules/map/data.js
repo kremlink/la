@@ -1,11 +1,12 @@
 export const data={
  wait:{
   one:30000,
-  two:4000
+  two:40000,
+  three:40000
  },
  yesIndex:0,
- showBtnsTime:{when:2,where:2.5},
- hideBtnTime:{when:3.5,where:3.8},
+ showBtnsTime:{when:7},
+ hideBtnTime:{when:14},
  events:{
   'circleClick':'.circle',
   'btnClick':'.pulse-btn:not(.start)',
@@ -13,7 +14,15 @@ export const data={
  },
  view:{
   vid:'.ov-video',//not 'video', which is auto-activated
-  el:'.ov-wrap.map',
+  el:{
+   one:'.ov-wrap.map',
+   two:'.ov-wrap.map.v2',
+   three:'.ov-wrap.map.v3'
+  },
+  soundBg:{
+   two:'.sounds[data-what=map_v2-bg]',
+   three:'.sounds[data-what=map_v3-bg]'
+  },
   okCls:'ok',
   doneCls:'done',
   errCls:'err',

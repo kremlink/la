@@ -12,9 +12,9 @@ export const data={
   $grid:'.forest-block',
   hlTmpl:'#forest-hline-template',
   vlTmpl:'#forest-vline-template',
-  //soundBg:'.sounds[data-what=cartogr-bg]',
-  soundPlus:'.sounds[data-what=qs-plus]',
-  soundMinus:'.sounds[data-what=qs-minus]',
+  soundBg:'.sounds[data-what=forest-bg]',
+  soundPlus:'.sounds[data-what=forest-plus]',
+  soundMinus:'.sounds[data-what=forest-minus]',
   okCls:'ok',
   shownCls:'shown',
   item:{
