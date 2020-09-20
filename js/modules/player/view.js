@@ -52,7 +52,7 @@ export let PlayerView=Backbone.View.extend({
    app.get('aggregator').trigger('player:ready');
   };
   xhr.send();
-  if(!data._production)
+  if(app.get('_dev'))
    this.player.muted(true);
   this.player.on('pause',()=>{
    /*if(document.fullscreenElement)
@@ -61,8 +61,8 @@ export let PlayerView=Backbone.View.extend({
   });
   this.player.on('play',()=>{
    //app.get('aggregator').trigger('main:toggle',false);
-   if(data._production)
-    document.documentElement.requestFullscreen();//TODO: uncomment
+   if(!app.get('_dev'))
+    document.documentElement.requestFullscreen();
   });
   this.player.on('ended',()=>{
    location.href=data.redirect;

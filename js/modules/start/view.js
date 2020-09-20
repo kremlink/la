@@ -6,7 +6,9 @@ events[`click ${data.events.click}`]='click';
 
 export let StartView=BaseIntView.extend({
  events:events,
+ opts:null,
  initialize:function(opts){
+  this.opts=opts;
   this.setElement(data.view.el[opts.simple]);
 
   BaseIntView.prototype.initialize.apply(this,[{
@@ -14,7 +16,14 @@ export let StartView=BaseIntView.extend({
    type:opts.simple
   }]);
  },
- click:function(){
-  this.away();
+ click:function(e){
+  switch(this.opts.simple)
+  {
+   case 'one':
+    this.away();
+    break;
+   case 'two':
+    this.away(false,$(e.currentTarget).is(data.view.corr)?{time:'endGood'}:null);
+  }
  }
 });

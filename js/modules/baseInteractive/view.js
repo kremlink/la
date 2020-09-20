@@ -18,9 +18,9 @@ export let BaseIntView=Backbone.View.extend({
    this.$sound[0]['play']();
   });
  },
- away:function(failed=false){
+ away:function(failed=false,opts){
   clearTimeout(this.wait);
-  app.get('aggregator').trigger('main:toggle',false,failed);
+  app.get('aggregator').trigger('main:toggle',{show:false,failed:failed,opts:opts});
   this.toggle(false);
  },
  toggle:function(f){

@@ -1,0 +1,14 @@
+@include exports("@path:components\_ep3.scss"){/*@path:components\_ep3.scss*/
+  .ov-wrap{
+    &.start.v2{
+      .pulse-btn{
+        @include abs($l:30%,$t:20%);
+        &.corr{
+          left:50%;
+        }
+      }
+    }
+  }
+  //---
+  
+}

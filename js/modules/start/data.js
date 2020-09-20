@@ -7,10 +7,12 @@ export const data={
   'click':'.pulse-btn'
  },
  view:{
+  video:'.ov-video',
   el:{
    one:'.ov-wrap.start',
-   two:'.ov-wrap.simple'
+   two:'.ov-wrap.start.v2'
   },
+  corr:'.corr',
   shownCls:'shown'
  }
 };

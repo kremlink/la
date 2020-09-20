@@ -3,7 +3,7 @@ export const data={
  testSpeedFile:'images/dl-speed.jpg',
  redirect:'',
  _production:false,
- quality:[],
+ quality:{},
  view:{
   el:'.video-js'
  }

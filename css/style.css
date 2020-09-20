@@ -1436,6 +1436,16 @@ body {
   top: -1em;
 }
 
+/*@path:components\_ep3.scss*/
+.ov-wrap.start.v2 .pulse-btn {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+}
+.ov-wrap.start.v2 .pulse-btn.corr {
+  left: 50%;
+}
+
 /*@path:components\_footer.scss*/
 /*@path:components\_header.scss*/
 /*@path:components\_main.scss*/

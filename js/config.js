@@ -39,6 +39,9 @@ export let config={
     // //{start:8,end:9,invoked:false,rem:-30,remText:'Минус полминуты'},
     // //{start:10,end:11,invoked:false,rem:-30,remText:'Минус полминуты'},
     // {start:10,end:11,invoked:false,map:'three',rem:-30,remText:'Минус полминуты'}
+   ],
+   '3':[
+    {start:1,end:2,endGood:5,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
    ]
   },
   preload:{
@@ -49,17 +52,22 @@ export let config={
    },
    '2':{
 
+   },
+   '3':{
+
    }
   }
  },
  'timer':{
   '1':{start:54*60*60},
-  '2':{start:44*60*60}
+  '2':{start:44*60*60},
+  '3':{start:34*60*60}
  },
  'main':{
   stepViews:{
    '1':[/*'StartView','Checkpoint',*/'VibrateView'/*,'Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'*/],
-   '2':['Checkpoint','CartogrView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView','MapView'*/]
+   '2':['Checkpoint','CartogrView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView','MapView'*/],
+   '3':['StartView']
   }
  },
  'vibrate':{
@@ -67,7 +75,6 @@ export let config={
  },
  'player':{
   redirect:'episodes.html',
-  _production:true,
   quality:{
    '1':[
     {
@@ -92,6 +99,23 @@ export let config={
      speed:[4,1000],
      //src:'../PREDMASTER1SER.mp4',
      //src:'../oceans.mp4',
+     label:'720P'
+    },
+    {
+     speed:[3,4],
+     src:'../oceans1.mp4',
+     label:'480P'
+    },
+    {
+     speed:[0,3],
+     src:'../oceans.mp4',
+     label:'360P'
+    }
+   ],
+   '3':[
+    {
+     speed:[4,1000],
+     src:'../oceans.mp4',
      label:'720P'
     },
     {

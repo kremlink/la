@@ -28,14 +28,14 @@ export let MainView=Backbone.View.extend({
 
   new TimerView;
  },
- toggle:function(f,failed=false){
-  if(f)
+ toggle:function(opts){
+  if(opts.show)
    app.get('aggregator').trigger('player:pause');else
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
-   app.get('aggregator').trigger('player:play',this.timecodes[this.currentIndex].end);
+   app.get('aggregator').trigger('player:play',opts.opts&&opts.opts.time?this.timecodes[this.currentIndex][opts.opts.time]:this.timecodes[this.currentIndex].end);
 
-  this.$el.toggleClass(data.view.shownCls,f);
-  if(failed)
+  this.$el.toggleClass(data.view.shownCls,opts.show);
+  if(opts.failed)
    app.get('aggregator').trigger('timer:update',this.timecodes[this.currentIndex]);
  },
  step:function(i){
@@ -50,7 +50,7 @@ export let MainView=Backbone.View.extend({
    eval(`new ${data.stepViews[epIndex][i]}(${JSON.stringify(this.timecodes[i])})`);
 
    this.currentIndex=i;
-   this.toggle(true);
+   this.toggle({show:true});
   }
  }
 });

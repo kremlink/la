@@ -73,7 +73,7 @@ export function init(app,modules){
   },
   start:function(){
    this.$el.addClass(data.view.startCls);
-   this.playerView.play();//TODO: uncomment
+   this.playerView.play();
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);

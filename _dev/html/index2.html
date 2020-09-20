@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html data-app='{"modules":["index"],"index":3}'>
+    <head>
+		@@include('components/head.html')
+        @@include('components/scripts.html')
+	</head>
+	<body>
+		<div id="wrap">
+			<video playsinline
+					class="video-js"
+					controls
+                    preload="auto"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+                <!--<source src="../test.mp4" type="video/mp4" />-->
+				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
+				<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a
+					web browser that
+					<a href="https://videojs.com/html5-video-support/" target="_blank">
+						supports HTML5 video
+					</a>
+				</p>
+			</video>
+			<div class="overlay-block">
+                <div class="ov-wrap start v2">
+                    <video class="ov-video" preload="auto" muted loop>
+                        <source src="../test.mp4" type="video/mp4" />
+                    </video>
+                    <div class="pulse-btn">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                    <div class="pulse-btn corr">
+                        <img src="images/but-click.png" alt=""/>
+                    </div>
+                </div>
+                <div class="ov-before">
+                    <svg>
+                        <use xlink:href="#icon-shared-pop-poloski1"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="the-anim">
+                <img src="images/pulse-btn.png" alt=""/>
+            </div>
+            <div class="the-timer continued">
+                <svg class="the-t-bg">
+                    <use xlink:href="#icon-shared-clock-bg"></use>
+                </svg>
+                <div class="the-t-text"></div>
+                <div class="the-t-pop"></div>
+            </div>
+            <div class="start-pop">
+                <div style="background-image: url(images/start-bg.svg);"></div>
+                <div style="background-image: url(images/start-button-p.svg);"></div>
+                <div style="background-image: url(images/start-button.svg);"></div>
+            </div>
+            <div class="loader-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="l"></div>
+            </div>
+            <div class="orientation-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="text">
+                    Экран слишком мал :(<br/>
+                    Возможно, вам поможет поворот девайса.
+                </div>
+            </div>
+		</div>
+        <audio class="sounds" data-what="the-btn" src="../1ser/MP3/button.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="map_v2-bg" src="../2ser/MP3/map_v2.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="map_v3-bg" src="../2ser/MP3/map_v3.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="cartogr-bg" src="../2ser/MP3/2-17-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="cartogr-minus" src="../2ser/MP3/cartogr_minus.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="cartogr-plus" src="../2ser/MP3/cartogr_plus.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="forest-bg" src="../2ser/MP3/2-14-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="forest-minus" src="../2ser/MP3/forest_minus.mp3" preload="auto"></audio>
+        <audio class="sounds" data-what="forest-plus" src="../2ser/MP3/forest_plus.mp3" preload="auto"></audio>
+        <script type="text/template" id="cartogr-item-template">
+            <div class="g-item<%= active?' active':'' %>" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
+                <img src="images/2-17/2-17-map-error.svg" alt=""/>
+                <% if(~winIndex) { %>
+                <img src="images/2-17/wins/2-17-map-<%= winIndex %>.png" alt=""/>
+                <% } %>
+            </div>
+        </script>
+        <script type="text/template" id="cartogr-m-template">
+            <div class="g-m<%= text?'':' hidden' %>" style="left:<%= left %>%;top:<%= top %>%;">
+                <%= text %>
+            </div>
+        </script>
+        <script type="text/template" id="cartogr-next-template">
+            <img src="images/2-17/prev/2-17-prev-<%= index %>.png" alt=""/>
+        </script>
+        <script type="text/template" id="forest-item-template">
+            <div class="g-item" style="width:<%= width %>%;height:<%= height %>%;left:<%= left %>%;top:<%= top %>%;">
+                <img src="images/2-14/2-14-grid-<%= index %>.png" alt=""/>
+                <svg class="hover">
+                    <use xlink:href="#icon-shared-2-14-hover"></use>
+                </svg>
+                <div class="arr">
+                    <svg>
+                        <use xlink:href="#icon-shared-2-14-arrow"></use>
+                    </svg>
+                </div>
+            </div>
+        </script>
+        <script type="text/template" id="forest-hline-template">
+            <svg class="g-hor" style="top:<%= top %>%;">
+                <use xlink:href="#icon-shared-2-14-horizontal"></use>
+            </svg>
+        </script>
+        <script type="text/template" id="forest-vline-template">
+            <svg class="g-ver" style="left:<%= left %>%;">
+                <use xlink:href="#icon-shared-2-14-vert"></use>
+            </svg>
+        </script>
+        <div class="safe-hide-svg">
+            @@include('components/shared-sprite.svg')
+        </div>
+	</body>
+</html>
