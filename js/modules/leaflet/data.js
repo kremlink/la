@@ -1,0 +1,24 @@
+export const data={
+ wait:3000000,
+ winWait:1500,
+ data:[{left:32.84,top:25.6,width:7.86,height:17.59},{left:11.59,top:48.52,width:7.86,height:17.59},{left:22.21,top:48.52,width:7.86,height:17.59},
+  {left:32.84,top:48.52,width:7.86,height:17.59},{left:45.81,top:15.23,width:37.11,height:3.01},{left:45.81,top:18.56,width:43.59,height:3.15},
+  {left:45.6,top:43.47,width:26.93,height:7.18},{left:45.6,top:53.56,width:31.12,height:7.18},{left:45.6,top:73.89,width:42.86,height:7.18},
+  {left:11.59,top:71.3,width:29.11,height:13.8}],
+ events:{
+  'go':'.pulse-btn',
+  'item':'.item'
+ },
+ view:{
+  video:'.ov-video',
+  el:'.ov-wrap.leaflet',
+  iTmpl:'#leaflet-item-template',
+  bTmpl:'#leaflet-bad-template',
+  gTmpl:'#leaflet-good-template',
+  $into:'.leaflet-block',
+  //soundBg:'.sounds[data-what=cartogr-bg]',
+  okCls:'ok',
+  doneCls:'done',
+  shownCls:'shown'
+ }
+};

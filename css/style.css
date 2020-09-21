@@ -439,45 +439,45 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.leaflet .wobble-pop, .shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.leaflet .w-p-outer, .shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
+.shown.ov-wrap.leaflet .pulse-btn.start, .shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.leaflet .wobble-pop, .ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.leaflet .w-p-outer, .ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.leaflet .w-p-pulse, .ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.leaflet .w-p-cont, .ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.leaflet .w-p-text, .ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.leaflet .pulse-btn, .ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
   width: 11.25%;
   cursor: pointer;
 }
-.ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
+.ov-wrap.leaflet .pulse-btn.start, .ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -485,7 +485,7 @@ body {
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.leaflet .pulse-btn img, .ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -1444,6 +1444,89 @@ body {
 }
 .ov-wrap.start.v2 .pulse-btn.corr {
   left: 50%;
+}
+.ov-wrap.leaflet.ok .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.leaflet.ok .w-p-outer, .ov-wrap.leaflet.ok .pulse-btn.start {
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.ov-wrap.leaflet.ok .leaflet-block {
+  opacity: 1;
+}
+.ov-wrap.leaflet.done .leaflet-block:after {
+  opacity: 0.5;
+}
+.ov-wrap.leaflet.done .wobble-pop {
+  pointer-events: auto;
+}
+.ov-wrap.leaflet.done .w-p-outer, .ov-wrap.leaflet.done .pulse-btn.start {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(1) {
+  display: none;
+}
+.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(2) {
+  display: block;
+}
+.ov-wrap.leaflet .w-p-outer {
+  transition-delay: 1.5s;
+  animation: w-rotate-both 20s ease-in-out infinite;
+}
+.ov-wrap.leaflet .w-p-cont {
+  animation: w-move-both 20s infinite;
+}
+.ov-wrap.leaflet .pulse-btn.start {
+  transition-delay: 1.5s;
+}
+.ov-wrap.leaflet .w-p-t-ov div:nth-child(2) {
+  display: none;
+}
+
+.leaflet-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.leaflet-block:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.leaflet-block .bg, .leaflet-block .bad, .leaflet-block .good {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.leaflet-block .bad, .leaflet-block .good {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+.leaflet-block .bad.shown, .leaflet-block .good.shown {
+  opacity: 1;
+}
+.leaflet-block .item {
+  background: rgba(255, 0, 0, 0.3);
+  position: absolute;
+  display: none;
+}
+.leaflet-block .item.shown {
+  display: block;
 }
 
 /*@path:components\_footer.scss*/

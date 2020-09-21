@@ -8,7 +8,90 @@
         }
       }
     }
+    &.leaflet{
+      @extend %text-btn;
+      &.shown{}
+      &.ok{
+        .wobble-pop{
+          pointer-events:none;
+        }
+        .w-p-outer,.pulse-btn.start{
+          opacity:0;
+          transition-delay:0s;
+          transition-duration:$anim;
+          pointer-events:none;
+        }
+        .leaflet-block{
+          opacity:1;
+        }
+      }
+      &.done{
+        .leaflet-block:after{
+          opacity:.5;
+        }
+        .wobble-pop{
+          pointer-events:auto;
+        }
+        .w-p-outer,.pulse-btn.start{
+          opacity:1;
+          pointer-events:auto;
+        }
+        .w-p-t-ov div{
+          &:nth-child(1){
+            display:none;
+          }
+          &:nth-child(2){
+            display:block;
+          }
+        }
+      }
+      .w-p-outer{
+        transition-delay:$anim*5;
+        @include anim('w-rotate-both 20s ease-in-out infinite');
+      }
+      .w-p-cont{
+        @include anim('w-move-both 20s infinite');
+      }
+      .pulse-btn.start{
+        transition-delay:$anim*5;
+      }
+      .w-p-t-ov div:nth-child(2){
+        display:none;
+      }
+    }
   }
   //---
-  
+  .leaflet-block{
+    @include abs($l:0,$t:0,$r:0,$b:0);
+    opacity:0;
+    @include trs('opacity #{$anim} ease-in-out');
+    &:after{
+      content:'';
+      pointer-events:none;
+      @include abs($l:0,$r:0,$t:0,$b:0);
+      background:#000;
+      opacity:0;
+      @include trs('opacity #{$anim} ease-in-out');
+    }
+    .bg,.bad,.good{
+      position:absolute;
+      width:100%;
+      height:100%;
+    }
+    .bad,.good{
+      @include trs('opacity #{$anim} ease-in-out');
+      opacity:0;
+      &.shown{
+        opacity:1;
+      }
+    }
+    .item{
+      background:rgba(#f00,.3);
+      position:absolute;
+      display:none;
+      &.shown{
+        display:block;
+      }
+    }
+  }
 }

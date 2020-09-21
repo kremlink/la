@@ -41,7 +41,8 @@ export let config={
     // {start:10,end:11,invoked:false,map:'three',rem:-30,remText:'Минус полминуты'}
    ],
    '3':[
-    {start:1,end:2,endGood:5,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
+    //{start:1,end:2,endGood:5,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
+    {start:1,end:2,invoked:false,rem:-30,remText:'Минус полминуты'}
    ]
   },
   preload:{
@@ -67,7 +68,7 @@ export let config={
   stepViews:{
    '1':[/*'StartView','Checkpoint',*/'VibrateView'/*,'Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'*/],
    '2':['Checkpoint','CartogrView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView','MapView'*/],
-   '3':['StartView']
+   '3':['LeafletView']
   }
  },
  'vibrate':{
