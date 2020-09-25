@@ -16,6 +16,21 @@
             <stop offset="1" style="stop-color:#000;stop-opacity:.5"/>
         </radialGradient>
     
+        <radialGradient id="3-07-3-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 1277 1520)">
+            <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+        </radialGradient>
+    
+        <radialGradient id="3-07-5-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 3315 590)">
+            <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+        </radialGradient>
+    
+        <radialGradient id="3-07-7-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 704 708)">
+            <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+        </radialGradient>
+    
         <radialGradient id="clock-bg-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-246.77 0 0 -64 253.385 0)">
             <stop offset="0" style="stop-color:#000;stop-opacity:.5"/>
             <stop offset="1" style="stop-color:#000;stop-opacity:.25"/>
@@ -607,6 +622,15 @@
     </g>
     <path d="M1806.68 1475.17c-7.63-9.6 5.09-17.12-3-28 5.31.53 8.98 2.83 10 8-1.97-9.22 1.99-14.85 10-18-4.01 17.09 22.93 13.7 8 39M1793.6 1495.91l-26.28 7.04 3.11 11.59 47.25-12.66M1839.97 1495.91l26.27-7.04-3.1-11.59-46.36 12.42" style="fill:none;stroke:#fff;stroke-width:6px;stroke-linecap:round"/>
     <path d="M1863.14 1514.54l3.1-11.59-95.81-25.67-3.11 11.59 95.82 25.67zM1845.68 1469.17c15.5-15.73-7.72-36.42 2-55-7.89 2.01-12.85 7.06-16 14 3.59-16.55-4.75-28.49-22-37 8.36 20.99-17.6 32.43-14 52-2.25-4.39-3.25-10.39-3-18-14.4 13.03-12.07 28.68 1 46" style="fill:none;stroke:#fff;stroke-width:6px;stroke-linecap:round"/>
+    
+</symbol><symbol id="icon-shared-3-07-3-cover" viewBox="0 0 3840 2160" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+    <path style="fill:url(#3-07-3-cover-a)" d="M0 0h3840v2160H0z"/>
+    
+</symbol><symbol id="icon-shared-3-07-5-cover" viewBox="0 0 3840 2160" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+    <path style="fill:url(#3-07-5-cover-a)" d="M0 0h3840v2160H0z"/>
+    
+</symbol><symbol id="icon-shared-3-07-7-cover" viewBox="0 0 3840 2160" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+    <path style="fill:url(#3-07-7-cover-a)" d="M0 0h3840v2160H0z"/>
     
 </symbol><symbol id="icon-shared-clock-bg" viewBox="0 0 330 64" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
     <path d="M64 0h258l-64 64H0L64 0z" style="fill:url(#clock-bg-a)"/>

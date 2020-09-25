@@ -8,6 +8,8 @@ import {SchemeView} from '../scheme/view.js';
 import {CartogrView} from '../cartogr/view.js';
 import {ForestView} from '../forest/view.js';
 import {LeafletView} from '../leaflet/view.js';
+import {PhotosView} from '../photos/view.js';
+import {RadarView} from '../radar/view.js';
 
 import {TimerView} from '../timer/view.js';
 import {data as dat} from './data.js';

@@ -439,45 +439,45 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.leaflet .wobble-pop, .shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.leaflet .wobble-pop, .shown.ov-wrap.photos .wobble-pop, .shown.ov-wrap.radar .wobble-pop, .shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.leaflet .w-p-outer, .shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.leaflet .w-p-outer, .shown.ov-wrap.photos .w-p-outer, .shown.ov-wrap.radar .w-p-outer, .shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.leaflet .pulse-btn.start, .shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
+.shown.ov-wrap.leaflet .pulse-btn.start, .shown.ov-wrap.photos .pulse-btn.start, .shown.ov-wrap.radar .pulse-btn.start, .shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.leaflet .wobble-pop, .ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.leaflet .wobble-pop, .ov-wrap.photos .wobble-pop, .ov-wrap.radar .wobble-pop, .ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.leaflet .w-p-outer, .ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.leaflet .w-p-outer, .ov-wrap.photos .w-p-outer, .ov-wrap.radar .w-p-outer, .ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.leaflet .w-p-pulse, .ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.leaflet .w-p-pulse, .ov-wrap.photos .w-p-pulse, .ov-wrap.radar .w-p-pulse, .ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.leaflet .w-p-cont, .ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.leaflet .w-p-cont, .ov-wrap.photos .w-p-cont, .ov-wrap.radar .w-p-cont, .ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.leaflet .w-p-text, .ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.leaflet .w-p-text, .ov-wrap.photos .w-p-text, .ov-wrap.radar .w-p-text, .ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.leaflet .pulse-btn, .ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.leaflet .pulse-btn, .ov-wrap.photos .pulse-btn, .ov-wrap.radar .pulse-btn, .ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
   width: 11.25%;
   cursor: pointer;
 }
-.ov-wrap.leaflet .pulse-btn.start, .ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
+.ov-wrap.leaflet .pulse-btn.start, .ov-wrap.photos .pulse-btn.start, .ov-wrap.radar .pulse-btn.start, .ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -485,7 +485,7 @@ body {
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.leaflet .pulse-btn img, .ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.leaflet .pulse-btn img, .ov-wrap.photos .pulse-btn img, .ov-wrap.radar .pulse-btn img, .ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -1445,49 +1445,49 @@ body {
 .ov-wrap.start.v2 .pulse-btn.corr {
   left: 50%;
 }
-.ov-wrap.leaflet.ok .wobble-pop {
+.ov-wrap.leaflet.ok .wobble-pop, .ov-wrap.photos.ok .wobble-pop, .ov-wrap.radar.ok .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.leaflet.ok .w-p-outer, .ov-wrap.leaflet.ok .pulse-btn.start {
+.ov-wrap.leaflet.ok .w-p-outer, .ov-wrap.leaflet.ok .pulse-btn.start, .ov-wrap.photos.ok .w-p-outer, .ov-wrap.photos.ok .pulse-btn.start, .ov-wrap.radar.ok .w-p-outer, .ov-wrap.radar.ok .pulse-btn.start {
   opacity: 0;
   transition-delay: 0s;
   transition-duration: 0.3s;
   pointer-events: none;
 }
-.ov-wrap.leaflet.ok .leaflet-block {
+.ov-wrap.leaflet.ok .ep3-block, .ov-wrap.photos.ok .ep3-block, .ov-wrap.radar.ok .ep3-block {
   opacity: 1;
 }
-.ov-wrap.leaflet.done .leaflet-block:after {
+.ov-wrap.leaflet.done .ep3-block:after, .ov-wrap.photos.done .ep3-block:after, .ov-wrap.radar.done .ep3-block:after {
   opacity: 0.5;
 }
-.ov-wrap.leaflet.done .wobble-pop {
+.ov-wrap.leaflet.done .wobble-pop, .ov-wrap.photos.done .wobble-pop, .ov-wrap.radar.done .wobble-pop {
   pointer-events: auto;
 }
-.ov-wrap.leaflet.done .w-p-outer, .ov-wrap.leaflet.done .pulse-btn.start {
+.ov-wrap.leaflet.done .w-p-outer, .ov-wrap.leaflet.done .pulse-btn.start, .ov-wrap.photos.done .w-p-outer, .ov-wrap.photos.done .pulse-btn.start, .ov-wrap.radar.done .w-p-outer, .ov-wrap.radar.done .pulse-btn.start {
   opacity: 1;
   pointer-events: auto;
 }
-.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(1) {
+.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(1), .ov-wrap.photos.done .w-p-t-ov div:nth-child(1), .ov-wrap.radar.done .w-p-t-ov div:nth-child(1) {
   display: none;
 }
-.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(2) {
+.ov-wrap.leaflet.done .w-p-t-ov div:nth-child(2), .ov-wrap.photos.done .w-p-t-ov div:nth-child(2), .ov-wrap.radar.done .w-p-t-ov div:nth-child(2) {
   display: block;
 }
-.ov-wrap.leaflet .w-p-outer {
+.ov-wrap.leaflet .w-p-outer, .ov-wrap.photos .w-p-outer, .ov-wrap.radar .w-p-outer {
   transition-delay: 1.5s;
   animation: w-rotate-both 20s ease-in-out infinite;
 }
-.ov-wrap.leaflet .w-p-cont {
+.ov-wrap.leaflet .w-p-cont, .ov-wrap.photos .w-p-cont, .ov-wrap.radar .w-p-cont {
   animation: w-move-both 20s infinite;
 }
-.ov-wrap.leaflet .pulse-btn.start {
+.ov-wrap.leaflet .pulse-btn.start, .ov-wrap.photos .pulse-btn.start, .ov-wrap.radar .pulse-btn.start {
   transition-delay: 1.5s;
 }
-.ov-wrap.leaflet .w-p-t-ov div:nth-child(2) {
+.ov-wrap.leaflet .w-p-t-ov div:nth-child(2), .ov-wrap.photos .w-p-t-ov div:nth-child(2), .ov-wrap.radar .w-p-t-ov div:nth-child(2) {
   display: none;
 }
 
-.leaflet-block {
+.ep3-block {
   position: absolute;
   left: 0;
   top: 0;
@@ -1496,7 +1496,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-.leaflet-block:after {
+.ep3-block:after {
   content: "";
   pointer-events: none;
   position: absolute;
@@ -1508,6 +1508,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+
 .leaflet-block .bg, .leaflet-block .bad, .leaflet-block .good {
   position: absolute;
   width: 100%;
@@ -1527,6 +1528,115 @@ body {
 }
 .leaflet-block .item.shown {
   display: block;
+}
+
+@keyframes ep3-photos {
+  50% {
+    opacity: 1;
+  }
+}
+.photos-block .item, .photos-block .good, .photos-block .bad {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat;
+}
+.photos-block .item {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.photos-block .item.shown {
+  opacity: 1;
+  z-index: 1;
+}
+.photos-block .item.shown svg {
+  opacity: 1;
+}
+.photos-block .item:nth-child(1) {
+  background: rgba(255, 255, 255, 0.1428571429);
+}
+.photos-block .item:nth-child(2) {
+  background: rgba(255, 255, 255, 0.2857142857);
+}
+.photos-block .item:nth-child(3) {
+  background: rgba(255, 255, 255, 0.4285714286);
+}
+.photos-block .item:nth-child(4) {
+  background: rgba(255, 255, 255, 0.5714285714);
+}
+.photos-block .item:nth-child(5) {
+  background: rgba(255, 255, 255, 0.7142857143);
+}
+.photos-block .item:nth-child(6) {
+  background: rgba(255, 255, 255, 0.8571428571);
+}
+.photos-block .item:nth-child(7) {
+  background: white;
+}
+.photos-block .item:nth-child(3) .click {
+  left: 28%;
+  top: 60%;
+}
+.photos-block .item:nth-child(5) .click {
+  left: 81%;
+  top: 20%;
+}
+.photos-block .item:nth-child(7) .click {
+  left: 13%;
+  top: 25%;
+}
+.photos-block .item svg {
+  opacity: 0;
+  transition: opacity 5s ease-in-out 5s;
+}
+.photos-block .good, .photos-block .bad {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.photos-block .good.shown, .photos-block .bad.shown {
+  animation: ep3-photos 0.6s ease-in-out;
+}
+.photos-block .good {
+  background: #00f;
+}
+.photos-block .bad {
+  background: #f00;
+}
+.photos-block .click {
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+}
+.photos-block .next {
+  width: 8em;
+  height: 4em;
+  background: #0f0;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+}
+.done .photos-block .next {
+  display: none;
+}
+.photos-block svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.radar-block {
+  background: 0 0/cover;
+}
+.radar-block .eye {
+  position: absolute;
+  background: center/cover;
+  border-radius: 50%;
 }
 
 /*@path:components\_footer.scss*/
