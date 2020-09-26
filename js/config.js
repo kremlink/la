@@ -41,10 +41,17 @@ export let config={
     // {start:10,end:11,invoked:false,map:'three',rem:-30,remText:'Минус полминуты'}
    ],
    '3':[
-    /*{start:1,end:2,endGood:4,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'},
+    //{start:1,end:2,endGood:3,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
+    {start:1,end:2,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
     {start:3,end:4,invoked:false,rem:-30,remText:'Минус полминуты'},
-    {start:5,end:6,invoked:false,rem:-30,remText:'Минус полминуты'}*/
-    {start:1,end:2,invoked:false,rem:-30,remText:'Минус полминуты'}
+    {start:5,end:6,invoked:false,rem:-30,remText:'Минус полминуты'},
+    {start:7,end:8,endGood:7,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'},
+    {start:9,end:10,invoked:false,rem:-30,remText:'Минус полминуты'}
+    /*{start:220.26,end:221.2,invoked:false,simple:'one',rem:-30,remText:'Минус полминуты'},
+    {start:344.86,end:361.48,invoked:false,rem:-30,remText:'Минус полминуты'},
+    {start:542.9,end:554.28,invoked:false,rem:-30,remText:'Минус полминуты'},
+    {start:1000.02,end:1031.4,endGood:1054.6,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'},
+    {start:1612.3,end:1627.92,invoked:false,rem:-30,remText:'Минус полминуты'}*/
    ]
   },
   preload:{
@@ -70,7 +77,7 @@ export let config={
   stepViews:{
    '1':[/*'StartView','Checkpoint',*/'VibrateView'/*,'Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'*/],
    '2':['Checkpoint','CartogrView'/*'Checkpoint','StartView','VibrateView','MapView','CartogrView','ForestView','MapView'*/],
-   '3':['RadarView'/*'StartView','LeafletView','PhotosView'*/]
+   '3':['StartView','LeafletView','PhotosView','StartView','RadarView']
   }
  },
  'vibrate':{
@@ -115,7 +122,7 @@ export let config={
      label:'360P'
     }
    ],
-   '3':[
+   /*'3':[
     {
      speed:[4,1000],
      src:'../oceans.mp4',
@@ -129,6 +136,23 @@ export let config={
     {
      speed:[0,3],
      src:'../oceans.mp4',
+     label:'360P'
+    }
+   ],*/
+   '3':[
+    {
+     speed:[4,1000],
+     src:'../PREDMASTER%203%20SER.mp4',
+     label:'720P'
+    },
+    {
+     speed:[3,4],
+     src:'../PREDMASTER%203%20SER.mp4',
+     label:'480P'
+    },
+    {
+     speed:[0,3],
+     src:'../PREDMASTER%203%20SER.mp4',
      label:'360P'
     }
    ]

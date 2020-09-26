@@ -9,6 +9,8 @@ export let BaseIntView=Backbone.View.extend({
   if(opts.el)
    this.setElement(opts.el);
   this.$video=this.$(this.data.view.video);
+  if(!this.$video.is('video'))
+   this.$video=null;
   this.$sBg=this.type&&this.data.view.soundBg?$(this.data.view.soundBg[this.type]):$(this.data.view.soundBg);
   this.$sound=$(data.sound);
   this.toggle(true);

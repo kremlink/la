@@ -1437,13 +1437,15 @@ body {
 }
 
 /*@path:components\_ep3.scss*/
-.ov-wrap.start.v2 .pulse-btn {
-  position: absolute;
-  left: 30%;
-  top: 20%;
+.ov-wrap.start.v2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.ov-wrap.start.v2 .pulse-btn.corr {
-  left: 50%;
+.ov-wrap.start.v2 .pulse-btn {
+  position: relative;
+  width: 14em;
+  height: 14em;
 }
 .ov-wrap.leaflet.ok .wobble-pop, .ov-wrap.photos.ok .wobble-pop, .ov-wrap.radar.ok .wobble-pop {
   pointer-events: none;
@@ -1509,6 +1511,9 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
+.leaflet-block {
+  background: rgba(0, 0, 0, 0.6);
+}
 .leaflet-block .bg, .leaflet-block .bad, .leaflet-block .good {
   position: absolute;
   width: 100%;
@@ -1522,7 +1527,6 @@ body {
   opacity: 1;
 }
 .leaflet-block .item {
-  background: rgba(255, 0, 0, 0.3);
   position: absolute;
   display: none;
 }
@@ -1534,6 +1538,9 @@ body {
   50% {
     opacity: 1;
   }
+}
+.photos-block {
+  background: #000;
 }
 .photos-block .item, .photos-block .good, .photos-block .bad {
   position: absolute;
@@ -1552,27 +1559,6 @@ body {
 }
 .photos-block .item.shown svg {
   opacity: 1;
-}
-.photos-block .item:nth-child(1) {
-  background: rgba(255, 255, 255, 0.1428571429);
-}
-.photos-block .item:nth-child(2) {
-  background: rgba(255, 255, 255, 0.2857142857);
-}
-.photos-block .item:nth-child(3) {
-  background: rgba(255, 255, 255, 0.4285714286);
-}
-.photos-block .item:nth-child(4) {
-  background: rgba(255, 255, 255, 0.5714285714);
-}
-.photos-block .item:nth-child(5) {
-  background: rgba(255, 255, 255, 0.7142857143);
-}
-.photos-block .item:nth-child(6) {
-  background: rgba(255, 255, 255, 0.8571428571);
-}
-.photos-block .item:nth-child(7) {
-  background: white;
 }
 .photos-block .item:nth-child(3) .click {
   left: 28%;
@@ -1598,23 +1584,15 @@ body {
 .photos-block .good.shown, .photos-block .bad.shown {
   animation: ep3-photos 0.6s ease-in-out;
 }
-.photos-block .good {
-  background: #00f;
-}
-.photos-block .bad {
-  background: #f00;
-}
 .photos-block .click {
-  background: rgba(255, 255, 255, 0.1);
   position: absolute;
   width: 6em;
   height: 6em;
   border-radius: 50%;
 }
 .photos-block .next {
-  width: 8em;
+  width: 12em;
   height: 4em;
-  background: #0f0;
   cursor: pointer;
   z-index: 1;
   position: absolute;
@@ -1633,10 +1611,40 @@ body {
 .radar-block {
   background: 0 0/cover;
 }
+.radar-block.won {
+  pointer-events: none;
+}
+.radar-block.won .eye, .radar-block.won .eye-bg {
+  transition: all 0.6s linear;
+}
 .radar-block .eye {
   position: absolute;
-  background: center/cover;
+  --x:0;
+  --y:0;
+  --w:0;
+  --h:0;
+  --f:0;
+}
+.radar-block .eye-bg {
+  height: 100%;
+  background: var(--x) var(--y)/var(--w) var(--h);
+  filter: blur(var(--f));
   border-radius: 50%;
+}
+.radar-block .over, .radar-block .anim {
+  position: absolute;
+  left: -35%;
+  top: -35%;
+  width: 170%;
+  height: 170%;
+}
+.radar-block .dot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: #fff;
+  pointer-events: none;
+  display: none;
 }
 
 /*@path:components\_footer.scss*/

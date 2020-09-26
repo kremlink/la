@@ -16,7 +16,7 @@ export const data={
   bTmpl:'#leaflet-bad-template',
   gTmpl:'#leaflet-good-template',
   $into:'.leaflet-block',
-  //soundBg:'.sounds[data-what=cartogr-bg]',
+  soundBg:'.sounds[data-what=leaflet-bg]',
   okCls:'ok',
   doneCls:'done',
   shownCls:'shown'

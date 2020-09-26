@@ -1,11 +1,13 @@
 @include exports("@path:components\_ep3.scss"){/*@path:components\_ep3.scss*/
   .ov-wrap{
     &.start.v2{
+      @include flx(display,flex);
+      @include flx(justify-content,space-around);
+      @include flx(align-items,center);
       .pulse-btn{
-        @include abs($l:30%,$t:20%);
-        &.corr{
-          left:50%;
-        }
+        position:relative;
+        width:14em;
+        height:14em;
       }
     }
     &.leaflet,&.photos,&.radar{
@@ -76,6 +78,7 @@
   }
 
   .leaflet-block{
+    background:rgba(#000,.6);
     .bg,.bad,.good{
       position:absolute;
       width:100%;
@@ -89,7 +92,7 @@
       }
     }
     .item{
-      background:rgba(#f00,.3);
+      //background:rgba(#f00,.3);
       position:absolute;
       display:none;
       &.shown{
@@ -105,6 +108,7 @@
   };
 
   .photos-block{
+    background:#000;
     .item,.good,.bad{
       @include abs($l:0);
       width:100%;
@@ -119,11 +123,6 @@
         z-index:1;
         svg{
           opacity:1;
-        }
-      }
-      @for $x from 1 through 7{
-        &:nth-child(#{$x}){
-          background:rgba(#fff,$x/7);
         }
       }
       &:nth-child(3) .click{
@@ -151,23 +150,16 @@
         animation:ep3-photos .6s ease-in-out;
       }
     }
-    .good{
-      background:#00f;
-    }
-    .bad{
-      background:#f00;
-    }
     .click{
-      background:rgba(#fff,0.1);
+      //background:rgba(#fff,0.1);
       position:absolute;
       width:6em;
       height:6em;
       border-radius:50%;
     }
     .next{
-      width:8em;
+      width:12em;
       height:4em;
-      background:#0f0;
       cursor:pointer;
       z-index:1;
       @include abs($r:2em,$b:2em);
@@ -184,12 +176,38 @@
   //---
   .radar-block{
     background:0 0/cover;
-    .eye{//w:63.5em=100%;h:35.7em=100%
+    &.won{
+      pointer-events:none;
+      .eye,.eye-bg{
+        @include trs('all #{$anim*2} linear');
+      }
+    }
+    .eye{
       position:absolute;
-      //width:10em;
-      //height:10em;
-      background:center/cover;
+      --x:0;
+      --y:0;
+      --w:0;
+      --h:0;
+      --f:0;
+    }
+    .eye-bg{
+      height:100%;
+      background:var(--x) var(--y)/var(--w) var(--h);
+      filter:blur(var(--f));
       border-radius:50%;
+    }
+    .over,.anim{
+      @include abs($l:-35%,$t:-35%);
+      width:170%;
+      height:170%;
+    }
+    .dot{
+      position:absolute;
+      width:1px;
+      height:1px;
+      background:#fff;
+      pointer-events:none;
+      display:none;
     }
   }
 }

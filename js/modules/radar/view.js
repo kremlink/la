@@ -10,6 +10,7 @@ export let RadarView=BaseIntView.extend({
  events:events,
  dragging:false,
  mult:0,
+ dotTimeout:null,
  shift:{x:0,y:0},
  dragBounds:{h:0,v:0},
  done:false,
@@ -21,6 +22,7 @@ export let RadarView=BaseIntView.extend({
   }]);
 
   this.$drag=this.$(data.view.eye);
+  //this.$dot=this.$(data.view.dot).css({left:data.dotCoords.x+'em',top:data.dotCoords.y+'em'});
   this.$dragCont=this.$(data.view.dragCont);
   this.$drag.css({width:data.eyeSize.x+'em',height:data.eyeSize.y+'em'});
   this.mult=this.$drag.width()/data.eyeSize.x;
@@ -28,14 +30,17 @@ export let RadarView=BaseIntView.extend({
   this.dragBounds.v=this.$el.height()/this.mult;
   shift.x=this.dragBounds.h/2-data.eyeSize.y/2;
   shift.y=this.dragBounds.v/2-data.eyeSize.y/2;
-  this.$drag.css({transform:`translate(${shift.x}em,${shift.y}em)`,backgroundPosition:`-${shift.x}em -${shift.y}em`});
+  this.$drag.css({transform:`translate(${shift.x}em,${shift.y}em)`,'--f':data.eyeSize.x/this.mult/data.blurMult+'em',
+   '--x':-shift.x+'em','--y':-shift.y+'em','--w':this.dragBounds.h+'em','--h':this.dragBounds.v+'em'});
   this.shift.x=this.dragBounds.h/2-data.eyeSize.x/2;
   this.shift.y=this.dragBounds.v/2-data.eyeSize.y/2;
   this.drag();
-  /*setTimeout(()=>{
-   this.$el.addClass(data.view.doneCls);
-   this.done=true;
-  },data.winWait);*/
+  lottie.loadAnimation({
+   container:this.$(data.view.anim)[0],
+   renderer:'svg',
+   loop:true,
+   animationData:data.lottie
+  });
  },
  checkBoundaries:function(delta={},s=false){
   let v={x:this.shift.x+delta.x,y:this.shift.y+delta.y};
@@ -55,16 +60,48 @@ export let RadarView=BaseIntView.extend({
    this.shift.y=v.y;
   }
 
-  return {x:v.x+'em',y:v.y+'em'};
+  return {x:v.x,y:v.y};
  },
  setMapPos:function({delta,end=false}){
-  let pos=this.checkBoundaries(delta,end);
+  let pos=this.checkBoundaries(delta,end),
+  len=Math.sqrt((data.dotCoords.x-(pos.x+data.eyeSize.x/2))*(data.dotCoords.x-(pos.x+data.eyeSize.x/2))+
+   (data.dotCoords.y-(pos.y+data.eyeSize.y/2))*(data.dotCoords.y-(pos.y+data.eyeSize.y/2)));
 
-  this.$drag.css({transform:`translate(${pos.x+','+pos.y})`,backgroundPosition:`-${pos.x} -${pos.y}`});
+  this.$drag.css({transform:`translate(${pos.x+'em,'+pos.y}em)`,'--x':-pos.x+'em','--y':-pos.y+'em'});
+
+  if(len<=data.eyeSize.x)
+   this.$drag.css('--f','0em');
+  if(len>data.eyeSize.x&&len<=data.eyeSize.x*7)
+   this.$drag.css('--f',(len-data.eyeSize.x)/this.mult/data.blurMult+'em');
+  if(len>data.eyeSize.x*7)
+   this.$drag.css('--f',data.eyeSize.x*6/this.mult/data.blurMult+'em');
+
+  if(len<data.eyeSize.x/2)
+  {
+   if(!this.dotTimeout)
+   {
+    this.dotTimeout=setTimeout(()=>{
+     this.dragging=false;
+     this.$dragCont.addClass(data.view.wonCls);
+     pos.x=data.dotCoords.x-data.eyeSize.x/2;
+     pos.y=data.dotCoords.y-data.eyeSize.y/2;
+     this.$drag.css({transform:`translate(${pos.x+'em,'+pos.y}em)`,'--x':-pos.x+'em','--y':-pos.y+'em','--f':'0em'});
+     setTimeout(()=>{
+      this.$el.addClass(data.view.doneCls);
+      this.done=true;
+     },data.winWait);
+    },data.dotWait);
+   }
+  }else
+  {
+   clearTimeout(this.dotTimeout);
+   this.dotTimeout=null;
+  }
  },
  drag:function(){
   let start={x:0,y:0},
-   delta;
+   delta,
+  nope;
 
   new utils.drag({
    both:true,
@@ -72,18 +109,27 @@ export let RadarView=BaseIntView.extend({
    container:this.$dragCont,
    threshold:0,
    downCallback:(opts)=>{
-    start.x=opts.e[0].pageX;
-    start.y=opts.e[0].pageY;
-    this.dragging=true;
-    delta={x:0,y:0};
+    if(!$(opts.e[0].target).closest(this.$drag).length)
+     nope=true;
+    if(!nope)
+    {
+     start.x=opts.e[0].pageX;
+     start.y=opts.e[0].pageY;
+     this.dragging=true;
+     delta={x:0,y:0};
+    }
    },
    dragCallback:(opts)=>{
-    delta.x=(opts.e[0].pageX-start.x)/this.mult;
-    delta.y=(opts.e[0].pageY-start.y)/this.mult;
-    this.setMapPos({delta:delta});
+    if(!nope&&this.dragging)
+    {
+     delta.x=(opts.e[0].pageX-start.x)/this.mult;
+     delta.y=(opts.e[0].pageY-start.y)/this.mult;
+     this.setMapPos({delta:delta});
+    }
    }
   });
   $(document).on('mouseup touchend',()=>{// touchend
+   nope=false;
    if(this.dragging)
    {
     this.dragging=false;

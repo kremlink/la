@@ -15,15 +15,41 @@ export let StartView=BaseIntView.extend({
    data:data,
    type:opts.simple
   }]);
+
+  if(this.opts.simple==='two')
+  {
+   this.$twoSound={plus:$(data.view.twoSound.plus),minus:$(data.view.twoSound.minus)};
+   this.anim();
+  }
+ },
+ anim:function(){
+  let btns=this.$(data.events.click);
+
+  lottie.loadAnimation({
+   container:btns[0],
+   renderer:'svg',
+   loop:true,
+   animationData:data.twoLottie[0]
+  });
+  lottie.loadAnimation({
+   container:btns[1],
+   renderer:'svg',
+   loop:true,
+   animationData:data.twoLottie[1]
+  });
  },
  click:function(e){
+  let corr;
+
   switch(this.opts.simple)
   {
    case 'one':
     this.away();
     break;
    case 'two':
-    this.away(false,$(e.currentTarget).is(data.view.corr)?{time:'endGood'}:null);
+    corr=$(e.currentTarget).is(data.view.corr);
+    this.$twoSound[corr?'plus':'minus'][0].play();
+    this.away(false,corr?{time:'endGood'}:null);
   }
  }
 });

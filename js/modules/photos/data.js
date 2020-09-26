@@ -13,7 +13,7 @@ export const data={
   bad:'.bad',
   next:'.next',
   click:'.click',
-  //soundBg:'.sounds[data-what=cartogr-bg]',
+  soundBg:'.sounds[data-what=photos-bg]',
   okCls:'ok',
   doneCls:'done',
   shownCls:'shown'

@@ -30,13 +30,6 @@ export let PhotosView=BaseIntView.extend({
  showNext:function(){
   this.$items.eq(this.ctr).removeClass(data.view.shownCls);
   this.$items.eq(++this.ctr).addClass(data.view.shownCls);
- },
- item:function(){
-  this.$bad.addClass(data.view.shownCls);
- },
- click:function(e){
-  this.$good.addClass(data.view.shownCls);
-  this.showNext();
   if(this.ctr===this.$items.length)
   {
    setTimeout(()=>{
@@ -44,6 +37,13 @@ export let PhotosView=BaseIntView.extend({
     this.done=true;
    },data.winWait);
   }
+ },
+ item:function(){
+  this.$bad.addClass(data.view.shownCls);
+ },
+ click:function(e){
+  this.$good.addClass(data.view.shownCls);
+  this.showNext();
 
   e.stopPropagation();
  },
