@@ -1,7 +1,6 @@
 export const data={
  preload:{},
  waitBtn:1500,
- timecodes:[],
  events:{
   'start':'.start-pop',
  },

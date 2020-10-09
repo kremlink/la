@@ -5,10 +5,11 @@ let data=app.configure({player:dat}).player,
 
 export let PlayerView=Backbone.View.extend({
  el:data.view.el,
- initialize:function(opts){
+ timecodes:null,
+ initialize:function(){
  epIndex=app.get('epIndex');
 
-  this.timecodes=opts.timecodes;
+  this.timecodes=[...data.timecodes[epIndex]];
   this.player=videojs(this.el,{
    controlBar:{
     children:[
@@ -65,7 +66,7 @@ export let PlayerView=Backbone.View.extend({
     document.documentElement.requestFullscreen();
   });
   this.player.on('ended',()=>{
-   location.href=data.redirect;
+   location.href=data.redirect[epIndex];
   });
   /*document.addEventListener('fullscreenchange',()=>{
    app.get('aggregator').trigger('page:fs',document.fullscreenElement);
@@ -91,7 +92,7 @@ export let PlayerView=Backbone.View.extend({
    this.timecodes.forEach((o,i)=>{
     if(this.player.currentTime()>o.start&&!o.invoked)
     {
-     app.get('aggregator').trigger('main:step',i);
+     app.get('aggregator').trigger('main:step',{index:i,timecodeData:o});
      o.invoked=true;
     }
    });

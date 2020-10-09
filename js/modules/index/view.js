@@ -24,7 +24,7 @@ export function init(app,modules){
 
    epIndex=app.get('epIndex');
 
-   new MainView({timecodes:data.timecodes[epIndex]});
+   new MainView;
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
    $(window).on('resize',_.debounce(()=>{
@@ -63,7 +63,7 @@ export function init(app,modules){
     }
     wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
    }
-   $.when(wait).then(()=>this.playerView=new PlayerView({timecodes:data.timecodes[epIndex]}));
+   $.when(wait).then(()=>this.playerView=new PlayerView);
   },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);
@@ -78,8 +78,8 @@ export function init(app,modules){
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);
   },
-  pause:function(i){
-   if(!data.timecodes[epIndex][i].checkpoint)
+  pause:function({index:i,timecodeData:timecodeData}){
+   if(!timecodeData.checkpoint)
     this.$el.addClass(data.view.pauseCls);
   },
   play:function(){

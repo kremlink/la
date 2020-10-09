@@ -1460,7 +1460,7 @@ body {
   opacity: 1;
 }
 .ov-wrap.leaflet.done .ep3-block:after, .ov-wrap.photos.done .ep3-block:after, .ov-wrap.radar.done .ep3-block:after {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .ov-wrap.leaflet.done .wobble-pop, .ov-wrap.photos.done .wobble-pop, .ov-wrap.radar.done .wobble-pop {
   pointer-events: auto;
@@ -1486,6 +1486,13 @@ body {
   transition-delay: 1.5s;
 }
 .ov-wrap.leaflet .w-p-t-ov div:nth-child(2), .ov-wrap.photos .w-p-t-ov div:nth-child(2), .ov-wrap.radar .w-p-t-ov div:nth-child(2) {
+  display: none;
+}
+.ov-wrap.photos.done .photos-block {
+  transition: background 0.9s ease-in-out;
+  background: none;
+}
+.ov-wrap.photos.done .photos-block:after {
   display: none;
 }
 
@@ -1529,6 +1536,7 @@ body {
 .leaflet-block .item {
   position: absolute;
   display: none;
+  cursor: pointer;
 }
 .leaflet-block .item.shown {
   display: block;
@@ -1561,16 +1569,16 @@ body {
   opacity: 1;
 }
 .photos-block .item:nth-child(3) .click {
-  left: 28%;
-  top: 60%;
+  left: 25%;
+  top: 57%;
 }
 .photos-block .item:nth-child(5) .click {
-  left: 81%;
-  top: 20%;
+  left: 78%;
+  top: 13%;
 }
 .photos-block .item:nth-child(7) .click {
-  left: 13%;
-  top: 25%;
+  left: 10%;
+  top: 18%;
 }
 .photos-block .item svg {
   opacity: 0;
@@ -1586,8 +1594,8 @@ body {
 }
 .photos-block .click {
   position: absolute;
-  width: 6em;
-  height: 6em;
+  width: 10.5em;
+  height: 10.5em;
   border-radius: 50%;
 }
 .photos-block .next {
@@ -2117,6 +2125,9 @@ body {
   position: absolute;
   left: 11.36%;
   top: 23.84%;
+}
+.w-p-t-ov a {
+  color: #b6837e;
 }
 
 .w-p-bg {

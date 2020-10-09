@@ -14,8 +14,6 @@ export const data={
   $grid:'.grid',
   $next:'.next',
   soundBg:'.sounds[data-what=cartogr-bg]',
-  soundPlus:'.sounds[data-what=cartogr-plus]',
-  soundMinus:'.sounds[data-what=cartogr-minus]',
   okCls:'ok',
   doneCls:'done',
   shownCls:'shown',

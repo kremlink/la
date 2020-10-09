@@ -53,6 +53,9 @@
   }
   .w-p-t-ov{
     @include abs($l:11.36%,$t:23.84%);
+    a{
+      color:#b6837e;
+    }
   }
   .w-p-bg{
     @include abs($l:0,$t:0);

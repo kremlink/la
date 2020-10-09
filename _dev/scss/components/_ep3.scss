@@ -29,7 +29,7 @@
       }
       &.done{
         .ep3-block:after{
-          opacity:.5;
+          opacity:.8;
         }
         .wobble-pop{
           pointer-events:auto;
@@ -59,6 +59,17 @@
       }
       .w-p-t-ov div:nth-child(2){
         display:none;
+      }
+    }
+    &.photos{
+      &.done{
+        .photos-block{
+          @include trs('background #{$anim*3} ease-in-out');
+          background:none;
+          &:after{
+            display:none;
+          }
+        }
       }
     }
   }
@@ -95,6 +106,7 @@
       //background:rgba(#f00,.3);
       position:absolute;
       display:none;
+      cursor:pointer;
       &.shown{
         display:block;
       }
@@ -126,16 +138,16 @@
         }
       }
       &:nth-child(3) .click{
-        left:28%;
-        top:60%;
+        left:25%;
+        top:57%;
       }
       &:nth-child(5) .click{
-        left:81%;
-        top:20%;
+        left:78%;
+        top:13%;
       }
       &:nth-child(7) .click{
-        left:13%;
-        top:25%;
+        left:10%;
+        top:18%;
       }
       svg{
         opacity:0;
@@ -153,8 +165,8 @@
     .click{
       //background:rgba(#fff,0.1);
       position:absolute;
-      width:6em;
-      height:6em;
+      width:10.5em;
+      height:10.5em;
       border-radius:50%;
     }
     .next{

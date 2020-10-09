@@ -1,5 +1,6 @@
 import {data} from './data.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {app} from '../../bf/base.js';
 
 let events={};
 events[`click ${data.events.go}`]='go';
@@ -44,6 +45,7 @@ export let LeafletView=BaseIntView.extend({
 
   this.$bad.eq(index).removeClass(data.view.shownCls);
   this.$good.eq(index).addClass(data.view.shownCls);
+  app.get('aggregator').trigger('sound','btn');
   if(++this.ctr===data.data.length)
   {
    setTimeout(()=>{

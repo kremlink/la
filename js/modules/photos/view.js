@@ -1,5 +1,6 @@
 import {data} from './data.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {app} from '../../bf/base.js';
 
 let events={};
 events[`click ${data.events.go}`]='go';
@@ -28,18 +29,22 @@ export let PhotosView=BaseIntView.extend({
   this.$items.eq(0).addClass(data.view.shownCls);
  },
  showNext:function(){
+  app.get('aggregator').trigger('sound','plus');
   this.$items.eq(this.ctr).removeClass(data.view.shownCls);
   this.$items.eq(++this.ctr).addClass(data.view.shownCls);
   if(this.ctr===this.$items.length)
   {
+   this.done=true;
    setTimeout(()=>{
     this.$el.addClass(data.view.doneCls);
-    this.done=true;
    },data.winWait);
   }
  },
  item:function(){
-  this.$bad.addClass(data.view.shownCls);
+  if(!this.done){
+   this.$bad.addClass(data.view.shownCls);
+   app.get('aggregator').trigger('sound','minus');
+  }
  },
  click:function(e){
   this.$good.addClass(data.view.shownCls);
@@ -48,13 +53,17 @@ export let PhotosView=BaseIntView.extend({
   e.stopPropagation();
  },
  next:function(){
-  if(this.indicies.includes(this.ctr))
+  if(!this.done)
   {
-   this.$bad.addClass(data.view.shownCls);
-  }else
-  {
-   this.$good.addClass(data.view.shownCls);
-   this.showNext();
+   if(this.indicies.includes(this.ctr))
+   {
+    this.$bad.addClass(data.view.shownCls);
+    app.get('aggregator').trigger('sound','minus');
+   }else
+   {
+    this.$good.addClass(data.view.shownCls);
+    this.showNext();
+   }
   }
  },
  go:function(){

@@ -16,8 +16,6 @@ export const data={
  view:{
   video:'.ov-video',
   soundBg:'.sounds[data-what=qs-bg]',
-  soundPlus:'.sounds[data-what=qs-plus]',
-  soundMinus:'.sounds[data-what=qs-minus]',
   el:'.ov-wrap.qs',
   shownCls:'shown',
   goCls:'go',

@@ -1,6 +1,6 @@
 export const data={
  wait:3000000,
- winWait:1500,
+ winWait:1000,
  events:{
   'go':'.pulse-btn',
   'item':'.item',

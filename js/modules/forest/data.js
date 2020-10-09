@@ -13,8 +13,6 @@ export const data={
   hlTmpl:'#forest-hline-template',
   vlTmpl:'#forest-vline-template',
   soundBg:'.sounds[data-what=forest-bg]',
-  soundPlus:'.sounds[data-what=forest-plus]',
-  soundMinus:'.sounds[data-what=forest-minus]',
   okCls:'ok',
   shownCls:'shown',
   item:{

@@ -1,5 +1,6 @@
 import {data} from './data.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {app} from '../../bf/base.js';
 
 let events={};
 events[`click ${data.events.go}`]='go';
@@ -17,8 +18,6 @@ export let CartogrView=BaseIntView.extend({
  $previews:null,
  current:0,
  $gridItems:null,
- $sPlus:$(data.view.soundPlus),
- $sMinus:$(data.view.soundMinus),
  initialize:function(){
   BaseIntView.prototype.initialize.apply(this,[{
    data:data
@@ -66,8 +65,7 @@ export let CartogrView=BaseIntView.extend({
   {
    if(index===data.seq[this.current])
    {
-    this.$sPlus[0].currentTime=0;
-    this.$sPlus[0].play();
+    app.get('aggregator').trigger('sound','plus');
     item.removeClass(data.view.item.badCls).addClass(data.view.item.goodCls+' '+data.view.doneCls);
     this.$previews.eq(this.current++).removeClass(data.view.item.activeCls);
     this.$previews.eq(this.current).addClass(data.view.item.activeCls);
@@ -84,8 +82,7 @@ export let CartogrView=BaseIntView.extend({
     {
      item.removeClass(data.view.item.badCls);
      setTimeout(()=>item.addClass(data.view.item.badCls),100);
-     this.$sMinus[0].currentTime=0;
-     this.$sMinus[0].play();
+     app.get('aggregator').trigger('sound','minus');
     }
    }
   }

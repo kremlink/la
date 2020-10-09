@@ -1,4 +1,6 @@
 import {app} from '../../bf/base.js';
+import {SoundMgr} from '../soundMgr/view.js';
+
 import {StartView} from '../start/view.js';
 import {VibrateView} from '../vibrate/view.js';
 import {QsView} from '../qs/view.js';
@@ -21,38 +23,39 @@ let events={};
 export let MainView=Backbone.View.extend({
  events:events,
  el:data.view.el,
- currentIndex:-1,
- initialize:function(opts){
+ timecodeData:null,
+ initialize:function(){
   epIndex=app.get('epIndex');
 
-  this.timecodes=opts.timecodes;
   this.listenTo(app.get('aggregator'),'main:toggle',this.toggle);
   this.listenTo(app.get('aggregator'),'main:step',this.step);
 
   new TimerView;
+  new SoundMgr;
  },
  toggle:function(opts){
   if(opts.show)
    app.get('aggregator').trigger('player:pause');else
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
-   app.get('aggregator').trigger('player:play',opts.opts&&opts.opts.time?this.timecodes[this.currentIndex][opts.opts.time]:this.timecodes[this.currentIndex].end);
+   app.get('aggregator').trigger('player:play',opts.opts&&opts.opts.end?this.timecodeData[opts.opts.end]:this.timecodeData.end);
 
   this.$el.toggleClass(data.view.shownCls,opts.show);
   if(opts.failed)
-   app.get('aggregator').trigger('timer:update',this.timecodes[this.currentIndex]);
+   app.get('aggregator').trigger('timer:update',this.timecodeData);
  },
- step:function(i){
+ step:function({index:i,timecodeData:timecodeData}){
+  this.timecodeData=timecodeData;
+
   if(i===0)
    app.get('aggregator').trigger('page:timer');
 
-  if(this.timecodes[i].checkpoint)
+  if(timecodeData.checkpoint)
   {
-   app.get('aggregator').trigger('timer:update',this.timecodes[i]);
+   app.get('aggregator').trigger('timer:update',timecodeData);
   }else
   {
-   eval(`new ${data.stepViews[epIndex][i]}(${JSON.stringify(this.timecodes[i])})`);
+   eval(`new ${data.stepViews[epIndex][i]}(${JSON.stringify(timecodeData.data)})`);
 
-   this.currentIndex=i;
    this.toggle({show:true});
   }
  }

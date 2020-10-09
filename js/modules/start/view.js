@@ -1,4 +1,5 @@
 import {data} from './data.js';
+import {app} from '../../bf/base.js';
 import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
@@ -17,10 +18,7 @@ export let StartView=BaseIntView.extend({
   }]);
 
   if(this.opts.simple==='two')
-  {
-   this.$twoSound={plus:$(data.view.twoSound.plus),minus:$(data.view.twoSound.minus)};
    this.anim();
-  }
  },
  anim:function(){
   let btns=this.$(data.events.click);
@@ -48,8 +46,8 @@ export let StartView=BaseIntView.extend({
     break;
    case 'two':
     corr=$(e.currentTarget).is(data.view.corr);
-    this.$twoSound[corr?'plus':'minus'][0].play();
-    this.away(false,corr?{time:'endGood'}:null);
+    app.get('aggregator').trigger('sound',corr?'plus':'minus');
+    this.away(false,corr?{end:'endGood'}:null);
   }
  }
 });

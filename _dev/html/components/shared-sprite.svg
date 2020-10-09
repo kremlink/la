@@ -16,19 +16,19 @@
             <stop offset="1" style="stop-color:#000;stop-opacity:.5"/>
         </radialGradient>
     
-        <radialGradient id="3-07-3-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 1277 1520)">
+        <radialGradient id="3-07-3-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(180 638.5 760) scale(341.131)">
             <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
-            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.85"/>
         </radialGradient>
     
-        <radialGradient id="3-07-5-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 3315 590)">
+        <radialGradient id="3-07-5-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(180 1660.12 297.143) scale(341.131)">
             <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
-            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.85"/>
         </radialGradient>
     
-        <radialGradient id="3-07-7-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-747 0 0 -747 704 708)">
+        <radialGradient id="3-07-7-cover-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(180 353.558 354.132) scale(341.131)">
             <stop offset="0" style="stop-color:#000;stop-opacity:0"/>
-            <stop offset="1" style="stop-color:#000;stop-opacity:.75"/>
+            <stop offset="1" style="stop-color:#000;stop-opacity:.85"/>
         </radialGradient>
     
         <radialGradient id="3-07-error-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(250 0 0 1080 0 1080)">

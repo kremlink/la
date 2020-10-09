@@ -12,8 +12,8 @@ export const data={
  },
  view:{
   video:'.ov-video',
-  twoSound:{minus:'.sounds[data-what=start-minus]',plus:'.sounds[data-what=start-plus]'},
   soundBg:{
+   one:'.sounds[data-what=zagl-bg]',
    two:'.sounds[data-what=start-bg]'
   },
   el:{

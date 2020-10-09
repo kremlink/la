@@ -1,4 +1,5 @@
 import {data} from './data.js';
+import {app} from '../../bf/base.js';
 import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
@@ -8,8 +9,6 @@ events[`click ${data.events.no}`]='no';
 export let QsView=BaseIntView.extend({
  el:data.view.el,
  events:events,
- $sPlus:$(data.view.soundPlus),
- $sMinus:$(data.view.soundMinus),
  initialize:function(){
   let $li;
 
@@ -60,7 +59,7 @@ export let QsView=BaseIntView.extend({
  yes:function(e){
   if(!this.changing)
   {
-   this[data.choose[this.ctr].yes?'$sPlus':'$sMinus'][0].play();
+   app.get('aggregator').trigger('sound',data.choose[this.ctr].yes?'plus':'minus');
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
@@ -69,7 +68,7 @@ export let QsView=BaseIntView.extend({
  no:function(e){
   if(!this.changing)
   {
-   this[!data.choose[this.ctr].yes?'$sPlus':'$sMinus'][0].play();
+   app.get('aggregator').trigger('sound',!data.choose[this.ctr].yes?'plus':'minus');
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);

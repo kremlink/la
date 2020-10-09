@@ -12,12 +12,10 @@ export let BaseIntView=Backbone.View.extend({
   if(!this.$video.is('video'))
    this.$video=null;
   this.$sBg=this.type&&this.data.view.soundBg?$(this.data.view.soundBg[this.type]):$(this.data.view.soundBg);
-  this.$sound=$(data.sound);
   this.toggle(true);
 
   $(data.theBtn).on('click',()=>{
-   this.$sound[0].currentTime=0;
-   this.$sound[0]['play']();
+   app.get('aggregator').trigger('sound','btn');
   });
  },
  away:function(failed=false,opts){
@@ -27,8 +25,11 @@ export let BaseIntView=Backbone.View.extend({
  },
  toggle:function(f){
   this.$el.toggleClass(this.data.view.shownCls,f);
-  if(this.$sBg&&this.$sBg.length)
-   this.$sBg[0][f?'play':'pause']();
+  if(!app.get('_dev'))
+  {
+   if(this.$sBg&&this.$sBg.length)
+    this.$sBg[0][f?'play':'pause']();
+  }
   if(this.$video&&this.$video.length)
    this.$video[0][f?'play':'pause']();
   if(f)

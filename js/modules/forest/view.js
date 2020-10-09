@@ -1,5 +1,6 @@
 import {data} from './data.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {app} from '../../bf/base.js';
 
 let events={};
 events[`click ${data.events.go}`]='go';
@@ -72,14 +73,12 @@ export let ForestView=BaseIntView.extend({
 
   if(item.hasClass(data.view.item.activeCls))
   {
-   this.$sPlus[0].currentTime=0;
-   this.$sPlus[0].play();
+   app.get('aggregator').trigger('sound','stone');
    item.addClass(data.view.item.doneCls);
    this.activate();
   }else
   {
-   this.$sMinus[0].currentTime=0;
-   this.$sMinus[0].play();
+   app.get('aggregator').trigger('sound','minus');
   }
 
 

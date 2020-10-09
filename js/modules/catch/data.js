@@ -28,8 +28,6 @@ export const data={
   thTemplate:'#catch-thing-item-template',
   video:'.ov-video',
   soundBg:'.sounds[data-what=catch-bg]',
-  soundGood:'.sounds[data-what=catch-good]',
-  soundBad:'.sounds[data-what=catch-bad]',
   el:'.ov-wrap.catch',
   into:'.game',
   thingCls:'thing',

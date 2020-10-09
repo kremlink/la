@@ -1,5 +1,6 @@
 import {data} from './data.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {app} from '../../bf/base.js';
 
 let mri=function(min,max){
   return Math.floor(Math.random()*(max-min+1))+min;
@@ -42,9 +43,6 @@ export let CatchView=BaseIntView.extend({
   BaseIntView.prototype.initialize.apply(this,[{
    data:data
   }]);
-
-  this.$sGood=$(data.view.soundGood);
-  this.$sBad=$(data.view.soundBad);
 
   for(let i=0;i<data.things.length;i++)
   {
@@ -107,14 +105,12 @@ export let CatchView=BaseIntView.extend({
 
   if(data.things[this.index][index].no)
   {
-   this.$sBad[0].currentTime=0;
-   this.$sBad[0].play();
+   app.get('aggregator').trigger('sound','ctch-minus');
    item.addClass(data.view.noCls);
    setTimeout(()=>item.removeClass(data.view.noCls),data.shakeDur);
   }else
   {
-   this.$sGood[0].currentTime=0;
-   this.$sGood[0].play();
+   app.get('aggregator').trigger('sound','ctch-plus');
    this.pData[this.index].stop[index]=true;
    item.css('transition','');
    setTimeout(()=>item.addClass(data.view.dropCls).css(data.drop),0);
