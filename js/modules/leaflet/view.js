@@ -56,7 +56,17 @@ export let LeafletView=BaseIntView.extend({
  },
  go:function(){
   if(this.done)
-   this.away();else
+  {
+   this.done=false;
+   this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
+   this.ctr=0;
+   this.$items.remove();
+   this.$bad.remove();
+   this.$good.remove();
+   this.away();
+  }else
+  {
    this.$el.addClass(data.view.okCls);
+  }
  }
 });
