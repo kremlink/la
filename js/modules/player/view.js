@@ -3,11 +3,18 @@ import {data as dat} from './data.js';
 let data=app.configure({player:dat}).player,
     epIndex;
 
+let events={};
+events[`click ${data.events.jBack}`]='jBack';
+events[`click ${data.events.iBack}`]='iBack';
+events[`click ${data.events.iiBack}`]='iiBack';
+
 export let PlayerView=Backbone.View.extend({
+ events:events,
  el:data.view.el,
+ extTemplate:_.template($(data.view.extTemplate).html()),
  timecodes:null,
  initialize:function(){
- epIndex=app.get('epIndex');
+  epIndex=app.get('epIndex');
 
   this.timecodes=[...data.timecodes[epIndex]];
   this.player=videojs(this.el,{
@@ -30,10 +37,27 @@ export let PlayerView=Backbone.View.extend({
   this.listenTo(app.get('aggregator'),'player:play',this.play);
   this.listenTo(app.get('aggregator'),'player:pause',this.pause);
  },
+ jBack:function(){
+  this.play({time:this.player.currentTime()-10});
+ },
+ iBack:function(){
+  let where=this.timecodes.filter(o=>o.start<this.player.currentTime()),
+  what=where[where.length-1];
+
+  this.play({time:what.start,clr:what});
+ },
+ iiBack:function(){
+  let index=0;
+
+  this.play({time:this.timecodes[index].start,clr:this.timecodes[index]});
+ },
  prepare:function(){
   let touched={},
    time=Date.now(),
    xhr,br,size;
+
+  this.setElement(data.view.el);
+  this.$el.append(this.extTemplate());
 
   xhr=new XMLHttpRequest();
   xhr.open('GET',data.testSpeedFile+'?'+time,true);
@@ -98,11 +122,19 @@ export let PlayerView=Backbone.View.extend({
    });
   });
  },
- play:function(time=-1){
+ play:function({time=-1,clr=null}){
   if(this.player.paused)
   {
    if(~time)
+   {
     this.player.currentTime(time);
+    this.timecodes.forEach((o)=>{
+     if(time<o.start&&o.repeatable)
+      o.invoked=false;
+    });
+    if(clr)
+     clr.invoked=false;
+   }
    this.player.play();
   }
  },

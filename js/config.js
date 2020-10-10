@@ -23,7 +23,8 @@ export let config={
   stepViews:{
    '1':['StartView','Checkpoint','VibrateView','Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'],
    '2':['Checkpoint','Checkpoint','MapView','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','VibrateView','ForestView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','CartogrView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','MapView'],
-   '3':['StartView','LeafletView','PhotosView','StartView','RadarView']
+   '3':['StartView','StartView','StartView','StartView']
+   // '3':['StartView','LeafletView','PhotosView','StartView','RadarView']
    // '3':['Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','LeafletView','Checkpoint','PhotosView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','Checkpoint','RadarView']
   }
  },
@@ -74,11 +75,14 @@ export let config={
    ],
    '3':[
     //{start:1,end:2,endGood:3,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
-        {start:1,end:2,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
-        {start:3,end:4,rem:-30,remText:'Минус полминуты',data:{}},
+        {start:5,end:6,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
+    {start:17,end:18,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one'}},
+    {start:20,end:22,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one'}},
+    {start:35,end:36,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one'}}
+        /*{start:3,end:4,rem:-30,remText:'Минус полминуты',data:{}},
         {start:5,end:6,rem:-30,remText:'Минус полминуты',data:{}},
         {start:7,end:8,rem:-30,remText:'Минус полминуты',data:{simple:'two',endGood:7}},
-        {start:9,end:10,rem:-30,remText:'Минус полминуты',data:{}}
+        {start:9,end:10,rem:-30,remText:'Минус полминуты',data:{}}*/
     /*{start:1,checkpoint:true},
     {start:120.76,rem:-600,remText:'',checkpoint:true},
     {start:149.2,rem:-1200,remText:'',checkpoint:true},

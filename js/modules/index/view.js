@@ -63,7 +63,7 @@ export function init(app,modules){
     }
     wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
    }
-   $.when(wait).then(()=>this.playerView=new PlayerView);
+   $.when(wait).then(()=>new PlayerView);
   },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);
@@ -73,7 +73,7 @@ export function init(app,modules){
   },
   start:function(){
    this.$el.addClass(data.view.startCls);
-   this.playerView.play();
+   app.get('aggregator').trigger('player:play',{});
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);

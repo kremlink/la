@@ -210,6 +210,24 @@
       }
     }
   }
+  //test
+  .test-btns{
+    @include abs($l:0,$r:0,$t:2em);
+    @include flx(display,flex);
+    @include flx(justify-content,space-around);
+    z-index:1;
+    .paused &{
+      display:none;
+    }
+    div{
+      width:10em;
+      padding:.3em .5em;
+      border-radius:.5em;
+      background:#fff;
+      cursor:pointer;
+      color:#000;
+    }
+  }
   //other
   .loader-pop{
     @include abs($l:0,$r:0,$t:0,$b:0);

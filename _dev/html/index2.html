@@ -219,10 +219,6 @@
                 <div class="the-t-text"></div>
                 <div class="the-t-pop"></div>
             </div>
-            <div class="test-btns">
-                <div>Назад на 10 секунд</div>
-                <div>Назад на предыдущий интерактив</div>
-            </div>
             <div class="start-pop">
                 <div style="background-image: url(images/start-bg.svg);"></div>
                 <div style="background-image: url(images/start-button-p.svg);"></div>
@@ -248,6 +244,13 @@
         <script type="text/template" id="leaflet-bad-template"><svg class="bad shown"><use xlink:href="#icon-shared-3-02-<%= i %>-w"></use></svg></script>
         <script type="text/template" id="leaflet-good-template"><svg class="good"><use xlink:href="#icon-shared-3-02-<%= i %>-r"></use></svg></script>
         <script type="text/template" id="leaflet-item-template"><div class="item shown" style="left:<%= left %>%;top:<%= top %>%;width:<%= width %>%;height:<%= height %>%;"></div></script>
+        <script type="text/template" id="ext-player-template">
+            <div class="test-btns">
+                <div class="just-back">Назад на 10 секунд</div>
+                <div class="int-back">Назад на предыдущий интерактив</div>
+                <div class="int-ind-back">Назад на 1-й интерактив</div>
+            </div>
+        </script>
         <div class="safe-hide-svg">
             @@include('components/shared-sprite.svg')
         </div>

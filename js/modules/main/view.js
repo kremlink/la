@@ -37,7 +37,7 @@ export let MainView=Backbone.View.extend({
   if(show)
    app.get('aggregator').trigger('player:pause');else
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
-   app.get('aggregator').trigger('player:play',opts.end?this.timecodeData.data[opts.end]:this.timecodeData.end);
+   app.get('aggregator').trigger('player:play',{time:opts.end?this.timecodeData.data[opts.end]:this.timecodeData.end});
 
   this.$el.toggleClass(data.view.shownCls,show);
   if(failed)

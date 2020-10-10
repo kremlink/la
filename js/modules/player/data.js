@@ -5,7 +5,13 @@ export const data={
  redirect:'',
  _production:false,
  quality:{},
+ events:{
+  'jBack':'.just-back',
+  'iBack':'.int-back',
+  'iiBack':'.int-ind-back'
+ },
  view:{
-  el:'.video-js'
+  el:'.video-js',
+  extTemplate:'#ext-player-template'
  }
 };

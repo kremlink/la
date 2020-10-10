@@ -1890,6 +1890,27 @@ body {
   animation: timer-notif 6s linear reverse;
 }
 
+.test-btns {
+  position: absolute;
+  left: 0;
+  top: 2em;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  z-index: 1;
+}
+.paused .test-btns {
+  display: none;
+}
+.test-btns div {
+  width: 10em;
+  padding: 0.3em 0.5em;
+  border-radius: 0.5em;
+  background: #fff;
+  cursor: pointer;
+  color: #000;
+}
+
 .loader-pop {
   position: absolute;
   left: 0;
