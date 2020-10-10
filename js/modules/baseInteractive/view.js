@@ -18,7 +18,7 @@ export let BaseIntView=Backbone.View.extend({
    app.get('aggregator').trigger('sound','btn');
   });
  },
- away:function(failed=false,opts){
+ away:function(failed=false,opts={}){
   clearTimeout(this.wait);
   app.get('aggregator').trigger('main:toggle',{show:false,failed:failed,opts:opts});
   this.toggle(false);

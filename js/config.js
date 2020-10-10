@@ -74,11 +74,11 @@ export let config={
    ],
    '3':[
     //{start:1,end:2,endGood:3,invoked:false,simple:'two',rem:-30,remText:'Минус полминуты'}
-        {start:1,end:2,rem:-30,remText:'Минус полминуты',data:{simple:'one'}},
-        {start:3,end:4,rem:-30,remText:'Минус полминуты'},
-        {start:5,end:6,rem:-30,remText:'Минус полминуты'},
-        {start:7,end:8,endGood:7,rem:-30,remText:'Минус полминуты',data:{simple:'two'}},
-        {start:9,end:10,rem:-30,remText:'Минус полминуты'}
+        {start:1,end:2,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
+        {start:3,end:4,rem:-30,remText:'Минус полминуты',data:{}},
+        {start:5,end:6,rem:-30,remText:'Минус полминуты',data:{}},
+        {start:7,end:8,rem:-30,remText:'Минус полминуты',data:{simple:'two',endGood:7}},
+        {start:9,end:10,rem:-30,remText:'Минус полминуты',data:{}}
     /*{start:1,checkpoint:true},
     {start:120.76,rem:-600,remText:'',checkpoint:true},
     {start:149.2,rem:-1200,remText:'',checkpoint:true},

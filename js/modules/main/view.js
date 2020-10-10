@@ -33,20 +33,20 @@ export let MainView=Backbone.View.extend({
   new TimerView;
   new SoundMgr;
  },
- toggle:function(opts){
-  if(opts.show)
+ toggle:function({show:show,failed:failed,opts:opts}){
+  if(show)
    app.get('aggregator').trigger('player:pause');else
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
-   app.get('aggregator').trigger('player:play',opts.opts&&opts.opts.end?this.timecodeData[opts.opts.end]:this.timecodeData.end);
+   app.get('aggregator').trigger('player:play',opts.end?this.timecodeData.data[opts.end]:this.timecodeData.end);
 
-  this.$el.toggleClass(data.view.shownCls,opts.show);
-  if(opts.failed)
+  this.$el.toggleClass(data.view.shownCls,show);
+  if(failed)
    app.get('aggregator').trigger('timer:update',this.timecodeData);
  },
  step:function({index:i,timecodeData:timecodeData}){
   this.timecodeData=timecodeData;
 
-  if(i===0)
+  if(timecodeData.data.iniTimer)
    app.get('aggregator').trigger('page:timer');
 
   if(timecodeData.checkpoint)

@@ -47,7 +47,7 @@ export let StartView=BaseIntView.extend({
    case 'two':
     corr=$(e.currentTarget).is(data.view.corr);
     app.get('aggregator').trigger('sound',corr?'plus':'minus');
-    this.away(false,corr?{end:'endGood'}:null);
+    this.away(false,corr?{end:'endGood'}:{});
   }
  }
 });
