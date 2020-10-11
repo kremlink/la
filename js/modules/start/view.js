@@ -14,7 +14,8 @@ export let StartView=BaseIntView.extend({
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data,
-   type:opts.simple
+   type:opts.simple,
+   autoClose:!opts.noAutoClose
   }]);
 
   if(this.opts.simple==='two')

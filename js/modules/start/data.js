@@ -17,8 +17,9 @@ export const data={
    two:'.sounds[data-what=start-bg]'
   },
   el:{
-   one:'.ov-wrap.start:not(.v2)',
-   two:'.ov-wrap.start.v2'
+   one:'.ov-wrap.start.v1',
+   two:'.ov-wrap.start.v2',
+   three:'.ov-wrap.start.v3'
   },
   corr:'.corr',
   shownCls:'shown'

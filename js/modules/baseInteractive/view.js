@@ -3,11 +3,12 @@ import {data} from './data.js';
 
 export let BaseIntView=Backbone.View.extend({
  data:null,
- initialize:function(opts){
-  this.data=opts.data;
-  this.type=opts.type;
-  if(opts.el)
-   this.setElement(opts.el);
+ initialize:function({data,type,el,autoClose=true}){
+  this.data=data;
+  this.type=type;
+  this.autoClose=autoClose;
+  if(el)
+   this.setElement(el);
   this.$video=this.$(this.data.view.video);
   if(!this.$video.is('video'))
    this.$video=null;
@@ -35,7 +36,8 @@ export let BaseIntView=Backbone.View.extend({
   if(f)
   {
    this.wait=setTimeout(()=>{
-    this.away(true);
+    if(this.autoClose)
+     this.away(true);
    },this.type?this.data.wait[this.type]:this.data.wait);
   }
  }
