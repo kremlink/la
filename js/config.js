@@ -1,4 +1,5 @@
 export let config={
+ metrika:{name:68233750},
  'index':{
   preload:{
    '1':{

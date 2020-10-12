@@ -1,4 +1,5 @@
 import {app} from '../../bf/base.js';
+import {Metrika} from '../metrika.js';
 import {MainView} from '../main/view.js';
 import {PlayerView} from '../player/view.js';
 //import {data} from './data.js';
@@ -24,6 +25,7 @@ export function init(app,modules){
 
    epIndex=app.get('epIndex');
 
+   new Metrika;//app.get('aggregator').trigger('metrika','start:one');
    new MainView;
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
