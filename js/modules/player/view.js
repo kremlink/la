@@ -113,10 +113,10 @@ export let PlayerView=Backbone.View.extend({
   });
 
   this.player.on('timeupdate',()=>{
-   this.timecodes.forEach((o,i)=>{
+   this.timecodes.forEach((o)=>{
     if((o.start<0?this.player.currentTime()>this.player.duration()+o.start:this.player.currentTime()>o.start)&&!o.invoked)
     {
-     app.get('aggregator').trigger('main:step',{index:i,timecodeData:o});
+     app.get('aggregator').trigger('main:step',o);
      o.invoked=true;
     }
    });

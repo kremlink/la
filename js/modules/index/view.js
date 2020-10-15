@@ -80,7 +80,7 @@ export function init(app,modules){
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);
   },
-  pause:function({index:i,timecodeData:timecodeData}){
+  pause:function(timecodeData){
    if(!timecodeData.checkpoint)
     this.$el.addClass(data.view.pauseCls);
   },

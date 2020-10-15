@@ -20,7 +20,10 @@ export let config={
   '2':{start:44*60*60},
   '3':{start:30*60*60}
  },
- 'main':{
+ board:{
+  defName:'Noname'
+ },
+ /*'main':{
   stepViews:{
    '1':['StartView','Checkpoint','VibrateView','Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'],
    '2':['Checkpoint','Checkpoint','MapView','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','VibrateView','ForestView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','CartogrView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','MapView'],
@@ -29,7 +32,7 @@ export let config={
    //'3':['StartView','LeafletView','PhotosView','StartView','RadarView']
    // '3':['Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','LeafletView','Checkpoint','PhotosView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','Checkpoint','RadarView']
   }
- },
+ },*/
  sound:{
   template:'<audio src="../sounds/<%= src %>.mp3" preload="auto"></audio>'
  },
@@ -76,8 +79,9 @@ export let config={
     {start:1349.1,end:1360.7,invoked:false,map:'three',rem:-1,remText:''}
    ],
    '3':[
-    {start:1,end:2,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
-    {start:-38,data:{noAutoClose:true,simple:'three'}}
+    {start:1,end:2,data:{interactive:'StartView',noAutoClose:true,simple:'name'}},
+    {start:5,end:6,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,iniTimer:true,data:{interactive:'StartView',simple:'one'}},
+    {start:-38,data:{interactive:'StartView',noAutoClose:true,simple:'endRef'}}
 
         /*{start:5,end:6,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
     {start:17,end:18,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one'}},

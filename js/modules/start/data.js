@@ -19,8 +19,10 @@ export const data={
   el:{
    one:'.ov-wrap.start.v1',
    two:'.ov-wrap.start.v2',
-   three:'.ov-wrap.start.v3'
+   endRef:'.ov-wrap.start.endRef',
+   name:'.ov-wrap.start.brdName'
   },
+  $brdName:'input',
   corr:'.corr',
   shownCls:'shown'
  }

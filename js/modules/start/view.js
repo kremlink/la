@@ -18,8 +18,12 @@ export let StartView=BaseIntView.extend({
    autoClose:!opts.noAutoClose
   }]);
 
-  if(this.opts.simple==='two')
-   this.anim();
+  switch(this.opts.simple)
+  {
+   case 'two':
+    this.anim();
+    break;
+  }
  },
  anim:function(){
   let btns=this.$(data.events.click);
@@ -43,6 +47,11 @@ export let StartView=BaseIntView.extend({
   switch(this.opts.simple)
   {
    case 'one':
+    app.get('aggregator').trigger('board:score',5);
+    this.away();
+    break;
+   case 'name':
+    app.get('aggregator').trigger('board:name',this.$(data.view.$brdName).val());
     this.away();
     break;
    case 'two':
