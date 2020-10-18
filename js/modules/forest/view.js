@@ -9,31 +9,34 @@ events[`click ${data.events.gItem}`]='gItem';
 export let ForestView=BaseIntView.extend({
  el:data.view.el,
  events:events,
- done:false,
  itemTemplate:null,
  hlTemplate:null,
  vlTemplate:null,
  $grid:null,
  current:-1,
- indicies:[...data.seq],
+ indicies:null,
  $gridItems:null,
  $sPlus:$(data.view.soundPlus),
  $sMinus:$(data.view.soundMinus),
- initialize:function(){
+ initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   data:data,
+   opts:opts
   }]);
 
   this.itemTemplate=_.template($(data.view.item.tmpl).html());
   this.hlTemplate=_.template($(data.view.hlTmpl).html());
   this.vlTemplate=_.template($(data.view.vlTmpl).html());
   this.$grid=this.$(data.view.$grid);
-
-  this.render();
+ },
+ clr:function(){
+  this.$el.removeClass(data.view.okCls);
+  this.$grid.html('');
  },
  render:function(){
   let s='';
 
+  this.indicies=[...data.seq];
   for(let i=0;i<data.grid[1];i++)
    for(let j=0;j<data.grid[0];j++)
     s+=$.trim(this.itemTemplate({index:i*data.grid[0]+j,width:100/data.grid[0],height:100/data.grid[1],left:j*100/data.grid[0],top:i*100/data.grid[1]}));
@@ -51,6 +54,7 @@ export let ForestView=BaseIntView.extend({
  activate:function(){
   if(!this.indicies.length)
   {
+   this.clr();
    this.away();
   }else
   {
@@ -106,9 +110,12 @@ export let ForestView=BaseIntView.extend({
   }*/
  },
  go:function(){
-  this.$el.addClass(data.view.okCls);
-  for(let i=0;i<data.seq.length;i++)
-   this.$gridItems.eq(data.seq[i]).css('transition-delay',i*data.view.item.anim+'s').addClass(data.view.item.iniCls);
-  //setTimeout(()=>this.$gridItems.css('transition-delay','0s'),(data.seq.length-1)*data.view.item.anim);
+  this.render();
+  setTimeout(()=>{
+   this.$el.addClass(data.view.okCls);
+   for(let i=0;i<data.seq.length;i++)
+    this.$gridItems.eq(data.seq[i]).css('transition-delay',i*data.view.item.anim+'s').addClass(data.view.item.iniCls);
+   //setTimeout(()=>this.$gridItems.css('transition-delay','0s'),(data.seq.length-1)*data.view.item.anim);
+  },50);
  }
 });

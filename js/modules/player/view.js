@@ -11,11 +11,14 @@ events[`click ${data.events.iiBack}`]='iiBack';
 export let PlayerView=Backbone.View.extend({
  events:events,
  el:data.view.el,
- extTemplate:_.template($(data.view.extTemplate).html()),
+ extTemplate:null,
  timecodes:null,
  initialize:function(){
+  let ext=$(data.view.extTemplate);
+
   epIndex=app.get('epIndex');
 
+  this.extTemplate=ext.length?_.template($(data.view.extTemplate).html()):()=>{};
   this.timecodes=[...data.timecodes[epIndex]];
   this.player=videojs(this.el,{
    controlBar:{

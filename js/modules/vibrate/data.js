@@ -4,9 +4,10 @@ export const data={
   two:30000,
   three:30000
  },
+ threeErrVideoSrc:'',
  twoMoveBtnTime:{when:6,where:6.4},
  events:{
-  'click':'.click,.pulse-btn'
+  'go':'.click,.pulse-btn'
  },
  view:{
   video:'.ov-video',

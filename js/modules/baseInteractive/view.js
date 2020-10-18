@@ -28,10 +28,18 @@ export let BaseIntView=Backbone.View.extend({
   if(!app.get('_dev'))
   {
    if(this.$bgSound&&this.$bgSound.length)
+   {
     this.$bgSound[0][f?'play':'pause']();
+    if(!f)
+     this.$bgSound[0].currentTime=0;
+   }
   }
   if(this.$bgVideo&&this.$bgVideo.length)
+  {
    this.$bgVideo[0][f?'play':'pause']();
+   if(!f)
+    this.$bgVideo[0].currentTime=0;
+  }
   if(f)
   {
    this._wait=setTimeout(()=>{

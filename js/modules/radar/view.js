@@ -14,11 +14,10 @@ export let RadarView=BaseIntView.extend({
  shift:{x:0,y:0},
  dragBounds:{h:0,v:0},
  done:false,
- initialize:function(){
-  let shift={x:0,y:0};
-
+ initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   data:data,
+   opts:opts
   }]);
 
   this.$drag=this.$(data.view.eye);
@@ -28,12 +27,10 @@ export let RadarView=BaseIntView.extend({
   this.mult=this.$drag.width()/data.eyeSize.x;
   this.dragBounds.h=this.$el.width()/this.mult;
   this.dragBounds.v=this.$el.height()/this.mult;
-  shift.x=this.dragBounds.h/2-data.eyeSize.y/2;
-  shift.y=this.dragBounds.v/2-data.eyeSize.y/2;
-  this.$drag.css({transform:`translate(${shift.x}em,${shift.y}em)`,'--f':data.eyeSize.x/this.mult/data.blurMult+'em',
-   '--x':-shift.x+'em','--y':-shift.y+'em','--w':this.dragBounds.h+'em','--h':this.dragBounds.v+'em'});
   this.shift.x=this.dragBounds.h/2-data.eyeSize.x/2;
   this.shift.y=this.dragBounds.v/2-data.eyeSize.y/2;
+  this.$drag.css({transform:`translate(${this.shift.x}em,${this.shift.y}em)`,'--f':data.eyeSize.x/this.mult/data.blurMult+'em',
+   '--x':-this.shift.x+'em','--y':-this.shift.y+'em','--w':this.dragBounds.h+'em','--h':this.dragBounds.v+'em'});
   this.drag();
   lottie.loadAnimation({
    container:this.$(data.view.anim)[0],
@@ -41,6 +38,15 @@ export let RadarView=BaseIntView.extend({
    loop:true,
    animationData:data.lottie
   });
+ },
+ clr:function(){
+  this.done=false;
+  this.shift.x=this.dragBounds.h/2-data.eyeSize.x/2;
+  this.shift.y=this.dragBounds.v/2-data.eyeSize.y/2;
+  this.$drag.css({transform:`translate(${this.shift.x}em,${this.shift.y}em)`,'--f':data.eyeSize.x/this.mult/data.blurMult+'em',
+   '--x':-this.shift.x+'em','--y':-this.shift.y+'em','--w':this.dragBounds.h+'em','--h':this.dragBounds.v+'em'});
+  this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
+  this.$dragCont.removeClass(data.view.wonCls);
  },
  checkBoundaries:function(delta={},s=false){
   let v={x:this.shift.x+delta.x,y:this.shift.y+delta.y};
@@ -139,7 +145,12 @@ export let RadarView=BaseIntView.extend({
  },
  go:function(){
   if(this.done)
-   this.away();else
+  {
+   this.away();
+   this.clr();
+  }else
+  {
    this.$el.addClass(data.view.okCls);
+  }
  }
 });

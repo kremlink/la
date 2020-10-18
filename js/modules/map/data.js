@@ -9,7 +9,7 @@ export const data={
  hideBtnTime:{when:14},
  events:{
   'circleClick':'.circle',
-  'btnClick':'.pulse-btn:not(.start)',
+  'chooseClick':'.pulse-btn:not(.start)',
   'go':'.pulse-btn.start'
  },
  view:{

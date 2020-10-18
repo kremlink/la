@@ -4,11 +4,12 @@ import {data as dat} from './data.js';
 let data=app.configure({vibrate:dat}).vibrate;
 
 let events={};
-events[`click ${data.events.click}`]='click';
+events[`click ${data.events.go}`]='go';
 
 export let VibrateView=BaseIntView.extend({
  events:events,
  vibrate:null,
+ vidSrc:null,
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -18,7 +19,7 @@ export let VibrateView=BaseIntView.extend({
    opts:opts
   }]);
 
-  this.$btn=this.$(data.events.click);
+  this.$btn=this.$(data.events.go);
 
   switch (this.opts.data.type)
   {
@@ -29,36 +30,17 @@ export let VibrateView=BaseIntView.extend({
     this.shift();
   }
  },
- vid:function(no){
-  let trsFlag=true;
-
-  if(!no)
-  {
-   this.away();
-  }else
-  {
-   this.$btn.addClass(data.view.hiddenCls);
-   this.$video.on('ended',() =>{
-    this.$el.addClass(data.view.doneCls);
-   }).on('transitionend',()=>{
-    if(trsFlag)
-    {
-     this.$video[0].src=data.ep2videoSrc;
-     this.$video[0].loop=false;
-     this.$video[0].play().then(()=>{
-      this.$video.removeClass(data.view.hiddenCls);
-     });
-    }
-
-    trsFlag=false;
-   }).addClass(data.view.hiddenCls);
-  }
+ clr:function(){
+  this.$el.removeClass(data.view.doneCls);
+  this.$bgVideo[0].loop=true;
+  this.$bgVideo[0].src=this.vidSrc;
+  this.$btn.removeClass(data.view.hiddenCls);
  },
  shift:function(){
   let once;
 
-  this.$video.on('timeupdate',()=>{
-   let f=this.$video[0].currentTime>data.twoMoveBtnTime.when;
+  this.$bgVideo.on('timeupdate',()=>{
+   let f=this.$bgVideo[0].currentTime>data.twoMoveBtnTime.when;
 
    if(!f)
    {
@@ -67,7 +49,7 @@ export let VibrateView=BaseIntView.extend({
    }
    if(f&&!once)
    {
-    this.$video[0].currentTime=data.twoMoveBtnTime.where;
+    this.$bgVideo[0].currentTime=data.twoMoveBtnTime.where;
     once=true;
     this.$btn.toggleClass(data.view.twoMoveBtnCls,f);
    }
@@ -114,17 +96,51 @@ export let VibrateView=BaseIntView.extend({
    this.$pr.text(text>data.wait?data.wait/1000:text);
   },data.button.timerDivider);
  },
- click:function(e){
+ vid:function(no){
+  let trsFlag=true;
+
+  if(!no)
+  {
+   this.away();
+  }else
+  {
+   this.$btn.addClass(data.view.hiddenCls);
+   this.$bgVideo.on('ended',() =>{
+    this.$el.addClass(data.view.doneCls);
+   }).on('transitionend',()=>{
+    if(trsFlag)
+    {
+     this.$bgVideo[0].src=data.threeErrVideoSrc;
+     this.$bgVideo[0].loop=false;
+     this.$bgVideo[0].play().then(()=>{
+      this.$bgVideo.removeClass(data.view.hiddenCls);
+     });
+    }
+
+    trsFlag=false;
+   }).addClass(data.view.hiddenCls);
+  }
+ },
+ go:function(e){
   let click=$(e.currentTarget);
 
   if(this.opts.data.type==='three')
   {
    if(click.hasClass(data.view.startCls))
-    this.away(true);else
+   {
+    this.away(true);
+   }else
+   {
+    this.vidSrc=this.$bgVideo[0].currentSrc;
     this.vid(click.hasClass(data.view.errCls));
+   }
   }else
   {
    this.away();
   }
+ },
+ away:function(failed,opts){
+  this.clr();
+  BaseIntView.prototype.away.apply(this,arguments);
  }
 });

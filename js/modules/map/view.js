@@ -3,31 +3,35 @@ import {BaseIntView} from '../baseInteractive/view.js';
 
 let events={};
 events[`click ${data.events.circleClick}`]='circleClick';
-events[`click ${data.events.btnClick}`]='btnClick';
+events[`click ${data.events.chooseClick}`]='chooseClick';
 events[`click ${data.events.go}`]='go';
 
 export let MapView=BaseIntView.extend({
  events:events,
  done:false,
  initialize:function(opts){
-  this.type=opts.map;
+  this.opts=opts;
+  this.setElement(data.view.el[this.opts.data.type]);
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data,
-   el:data.view.el[this.type],
-   type:opts.map
+   opts:opts
   }]);
 
-  if(this.type==='two'||this.type==='three')
+  if(this.opts.data.type==='two'||this.opts.data.type==='three')
   {
    this.$video=this.$(data.view.vid);
    this.video();
   }
  },
+ clr:function(){
+  this.done=false;
+  this.$el.removeClass(data.view.okCls+' '+data.view.doneCls+' '+data.view.errCls+' '+data.view.showBtnsTimeCls+' '+data.view.hideBtnTimeCls);
+ },
  video:function(){
   let once=[];
 
-  if(this.type==='two')
+  if(this.opts.data.type==='two')
   {
    this.$video.on('timeupdate',()=>{
     if(this.$video[0].currentTime>data.showBtnsTime.when)
@@ -60,7 +64,7 @@ export let MapView=BaseIntView.extend({
    this.$el.addClass(data.view.errCls);
   this.done=true;
  },
- btnClick:function(e){
+ chooseClick:function(e){
   this.$video[0].pause();
 
   this.$el.addClass(data.view.doneCls);
@@ -72,12 +76,16 @@ export let MapView=BaseIntView.extend({
  go:function(){
   if(this.done)
   {
+   this.clr();
    this.away();
   }else
   {
    this.$el.addClass(data.view.okCls);
-   if(this.type==='two'||this.type==='three')
+   if(this.opts.data.type==='two'||this.opts.data.type==='three')
+   {
+    this.$video[0].currentTime=0;
     this.$video[0].play();
+   }
   }
  }
 });

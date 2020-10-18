@@ -16,11 +16,13 @@ export let CartogrView=BaseIntView.extend({
  $grid:null,
  $next:null,
  $previews:null,
+ $lines:null,
  current:0,
  $gridItems:null,
- initialize:function(){
+ initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   data:data,
+   opts:opts
   }]);
 
   this.itemTemplate=_.template($(data.view.item.tmpl).html());
@@ -28,14 +30,20 @@ export let CartogrView=BaseIntView.extend({
   this.nextTemplate=_.template($(data.view.nextTmpl).html());
   this.$grid=this.$(data.view.$grid);
   this.$next=this.$(data.view.$next);
-
-  this.render();
+ },
+ clr:function(){
+  this.done=false;
+  this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
+  this.$gridItems.remove();
+  this.$lines.remove();
+  this.$previews.remove();
  },
  render:function(){
   let s='',
       m='',
   winIndex;
 
+  this.current=0;
   for(let i=0;i<data.grid[1];i++)
   {
    for(let j=0;j<data.grid[0];j++)
@@ -47,7 +55,7 @@ export let CartogrView=BaseIntView.extend({
   }
 
   this.$grid.append(this.$gridItems=$(s));
-  this.$grid.append($(m));
+  this.$grid.append(this.$lines=$(m));
   s='';
   for(let i=0;i<data.seq.length;i++)
    s+=$.trim(this.nextTemplate({index:i}));
@@ -89,7 +97,13 @@ export let CartogrView=BaseIntView.extend({
  },
  go:function(){
   if(this.done)
-   this.away();else
+  {
+   this.away();
+   this.clr();
+  }else
+  {
+   this.render();
    this.$el.addClass(data.view.okCls);
+  }
  }
 });

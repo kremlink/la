@@ -38,7 +38,8 @@ export let config={
   template:'<audio src="../sounds/<%= src %>.mp3" preload="auto"></audio>'
  },
  'vibrate':{
-  ep2videoSrc:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4',
+  threeErrVideoSrc:'../BokehNightDriving.mp4',
+  //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
  },
  'player':{
   timecodes:{
@@ -57,8 +58,8 @@ export let config={
     {start:756.1,rem:-3600,remText:'',checkpoint:true}
    ],
    '2':[
-    //{start:1,end:2,invoked:false,rem:-1,remText:''}
-    {start:1,checkpoint:true},
+    {start:1,end:2,invoked:false,time:-1,text:'ii',repeatable:true,noAutoClose:true,data:{interactive:'Cartogr'}}
+    /*{start:1,checkpoint:true},
     {start:111.2,rem:-1800,remText:'',checkpoint:true},
     {start:129.14,end:151.8,invoked:false,map:'two',rem:-3600,remText:'потерян 1 час'},
     {start:248.92,rem:-1800,remText:'',checkpoint:true},
@@ -77,10 +78,10 @@ export let config={
     {start:1120.24,rem:2,remText:'',checkpoint:true},
     {start:1244.68,rem:-1800,remText:'',checkpoint:true},
     {start:1325,rem:-10800,remText:'',checkpoint:true},
-    {start:1349.1,end:1360.7,invoked:false,map:'three',rem:-1,remText:''}
+    {start:1349.1,end:1360.7,invoked:false,map:'three',rem:-1,remText:''}*/
    ],
    '3':[
-    {start:1,end:2,time:-60,text:'lol',repeatable:true,data:{interactive:'Start',type:'one'}}//noAutoClose:true
+    {start:1,end:2,time:-60,text:'...',repeatable:true,data:{interactive:'Radar'}}//noAutoClose:true
 
     /*{start:1,end:2,data:{interactive:'StartView',noAutoClose:true,type:'name'}},
     {start:5,end:6,time:-60,text:'Минус полминуты',invoked:false,repeatable:true,iniTimer:true,data:{interactive:'StartView',type:'one'}},
@@ -189,6 +190,23 @@ export let config={
 		label:'480P'
 	   }   
    ]*/
+   '2':[
+    {
+     speed:[4,1000],
+     src:'../oceans.mp4',
+     label:'720P'
+    },
+    {
+     speed:[3,4],
+     src:'../oceans1.mp4',
+     label:'480P'
+    },
+    {
+     speed:[0,3],
+     src:'../oceans.mp4',
+     label:'360P'
+    }
+   ],
    '3':[
     {
      speed:[4,1000],
