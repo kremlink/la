@@ -61,7 +61,7 @@
         div{
           border-top:1px solid orange;
           width:0;
-          @include trs('width linear');
+          @include trs('width linear 2s');
         }
       }
       .w-p-p-text{

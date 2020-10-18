@@ -44,8 +44,8 @@ export let config={
  'player':{
   timecodes:{
    '1':[
-    //{start:1,end:2,invoked:false,rem:-1800,remText:'потеряно 30 минут'},
-    {start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
+    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Vibrate',type:'one'}},
+    /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
     {start:448.4,rem:-1800,remText:'',checkpoint:true},
     {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
     {start:528.36,rem:-1800,remText:'',checkpoint:true},
@@ -55,7 +55,7 @@ export let config={
     {start:1175.44,end:1205.1,invoked:false,map:'one',rem:-7200,remText:'потеряно 2 часа'},
     {start:605.72,end:632.36,invoked:false,rem:-1800,remText:'потеряно 30 минут'},
     {start:680.94,end:699.1,invoked:false,rem:-3600,remText:'потерян 1 час'},
-    {start:756.1,rem:-3600,remText:'',checkpoint:true}
+    {start:756.1,rem:-3600,remText:'',checkpoint:true}*/
    ],
    '2':[
     {start:1,end:2,invoked:false,time:-1,text:'ii',repeatable:true,noAutoClose:true,data:{interactive:'Cartogr'}}
@@ -190,6 +190,23 @@ export let config={
 		label:'480P'
 	   }   
    ]*/
+   '1':[
+    {
+     speed:[4,1000],
+     src:'../oceans.mp4',
+     label:'720P'
+    },
+    {
+     speed:[3,4],
+     src:'../oceans1.mp4',
+     label:'480P'
+    },
+    {
+     speed:[0,3],
+     src:'../oceans.mp4',
+     label:'360P'
+    }
+   ],
    '2':[
     {
      speed:[4,1000],

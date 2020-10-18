@@ -549,7 +549,7 @@ body {
 .ov-wrap.vibrate .w-p-p div {
   border-top: 1px solid orange;
   width: 0;
-  transition: width linear;
+  transition: width linear 2s;
 }
 .ov-wrap.vibrate .w-p-p-text {
   position: absolute;

@@ -10,6 +10,7 @@ export let VibrateView=BaseIntView.extend({
  events:events,
  vibrate:null,
  vidSrc:null,
+ vibrInt:null,
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -20,21 +21,26 @@ export let VibrateView=BaseIntView.extend({
   }]);
 
   this.$btn=this.$(data.events.go);
-
-  switch (this.opts.data.type)
+  if(this.opts.data.type==='two')
+   this.shift();
+ },
+ toggle:function(f){
+  if(f&&this.opts.data.type==='one')
   {
-   case 'one':
-    this.vibr();
-    break;
-   case 'two':
-    this.shift();
+   $(data.button.pDiv).css({transitionDuration:0+'s',width:0});
+   setTimeout(()=>this.vibr(),50);
   }
+
+  BaseIntView.prototype.toggle.apply(this,arguments);
  },
  clr:function(){
   this.$el.removeClass(data.view.doneCls);
-  this.$bgVideo[0].loop=true;
-  this.$bgVideo[0].src=this.vidSrc;
-  this.$btn.removeClass(data.view.hiddenCls);
+  if(this.opts.data.type==='three')
+  {
+   this.$bgVideo[0].loop=true;
+   this.$bgVideo[0].src=this.vidSrc;
+   this.$btn.removeClass(data.view.hiddenCls);
+  }
  },
  shift:function(){
   let once;
@@ -75,7 +81,7 @@ export let VibrateView=BaseIntView.extend({
   this.$pr=this.$(data.button.pText);
 
   _.debounce(()=>{
-   $(data.button.pDiv).css({transitionDuration:data.wait/1000+'s',width:'100%'});
+   $(data.button.pDiv).css({transitionDuration:data.wait[this.opts.data.type]/1000+'s',width:'100%'});
    wTrs();
   },0)();
   this.$wobble.on('transitionend',(e)=>{
@@ -86,14 +92,14 @@ export let VibrateView=BaseIntView.extend({
    }
   });
 
-  let int=setInterval(()=>{
+  this.vibrInt=setInterval(()=>{
    let text;
 
    pCtr++;
-   if(pCtr>data.wait/data.button.timerDivider)
-    clearTimeout(int);
+   if(pCtr>data.wait[this.opts.data.type]/data.button.timerDivider)
+    clearInterval(this.vibrInt);
    text=pCtr*data.button.timerDivider/1000;
-   this.$pr.text(text>data.wait?data.wait/1000:text);
+   this.$pr.text(text>data.wait[this.opts.data.type]?data.wait[this.opts.data.type]/1000:text);
   },data.button.timerDivider);
  },
  vid:function(no){
@@ -137,6 +143,7 @@ export let VibrateView=BaseIntView.extend({
   }else
   {
    this.away();
+   clearInterval(this.vibrInt);
   }
  },
  away:function(failed,opts){
