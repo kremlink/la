@@ -8,12 +8,18 @@ export let BoardMgr=Backbone.View.extend({
   this.listenTo(app.get('aggregator'),'board:name',this.name);
   this.listenTo(app.get('aggregator'),'board:score',this.score);
  },
+ req:function(what,v){
+  fetch(data.url[what]+v);
+ },
  name:function(name){
   name=name.trim();
-  console.log('User chosen name '+(this.name=name?name:data.defName));
+  this.name=name?name:data.defName;
+  this.req('name',this.name);
+  //console.log('User chosen name '+this.name);
  },
  score:function(p){
   this.points+=p;
-  console.log(p+' points added to the board; sum:'+this.points);
+  this.req('points',p);
+  //console.log(p+' points added to the board; sum:'+this.points);
  }
 });

@@ -3,16 +3,15 @@ import {data} from './data.js';
 
 export let BaseIntView=Backbone.View.extend({
  data:null,
- initialize:function({data,type,el,autoClose=true}){
-  this.data=data;
-  this.type=type;
-  this.autoClose=autoClose;
-  if(el)
-   this.setElement(el);
-  this.$video=this.$(this.data.view.video);
-  if(!this.$video.is('video'))
-   this.$video=null;
-  this.$sBg=this.type&&this.data.view.soundBg?$(this.data.view.soundBg[this.type]):$(this.data.view.soundBg);
+ initialize:function({data:dat,opts:timecodeData}){
+  this.data=dat;
+  this._type=timecodeData.data.type;
+  this._autoClose=!timecodeData.noAutoClose;
+
+  this.$bgVideo=this.$(this.data.view.video);
+  if(!this.$bgVideo.is('video'))
+   this.$bgVideo=null;
+  this.$bgSound=this._type&&this.data.view.soundBg?$(this.data.view.soundBg[this._type]):$(this.data.view.soundBg);
   this.toggle(true);
 
   $(data.theBtn).on('click',()=>{
@@ -20,7 +19,7 @@ export let BaseIntView=Backbone.View.extend({
   });
  },
  away:function(failed=false,opts={}){
-  clearTimeout(this.wait);
+  clearTimeout(this._wait);
   app.get('aggregator').trigger('main:toggle',{show:false,failed:failed,opts:opts});
   this.toggle(false);
  },
@@ -28,17 +27,17 @@ export let BaseIntView=Backbone.View.extend({
   this.$el.toggleClass(this.data.view.shownCls,f);
   if(!app.get('_dev'))
   {
-   if(this.$sBg&&this.$sBg.length)
-    this.$sBg[0][f?'play':'pause']();
+   if(this.$bgSound&&this.$bgSound.length)
+    this.$bgSound[0][f?'play':'pause']();
   }
-  if(this.$video&&this.$video.length)
-   this.$video[0][f?'play':'pause']();
+  if(this.$bgVideo&&this.$bgVideo.length)
+   this.$bgVideo[0][f?'play':'pause']();
   if(f)
   {
-   this.wait=setTimeout(()=>{
-    if(this.autoClose)
+   this._wait=setTimeout(()=>{
+    if(this._autoClose)
      this.away(true);
-   },this.type?this.data.wait[this.type]:this.data.wait);
+   },this._type?this.data.wait[this._type]:this.data.wait);
   }
  }
 });

@@ -33,12 +33,12 @@ export let TimerView=Backbone.View.extend({
   this.listenTo(app.get('aggregator'),'timer:update',this.change);
  },
  change:function(opts){
-  if(opts.rem)
+  if(opts.time)
   {
-   this.time+=opts.rem;
-   this.$pop.text(opts.remText).on('animationend',()=>{
-    this.$pop.removeClass(data.view.remCls)
-   }).addClass(data.view.remCls);
+   this.time+=opts.time;
+   this.$pop.text(opts.text).on('animationend',()=>{
+    this.$pop.removeClass(data.view.notifCls)
+   }).addClass(data.view.notifCls);
   }
  }
 });

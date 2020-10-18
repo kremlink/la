@@ -14,9 +14,10 @@ export let LeafletView=BaseIntView.extend({
  bTmpl:null,
  gTmpl:null,
  ctr:0,
- initialize:function(){
+ initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   dat:data,
+   opts:opts
   }]);
 
   this.$into=this.$(data.view.$into);
@@ -27,6 +28,14 @@ export let LeafletView=BaseIntView.extend({
   this.bTmpl=_.template($(data.view.bTmpl).html());
   this.gTmpl=_.template($(data.view.gTmpl).html());
   this.render();
+ },
+ clr:function(){
+  this.done=false;
+  this.ctr=0;
+  this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
+  this.$items.addClass(data.view.shownCls);
+  this.$bad.addClass(data.view.shownCls);
+  this.$good.removeClass(data.view.shownCls);
  },
  render:function(){
   let s='',s1='',s2='';
@@ -57,13 +66,8 @@ export let LeafletView=BaseIntView.extend({
  go:function(){
   if(this.done)
   {
-   this.done=false;
-   this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
-   this.ctr=0;
-   this.$items.remove();
-   this.$bad.remove();
-   this.$good.remove();
    this.away();
+   this.clr();
   }else
   {
    this.$el.addClass(data.view.okCls);

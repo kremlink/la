@@ -17,6 +17,20 @@ import {RadarView} from '../radar/view.js';
 import {TimerView} from '../timer/view.js';
 import {data} from './data.js';
 
+let Interactives={
+ Start:StartView,
+ Vibrate:VibrateView,
+ Qs:QsView,
+ Map:MapView,
+ Catch:CatchView,
+ Scheme:SchemeView,
+ Cartogr:CartogrView,
+ Forest:ForestView,
+ Leaflet:LeafletView,
+ Photos:PhotosView,
+ Radar:RadarView
+};
+
 let events={};
 
 export let MainView=Backbone.View.extend({
@@ -52,7 +66,9 @@ export let MainView=Backbone.View.extend({
    app.get('aggregator').trigger('timer:update',timecodeData);
   }else
   {
-   eval(`new ${timecodeData.data.interactive}(${JSON.stringify(timecodeData.data)})`);
+   if(typeof timecodeData.data.interactive==='string')
+    timecodeData.data.interactive=new Interactives[timecodeData.data.interactive](timecodeData);else
+    timecodeData.data.interactive.toggle(true);
 
    this.toggle({show:true});
   }

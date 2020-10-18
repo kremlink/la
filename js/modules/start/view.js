@@ -10,15 +10,14 @@ export let StartView=BaseIntView.extend({
  opts:null,
  initialize:function(opts){
   this.opts=opts;
-  this.setElement(data.view.el[opts.simple]);
+  this.setElement(data.view.el[this.opts.data.type]);
 
   BaseIntView.prototype.initialize.apply(this,[{
    data:data,
-   type:opts.simple,
-   autoClose:!opts.noAutoClose
+   opts:opts
   }]);
 
-  switch(this.opts.simple)
+  switch(this.opts.data.type)
   {
    case 'two':
     this.anim();
@@ -44,10 +43,10 @@ export let StartView=BaseIntView.extend({
  click:function(e){
   let corr;
 
-  switch(this.opts.simple)
+  switch(this.opts.data.type)
   {
    case 'one':
-    app.get('aggregator').trigger('board:score',5);
+    //app.get('aggregator').trigger('board:score',5);
     this.away();
     break;
    case 'name':

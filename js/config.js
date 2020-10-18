@@ -21,7 +21,8 @@ export let config={
   '3':{start:30*60*60}
  },
  board:{
-  defName:'Noname'
+  defName:'Noname',
+  url:{name:'php.php?name=',points:'php.php?points='}
  },
  /*'main':{
   stepViews:{
@@ -79,9 +80,11 @@ export let config={
     {start:1349.1,end:1360.7,invoked:false,map:'three',rem:-1,remText:''}
    ],
    '3':[
-    {start:1,end:2,data:{interactive:'StartView',noAutoClose:true,simple:'name'}},
-    {start:5,end:6,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,iniTimer:true,data:{interactive:'StartView',simple:'one'}},
-    {start:-38,data:{interactive:'StartView',noAutoClose:true,simple:'endRef'}}
+    {start:1,end:2,time:-60,text:'lol',repeatable:true,data:{interactive:'Start',type:'one'}}//noAutoClose:true
+
+    /*{start:1,end:2,data:{interactive:'StartView',noAutoClose:true,type:'name'}},
+    {start:5,end:6,time:-60,text:'Минус полминуты',invoked:false,repeatable:true,iniTimer:true,data:{interactive:'StartView',type:'one'}},
+    {start:-38,data:{interactive:'StartView',noAutoClose:true,type:'endRef'}}*/
 
         /*{start:5,end:6,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one',iniTimer:true}},
     {start:17,end:18,rem:-30,remText:'Минус полминуты',invoked:false,repeatable:true,data:{simple:'one'}},

@@ -14,9 +14,10 @@ export let PhotosView=BaseIntView.extend({
  done:false,
  ctr:0,
  indicies:[],
- initialize:function(){
+ initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   data:data
+   dat:data,
+   opts:opts
   }]);
 
   this.$items=this.$(data.events.item).each((i,o)=>{
@@ -26,6 +27,12 @@ export let PhotosView=BaseIntView.extend({
   this.$bad=this.$(data.view.bad).on('animationend',()=>this.$bad.removeClass(data.view.shownCls));
   this.$good=this.$(data.view.good).on('animationend',()=>this.$good.removeClass(data.view.shownCls));
 
+  this.$items.eq(0).addClass(data.view.shownCls);
+ },
+ clr:function(){
+  this.done=false;
+  this.ctr=0;
+  this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
   this.$items.eq(0).addClass(data.view.shownCls);
  },
  showNext:function(){
@@ -68,7 +75,12 @@ export let PhotosView=BaseIntView.extend({
  },
  go:function(){
   if(this.done)
-   this.away();else
+  {
+   this.away();
+   this.clr();
+  }else
+  {
    this.$el.addClass(data.view.okCls);
+  }
  }
 });

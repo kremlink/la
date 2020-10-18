@@ -205,7 +205,7 @@
       white-space:nowrap;
       opacity:0;
       color:#fff;
-      &.rem{
+      &.notif{
         @include anim('timer-notif 6s linear reverse');
       }
     }

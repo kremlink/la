@@ -1886,7 +1886,7 @@ body {
   opacity: 0;
   color: #fff;
 }
-.the-timer .the-t-pop.rem {
+.the-timer .the-t-pop.notif {
   animation: timer-notif 6s linear reverse;
 }
 

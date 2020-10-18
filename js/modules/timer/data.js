@@ -4,6 +4,6 @@ export const data={
   el:'.the-timer',
   txt:'.the-t-text',
   pop:'.the-t-pop',
-  remCls:'rem'
+  notifCls:'notif'
  }
 };
