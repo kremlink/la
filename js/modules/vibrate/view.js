@@ -1,7 +1,7 @@
 import {app} from '../../bf/base.js';
 import {BaseIntView} from '../baseInteractive/view.js';
 import {data as dat} from './data.js';
-let data=app.configure({vibrate:dat}).vibrate;
+let data=app.configure({interactives:{vibrate:dat}}).interactives.vibrate;
 
 let events={};
 events[`click ${data.events.go}`]='go';
@@ -103,7 +103,7 @@ export let VibrateView=BaseIntView.extend({
    this.$pr.text(text>data.wait[this.opts.data.type]?data.wait[this.opts.data.type]/1000:text);
   },data.button.timerDivider);
  },
- vid:function(no){
+ threeVid:function(no){
   let trsFlag=true;
 
   if(!no)
@@ -128,10 +128,35 @@ export let VibrateView=BaseIntView.extend({
    }).addClass(data.view.hiddenCls);
   }
  },
+ fourVid:function(no){
+  let trsFlag=true;
+
+  if(!no)
+  {
+   this.away();
+  }else
+  {
+   this.$btn.addClass(data.view.hiddenCls);
+   this.$bgVideo.on('ended',() =>{
+    this.$el.addClass(data.view.doneCls);
+   }).on('transitionend',()=>{
+    if(trsFlag)
+    {
+     this.$bgVideo[0].src=data.four.errVideoSrc[0];
+     this.$bgVideo[0].loop=false;
+     this.$bgVideo[0].play().then(()=>{
+      this.$bgVideo.removeClass(data.view.hiddenCls);
+     });
+    }
+
+    trsFlag=false;
+   }).addClass(data.view.hiddenCls);
+  }
+ },
  go:function(e){
   let click=$(e.currentTarget);
 
-  if(this.opts.data.type==='three')
+  if(this.opts.data.type==='three'||this.opts.data.type==='four')
   {
    if(click.hasClass(data.view.startCls))
    {
@@ -139,7 +164,9 @@ export let VibrateView=BaseIntView.extend({
    }else
    {
     this.vidSrc=this.$bgVideo[0].currentSrc;
-    this.vid(click.hasClass(data.view.errCls));
+    if(this.opts.data.type==='three')
+     this.threeVid(click.hasClass(data.view.errCls));else
+     this.fourVid(click.hasClass(data.view.errCls));
    }
   }else
   {

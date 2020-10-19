@@ -1,10 +1,15 @@
 export const data={
  wait:{
-  one:30000,
-  two:30000,
-  three:30000
+  one:0,
+  two:0,
+  three:0,
+  four:0
  },
  threeErrVideoSrc:'',
+ four:{
+  errVideoSrc:[],
+  when:0
+ },
  twoMoveBtnTime:{when:6,where:6.4},
  events:{
   'go':'.click,.pulse-btn'

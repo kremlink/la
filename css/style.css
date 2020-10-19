@@ -1655,6 +1655,28 @@ body {
   display: none;
 }
 
+/*@path:components\_ep4.scss*/
+.ov-wrap.vibrate.v3 .pulse-btn {
+  cursor: pointer;
+  position: absolute;
+  left: 10%;
+  width: 14em;
+  height: 2.3em;
+}
+.ov-wrap.vibrate.v3 .pulse-btn.incorr {
+  top: 10%;
+}
+.ov-wrap.vibrate.v3 .pulse-btn.corr {
+  top: 20%;
+}
+.ov-wrap.vibrate.v3 .pulse-btn.hidden {
+  display: none;
+}
+.ov-wrap.vibrate.v3 .pulse-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
 /*@path:components\_footer.scss*/
 /*@path:components\_header.scss*/
 /*@path:components\_main.scss*/

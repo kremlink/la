@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html data-app='{"modules":["index"],"index":4}'>
+    <head>
+		@@include('components/head.html')
+        @@include('components/scripts.html')
+	</head>
+	<body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+     ym(68233750, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true
+     });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/68233750" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+		<div id="wrap">
+			<video playsinline
+					class="video-js"
+					controls
+                    preload="auto"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+                <!--<source src="../test.mp4" type="video/mp4" />-->
+				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
+				<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a
+					web browser that
+					<a href="https://videojs.com/html5-video-support/" target="_blank">
+						supports HTML5 video
+					</a>
+				</p>
+			</video>
+			<div class="overlay-block">
+                <div class="ov-wrap vibrate v4">
+                    <video class="ov-video" preload="auto" loop muted>
+                        <source src="../test.mp4" type="video/mp4" />
+                        <!--<source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />-->
+                    </video>
+                    <div class="pulse-btn incorr">
+                        <svg>
+                            <use xlink:href="#icon-shared-2-10-button-1"></use>
+                        </svg>
+                    </div>
+                    <div class="pulse-btn corr">
+                        <svg>
+                            <use xlink:href="#icon-shared-2-10-button-2"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="ov-before">
+                    <svg>
+                        <use xlink:href="#icon-shared-pop-poloski1"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="the-anim">
+                <img src="images/pulse-btn.png" alt=""/>
+            </div>
+            <div class="the-timer continued">
+                <svg class="the-t-bg">
+                    <use xlink:href="#icon-shared-clock-bg"></use>
+                </svg>
+                <div class="the-t-text"></div>
+                <div class="the-t-pop"></div>
+            </div>
+            <div class="start-pop">
+                <div style="background-image: url(images/start-bg.svg);"></div>
+                <div style="background-image: url(images/start-button-p.svg);"></div>
+                <div style="background-image: url(images/start-button.svg);"></div>
+            </div>
+            <div class="loader-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="l"></div>
+            </div>
+            <div class="orientation-pop">
+                <div class="bg" style="background-image: url(images/loader-bg.svg);"></div>
+                <div class="text">
+                    Экран слишком мал :(<br/>
+                    Возможно, вам поможет поворот девайса.
+                </div>
+            </div>
+		</div>
+        <audio class="sounds" data-what="zagl-bg" src="../2ser/MP3/2-00-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="leaflet-bg" src="../3ser/MP3/3-02-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="photos-bg" src="../3ser/MP3/3-07-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="start-bg" src="../3ser/MP3/3-08-music.mp3" preload="auto" loop></audio>
+        <audio class="sounds" data-what="radar-bg" src="../3ser/MP3/3-21-music.mp3" preload="auto" loop></audio>
+        <script type="text/template" id="leaflet-bad-template"><svg class="bad shown"><use xlink:href="#icon-shared-3-02-<%= i %>-w"></use></svg></script>
+        <script type="text/template" id="leaflet-good-template"><svg class="good"><use xlink:href="#icon-shared-3-02-<%= i %>-r"></use></svg></script>
+        <script type="text/template" id="leaflet-item-template"><div class="item shown" style="left:<%= left %>%;top:<%= top %>%;width:<%= width %>%;height:<%= height %>%;"></div></script>
+        <script type="text/template" id="ext-player-template">
+            <div class="test-btns">
+                <div class="just-back">Назад на 10 секунд</div>
+                <div class="int-back">Назад на предыдущий интерактив</div>
+                <div class="int-ind-back">Назад на 1-й интерактив</div>
+            </div>
+        </script>
+        <div class="safe-hide-svg">
+            @@include('components/shared-sprite.svg')
+        </div>
+	</body>
+</html>

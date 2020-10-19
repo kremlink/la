@@ -12,13 +12,17 @@ export let config={
    },
    '3':{
 
+   },
+   '4':{
+
    }
   }
  },
  'timer':{
   '1':{start:54*60*60},
   '2':{start:44*60*60},
-  '3':{start:30*60*60}
+  '3':{start:30*60*60},
+  '4':{start:20*60*60}
  },
  board:{
   defName:'Noname',
@@ -27,14 +31,10 @@ export let config={
  sound:{
   template:'<audio src="../sounds/<%= src %>.mp3" preload="auto"></audio>'
  },
- 'vibrate':{
-  threeErrVideoSrc:'../BokehNightDriving.mp4',
-  //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
- },
  'player':{
   timecodes:{
    '1':[//noAutoClose:true|repeatable:true
-    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Scheme'}},
+    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Vibrate',type:'one'}},
     /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
     {start:448.4,rem:-1800,remText:'',checkpoint:true},
     {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
@@ -91,12 +91,16 @@ export let config={
     {start:1604.84,rem:-3600,remText:'',checkpoint:true},
     {start:1612.3,end:1627.92,invoked:false,rem:-3600,remText:'потерян 1 час'}*/
 
+   ],
+   '4':[
+    {start:1,end:2,time:-60,text:'...',repeatable:true,data:{interactive:'Vibrate',type:'four'}}//noAutoClose:true
    ]
   },
   redirect:{
    '1':'https://найден-жив.рф/end1.html',
    '2':'https://найден-жив.рф/end2.html',
-   '3':'https://найден-жив.рф/end3.html'
+   '3':'https://найден-жив.рф/end3.html',
+   '4':'https://найден-жив.рф/end4.html'
   },
   quality:{
    /*'1':[
@@ -215,7 +219,40 @@ export let config={
      src:'../oceans.mp4',
      label:'360P'
     }
+   ],
+   '4':[
+    {
+     speed:[4,1000],
+     src:'../oceans.mp4',
+     label:'720P'
+    },
+    {
+     speed:[3,4],
+     src:'../oceans1.mp4',
+     label:'480P'
+    },
+    {
+     speed:[0,3],
+     src:'../oceans.mp4',
+     label:'360P'
+    }
    ]
+  }
+ },
+ interactives:{
+  'vibrate':{
+   wait:{
+    one:30000,
+    two:30000,
+    three:30000,
+    four:30000
+   },
+   threeErrVideoSrc:'../BokehNightDriving.mp4',
+   four:{
+    errVideoSrc:['../BokehNightDriving.mp4','../test.mp4'],
+    when:5
+   }
+   //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
   }
  }
  //"index.toggle":{extra:{a:1,$b:[2,'3',{$c:{$d:'#de',f:4}}]}},
