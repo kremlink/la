@@ -9,14 +9,22 @@ export let SchemeView=BaseIntView.extend({
  el:data.view.el,
  events:events,
  angles:[],
- initialize:function(){
-  let s='';
+ initialize:function(opts){
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data,
+   opts:opts
+  }]);
 
   this.thTemplate=_.template($(data.view.thTemplate).html());
-
-  BaseIntView.prototype.initialize.apply(this,[{
-   data:data
-  }]);
+  this.render();
+ },
+ clr:function(){
+  this.angles=[];
+  this.$el.removeClass(data.view.startCls+' '+data.view.doneCls);
+  this.render();
+ },
+ render:function(){
+  let s='';
 
   data.things.forEach((o)=>{
    this.angles.push(Math.floor(Math.random()*4));
@@ -48,6 +56,7 @@ export let SchemeView=BaseIntView.extend({
    this.$el.addClass(data.view.doneCls);
    setTimeout(()=>{
     this.away();
+    this.clr();
    },data.time);
   }
  }

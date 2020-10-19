@@ -33,16 +33,30 @@ export let CatchView=BaseIntView.extend({
  index:-1,
  counter:[],
  done:0,
- initialize:function(){
+ thTemplate:null,
+ initialize:function(opts){
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data,
+   opts:opts
+  }]);
+ },
+ clr:function(){
+  this.done=0;
+  this.$el.removeClass(data.view.startCls);
+  for(let i=0;i<data.things.length;i++)
+   this.$el.removeClass(data.view.doneCls+(i+1));
+ },
+ toggle:function(f){
+  if(f)
+   this.render();
+  BaseIntView.prototype.toggle.apply(this,arguments);
+ },
+ render:function(){
   let self=this,
    s,
    tmp;
 
   this.thTemplate=_.template($(data.view.thTemplate).html());
-
-  BaseIntView.prototype.initialize.apply(this,[{
-   data:data
-  }]);
 
   for(let i=0;i<data.things.length;i++)
   {
@@ -112,7 +126,7 @@ export let CatchView=BaseIntView.extend({
   {
    app.get('aggregator').trigger('sound','ctch-plus');
    this.pData[this.index].stop[index]=true;
-   item.css('transition','');
+   item.css('transition','').off('transitionend');
    setTimeout(()=>item.addClass(data.view.dropCls).css(data.drop),0);
    this.counter[this.index]++;
    if(this.counter[this.index]===_.where(data.things[this.index],{no:0}).length)
@@ -121,6 +135,7 @@ export let CatchView=BaseIntView.extend({
      if(this.done===data.things.length)
      {
       this.away();
+      this.clr();
      }
     },data.winWait);
   }

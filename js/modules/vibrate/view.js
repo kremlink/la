@@ -39,8 +39,9 @@ export let VibrateView=BaseIntView.extend({
   {
    this.$bgVideo[0].loop=true;
    this.$bgVideo[0].src=this.vidSrc;
-   this.$btn.removeClass(data.view.hiddenCls);
   }
+
+  this.$btn.removeClass(data.view.twoMoveBtnCls+' '+data.view.hiddenCls);
  },
  shift:function(){
   let once;

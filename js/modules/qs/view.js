@@ -9,20 +9,20 @@ events[`click ${data.events.no}`]='no';
 export let QsView=BaseIntView.extend({
  el:data.view.el,
  events:events,
- initialize:function(){
+ ctr:0,
+ changing:false,
+ initialize:function(opts){
   let $li;
+
+  BaseIntView.prototype.initialize.apply(this,[{
+   data:data,
+   opts:opts
+  }]);
 
   this.liTemplate=_.template($(data.view.liTemplate).html());
 
-  BaseIntView.prototype.initialize.apply(this,[{
-   data:data
-  }]);
-
   this.$msg=this.$(data.view.msg);
-
-  this.ctr=0;
   this.$chosen=null;
-  this.changing=false;
   this.$text=this.$(data.view.text).html(data.choose[this.ctr].text).addClass(data.view.shownCls);
   this.$msg.on('transitionend',()=>{
    if(this.$msg.hasClass(data.view.shownCls))
@@ -56,6 +56,12 @@ export let QsView=BaseIntView.extend({
   });
   this.$list=this.$(data.view.list);
  },
+ clr:function(){
+  this.changing=false;
+  this.ctr=0;
+  this.$text.html(data.choose[this.ctr].text);
+  this.$list.html('');
+ },
  yes:function(e){
   if(!this.changing)
   {
@@ -75,6 +81,7 @@ export let QsView=BaseIntView.extend({
   }
  },
  go:function(){
+  this.clr();
   this.away();
  }
 });

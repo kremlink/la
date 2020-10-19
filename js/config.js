@@ -44,7 +44,7 @@ export let config={
  'player':{
   timecodes:{
    '1':[
-    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Vibrate',type:'one'}},
+    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Scheme'}},
     /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
     {start:448.4,rem:-1800,remText:'',checkpoint:true},
     {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
