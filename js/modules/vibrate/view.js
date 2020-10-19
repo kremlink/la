@@ -11,6 +11,7 @@ export let VibrateView=BaseIntView.extend({
  vibrate:null,
  vidSrc:null,
  vibrInt:null,
+ phase:0,
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -39,6 +40,11 @@ export let VibrateView=BaseIntView.extend({
   {
    this.$bgVideo[0].loop=true;
    this.$bgVideo[0].src=this.vidSrc;
+  }
+  if(this.opts.data.type==='four')
+  {
+   this.$bgVideo[0].src=this.vidSrc;
+   this.phase=0;
   }
 
   this.$btn.removeClass(data.view.twoMoveBtnCls+' '+data.view.hiddenCls);
@@ -129,7 +135,7 @@ export let VibrateView=BaseIntView.extend({
   }
  },
  fourVid:function(no){
-  let trsFlag=true;
+  let trsFlag=false;
 
   if(!no)
   {
@@ -138,7 +144,7 @@ export let VibrateView=BaseIntView.extend({
   {
    this.$btn.addClass(data.view.hiddenCls);
    this.$bgVideo.on('ended',() =>{
-    this.$el.addClass(data.view.doneCls);
+
    }).on('transitionend',()=>{
     if(trsFlag)
     {
@@ -149,8 +155,10 @@ export let VibrateView=BaseIntView.extend({
      });
     }
 
-    trsFlag=false;
-   }).addClass(data.view.hiddenCls);
+    trsFlag=true;
+   }).on('timeupdate',()=>{
+    this.$btn.toggleClass(data.view.hiddenCls,!(this.$bgVideo[0].currentTime>data.four.when));
+   }).removeClass(data.view.hiddenCls)[0].play();
   }
  },
  go:function(e){

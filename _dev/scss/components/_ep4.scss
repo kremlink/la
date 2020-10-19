@@ -1,6 +1,6 @@
 @include exports("@path:components\_ep4.scss"){/*@path:components\_ep4.scss*/
   .ov-wrap{
-    &.vibrate.v3{
+    &.vibrate.v4{
       .pulse-btn{
         cursor:pointer;
         @include abs($l:10%);
