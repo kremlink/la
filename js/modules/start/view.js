@@ -46,7 +46,6 @@ export let StartView=BaseIntView.extend({
   switch(this.opts.data.type)
   {
    case 'one':
-    //app.get('aggregator').trigger('board:score',5);
     this.away();
     break;
    case 'name':

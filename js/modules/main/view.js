@@ -44,6 +44,9 @@ export let MainView=Backbone.View.extend({
   new TimerView;
   new SoundMgr;
   new BoardMgr;
+
+  /*app.get('aggregator').trigger('board:name','abc');
+  app.get('aggregator').trigger('board:score',{what:'test',points:5});*/
  },
  toggle:function({show:show,failed:failed,opts:opts}){
   if(show)
