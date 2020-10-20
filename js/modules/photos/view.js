@@ -16,7 +16,7 @@ export let PhotosView=BaseIntView.extend({
  indicies:[],
  initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   dat:data,
+   data:data,
    opts:opts
   }]);
 

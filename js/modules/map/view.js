@@ -18,7 +18,7 @@ export let MapView=BaseIntView.extend({
    opts:opts
   }]);
 
-  if(this.opts.data.type==='two'||this.opts.data.type==='three')
+  if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
   {
    this.$video=this.$(data.view.vid);
    this.video();
@@ -31,29 +31,43 @@ export let MapView=BaseIntView.extend({
  video:function(){
   let once=[];
 
-  if(this.opts.data.type==='two')
+  if(this.opts.data.type==='two'||this.opts.data.type==='four')
   {
    this.$video.on('timeupdate',()=>{
-    if(this.$video[0].currentTime>data.showBtnsTime.when)
+    if(this.opts.data.type==='two')
     {
-     this.$el.addClass(data.view.showBtnsTimeCls);
-     //if(!once[0])
+     if(this.$video[0].currentTime>data.showBtnsTime.when)
+     {
+      this.$el.addClass(data.view.showBtnsTimeCls);
+      //if(!once[0])
       //this.$video[0].currentTime=data.showBtnsTime.where;
-     once[0]=true;
-    }
-    if(this.$video[0].currentTime>data.hideBtnTime.when)
-    {
-     this.$el.addClass(data.view.hideBtnTimeCls);
-     //if(!once[1])
+      once[0]=true;
+     }
+     if(this.$video[0].currentTime>data.hideBtnTime.when)
+     {
+      this.$el.addClass(data.view.hideBtnTimeCls);
+      //if(!once[1])
       //this.$video[0].currentTime=data.hideBtnTime.where;
-     once[1]=true;
+      once[1]=true;
+     }
+    }
+    if(this.opts.data.type==='four')
+    {
+
     }
    });
   }
 
   this.$video.on('ended',()=>{
-   this.$el.addClass(data.view.doneCls+' '+data.view.errCls);
-   this.done=true;
+   if(this.opts.data.type!=='four')
+   {
+    this.$el.addClass(data.view.doneCls+' '+data.view.errCls);
+    this.done=true;
+   }else
+   {
+    this.clr();
+    this.away(true);
+   }
   });
  },
  circleClick:function(e){
@@ -81,7 +95,7 @@ export let MapView=BaseIntView.extend({
   }else
   {
    this.$el.addClass(data.view.okCls);
-   if(this.opts.data.type==='two'||this.opts.data.type==='three')
+   if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
    {
     this.$video[0].currentTime=0;
     this.$video[0].play();

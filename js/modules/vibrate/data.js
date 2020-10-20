@@ -19,7 +19,8 @@ export const data={
   el:{
    one:'.ov-wrap.vibrate.v1',
    two:'.ov-wrap.vibrate.v2',
-   three:'.ov-wrap.vibrate.v3'
+   three:'.ov-wrap.vibrate.v3',
+   four:'.ov-wrap.vibrate.v4'
   },
   soundBg:{
    one:'.sounds[data-what=v1-bg]',
@@ -31,7 +32,8 @@ export const data={
   errCls:'incorr',
   hiddenCls:'hidden',
   startCls:'start',
-  doneCls:'done'
+  doneCls:'done',
+  fourCls:['phase1','phase2']
  },
  button:{
   spread:100,

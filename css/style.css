@@ -423,6 +423,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background: #000;
 }
 @media (min-aspect-ratio: 16/9) {
   body {
@@ -1656,25 +1657,51 @@ body {
 }
 
 /*@path:components\_ep4.scss*/
-.ov-wrap.vibrate.v3 .pulse-btn {
+.ov-wrap.vibrate.v4.phase1 .pulse-btn.incorr:nth-child(1), .ov-wrap.vibrate.v4.phase1 .pulse-btn.corr:nth-child(1) {
+  display: none;
+}
+.ov-wrap.vibrate.v4.phase2 .pulse-btn.incorr:nth-child(2), .ov-wrap.vibrate.v4.phase2 .pulse-btn.corr:nth-child(2) {
+  display: block;
+}
+.ov-wrap.vibrate.v4 .pulse-btn {
   cursor: pointer;
   position: absolute;
   left: 10%;
   width: 14em;
   height: 2.3em;
 }
-.ov-wrap.vibrate.v3 .pulse-btn.incorr {
+.ov-wrap.vibrate.v4 .pulse-btn.incorr {
   top: 10%;
 }
-.ov-wrap.vibrate.v3 .pulse-btn.corr {
+.ov-wrap.vibrate.v4 .pulse-btn.incorr:nth-child(2) {
   top: 20%;
-}
-.ov-wrap.vibrate.v3 .pulse-btn.hidden {
+  left: 20%;
   display: none;
 }
-.ov-wrap.vibrate.v3 .pulse-btn svg {
+.ov-wrap.vibrate.v4 .pulse-btn.corr {
+  top: 20%;
+}
+.ov-wrap.vibrate.v4 .pulse-btn.corr:nth-child(2) {
+  left: 40%;
+  top: 20%;
+  display: none;
+}
+.ov-wrap.vibrate.v4 .pulse-btn svg {
   width: 100%;
   height: 100%;
+}
+.ov-wrap.vibrate.v4 .pulse-btn img {
+  width: 100%;
+}
+.ov-wrap.map.v3.ok .pulse-btn:not(.start) {
+  display: block;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start) {
+  display: none;
+  position: absolute;
+}
+.ov-wrap.map.v3 .pulse-btn:not(.start).shown {
+  display: block;
 }
 
 /*@path:components\_footer.scss*/

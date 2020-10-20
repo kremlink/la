@@ -16,7 +16,7 @@ export let LeafletView=BaseIntView.extend({
  ctr:0,
  initialize:function(opts){
   BaseIntView.prototype.initialize.apply(this,[{
-   dat:data,
+   data:data,
    opts:opts
   }]);
 

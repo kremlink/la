@@ -11,7 +11,7 @@ export let VibrateView=BaseIntView.extend({
  vibrate:null,
  vidSrc:null,
  vibrInt:null,
- phase:0,
+ phase:-1,
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -35,19 +35,22 @@ export let VibrateView=BaseIntView.extend({
   BaseIntView.prototype.toggle.apply(this,arguments);
  },
  clr:function(){
-  this.$el.removeClass(data.view.doneCls);
+  if(this.opts.data.type==='two')
+   this.$btn.removeClass(data.view.twoMoveBtnCls);
   if(this.opts.data.type==='three')
   {
+   this.$el.removeClass(data.view.doneCls);
    this.$bgVideo[0].loop=true;
    this.$bgVideo[0].src=this.vidSrc;
+   this.$btn.removeClass(data.view.hiddenCls);
   }
   if(this.opts.data.type==='four')
   {
    this.$bgVideo[0].src=this.vidSrc;
-   this.phase=0;
+   this.phase=-1;
+   this.$bgVideo.addClass(data.view.hiddenCls);
+   this.$el.removeClass(data.view.fourCls[0]);
   }
-
-  this.$btn.removeClass(data.view.twoMoveBtnCls+' '+data.view.hiddenCls);
  },
  shift:function(){
   let once;
@@ -135,30 +138,46 @@ export let VibrateView=BaseIntView.extend({
   }
  },
  fourVid:function(no){
-  let trsFlag=false;
+  let trsFlag=true;
 
   if(!no)
   {
    this.away();
   }else
   {
-   this.$btn.addClass(data.view.hiddenCls);
-   this.$bgVideo.on('ended',() =>{
-
-   }).on('transitionend',()=>{
-    if(trsFlag)
-    {
-     this.$bgVideo[0].src=data.four.errVideoSrc[0];
-     this.$bgVideo[0].loop=false;
-     this.$bgVideo[0].play().then(()=>{
-      this.$bgVideo.removeClass(data.view.hiddenCls);
-     });
-    }
-
-    trsFlag=true;
-   }).on('timeupdate',()=>{
-    this.$btn.toggleClass(data.view.hiddenCls,!(this.$bgVideo[0].currentTime>data.four.when));
-   }).removeClass(data.view.hiddenCls)[0].play();
+   if(++this.phase===0)
+   {
+    this.$el.addClass(data.view.fourCls[0]);
+    this.$bgVideo.on('ended',()=>{
+     if(this.phase===0)
+     {
+      this.phase=1;
+      this.$bgVideo.addClass(data.view.hiddenCls);
+     }else
+     {
+      this.away(true);
+     }
+    }).on('transitionend',()=>{
+     if(this.phase===0)
+      this.$bgVideo[0].currentTime=0;
+     if(trsFlag&&this.phase===1)
+     {
+      trsFlag=false;
+      this.$bgVideo[0].src=data.four.errVideoSrc;
+      this.$bgVideo[0].play().then(()=>{
+       this.$bgVideo.removeClass(data.view.hiddenCls);
+      });
+     }
+    }).on('timeupdate',()=>{
+     if(this.phase===0)
+      this.$el.toggleClass(data.view.fourCls[1],this.$bgVideo[0].currentTime>data.four.when);
+    }).removeClass(data.view.hiddenCls)[0].play();
+   }else
+   {
+    this.$bgVideo.addClass(data.view.hiddenCls);
+    this.phase=1;
+    this.$el.removeClass(data.view.fourCls[1]);
+   }
   }
  },
  go:function(e){

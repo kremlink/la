@@ -2,11 +2,13 @@ export const data={
  wait:{
   one:30000,
   two:40000,
-  three:40000
+  three:40000,
+  four:40000
  },
  yesIndex:0,
  showBtnsTime:{when:7},
  hideBtnTime:{when:14},
+ fourBtnsData:[{time:3,pos:{left:'20%',top:'20%'}}],
  events:{
   'circleClick':'.circle',
   'chooseClick':'.pulse-btn:not(.start)',
@@ -17,7 +19,8 @@ export const data={
   el:{
    one:'.ov-wrap.map',
    two:'.ov-wrap.map.v2',
-   three:'.ov-wrap.map.v3'
+   three:'.ov-wrap.map.v3',
+   four:'.ov-wrap.map.v4'
   },
   soundBg:{
    two:'.sounds[data-what=map_v2-bg]',

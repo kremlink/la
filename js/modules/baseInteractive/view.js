@@ -7,6 +7,7 @@ export let BaseIntView=Backbone.View.extend({
   this.data=dat;
   this._type=timecodeData.data.type;
   this._autoClose=!timecodeData.noAutoClose;
+  this._vidAutoPlay=!timecodeData.noVidAutoPlay;
 
   this.$bgVideo=this.$(this.data.view.video);
   if(!this.$bgVideo.is('video'))
@@ -36,7 +37,7 @@ export let BaseIntView=Backbone.View.extend({
   }
   if(this.$bgVideo&&this.$bgVideo.length)
   {
-   this.$bgVideo[0][f?'play':'pause']();
+   this.$bgVideo[0][f&&this._vidAutoPlay?'play':'pause']();
    if(!f)
     this.$bgVideo[0].currentTime=0;
   }

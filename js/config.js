@@ -48,7 +48,7 @@ export let config={
     {start:756.1,rem:-3600,remText:'',checkpoint:true}*/
    ],
    '2':[
-    {start:1,end:2,invoked:false,time:-1,text:'ii',repeatable:true,data:{interactive:'Cartogr'}}
+    {start:1,end:2,invoked:false,time:-1,text:'ii',repeatable:true,data:{interactive:'Map',type:'three'}}
     /*{start:1,checkpoint:true},
     {start:111.2,rem:-1800,remText:'',checkpoint:true},
     {start:129.14,end:151.8,invoked:false,map:'two',rem:-3600,remText:'потерян 1 час'},
@@ -93,7 +93,7 @@ export let config={
 
    ],
    '4':[
-    {start:1,end:2,time:-60,text:'...',repeatable:true,data:{interactive:'Vibrate',type:'four'}}//noAutoClose:true
+    {start:1,end:2,time:-60,text:'...',repeatable:true,data:{interactive:'Map',type:'four'}}//noAutoClose:true,noVidAutoPlay:true
    ]
   },
   redirect:{
@@ -245,11 +245,11 @@ export let config={
     one:30000,
     two:30000,
     three:30000,
-    four:30000
+    four:300000
    },
    threeErrVideoSrc:'../BokehNightDriving.mp4',
    four:{
-    errVideoSrc:['../BokehNightDriving.mp4','../test.mp4'],
+    errVideoSrc:'../BokehNightDriving.mp4',
     when:5
    }
    //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
