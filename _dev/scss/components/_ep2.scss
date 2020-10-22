@@ -62,6 +62,7 @@
     }
     &.map{
       &.v2{
+        background:none;
         &.show-btns{
           .pulse-btn:not(.start){
             display:block;
@@ -94,6 +95,7 @@
         }
       }
       &.v3{
+        background:none;
         &.ok{
           .pulse-btn:not(.start){
             display:block;

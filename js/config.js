@@ -31,10 +31,15 @@ export let config={
  sound:{
   template:'<audio src="../sounds/<%= src %>.mp3" preload="auto"></audio>'
  },
+ /*stepViews:{
+  '1':['StartView','Checkpoint','VibrateView','Checkpoint','Checkpoint','VibrateView','QsView','MapView','CatchView','SchemeView','Checkpoint'],
+  '2':['Checkpoint','Checkpoint','MapView','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','VibrateView','ForestView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','CartogrView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','MapView'],
+  '3':['Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','LeafletView','Checkpoint','PhotosView','Checkpoint','Checkpoint','Checkpoint','Checkpoint','Checkpoint','StartView','Checkpoint','Checkpoint','Checkpoint','RadarView']
+ }*/
  'player':{
   timecodes:{
    '1':[//noAutoClose:true|repeatable:true
-    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Vibrate',type:'one'}},
+    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Scheme'}},
     /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
     {start:448.4,rem:-1800,remText:'',checkpoint:true},
     {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
@@ -175,68 +180,80 @@ export let config={
    ]*/
    '1':[
     {
-     speed:[4,1000],
+     //speed:[4,1000],
+     width:'(min-width:1281px)',
      src:'../oceans.mp4',
      label:'720P'
     },
     {
-     speed:[3,4],
+     //speed:[3,4],
+     width:'(min-width:801px) and (max-width:1280px)',
      src:'../oceans1.mp4',
      label:'480P'
     },
     {
-     speed:[0,3],
+     //speed:[0,3],
+     width:'(max-width:800px)',
      src:'../oceans.mp4',
      label:'360P'
     }
    ],
    '2':[
     {
-     speed:[4,1000],
+     //speed:[4,1000],
+     width:'(min-width:1281px)',
      src:'../oceans.mp4',
      label:'720P'
     },
     {
-     speed:[3,4],
+     //speed:[3,4],
+     width:'(min-width:801px) and (max-width:1280px)',
      src:'../oceans1.mp4',
      label:'480P'
     },
     {
-     speed:[0,3],
+     //speed:[0,3],
+     width:'(max-width:800px)',
      src:'../oceans.mp4',
      label:'360P'
     }
    ],
    '3':[
     {
-     speed:[4,1000],
+     //speed:[4,1000],
+     width:'(min-width:1281px)',
      src:'../oceans.mp4',
      label:'720P'
     },
     {
-     speed:[3,4],
+     //speed:[3,4],
+     width:'(min-width:801px) and (max-width:1280px)',
      src:'../oceans1.mp4',
      label:'480P'
     },
     {
-     speed:[0,3],
+     //speed:[0,3],
+     width:'(max-width:800px)',
      src:'../oceans.mp4',
      label:'360P'
     }
    ],
    '4':[
     {
-     speed:[4,1000],
+     //speed:[4,1000],
+     width:'(min-width:1281px)',
      src:'../oceans.mp4',
      label:'720P'
     },
     {
-     speed:[3,4],
+     //speed:[3,4],
+     width:'(min-width:801px) and (max-width:1280px)',
      src:'../oceans1.mp4',
      label:'480P'
     },
     {
-     speed:[0,3],
+     //speed:[0,3],
+     width:'(max-width:800px)',
      src:'../oceans.mp4',
      label:'360P'
     }
@@ -268,7 +285,7 @@ export let config={
     showBtnsTime:{when:7},
     hideBtnTime:{when:14}
    },
-   fourBtnsData:[{start:3,end:5,time:-10,text:'-10',size:5,left:20,top:20}]
+   fourBtnsData:[{start:1,end:2,time:-10,text:'-10',size:5,left:20,top:20},{start:3,end:4,time:-5,text:'-5',size:10,left:50,top:50}]
   }
  }
  //"index.toggle":{extra:{a:1,$b:[2,'3',{$c:{$d:'#de',f:4}}]}},

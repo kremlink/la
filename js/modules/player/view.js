@@ -56,14 +56,18 @@ export let PlayerView=Backbone.View.extend({
  },
  prepare:function(){
   let touched={},
-   time=Date.now(),
-   xhr,br,size,
+   //time=Date.now(),
+   //xhr,br,size,
   firstTime=true;
 
   this.setElement(data.view.el);
   this.$el.append(this.extTemplate());
 
-  xhr=new XMLHttpRequest();
+  data.quality[epIndex].unshift({selected:true,label:'auto',src:data.quality[epIndex][data.quality[epIndex].findIndex((o)=>matchMedia(o.width).matches)].src+'?'+Date.now()});
+  this.player.controlBar.addChild('QualitySelector');
+  this.player.src(data.quality[epIndex]);
+
+  /*xhr=new XMLHttpRequest();
   xhr.open('GET',data.testSpeedFile+'?'+time,true);
   xhr.responseType='blob';
   xhr.onload=()=>{
@@ -78,7 +82,7 @@ export let PlayerView=Backbone.View.extend({
    this.player.controlBar.addChild('QualitySelector');
    this.player.src(data.quality[epIndex]);
   };
-  xhr.send();
+  xhr.send();*/
   if(app.get('_dev'))
    this.player.muted(true);
   this.player.on('pause',()=>{

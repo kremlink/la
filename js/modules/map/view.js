@@ -26,7 +26,7 @@ export let MapView=BaseIntView.extend({
    this.video();
   if(this.opts.data.type==='four')
   {
-   this.tmpl=_.template($(data.view.fourTemplate).html());
+   this.tmpl=_.template($(data.view.fourTemplate).html().trim());
    this.fourRender();
   }
  },
@@ -87,7 +87,7 @@ export let MapView=BaseIntView.extend({
        this.once[i]=true;
       }else
       {
-       if(this.once[i])
+       if(this.once[i]&&!this.areas[i])
        {
         this.once[i]=false;
         app.get('aggregator').trigger('timer:update',o);

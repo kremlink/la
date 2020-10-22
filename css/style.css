@@ -1084,6 +1084,9 @@ body {
 .ov-wrap.vibrate.v3 .w-p-cont {
   animation: w-move-both 20s infinite;
 }
+.ov-wrap.map.v2 {
+  background: none;
+}
 .ov-wrap.map.v2.show-btns .pulse-btn:not(.start) {
   display: block;
 }
@@ -1107,6 +1110,9 @@ body {
 }
 .ov-wrap.map.v2 .pulse-btn:not(.start).err + .err {
   left: 60%;
+}
+.ov-wrap.map.v3 {
+  background: none;
 }
 .ov-wrap.map.v3.ok .pulse-btn:not(.start) {
   display: block;
@@ -1692,6 +1698,9 @@ body {
 }
 .ov-wrap.vibrate.v4 .pulse-btn img {
   width: 100%;
+}
+.ov-wrap.map.v4 {
+  background: none;
 }
 .ov-wrap.map.v4 .btn {
   display: none;
