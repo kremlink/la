@@ -42,15 +42,12 @@
       }
     }
     &.map{
-      &.v3{
-        &.ok{
-          .pulse-btn:not(.start){
-            display:block;
-          }
-        }
-        .pulse-btn:not(.start){
+      &.v4{
+        .btn{
           display:none;
           position:absolute;
+          background:rgba(#f00,0.3);
+          border-radius:50%;
           &.shown{
             display:block;
           }

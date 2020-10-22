@@ -1693,14 +1693,13 @@ body {
 .ov-wrap.vibrate.v4 .pulse-btn img {
   width: 100%;
 }
-.ov-wrap.map.v3.ok .pulse-btn:not(.start) {
-  display: block;
-}
-.ov-wrap.map.v3 .pulse-btn:not(.start) {
+.ov-wrap.map.v4 .btn {
   display: none;
   position: absolute;
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: 50%;
 }
-.ov-wrap.map.v3 .pulse-btn:not(.start).shown {
+.ov-wrap.map.v4 .btn.shown {
   display: block;
 }
 

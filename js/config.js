@@ -48,7 +48,9 @@ export let config={
     {start:756.1,rem:-3600,remText:'',checkpoint:true}*/
    ],
    '2':[
-    {start:1,end:2,invoked:false,time:-1,text:'ii',repeatable:true,data:{interactive:'Map',type:'three'}}
+    {start:1,end:2,invoked:false,time:-1,text:'ii',noVidAutoPlay:true,repeatable:true,data:{interactive:'Map',type:'two'}}
+    //{start:1,end:2,invoked:false,time:-1,text:'ii',noVidAutoPlay:true,repeatable:true,data:{interactive:'Map',type:'three'}}
+
     /*{start:1,checkpoint:true},
     {start:111.2,rem:-1800,remText:'',checkpoint:true},
     {start:129.14,end:151.8,invoked:false,map:'two',rem:-3600,remText:'потерян 1 час'},
@@ -93,7 +95,9 @@ export let config={
 
    ],
    '4':[
-    {start:1,end:2,time:-60,text:'...',repeatable:true,data:{interactive:'Map',type:'four'}}//noAutoClose:true,noVidAutoPlay:true
+    {start:1,end:2,repeatable:true,noVidAutoPlay:true,noAutoClose:true,iniTimer:true,data:{interactive:'Map',type:'four'}}//noAutoClose:true,noVidAutoPlay:true
+    //{start:1,end:2,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'four'}}
+    //{start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Vibrate',type:'four'}}
    ]
   },
   redirect:{
@@ -253,6 +257,18 @@ export let config={
     when:5
    }
    //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
+  },
+  map:{
+   wait:{
+    one:30000,
+    two:40000,
+    three:40000
+   },
+   two:{
+    showBtnsTime:{when:7},
+    hideBtnTime:{when:14}
+   },
+   fourBtnsData:[{start:3,end:5,time:-10,text:'-10',size:5,left:20,top:20}]
   }
  }
  //"index.toggle":{extra:{a:1,$b:[2,'3',{$c:{$d:'#de',f:4}}]}},

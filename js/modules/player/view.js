@@ -57,7 +57,8 @@ export let PlayerView=Backbone.View.extend({
  prepare:function(){
   let touched={},
    time=Date.now(),
-   xhr,br,size;
+   xhr,br,size,
+  firstTime=true;
 
   this.setElement(data.view.el);
   this.$el.append(this.extTemplate());
@@ -76,8 +77,6 @@ export let PlayerView=Backbone.View.extend({
    data.quality[epIndex].unshift({selected:true,label:'auto',src:data.quality[epIndex][index].src+'?'+Date.now()});
    this.player.controlBar.addChild('QualitySelector');
    this.player.src(data.quality[epIndex]);
-
-   app.get('aggregator').trigger('player:ready');
   };
   xhr.send();
   if(app.get('_dev'))
@@ -123,6 +122,12 @@ export let PlayerView=Backbone.View.extend({
      o.invoked=true;
     }
    });
+  });
+
+  this.player.on('canplay',()=>{
+   if(firstTime)
+    app.get('aggregator').trigger('player:ready');
+   firstTime=false;
   });
  },
  play:function({time=-1,clr=null}){

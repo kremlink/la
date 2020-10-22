@@ -1,5 +1,7 @@
-import {data} from './data.js';
+import {app} from '../../bf/base.js';
 import {BaseIntView} from '../baseInteractive/view.js';
+import {data as dat} from './data.js';
+let data=app.configure({interactives:{map:dat}}).interactives.map;
 
 let events={};
 events[`click ${data.events.circleClick}`]='circleClick';
@@ -9,6 +11,8 @@ events[`click ${data.events.go}`]='go';
 export let MapView=BaseIntView.extend({
  events:events,
  done:false,
+ areas:[],
+ once:[],
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -19,46 +23,82 @@ export let MapView=BaseIntView.extend({
   }]);
 
   if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
-  {
-   this.$video=this.$(data.view.vid);
    this.video();
+  if(this.opts.data.type==='four')
+  {
+   this.tmpl=_.template($(data.view.fourTemplate).html());
+   this.fourRender();
   }
  },
  clr:function(){
   this.done=false;
   this.$el.removeClass(data.view.okCls+' '+data.view.doneCls+' '+data.view.errCls+' '+data.view.showBtnsTimeCls+' '+data.view.hideBtnTimeCls);
+  if(this.opts.data.type==='four'){
+   this.areas=[];
+   this.once=[];
+   this.$areaClick.removeClass(data.view.shownCls);
+  }
+ },
+ fourRender:function(){
+  let s='',
+  self=this;
+
+  for(let i=0;i<data.fourBtnsData.length;i++)
+   s+=this.tmpl(data.fourBtnsData[i]);
+
+  this.$el.append(this.$areaClick=$(s));
+  this.$areaClick.each(function(i){
+   $(this).on('click',()=>{
+    self.areas[i]=true;
+   });
+  });
  },
  video:function(){
-  let once=[];
-
   if(this.opts.data.type==='two'||this.opts.data.type==='four')
   {
-   this.$video.on('timeupdate',()=>{
+   this.$bgVideo.on('timeupdate',()=>{
+    let curr=this.$bgVideo[0].currentTime;
+
     if(this.opts.data.type==='two')
     {
-     if(this.$video[0].currentTime>data.showBtnsTime.when)
+     if(curr>data.two.showBtnsTime.when)
      {
       this.$el.addClass(data.view.showBtnsTimeCls);
       //if(!once[0])
-      //this.$video[0].currentTime=data.showBtnsTime.where;
-      once[0]=true;
+      //this.$bgVideo[0].currentTime=data.showBtnsTime.where;
+      //once[0]=true;
      }
-     if(this.$video[0].currentTime>data.hideBtnTime.when)
+     if(this.$bgVideo[0].currentTime>data.two.hideBtnTime.when)
      {
       this.$el.addClass(data.view.hideBtnTimeCls);
       //if(!once[1])
-      //this.$video[0].currentTime=data.hideBtnTime.where;
-      once[1]=true;
+      //this.$bgVideo[0].currentTime=data.hideBtnTime.where;
+      //once[1]=true;
      }
     }
     if(this.opts.data.type==='four')
     {
+     data.fourBtnsData.forEach((o,i)=>{
+      let shown=curr>=o.start&&curr<o.end;
 
+      this.$areaClick.eq(i).toggleClass(data.view.shownCls,shown);
+      if(shown)
+      {
+       this.once[i]=true;
+      }else
+      {
+       if(this.once[i])
+       {
+        this.once[i]=false;
+        app.get('aggregator').trigger('timer:update',o);
+       }
+      }
+     });
     }
    });
   }
 
-  this.$video.on('ended',()=>{
+  this.$bgVideo.on('ended',()=>{
    if(this.opts.data.type!=='four')
    {
     this.$el.addClass(data.view.doneCls+' '+data.view.errCls);
@@ -66,7 +106,7 @@ export let MapView=BaseIntView.extend({
    }else
    {
     this.clr();
-    this.away(true);
+    this.away();
    }
   });
  },
@@ -78,8 +118,8 @@ export let MapView=BaseIntView.extend({
    this.$el.addClass(data.view.errCls);
   this.done=true;
  },
- chooseClick:function(e){
-  this.$video[0].pause();
+ chooseClick:function(e){//pauses vid and shows ending text+btn
+  this.$bgVideo[0].pause();
 
   this.$el.addClass(data.view.doneCls);
   if($(e.currentTarget).hasClass(data.view.errCls))
@@ -97,8 +137,8 @@ export let MapView=BaseIntView.extend({
    this.$el.addClass(data.view.okCls);
    if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
    {
-    this.$video[0].currentTime=0;
-    this.$video[0].play();
+    this.$bgVideo[0].currentTime=0;
+    this.$bgVideo[0].play();
    }
   }
  }

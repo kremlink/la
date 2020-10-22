@@ -1,21 +1,22 @@
 export const data={
  wait:{
-  one:30000,
-  two:40000,
-  three:40000,
-  four:40000
+  one:0,
+  two:0,
+  three:0
  },
  yesIndex:0,
- showBtnsTime:{when:7},
- hideBtnTime:{when:14},
- fourBtnsData:[{time:3,pos:{left:'20%',top:'20%'}}],
+ two:{
+  showBtnsTime:{when:0},
+  hideBtnTime:{when:0}
+ },
+ fourBtnsData:[],
  events:{
   'circleClick':'.circle',
   'chooseClick':'.pulse-btn:not(.start)',
   'go':'.pulse-btn.start'
  },
  view:{
-  vid:'.ov-video',//not 'video', which is auto-activated
+  video:'.ov-video',
   el:{
    one:'.ov-wrap.map',
    two:'.ov-wrap.map.v2',
@@ -26,6 +27,7 @@ export const data={
    two:'.sounds[data-what=map_v2-bg]',
    three:'.sounds[data-what=map_v3-bg]'
   },
+  fourTemplate:'#map-four-item-template',
   okCls:'ok',
   doneCls:'done',
   errCls:'err',

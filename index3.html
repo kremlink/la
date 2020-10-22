@@ -44,8 +44,7 @@
 		<div id="wrap">
 			<video playsinline
 					class="video-js"
-					controls
-                    preload="auto"> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
+					controls> <!--poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'-->
                 <!--<source src="../test.mp4" type="video/mp4" />-->
 				<!--<source src="../PREDMASTER1SER.mp4" type="video/mp4" />-->
 				<p class="vjs-no-js">
@@ -252,17 +251,6 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="pulse-btn">
-                            <img src="images/but-click.png" alt=""/>
-                        </div>
-                        <div class="pulse-btn">
-                            <img src="images/but-click.png" alt=""/>
-                        </div>
-                        <div class="pulse-btn">
-                            <img src="images/but-click.png" alt=""/>
-                        </div>
-                    </div>
                     <div class="pulse-btn start">
                         <img src="images/but-click.png" alt=""/>
                     </div>
@@ -309,6 +297,9 @@
     <audio class="sounds" data-what="photos-bg" src="../3ser/MP3/3-07-music.mp3" preload="auto" loop></audio>
     <script type="text/template" id="qs-list-item-template">
         <div><%= text %></div>
+    </script>
+    <script type="text/template" id="map-four-item-template">
+        <div class="btn" style="width:<%= size %>em;height:<%= size %>em;left:<%= left %>%;top:<%= top %>%;"></div>
     </script>
        <script type="text/template" id="ext-player-template">
             <div class="test-btns">

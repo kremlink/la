@@ -48,7 +48,8 @@ export function init(app,modules){
 
    for(let [x,y] of Object.entries(data.preload[epIndex]))
    {
-    if(y.imgs){
+    if(y.imgs)
+    {
      imgs=y.imgs.map(t=>x+t);
     }
     if(y.i)
@@ -65,7 +66,9 @@ export function init(app,modules){
     }
     wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
    }
-   $.when(wait).then(()=>new PlayerView);
+   $.when(wait).then(()=>{
+    new PlayerView;
+   });
   },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);
