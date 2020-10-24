@@ -13,6 +13,7 @@ import {ForestView} from '../forest/view.js';
 import {LeafletView} from '../leaflet/view.js';
 import {PhotosView} from '../photos/view.js';
 import {RadarView} from '../radar/view.js';
+import {BoatView} from '../boat/view.js';
 
 import {TimerView} from '../timer/view.js';
 import {data} from './data.js';
@@ -28,7 +29,8 @@ let Interactives={
  Forest:ForestView,
  Leaflet:LeafletView,
  Photos:PhotosView,
- Radar:RadarView
+ Radar:RadarView,
+ Boat:BoatView
 };
 
 let events={};

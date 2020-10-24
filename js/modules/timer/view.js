@@ -16,6 +16,8 @@ export let TimerView=Backbone.View.extend({
  timer:null,
  ctr:0,
  initialize:function(){
+  let time=localStorage.getItem(data.ls);
+
   epIndex=app.get('epIndex');
   /*$('#wrap').addClass('start loaded');//TODO:remove
   setTimeout(()=>{
@@ -23,7 +25,16 @@ export let TimerView=Backbone.View.extend({
    $('.overlay-block').addClass('shown');
    },100);//TODO:remove*/
   //this.$el.remove();//TODO:remove
-  this.time=data[epIndex].start;
+  if(time)
+  {
+   time=JSON.parse(time);
+   if(epIndex>1)
+    this.time=time[epIndex]?time[epIndex]:data[epIndex].start;
+  }else
+  {
+   this.time=data[epIndex].start;
+  }
+
   this.$timer=this.$(data.view.txt).text(s2t(this.time));
   this.$pop=this.$(data.view.pop);
 

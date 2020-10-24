@@ -3,7 +3,7 @@
 /*@path:core\_mixins.scss*/
 /*@path:core\_exts.scss*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic");
-.qs-block .l-cont {
+.boat-block .ctrls, .qs-block .l-cont {
   box-sizing: border-box;
 }
 
@@ -440,45 +440,45 @@ body {
 }
 
 /*@path:base\_exts.scss*/
-.shown.ov-wrap.leaflet .wobble-pop, .shown.ov-wrap.photos .wobble-pop, .shown.ov-wrap.radar .wobble-pop, .shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
+.shown.ov-wrap.boat .wobble-pop, .shown.ov-wrap.leaflet .wobble-pop, .shown.ov-wrap.photos .wobble-pop, .shown.ov-wrap.radar .wobble-pop, .shown.ov-wrap.forest .wobble-pop, .shown.ov-wrap.cartogr .wobble-pop, .shown.ov-wrap.vibrate.v3 .wobble-pop, .shown.ov-wrap.scheme .wobble-pop, .shown.ov-wrap.catch .wobble-pop, .shown.ov-wrap.map .wobble-pop, .shown.ov-wrap.start .wobble-pop {
   pointer-events: auto;
 }
-.shown.ov-wrap.leaflet .w-p-outer, .shown.ov-wrap.photos .w-p-outer, .shown.ov-wrap.radar .w-p-outer, .shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
+.shown.ov-wrap.boat .w-p-outer, .shown.ov-wrap.leaflet .w-p-outer, .shown.ov-wrap.photos .w-p-outer, .shown.ov-wrap.radar .w-p-outer, .shown.ov-wrap.forest .w-p-outer, .shown.ov-wrap.cartogr .w-p-outer, .shown.ov-wrap.vibrate.v3 .w-p-outer, .shown.ov-wrap.scheme .w-p-outer, .shown.ov-wrap.catch .w-p-outer, .shown.ov-wrap.map .w-p-outer, .shown.ov-wrap.start .w-p-outer {
   top: 25%;
   opacity: 1;
 }
-.shown.ov-wrap.leaflet .pulse-btn.start, .shown.ov-wrap.photos .pulse-btn.start, .shown.ov-wrap.radar .pulse-btn.start, .shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
+.shown.ov-wrap.boat .pulse-btn.start, .shown.ov-wrap.leaflet .pulse-btn.start, .shown.ov-wrap.photos .pulse-btn.start, .shown.ov-wrap.radar .pulse-btn.start, .shown.ov-wrap.forest .pulse-btn.start, .shown.ov-wrap.cartogr .pulse-btn.start, .shown.ov-wrap.vibrate.v3 .pulse-btn.start, .shown.ov-wrap.scheme .pulse-btn.start, .shown.ov-wrap.catch .pulse-btn.start, .shown.ov-wrap.map .pulse-btn.start, .shown.ov-wrap.start .pulse-btn.start {
   bottom: 15%;
   opacity: 1;
 }
-.ov-wrap.leaflet .wobble-pop, .ov-wrap.photos .wobble-pop, .ov-wrap.radar .wobble-pop, .ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
+.ov-wrap.boat .wobble-pop, .ov-wrap.leaflet .wobble-pop, .ov-wrap.photos .wobble-pop, .ov-wrap.radar .wobble-pop, .ov-wrap.forest .wobble-pop, .ov-wrap.cartogr .wobble-pop, .ov-wrap.vibrate.v3 .wobble-pop, .ov-wrap.scheme .wobble-pop, .ov-wrap.catch .wobble-pop, .ov-wrap.map .wobble-pop, .ov-wrap.start .wobble-pop {
   pointer-events: none;
 }
-.ov-wrap.leaflet .w-p-outer, .ov-wrap.photos .w-p-outer, .ov-wrap.radar .w-p-outer, .ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
+.ov-wrap.boat .w-p-outer, .ov-wrap.leaflet .w-p-outer, .ov-wrap.photos .w-p-outer, .ov-wrap.radar .w-p-outer, .ov-wrap.forest .w-p-outer, .ov-wrap.cartogr .w-p-outer, .ov-wrap.vibrate.v3 .w-p-outer, .ov-wrap.scheme .w-p-outer, .ov-wrap.catch .w-p-outer, .ov-wrap.map .w-p-outer, .ov-wrap.start .w-p-outer {
   margin: 0 auto;
   top: 20%;
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.leaflet .w-p-pulse, .ov-wrap.photos .w-p-pulse, .ov-wrap.radar .w-p-pulse, .ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
+.ov-wrap.boat .w-p-pulse, .ov-wrap.leaflet .w-p-pulse, .ov-wrap.photos .w-p-pulse, .ov-wrap.radar .w-p-pulse, .ov-wrap.forest .w-p-pulse, .ov-wrap.cartogr .w-p-pulse, .ov-wrap.vibrate.v3 .w-p-pulse, .ov-wrap.scheme .w-p-pulse, .ov-wrap.catch .w-p-pulse, .ov-wrap.map .w-p-pulse, .ov-wrap.start .w-p-pulse {
   position: absolute;
   left: 5.92%;
   top: 14.89%;
   width: 24.88%;
   transform: scale(-1, 1);
 }
-.ov-wrap.leaflet .w-p-cont, .ov-wrap.photos .w-p-cont, .ov-wrap.radar .w-p-cont, .ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
+.ov-wrap.boat .w-p-cont, .ov-wrap.leaflet .w-p-cont, .ov-wrap.photos .w-p-cont, .ov-wrap.radar .w-p-cont, .ov-wrap.forest .w-p-cont, .ov-wrap.cartogr .w-p-cont, .ov-wrap.vibrate.v3 .w-p-cont, .ov-wrap.scheme .w-p-cont, .ov-wrap.catch .w-p-cont, .ov-wrap.map .w-p-cont, .ov-wrap.start .w-p-cont {
   color: #fff;
 }
-.ov-wrap.leaflet .w-p-text, .ov-wrap.photos .w-p-text, .ov-wrap.radar .w-p-text, .ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
+.ov-wrap.boat .w-p-text, .ov-wrap.leaflet .w-p-text, .ov-wrap.photos .w-p-text, .ov-wrap.radar .w-p-text, .ov-wrap.forest .w-p-text, .ov-wrap.cartogr .w-p-text, .ov-wrap.vibrate.v3 .w-p-text, .ov-wrap.scheme .w-p-text, .ov-wrap.catch .w-p-text, .ov-wrap.map .w-p-text, .ov-wrap.start .w-p-text {
   width: 33.56em;
   height: 10.81em;
 }
-.ov-wrap.leaflet .pulse-btn, .ov-wrap.photos .pulse-btn, .ov-wrap.radar .pulse-btn, .ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
+.ov-wrap.boat .pulse-btn, .ov-wrap.leaflet .pulse-btn, .ov-wrap.photos .pulse-btn, .ov-wrap.radar .pulse-btn, .ov-wrap.forest .pulse-btn, .ov-wrap.cartogr .pulse-btn, .ov-wrap.vibrate.v3 .pulse-btn, .ov-wrap.scheme .pulse-btn, .ov-wrap.catch .pulse-btn, .ov-wrap.map .pulse-btn, .ov-wrap.start .pulse-btn {
   width: 11.25%;
   cursor: pointer;
 }
-.ov-wrap.leaflet .pulse-btn.start, .ov-wrap.photos .pulse-btn.start, .ov-wrap.radar .pulse-btn.start, .ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
+.ov-wrap.boat .pulse-btn.start, .ov-wrap.leaflet .pulse-btn.start, .ov-wrap.photos .pulse-btn.start, .ov-wrap.radar .pulse-btn.start, .ov-wrap.forest .pulse-btn.start, .ov-wrap.cartogr .pulse-btn.start, .ov-wrap.vibrate.v3 .pulse-btn.start, .ov-wrap.scheme .pulse-btn.start, .ov-wrap.catch .pulse-btn.start, .ov-wrap.map .pulse-btn.start, .ov-wrap.start .pulse-btn.start {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -486,7 +486,7 @@ body {
   opacity: 0;
   transition: all 0.9s ease-in-out;
 }
-.ov-wrap.leaflet .pulse-btn img, .ov-wrap.photos .pulse-btn img, .ov-wrap.radar .pulse-btn img, .ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
+.ov-wrap.boat .pulse-btn img, .ov-wrap.leaflet .pulse-btn img, .ov-wrap.photos .pulse-btn img, .ov-wrap.radar .pulse-btn img, .ov-wrap.forest .pulse-btn img, .ov-wrap.cartogr .pulse-btn img, .ov-wrap.vibrate.v3 .pulse-btn img, .ov-wrap.scheme .pulse-btn img, .ov-wrap.catch .pulse-btn img, .ov-wrap.map .pulse-btn img, .ov-wrap.start .pulse-btn img {
   width: 100%;
 }
 
@@ -1710,6 +1710,141 @@ body {
 }
 .ov-wrap.map.v4 .btn.shown {
   display: block;
+}
+.ov-wrap.boat.ok .wobble-pop {
+  pointer-events: none;
+}
+.ov-wrap.boat.ok .w-p-outer, .ov-wrap.boat.ok .pulse-btn.start {
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+.ov-wrap.boat.ok .ep3-block {
+  opacity: 1;
+}
+.ov-wrap.boat.done .ep3-block:after {
+  opacity: 0.8;
+}
+.ov-wrap.boat.done .wobble-pop {
+  pointer-events: auto;
+}
+.ov-wrap.boat.done .w-p-outer, .ov-wrap.boat.done .pulse-btn.start {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ov-wrap.boat.done .w-p-t-ov div:nth-child(1) {
+  display: none;
+}
+.ov-wrap.boat.done .w-p-t-ov div:nth-child(2) {
+  display: block;
+}
+.ov-wrap.boat .w-p-outer {
+  transition-delay: 1.5s;
+  animation: w-rotate-both 20s ease-in-out infinite;
+}
+.ov-wrap.boat .w-p-cont {
+  animation: w-move-both 20s infinite;
+}
+.ov-wrap.boat .pulse-btn.start {
+  transition-delay: 1.5s;
+}
+.ov-wrap.boat .w-p-t-ov div:nth-child(2) {
+  display: none;
+}
+
+.boat-block {
+  bottom: auto;
+  right: auto;
+  --w:63.48em;
+  --h:35.68em;
+  width: var(--w);
+  height: var(--h);
+}
+.boat-block .bg1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/ep4/bg.png) center/cover no-repeat;
+}
+.boat-block .game {
+  position: absolute;
+  left: 4.58%;
+  top: 8.24%;
+  background: url(../images/ep4/game-bg.jpg) center/cover no-repeat;
+}
+.boat-block .grid {
+  position: absolute;
+}
+.boat-block .radar {
+  position: absolute;
+  background: url(../images/ep4/game-open.jpg) 0 0/31.88em 29.8em no-repeat;
+  border-radius: 50%;
+}
+.boat-block .vid {
+  position: absolute;
+  left: 55.76%;
+  top: 8.24%;
+  width: 40.63%;
+  height: 40.28%;
+  overflow: hidden;
+  border-radius: 1em;
+}
+.boat-block .ov-video {
+  left: -3%;
+  top: -3%;
+  width: 106%;
+  height: 106%;
+}
+.boat-block .ctrls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30.4em;
+  height: 19.2em;
+  padding: 2em 3em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.boat-block .ctrls div:not(.sep) {
+  width: 7em;
+  height: 7em;
+  cursor: pointer;
+}
+.boat-block .ctrls div:not(.sep):hover svg {
+  display: block;
+}
+.boat-block .ctrls div:not(.sep) svg {
+  pointer-events: none;
+  display: none;
+  right: 0;
+  bottom: 0;
+  width: var(--w);
+  height: var(--h);
+}
+.boat-block .sep {
+  width: 100%;
+}
+.boat-block .top {
+  margin: 0 auto -3em auto;
+}
+.boat-block .bottom {
+  margin: -3em auto 0 auto;
+}
+.boat-block .o-vid {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.boat-block svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 /*@path:components\_footer.scss*/

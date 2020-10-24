@@ -100,7 +100,7 @@ export let config={
 
    ],
    '4':[
-    {start:1,end:2,repeatable:true,noVidAutoPlay:true,noAutoClose:true,iniTimer:true,data:{interactive:'Map',type:'four'}}//noAutoClose:true,noVidAutoPlay:true
+    {start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Boat'}}//noAutoClose:true,noVidAutoPlay:true
     //{start:1,end:2,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'four'}}
     //{start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Vibrate',type:'four'}}
    ]

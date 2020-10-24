@@ -44,10 +44,11 @@ export let PlayerView=Backbone.View.extend({
   this.play({time:this.player.currentTime()-10});
  },
  iBack:function(){
-  let where=this.timecodes.filter(o=>o.start<this.player.currentTime()),
+  let where=this.timecodes.filter(o=>o.repeatable&&o.start<this.player.currentTime()),
   what=where[where.length-1];
 
-  this.play({time:what.start,clr:what});
+  if(where.length)
+   this.play({time:what.start,clr:what});
  },
  iiBack:function(){
   let index=0;
