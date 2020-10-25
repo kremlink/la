@@ -132,6 +132,16 @@
       position:absolute;
       background: url(#{$path}ep4/game-open.jpg) 0 0/31.88em 29.8em no-repeat;
       border-radius:50%;
+      @include trs('transform #{$anim} ease-in-out');
+      img{
+        @include center();
+        margin-top:-1em;
+        width:4em;
+        @include trs('opacity #{$anim} ease-in-out');
+        &:nth-child(n+2){
+          opacity:0;
+        }
+      }
     }
     .vid{
       @include abs($l:55.76%,$t:8.24%);

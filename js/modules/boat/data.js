@@ -13,7 +13,11 @@ export const data={
  radarSize:3,
  cells:[1,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,0,0,1,1,0,0,1,0,1,1,1,1,1,1,1,0,1,0,0,0,1,1,0,0,1,0,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1],
  events:{
-  'go':'.pulse-btn'
+  'go':'.pulse-btn',
+  'moveL':'.left',
+  'moveR':'.right',
+  'moveT':'.top',
+  'moveB':'.bottom'
  },
  view:{
   video:'.ov-video',

@@ -1780,6 +1780,19 @@ body {
   position: absolute;
   background: url(../images/ep4/game-open.jpg) 0 0/31.88em 29.8em no-repeat;
   border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+.boat-block .radar img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -1em;
+  width: 4em;
+  transition: opacity 0.3s ease-in-out;
+}
+.boat-block .radar img:nth-child(n+2) {
+  opacity: 0;
 }
 .boat-block .vid {
   position: absolute;
