@@ -33,10 +33,13 @@ export let BoatView=BaseIntView.extend({
    height:this.cell.h*data.radarSize+'em',
    backgroundPosition:`${this.iniBgPos.x}em ${this.iniBgPos.y}em`,
    left:-this.cell.w*(data.radarSize-1)/2+'em',
-   top:-this.cell.h*(data.radarSize-1)/2+'em'
+   top:-this.cell.h*(data.radarSize-1)/2+'em',
+   transform:'translate(0,0)'
   });
  },
  clr:function(){
+  for(let x of Object.values(data.view.posCls))
+   this.$radar.removeClass(x);
   this.done=false;
   this.pos=0;
   this.setPos();
@@ -55,26 +58,35 @@ export let BoatView=BaseIntView.extend({
  moveT:function(){
   if(this.pos>data.grid.size-1&&data.cells[this.pos-data.grid.size])
    this.pos-=data.grid.size;
-  this.move('t');
+  this.move('u');
  },
  moveB:function(){
   if(this.pos<data.grid.size*(data.grid.size-1)&&data.cells[this.pos+data.grid.size])
    this.pos+=data.grid.size;
-  this.move('b');
+  this.move('');
  },
  move:function(dir){
-  this.$radar.css({
-   transform:`translate(${(this.pos%data.grid.size)*this.cell.w}em,-${Math.floor(this.pos/data.grid.size)*this.cell.h}em)`,
-   backgroundPosition:`${this.iniBgPos.x}em ${this.iniBgPos.y}em`
-  });
+  let where={x:(this.pos%data.grid.size)*this.cell.w,y:Math.floor(this.pos/data.grid.size)*this.cell.h};
+
+  if(!this.done)
+  {
+   for(let x of Object.values(data.view.posCls))
+    this.$radar.removeClass(x);
+
+   this.$radar.css({
+    transform:`translate(${where.x}em,${where.y}em)`,
+    backgroundPosition:`${this.iniBgPos.x-where.x}em ${this.iniBgPos.y-where.y}em`
+   }).addClass(data.view.posCls[dir]);
+
+   if(data.cells[this.pos]===2)
+   {
+    this.done=true;
+    setTimeout(()=>{
+     this.$el.addClass(data.view.doneCls);
+    },data.winWait);
+   }
+  }
  },
- /*if(this.current===data.seq.length)
-{
- setTimeout(()=>{
-  this.$el.addClass(data.view.doneCls);
-  this.done=true;
- },data.win.wait);
-}*/
  go:function(){
   if(this.done)
   {

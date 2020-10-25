@@ -17,6 +17,11 @@ app.init({
 app.set({dest:'objects.aggregator',object:_.extend({},Backbone.Events)});
 app.set({dest:'objects.isMobile',object:matchMedia(index.data.mobViewport).matches});
 app.set({dest:'objects.epIndex',object:dataApp.index});
+app.set({dest:'objects.ls',object:'la-storage',lib:false});
+
+if(!localStorage.getItem('la-storage'))
+ localStorage.setItem('la-storage',JSON.stringify({points:{},time:[-1,-1,-1,-1]}));
+
 
 app.set({dest:'objects._dev',object:true});//TODO:remove
 //app.set({dest:'objects.isPomoi',object:/iPad|iPhone|iPod/.test(navigator.platform)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)});

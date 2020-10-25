@@ -97,6 +97,7 @@ export let PlayerView=Backbone.View.extend({
     document.documentElement.requestFullscreen();
   });
   this.player.on('ended',()=>{
+   app.get('aggregator').trigger('player:ended');
    location.href=data.redirect[epIndex];
   });
   /*document.addEventListener('fullscreenchange',()=>{

@@ -1,13 +1,13 @@
 export const data={
  wait:3000000,
- time:1500,
+ winWait:1500,
  game:{
   width:31.88,
   height:29.8
  },
  grid:{
   size:8,
-  shiftX:0.01,
+  shiftX:0.1,
   shiftY:2.28
  },
  radarSize:3,
@@ -27,6 +27,7 @@ export const data={
   radar:'.radar',
   doneCls:'done',
   shownCls:'shown',
-  okCls:'ok'
+  okCls:'ok',
+  posCls:{l:'l',u:'u',r:'r'}
  }
 };

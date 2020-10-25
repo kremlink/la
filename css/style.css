@@ -1772,6 +1772,7 @@ body {
   left: 4.58%;
   top: 8.24%;
   background: url(../images/ep4/game-bg.jpg) center/cover no-repeat;
+  overflow: hidden;
 }
 .boat-block .grid {
   position: absolute;
@@ -1780,7 +1781,26 @@ body {
   position: absolute;
   background: url(../images/ep4/game-open.jpg) 0 0/31.88em 29.8em no-repeat;
   border-radius: 50%;
-  transition: transform 0.3s ease-in-out;
+  box-shadow: inset 0 0 2em 2em #000;
+  transition: all 0.3s ease-in-out;
+}
+.boat-block .radar.l img:nth-child(2) {
+  opacity: 1;
+}
+.boat-block .radar.l img:not(:nth-child(2)) {
+  opacity: 0;
+}
+.boat-block .radar.u img:nth-child(3) {
+  opacity: 1;
+}
+.boat-block .radar.u img:not(:nth-child(3)) {
+  opacity: 0;
+}
+.boat-block .radar.r img:nth-child(4) {
+  opacity: 1;
+}
+.boat-block .radar.r img:not(:nth-child(4)) {
+  opacity: 0;
 }
 .boat-block .radar img {
   position: absolute;

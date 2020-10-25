@@ -100,7 +100,8 @@ export let config={
 
    ],
    '4':[
-    {start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Boat'}}//noAutoClose:true,noVidAutoPlay:true
+    {start:1,end:2,repeatable:true,iniTimer:true,data:{interactive:'Start',type:'one'}}
+    //{start:1,end:2,repeatable:true,data:{interactive:'Boat'}}//noAutoClose:true,noVidAutoPlay:true
     //{start:1,end:2,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'four'}}
     //{start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Vibrate',type:'four'}}
    ]
@@ -242,7 +243,7 @@ export let config={
     {
      //speed:[4,1000],
      width:'(min-width:1281px)',
-     src:'../oceans.mp4',
+     src:'../BokehNightDriving.mp4',
      label:'720P'
     },
     {
