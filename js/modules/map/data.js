@@ -21,12 +21,15 @@ export const data={
    one:'.ov-wrap.map',
    two:'.ov-wrap.map.v2',
    three:'.ov-wrap.map.v3',
-   four:'.ov-wrap.map.v4'
+   four:'.ov-wrap.map.v4',
+   learn:'.ov-wrap.map.learn'
   },
   soundBg:{
    two:'.sounds[data-what=map_v2-bg]',
-   three:'.sounds[data-what=map_v3-bg]'
+   three:'.sounds[data-what=map_v3-bg]',
+   four:'.sounds[data-what=map-v4-bg]'
   },
+  learn:'.w-p-t-ov div',
   fourTemplate:'#map-four-item-template',
   okCls:'ok',
   doneCls:'done',

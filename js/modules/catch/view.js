@@ -120,11 +120,13 @@ export let CatchView=BaseIntView.extend({
   if(data.things[this.index][index].no)
   {
    app.get('aggregator').trigger('sound','ctch-minus');
+   app.get('aggregator').trigger('board:score',{what:'catch-'+this.index+'-'+index,points:-10});
    item.addClass(data.view.noCls);
    setTimeout(()=>item.removeClass(data.view.noCls),data.shakeDur);
   }else
   {
    app.get('aggregator').trigger('sound','ctch-plus');
+   app.get('aggregator').trigger('board:score',{what:'catch-'+this.index+'-'+index,points:30});
    this.pData[this.index].stop[index]=true;
    item.css('transition','').off('transitionend');
    setTimeout(()=>item.addClass(data.view.dropCls).css(data.drop),0);

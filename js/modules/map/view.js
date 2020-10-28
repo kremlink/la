@@ -13,6 +13,7 @@ export let MapView=BaseIntView.extend({
  done:false,
  areas:[],
  once:[],
+ learnCtr:0,
  initialize:function(opts){
   this.opts=opts;
   this.setElement(data.view.el[this.opts.data.type]);
@@ -29,15 +30,26 @@ export let MapView=BaseIntView.extend({
    this.tmpl=_.template($(data.view.fourTemplate).html().trim());
    this.fourRender();
   }
+  if(this.opts.data.type==='learn')
+   this.learn();
  },
  clr:function(){
   this.done=false;
   this.$el.removeClass(data.view.okCls+' '+data.view.doneCls+' '+data.view.errCls+' '+data.view.showBtnsTimeCls+' '+data.view.hideBtnTimeCls);
-  if(this.opts.data.type==='four'){
+  if(this.opts.data.type==='four')
+  {
    this.areas=[];
    this.once=[];
    this.$areaClick.removeClass(data.view.shownCls);
   }
+  if(this.opts.data.type==='learn')
+   this.learn();
+ },
+ learn:function(){
+  this.$learn=this.$(data.view.learn);
+  this.$learn.eq(this.learnCtr).removeClass(data.view.shownCls);
+  this.learnCtr=0;
+  this.$learn.eq(this.learnCtr).addClass(data.view.shownCls);
  },
  fourRender:function(){
   let s='',
@@ -50,6 +62,7 @@ export let MapView=BaseIntView.extend({
   this.$areaClick.each(function(i){
    $(this).on('click',()=>{
     self.areas[i]=true;
+    app.get('aggregator').trigger('sound','btn');
    });
   });
  },
@@ -115,7 +128,13 @@ export let MapView=BaseIntView.extend({
 
   this.$el.addClass(data.view.doneCls);
   if(ind!==data.yesIndex)
+  {
+   app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:-10});
    this.$el.addClass(data.view.errCls);
+  }else
+  {
+   app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:30});
+  }
   this.done=true;
  },
  chooseClick:function(e){//pauses vid and shows ending text+btn
@@ -128,17 +147,24 @@ export let MapView=BaseIntView.extend({
   this.done=true;
  },
  go:function(){
-  if(this.done)
+  if(this.done||this.opts.data.type==='learn'&&this.learnCtr===this.$learn.length-1)
   {
    this.clr();
    this.away();
   }else
   {
-   this.$el.addClass(data.view.okCls);
-   if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
+   if(this.opts.data.type==='learn')
    {
-    this.$bgVideo[0].currentTime=0;
-    this.$bgVideo[0].play();
+    this.$learn.eq(this.learnCtr++).removeClass(data.view.shownCls);
+    this.$learn.eq(this.learnCtr).addClass(data.view.shownCls);
+   }else
+   {
+    this.$el.addClass(data.view.okCls);
+    if(this.opts.data.type==='two'||this.opts.data.type==='three'||this.opts.data.type==='four')
+    {
+     this.$bgVideo[0].currentTime=0;
+     this.$bgVideo[0].play();
+    }
    }
   }
  }

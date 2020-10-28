@@ -26,7 +26,7 @@ export let VibrateView=BaseIntView.extend({
    this.shift();
  },
  toggle:function(f){
-  if(f&&this.opts.data.type==='one')
+  if(f&&(this.opts.data.type==='one'||~this.opts.data.type.indexOf('btn')))
   {
    $(data.button.pDiv).css({transitionDuration:0+'s',width:0});
    setTimeout(()=>this.vibr(),50);
@@ -35,12 +35,14 @@ export let VibrateView=BaseIntView.extend({
   BaseIntView.prototype.toggle.apply(this,arguments);
  },
  clr:function(){
+  if(this.opts.data.type==='one'||~this.opts.data.type.indexOf('btn'))
+   this.$wobble.off('transitionend');
   if(this.opts.data.type==='two')
    this.$btn.removeClass(data.view.twoMoveBtnCls);
   if(this.opts.data.type==='three')
   {
    this.$el.removeClass(data.view.doneCls);
-   this.$bgVideo[0].loop=true;
+   this.$bgVideo.off('transitionend ended')[0].loop=true;
    this.$bgVideo[0].src=this.vidSrc;
    this.$btn.removeClass(data.view.hiddenCls);
   }
@@ -48,8 +50,8 @@ export let VibrateView=BaseIntView.extend({
   {
    this.$bgVideo[0].src=this.vidSrc;
    this.phase=-1;
-   this.$bgVideo.addClass(data.view.hiddenCls);
-   this.$el.removeClass(data.view.fourCls[0]);
+   this.$bgVideo.addClass(data.view.hiddenCls).off('transitionend ended timeupdate');
+   this.$el.removeClass(data.view.fourCls[0]+' '+data.view.fourCls[1]);
   }
  },
  shift:function(){
@@ -153,8 +155,11 @@ export let VibrateView=BaseIntView.extend({
      {
       this.phase=1;
       this.$bgVideo.addClass(data.view.hiddenCls);
+      this.$el.removeClass(data.view.fourCls[1]);
+      //console.log(this.phase,trsFlag);
      }else
      {
+      //console.log('away',this.phase);
       this.away(true);
      }
     }).on('transitionend',()=>{
@@ -162,6 +167,7 @@ export let VibrateView=BaseIntView.extend({
       this.$bgVideo[0].currentTime=0;
      if(trsFlag&&this.phase===1)
      {
+      //console.log('change-to-last');
       trsFlag=false;
       this.$bgVideo[0].src=data.four.errVideoSrc;
       this.$bgVideo[0].play().then(()=>{
@@ -197,11 +203,14 @@ export let VibrateView=BaseIntView.extend({
    }
   }else
   {
+   app.get('aggregator').trigger('board:score',{what:'vibrate-'+this.opts.data.type,points:30});
    this.away();
    clearInterval(this.vibrInt);
   }
  },
  away:function(failed,opts){
+  if(failed&&!(this.opts.data.type==='three'||this.opts.data.type==='four'))
+   app.get('aggregator').trigger('board:score',{what:'vibrate-'+this.opts.data.type,points:-10});
   this.clr();
   BaseIntView.prototype.away.apply(this,arguments);
  }

@@ -3,6 +3,7 @@ export const data={
  stepViews:[],
  view:{
   el:'.overlay-block',
-  shownCls:'shown'
+  shownCls:'shown',
+  noAnimCls:'no-anim'
  }
 };

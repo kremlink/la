@@ -39,7 +39,7 @@ export let config={
  'player':{
   timecodes:{
    '1':[//noAutoClose:true|repeatable:true
-    {start:1,end:2,invoked:false,time:-1800,text:'потеряно 30 минут',repeatable:true,data:{interactive:'Scheme'}},
+    {start:1,invoked:false,repeatable:true,data:{interactive:'Catch'}},
     /*{start:445.0,end:448.3,invoked:false,simple:'one',rem:-3600,remText:'потерян 1 час'},
     {start:448.4,rem:-1800,remText:'',checkpoint:true},
     {start:470.2,end:483.58,invoked:false,vibrate:'one',rem:-3600,remText:'потерян 1 час'},
@@ -51,6 +51,7 @@ export let config={
     {start:605.72,end:632.36,invoked:false,rem:-1800,remText:'потеряно 30 минут'},
     {start:680.94,end:699.1,invoked:false,rem:-3600,remText:'потерян 1 час'},
     {start:756.1,rem:-3600,remText:'',checkpoint:true}*/
+	
    ],
    '2':[
     {start:1,end:2,invoked:false,time:-1,text:'ii',noVidAutoPlay:true,repeatable:true,data:{interactive:'Map',type:'two'}}
@@ -100,10 +101,25 @@ export let config={
 
    ],
    '4':[
-    {start:1,end:2,repeatable:true,iniTimer:true,data:{interactive:'Start',type:'one'}}
-    //{start:1,end:2,repeatable:true,data:{interactive:'Boat'}}//noAutoClose:true,noVidAutoPlay:true
-    //{start:1,end:2,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'four'}}
+    {start:1,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'learn'}}
+    //{start:1,repeatable:true,iniTimer:true,noAnim:true,delayedPause:3,data:{interactive:'Vibrate',type:'btn1'}}
+    /*{start:1,end:2,repeatable:true,iniTimer:true,data:{interactive:'Vibrate',type:'btn1'}},
+    {start:3,end:4,repeatable:true,iniTimer:true,data:{interactive:'Vibrate',type:'btn2'}},
+    {start:5,end:6,repeatable:true,iniTimer:true,data:{interactive:'Vibrate',type:'btn3'}},
+    {start:7,end:8,repeatable:true,iniTimer:true,data:{interactive:'Vibrate',type:'btn4'}},
+    {start:9,end:10,repeatable:true,iniTimer:true,data:{interactive:'Vibrate',type:'btn5'}}*/
     //{start:1,end:2,repeatable:true,noVidAutoPlay:true,data:{interactive:'Vibrate',type:'four'}}
+    //{start:1,end:2,repeatable:true,noVidAutoPlay:true,noAutoClose:true,iniTimer:true,data:{interactive:'Map',type:'four'}}
+    //{start:1,end:2,repeatable:true,data:{interactive:'Boat'}}//noAutoClose:true,noVidAutoPlay:true
+   //{start:1,end:2,repeatable:true,noAutoClose:true,data:{interactive:'Map',type:'four'}}
+
+    /*{start:114.62,end:129.32,repeatable:true,noVidAutoPlay:true,data:{interactive:'Vibrate',type:'four'}},//кабан
+	{start:649.02,end:672.56,repeatable:true,data:{interactive:'Boat'}},//лодка
+	{start:729.66,end:730.6,repeatable:true,noVidAutoPlay:true,data:{interactive:'Start',type:'one'}},//актуализация карты
+	{start:797.9,end:811.32,repeatable:true,data:{interactive:'Photos'}},//выбор фоток
+	{start:1077.74,end:1090.84,repeatable:true,noVidAutoPlay:true,noAutoClose:true,iniTimer:true,data:{interactive:'Map',type:'four'}}//поиск по следам*/
+	
+
    ]
   },
   redirect:{
@@ -114,70 +130,92 @@ export let config={
   },
   quality:{
    /*'1':[
-		{
-		speed:[200,1000],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser4k.mp4',
-		label:'4k'
-	   },
-	   {
-		speed:[5,200],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_1080p.mp4',
-		label:'1080P'
-	   },
-	   {
-		speed:[2,5],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_720p.mp4',
-		label:'720P'
-	   },
-	   {
-		speed:[0,2],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_480p.mp4',
-		label:'480P'
-	   }
+    {
+     width:'(max-width:2561px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser4k.mp4',
+     label:'4k'
+    },
+    {
+     width:'(min-width:1441px) and (max-width:2560px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_1080p.mp4',
+     label:'1080P'
+    },
+    {
+     width:'(min-width:801px) and (max-width:1440px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_720p.mp4',
+     label:'720P'
+    },
+    {
+     width:'(max-width:800px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/mp4/ng_master_1ser_480p.mp4',
+     label:'480P'
+    }
    ],
    '2':[
-		{
-		speed:[200,1000],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_2160p_4k.mp4',
-		label:'4k'
-	   },
-	   {
-		speed:[5,200],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_1080p.mp4',
-		label:'1080P'
-	   },
-	   {
-		speed:[2,5],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_720p.mp4',
-		label:'720P'
-	   },
-	   {
-		speed:[0,2],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_480p.mp4',
-		label:'480P'
-	   }
+    {
+     width:'(max-width:2561px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_2160p_4k.mp4',
+     label:'4k'
+    },
+    {
+     width:'(min-width:1441px) and (max-width:2560px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_1080p.mp4',
+     label:'1080P'
+    },
+    {
+     width:'(min-width:801px) and (max-width:1440px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_720p.mp4',
+     label:'720P'
+    },
+    {
+     width:'(max-width:800px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/ng_master_2ser_mobdevice_480p.mp4',
+     label:'480P'
+    }
    ],
    '3':[
-	   {
-		speed:[200,1000],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_4k.mp4',
-		label:'4k'
-	   },
-	   {
-		speed:[5,200],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_1080p.mp4',
-		label:'1080P'
-	   },
-	   {
-		speed:[2,5],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_720p.mp4',
-		label:'720P'
-	   },
-	   {
-		speed:[0,2],
-		src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_480p.mp4',
-		label:'480P'
-	   }   
+    {
+     width:'(max-width:2561px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_4k.mp4',
+     label:'4k'
+    },
+    {
+     width:'(min-width:1441px) and (max-width:2560px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_1080p.mp4',
+     label:'1080P'
+    },
+    {
+     width:'(min-width:801px) and (max-width:1440px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_720p.mp4',
+     label:'720P'
+    },
+    {
+     width:'(max-width:800px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode3/mp4/3_ser_480p.mp4',
+     label:'480P'
+    }
+   ],
+   '4':[
+   {
+     width:'(max-width:2561px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/predmaster_4_4k.mp4',
+     label:'4k'
+    },
+    {
+     width:'(min-width:1441px) and (max-width:2560px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/predmaster_4_1080p.mp4',
+     label:'1080P'
+    },
+    {
+     width:'(min-width:801px) and (max-width:1440px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/predmaster_4_1080p.mp4',
+     label:'720P'
+    },
+    {
+     width:'(max-width:800px)',
+     src:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/predmaster_4_1080p.mp4',
+     label:'480P'
+    }
    ]*/
    '1':[
     {
@@ -243,7 +281,7 @@ export let config={
     {
      //speed:[4,1000],
      width:'(min-width:1281px)',
-     src:'../BokehNightDriving.mp4',
+     src:'../oceans.mp4',
      label:'720P'
     },
     {
@@ -267,11 +305,16 @@ export let config={
     one:30000,
     two:30000,
     three:30000,
-    four:300000
+    four:300000,
+    btn1:30000,
+    btn2:30000,
+    btn3:30000,
+    btn4:30000,
+    btn5:30000
    },
-   threeErrVideoSrc:'../BokehNightDriving.mp4',
+   threeErrVideoSrc:'../BokehNightDriving.mp4',	
    four:{
-    errVideoSrc:'../BokehNightDriving.mp4',
+    errVideoSrc:'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/mp4/4-02/04-02-i_2.mp4',
     when:5
    }
    //'https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode2/mp4/bg/2-10-go.mp4'
@@ -286,7 +329,10 @@ export let config={
     showBtnsTime:{when:7},
     hideBtnTime:{when:14}
    },
-   fourBtnsData:[{start:1,end:2,time:-10,text:'-10',size:5,left:20,top:20},{start:3,end:4,time:-5,text:'-5',size:10,left:50,top:50}]
+   fourBtnsData:[{start:1.1,end:3.64,time:-10,text:'',size:5,left:56,top:53},
+   {start:6.3,end:8.8,time:-5,text:'',size:10,left:70,top:58},
+   {start:26.3,end:28.76,time:-5,text:'',size:10,left:51,top:17},
+   {start:29.98,end:32.48,time:-5,text:'',size:10,left:37,top:50}]
   }
  }
  //"index.toggle":{extra:{a:1,$b:[2,'3',{$c:{$d:'#de',f:4}}]}},

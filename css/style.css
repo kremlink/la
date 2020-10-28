@@ -1663,6 +1663,9 @@ body {
 }
 
 /*@path:components\_ep4.scss*/
+.ov-wrap.vibrate.v1-1, .ov-wrap.vibrate.v1-2, .ov-wrap.vibrate.v1-3, .ov-wrap.vibrate.v1-4, .ov-wrap.vibrate.v1-5 {
+  transition: none;
+}
 .ov-wrap.vibrate.v4.phase1 .pulse-btn.incorr:nth-child(1), .ov-wrap.vibrate.v4.phase1 .pulse-btn.corr:nth-child(1) {
   display: none;
 }
@@ -1688,8 +1691,7 @@ body {
   top: 20%;
 }
 .ov-wrap.vibrate.v4 .pulse-btn.corr:nth-child(2) {
-  left: 40%;
-  top: 20%;
+  top: 10%;
   display: none;
 }
 .ov-wrap.vibrate.v4 .pulse-btn svg {
@@ -1702,13 +1704,28 @@ body {
 .ov-wrap.map.v4 {
   background: none;
 }
+.ov-wrap.map.v4.ok .ov-video {
+  display: block;
+}
 .ov-wrap.map.v4 .btn {
   display: none;
   position: absolute;
-  background: rgba(255, 0, 0, 0.3);
   border-radius: 50%;
+  cursor: pointer;
 }
 .ov-wrap.map.v4 .btn.shown {
+  display: block;
+}
+.ov-wrap.map.v4 .ov-video {
+  display: none;
+}
+.ov-wrap.map.learn {
+  background: none;
+}
+.ov-wrap.map.learn .w-p-t-ov div {
+  display: none;
+}
+.ov-wrap.map.learn .w-p-t-ov div.shown {
   display: block;
 }
 .ov-wrap.boat.ok .wobble-pop {
@@ -1779,9 +1796,8 @@ body {
 }
 .boat-block .radar {
   position: absolute;
-  background: url(../images/ep4/game-open.jpg) 0 0/31.88em 29.8em no-repeat;
+  background: url(../images/ep4/game-open.jpg) no-repeat;
   border-radius: 50%;
-  box-shadow: inset 0 0 2em 2em #000;
   transition: all 0.3s ease-in-out;
 }
 .boat-block .radar.l img:nth-child(2) {
@@ -1807,12 +1823,28 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  margin-top: -1em;
+  margin-top: -0.7em;
   width: 4em;
   transition: opacity 0.3s ease-in-out;
 }
 .boat-block .radar img:nth-child(n+2) {
   opacity: 0;
+}
+.boat-block .anim {
+  position: absolute;
+  left: -36%;
+  top: -36%;
+  right: -36%;
+  bottom: -36%;
+}
+.boat-block .eye-bg {
+  background: center/cover;
+  position: absolute;
+  left: -36%;
+  top: -36%;
+  right: -36%;
+  bottom: -36%;
+  opacity: 0.5;
 }
 .boat-block .vid {
   position: absolute;
@@ -1836,6 +1868,7 @@ body {
   width: 30.4em;
   height: 19.2em;
   padding: 2em 3em;
+  z-index: 1;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -1968,15 +2001,19 @@ body {
 }
 .overlay-block.shown {
   visibility: visible;
-  transition-duration: 0s;
 }
 .overlay-block.shown .ov-before {
   animation: ov-before 1.5s ease-in-out forwards;
 }
+.overlay-block.no-anim {
+  visibility: visible;
+}
+.overlay-block.no-anim .ov-before {
+  animation: none;
+}
 .overlay-block .ov-before {
   max-width: 0;
   max-height: 0;
-  border: 1px solid #000;
   width: 100%;
   overflow: hidden;
   pointer-events: none;

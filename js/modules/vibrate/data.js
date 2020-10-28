@@ -3,7 +3,12 @@ export const data={
   one:0,
   two:0,
   three:0,
-  four:0
+  four:0,
+  btn1:0,
+  btn2:0,
+  btn3:0,
+  btn4:0,
+  btn5:0
  },
  threeErrVideoSrc:'',
  four:{
@@ -20,12 +25,18 @@ export const data={
    one:'.ov-wrap.vibrate.v1',
    two:'.ov-wrap.vibrate.v2',
    three:'.ov-wrap.vibrate.v3',
-   four:'.ov-wrap.vibrate.v4'
+   four:'.ov-wrap.vibrate.v4',
+   btn1:'.ov-wrap.vibrate.v1-1',
+   btn2:'.ov-wrap.vibrate.v1-2',
+   btn3:'.ov-wrap.vibrate.v1-3',
+   btn4:'.ov-wrap.vibrate.v1-4',
+   btn5:'.ov-wrap.vibrate.v1-5'
   },
   soundBg:{
    one:'.sounds[data-what=v1-bg]',
-   two:'.sounds[data-what=v2-bg]'
+   two:'.sounds[data-what=v2-bg]',
    //three:'.sounds[data-what=v3-bg]'
+   four:'.sounds[data-what=vibrate-v4-bg]'
   },
   shownCls:'shown',
   twoMoveBtnCls:'shifted',

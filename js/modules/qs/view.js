@@ -62,23 +62,21 @@ export let QsView=BaseIntView.extend({
   this.$text.html(data.choose[this.ctr].text);
   this.$list.html('');
  },
- yes:function(e){
+ chosen:function(e,i){
   if(!this.changing)
   {
-   app.get('aggregator').trigger('sound',data.choose[this.ctr].yes?'plus':'minus');
+   app.get('aggregator').trigger('board:score',{what:'qs-'+this.ctr,points:i^data.choose[this.ctr].yes?30:-10});
+   app.get('aggregator').trigger('sound',i^data.choose[this.ctr].yes?'plus':'minus');
    this.changing=true;
-   this.$msg.html(data.choose[this.ctr].msg[0]).addClass(data.view.shownCls);
-   this.$chosen=$(e.currentTarget).addClass(data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
+   this.$msg.html(data.choose[this.ctr].msg[i]).addClass(data.view.shownCls);
+   this.$chosen=$(e.currentTarget).addClass(i^data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
   }
  },
+ yes:function(e){
+  this.chosen(e,0);
+ },
  no:function(e){
-  if(!this.changing)
-  {
-   app.get('aggregator').trigger('sound',!data.choose[this.ctr].yes?'plus':'minus');
-   this.changing=true;
-   this.$msg.html(data.choose[this.ctr].msg[1]).addClass(data.view.shownCls);
-   this.$chosen=$(e.currentTarget).addClass(!data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
-  }
+  this.chosen(e,1);
  },
  go:function(){
   this.clr();

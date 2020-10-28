@@ -25,15 +25,21 @@
     visibility:hidden;
     &.shown{
       visibility:visible;
-      transition-duration:0s;
+      //transition-duration:0s;
       .ov-before{
         animation:ov-before 1.5s ease-in-out forwards;
+      }
+    }
+    &.no-anim{
+      visibility:visible;
+      .ov-before{
+        animation:none;
       }
     }
     .ov-before{
       max-width:0;
       max-height:0;
-      border:1px solid #000;
+      //border:1px solid #000;
       width:100%;
       overflow:hidden;
       pointer-events:none;

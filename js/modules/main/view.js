@@ -47,16 +47,21 @@ export let MainView=Backbone.View.extend({
   new SoundMgr;
   new BoardMgr;
 
-  app.get('aggregator').trigger('board:name','abc');
-  app.get('aggregator').trigger('board:score',{what:'test',points:5});
+  /*app.get('aggregator').trigger('board:score',{what:'test',points:5});*/
  },
  toggle:function({show:show,failed:failed,opts:opts}){
   if(show)
-   app.get('aggregator').trigger('player:pause');else
+  {
+   if(~this.timecodeData.delayedPause)
+    setTimeout(()=>app.get('aggregator').trigger('player:pause'),this.timecodeData.delayedPause?this.timecodeData.delayedPause*1000:0);
+  }else
+  {
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
-   app.get('aggregator').trigger('player:play',{time:opts.end?this.timecodeData.data[opts.end]:this.timecodeData.end});
+   app.get('aggregator').trigger('player:play',{time:opts.end?this.timecodeData.data[opts.end]:
+     (!('end' in this.timecodeData)?-1:this.timecodeData.end)});
+  }
 
-  this.$el.toggleClass(data.view.shownCls,show);
+  this.$el.toggleClass(this.timecodeData.noAnim?data.view.noAnimCls:data.view.shownCls,show);
   if(failed)
    app.get('aggregator').trigger('timer:update',this.timecodeData);
  },

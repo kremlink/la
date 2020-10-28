@@ -130,7 +130,7 @@ export let PlayerView=Backbone.View.extend({
    });
   });
 
-  this.player.on('canplay',()=>{
+  this.player.on('loadedmetadata',()=>{
    if(firstTime)
     app.get('aggregator').trigger('player:ready');
    firstTime=false;
