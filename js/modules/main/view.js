@@ -41,8 +41,20 @@ export let MainView=Backbone.View.extend({
  timecodeData:null,
  delayedPTimer:null,
  initialize:function(){
-  this.listenTo(app.get('aggregator'),'main:toggle',this.toggle);
-  this.listenTo(app.get('aggregator'),'main:step',this.step);
+  let lsName=data.ls,
+   lsIniVal={name:'',points:{ini:0},time:[-1,-1,-1,-1],current:0};
+
+  app.set({dest:'objects.ls',object:lsName,lib:false});
+  if(!localStorage.getItem(lsName))
+   localStorage.setItem(lsName,JSON.stringify(lsIniVal));
+
+  app.get('aggregator').on('ls:clr',(ls)=>{
+   for(let [x,y] of Object.entries(lsIniVal))
+    ls[x]=y;
+  });
+
+  this.listenTo(app.get('aggregator'),'interactive:toggle',this.toggle);
+  this.listenTo(app.get('aggregator'),'player:interactive',this.step);
 
   new TimerView;
   new SoundMgr;
@@ -51,7 +63,7 @@ export let MainView=Backbone.View.extend({
   /*app.get('aggregator').trigger('board:score',{what:'test',points:5});*/
  },
  toggle:function({show:show,failed:failed,opts:opts}){
-  app.get('aggregator').trigger('player:pausable',!show);
+  app.get('aggregator').trigger('main:toggle',!show);
 
   if(show)
   {
@@ -77,7 +89,7 @@ export let MainView=Backbone.View.extend({
   this.timecodeData=timecodeData;
 
   if(timecodeData.iniTimer)
-   app.get('aggregator').trigger('page:timer');
+   app.get('aggregator').trigger('main:iniTimer');
 
   if(timecodeData.checkpoint)
   {

@@ -21,7 +21,7 @@ export let BaseIntView=Backbone.View.extend({
  },
  away:function(failed=false,opts={}){
   clearTimeout(this._wait);
-  app.get('aggregator').trigger('main:toggle',{show:false,failed:failed,opts:opts});
+  app.get('aggregator').trigger('interactive:toggle',{show:false,failed:failed,opts:opts});
   this.toggle(false);
  },
  toggle:function(f){

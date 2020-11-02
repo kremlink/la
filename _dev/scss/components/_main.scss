@@ -322,4 +322,13 @@
       }
     }
   }
+  .continue{
+    z-index:1;
+    color:#fff;
+    white-space:nowrap;
+    padding:.2em .3em;
+    background:#000;
+    cursor:pointer;
+    @include center($b:1em);
+  }
 }

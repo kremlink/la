@@ -52,8 +52,9 @@ export let TimerView=Backbone.View.extend({
   let ls=JSON.parse(localStorage.getItem(app.get('ls')));
 
   ls.time[epIndex-1]=this.time+this.ctr;
+  ls.current=0;
   localStorage.setItem(app.get('ls'),JSON.stringify(ls));
-  fetch(data.url+(this.time+this.ctr)).then(()=>opts.cb());
+  fetch(data.url+ls.time[epIndex-1]).then(()=>opts.cb());
  },
  change:function(opts){
   if(opts.time)

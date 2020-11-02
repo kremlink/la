@@ -6,10 +6,11 @@ export const data={
  },
  view:{
   el:'#wrap',
+  goOn:'.continue',
   loadedCls:'loaded',
   tooSmallCls:'too-small',
   startCls:'start',
-  fsCls:'fs',
+  //fsCls:'fs',
   timerCls:'timer',
   pauseCls:'paused'
  },

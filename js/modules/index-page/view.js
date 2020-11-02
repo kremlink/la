@@ -26,6 +26,7 @@ export function init(){
    new MainView;
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
+   this.$continue=$(data.view.continue);
    $(window).on('resize',_.debounce(()=>{
     mob=!matchMedia(data.minViewport).matches;
     this.$el.toggleClass(data.view.tooSmallCls,mob);
@@ -33,9 +34,9 @@ export function init(){
    },200));
    document.addEventListener('contextmenu',e=>e.preventDefault());
    this.listenTo(app.get('aggregator'),'player:ready',this.loaded);
-   this.listenTo(app.get('aggregator'),'page:fs',this.fs);
-   this.listenTo(app.get('aggregator'),'page:timer',this.timer);
-   this.listenTo(app.get('aggregator'),'main:step',this.pause);
+   //this.listenTo(app.get('aggregator'),'player:fs',this.fs);
+   this.listenTo(app.get('aggregator'),'main:iniTimer',this.timer);
+   this.listenTo(app.get('aggregator'),'player:interactive',this.pause);
    this.listenTo(app.get('aggregator'),'player:play',this.play);
    this.prepare();
   },
@@ -74,9 +75,9 @@ export function init(){
    app.get('aggregator').trigger('player:play',{});
    app.get('aggregator').trigger('player:pausable',true);
   },
-  fs:function(f){
+  /*fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);
-  },
+  },*/
   pause:function(timecodeData){
    if(!timecodeData.checkpoint)
     this.$el.addClass(data.view.pauseCls);

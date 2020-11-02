@@ -2319,6 +2319,19 @@ body:not(.board) {
   opacity: 0;
 }
 
+.continue {
+  z-index: 1;
+  color: #fff;
+  white-space: nowrap;
+  padding: 0.2em 0.3em;
+  background: #000;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  bottom: 1em;
+  transform: translate(-50%, 0);
+}
+
 /*@path:components\_shared.scss*/
 /*@path:components\_video.scss*/
 .video-js {

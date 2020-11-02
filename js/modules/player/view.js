@@ -13,7 +13,7 @@ export let PlayerView=Backbone.View.extend({
  el:data.view.el,
  extTemplate:null,
  timecodes:null,
- pausable:false,
+ pausable:true,
  initialize:function(){
   let ext=$(data.view.extTemplate);
 
@@ -38,7 +38,7 @@ export let PlayerView=Backbone.View.extend({
   },()=>{
    this.prepare();
   });
-  this.listenTo(app.get('aggregator'),'player:pausable',this.setPausable);
+  this.listenTo(app.get('aggregator'),'main:toggle',this.setPausable);
   this.listenTo(app.get('aggregator'),'player:play',this.play);
   this.listenTo(app.get('aggregator'),'player:pause',this.pause);
  },
@@ -105,7 +105,7 @@ export let PlayerView=Backbone.View.extend({
    app.get('aggregator').trigger('player:ended',{cb:()=>location.href=data.redirect[epIndex]});
   });
   /*document.addEventListener('fullscreenchange',()=>{
-   app.get('aggregator').trigger('page:fs',document.fullscreenElement);
+   app.get('aggregator').trigger('player:fs',document.fullscreenElement);
   },false);*/
 
   this.player.on('touchstart',e=>{
@@ -121,10 +121,13 @@ export let PlayerView=Backbone.View.extend({
   });
 
   this.player.on('timeupdate',()=>{
+   let curr=this.player.currentTime();
+
+   app.get('aggregator').trigger('player:timeupdate');
    this.timecodes.forEach((o)=>{
-    if((o.start<0?this.player.currentTime()>this.player.duration()+o.start:this.player.currentTime()>o.start)&&!o.invoked)
+    if((o.start<0?curr>this.player.duration()+o.start:curr>o.start)&&!o.invoked)
     {
-     app.get('aggregator').trigger('main:step',o);
+     app.get('aggregator').trigger('player:interactive',o);
      o.invoked=true;
     }
    });
