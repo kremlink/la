@@ -24,9 +24,19 @@ export let VibrateView=BaseIntView.extend({
   this.$btn=this.$(data.events.go);
   if(this.opts.data.type==='two')
    this.shift();
+  if(~this.opts.data.type.indexOf('btn'))
+  {
+   lottie.loadAnimation({
+    container:this.$(data.view.anim)[0],
+    renderer:'svg',
+    loop:true,
+    autoplay:true,
+    animationData:data.lotti[this.opts.data.type]
+   });
+  }
  },
  toggle:function(f){
-  if(f&&(this.opts.data.type==='one'||~this.opts.data.type.indexOf('btn')))
+  if(f&&(this.opts.data.type==='one'))
   {
    $(data.button.pDiv).css({transitionDuration:0+'s',width:0});
    setTimeout(()=>this.vibr(),50);
@@ -35,7 +45,7 @@ export let VibrateView=BaseIntView.extend({
   BaseIntView.prototype.toggle.apply(this,arguments);
  },
  clr:function(){
-  if(this.opts.data.type==='one'||~this.opts.data.type.indexOf('btn'))
+  if(this.opts.data.type==='one')
    this.$wobble.off('transitionend');
   if(this.opts.data.type==='two')
    this.$btn.removeClass(data.view.twoMoveBtnCls);
@@ -209,8 +219,10 @@ export let VibrateView=BaseIntView.extend({
   }
  },
  away:function(failed,opts){
-  if(failed&&!(this.opts.data.type==='three'||this.opts.data.type==='four'))
+  if(failed&&this.opts.data.type!=='four')
    app.get('aggregator').trigger('board:score',{what:'vibrate-'+this.opts.data.type,points:-10});
+  if(!failed&&this.opts.data.type==='three')
+   app.get('aggregator').trigger('board:score',{what:'vibrate-'+this.opts.data.type,points:30});
   this.clr();
   BaseIntView.prototype.away.apply(this,arguments);
  }

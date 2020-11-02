@@ -3,6 +3,10 @@
     &.vibrate{
       &.v1-1,&.v1-2,&.v1-3,&.v1-4,&.v1-5{
         transition:none;
+        .anim{
+          width:9em;
+          height:9em;
+        }
       }
       &.v4{
         &.phase1{
@@ -64,15 +68,6 @@
         }
         .ov-video{
           display:none;
-        }
-      }
-      &.learn{
-        background:none;
-        .w-p-t-ov div{
-          display:none;
-          &.shown{
-            display:block;
-          }
         }
       }
     }
@@ -140,11 +135,11 @@
       position:absolute;
       width:100%;
       height:100%;
-      background:url(#{$path}ep4/bg.png) center/cover no-repeat;
+      background:url(https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/images/bg.png) center/cover no-repeat;
     }
     .game{
       @include abs($l:4.58%,$t:8.24%);
-      background:url(#{$path}ep4/game-bg.jpg) center/cover no-repeat;
+      background:url(https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/images/game-bg.jpg) center/cover no-repeat;
       overflow:hidden;
     }
     .grid{
@@ -152,7 +147,7 @@
     }
     .radar{
       position:absolute;
-      background: url(#{$path}ep4/game-open.jpg) no-repeat;
+      background: url(https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/images/game-open.jpg) no-repeat;
       border-radius:50%;
       @include trs('all #{$anim} ease-in-out');
       &.l{

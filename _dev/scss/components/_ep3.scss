@@ -149,7 +149,7 @@
         left:10%;
         top:18%;
       }
-      svg{
+      >svg{
         opacity:0;
         @include trs('opacity 5s ease-in-out 5s');
       }
@@ -168,6 +168,12 @@
       width:10.5em;
       height:10.5em;
       border-radius:50%;
+    }
+    .anim{
+      @include abs($l:0,$t:0);
+      width:100%;
+      height:100%;
+      pointer-events:none;
     }
     .next{
       width:12em;

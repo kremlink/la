@@ -130,10 +130,12 @@ export let MapView=BaseIntView.extend({
   if(ind!==data.yesIndex)
   {
    app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:-10});
+   app.get('aggregator').trigger('metrika','map:fail'+ind);
    this.$el.addClass(data.view.errCls);
   }else
   {
    app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:30});
+   app.get('aggregator').trigger('metrika','map:win');
   }
   this.done=true;
  },
@@ -142,7 +144,15 @@ export let MapView=BaseIntView.extend({
 
   this.$el.addClass(data.view.doneCls);
   if($(e.currentTarget).hasClass(data.view.errCls))
+  {
+   if(this.opts.data.type==='two')
+    app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:-10});
    this.$el.addClass(data.view.errCls);
+  }else
+  {
+   if(this.opts.data.type==='two')
+    app.get('aggregator').trigger('board:score',{what:'map-'+this.opts.data.type,points:30});
+  }
 
   this.done=true;
  },

@@ -2,6 +2,23 @@
   .ov-wrap{
     &.start{
       @extend %text-btn;
+      &.brdName{
+        input{
+          display:block;
+          text-align:center;
+          color:#fff;
+          background:#000;
+          border:1px solid #e2a39e;
+          text-transform:uppercase;
+          width:40%;
+          font-size:0.8em;
+          padding:.2em 0;
+          margin:1.2em auto 0 auto;
+          @include plh(){
+            color:#fff;
+          };
+        }
+      }
       &.shown{
         .ov-video+.ov-video{
           opacity:1;
@@ -106,8 +123,25 @@
       }
     }
     &.map{
-      background:url(#{$path}map-bg1.png) center/cover no-repeat;
+      background:url(https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode1/map-bg1.png) center/cover no-repeat;
       @extend %text-btn;
+      &.learn{
+        background:none;
+        &.shown{
+          .w-p-outer{
+            top:15%;
+          }
+        }
+        .w-p-text{
+          height:17.04em;
+        }
+        .w-p-t-ov div{
+          display:none;
+          &.shown{
+            display:block;
+          }
+        }
+      }
       &.shown{
         .map-circles{
           opacity:1;

@@ -107,6 +107,7 @@ export let CatchView=BaseIntView.extend({
  },
  start:function(){
   this.$el.addClass(data.view.startCls);
+  this.$bgVideo[0].play();
  },
  choose:function(e){
   this.index=$(e.currentTarget).index();

@@ -35,34 +35,8 @@
 				</p>
 			</video>
 			<div class="overlay-block">
-                <div class="ov-wrap map learn">
-                    <div class="wobble-pop">
-                        <div class="w-p-outer">
-                            <div class="w-p-wrap">
-                                <svg class="w-p-bg">
-                                    <use xlink:href="#icon-ep4-text-bg"></use>
-                                </svg>
-                                <img class="w-p-pulse" src="images/pulse-btn.png" alt=""/>
-                                <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-text-top"></use>
-                                    </svg>
-                                    <div class="w-p-t-ov">
-                                        <div>Text1</div>
-                                        <div>Text2</div>
-                                        <div>Text3</div>
-                                        <div>Text4</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pulse-btn start">
-                        <img src="images/but-click.png" alt=""/>
-                    </div>
-                </div>
                 <div class="ov-wrap vibrate v4">
-                    <video class="ov-video hidden" preload="auto" muted>
+                    <video class="ov-video hidden" preload="auto" muted playsinline>
                         <source src="../test.mp4" type="video/mp4" />
                         <!--<source src="../1ser/MP4/1-19-I_TELEFON.mp4" type="video/mp4" />-->
                     </video>
@@ -167,10 +141,11 @@
                         <div class="item" style="background-image: url(images/ep4/4-18-1-bg.jpg);"></div>
                         <div class="item" style="background-image: url(images/ep4/4-18-2-bg.jpg);"></div>
                         <div class="item" style="background-image: url(images/ep4/4-18-3-bg.jpg);">
-                            <div class="click"></div>
+                            <div class="click" style="left:42%;top:33%;"></div>
                             <svg>
-                                <use xlink:href="#icon-ep4-4-8-13-cover"></use>
+                                <use xlink:href="#icon-ep4-4-18-3-cover"></use>
                             </svg>
+                            <div class="anim"></div>
                         </div>
                         <div class="good">
                             <svg>
@@ -216,7 +191,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap map v4">
-                    <video class="ov-video" preload="auto" muted>
+                    <video class="ov-video" preload="auto" muted playsinline>
                         <source src="../oceans.mp4" type="video/mp4" />
                         <!--../test.mp4-->
                     </video>
@@ -263,7 +238,7 @@
                             </div>
                         </div>
                         <div class="vid">
-                            <video class="ov-video" preload="auto" muted loop>
+                            <video class="ov-video" preload="auto" muted loop playsinline>
                                 <source src="https://naidenzhiv-cache.cdnvideo.ru/naidenzhiv/episode4/mp4/4-13-drone.mp4" type="video/mp4" />
                                 <!--../test.mp4-->
                             </video>
@@ -328,9 +303,7 @@
                         <div class="w-p-outer click">
                             <div class="w-p-wrap">
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-btn-1-call"></use>
-                                    </svg>
+                                    <div class="anim"></div>
                                 </div>
                             </div>
                         </div>
@@ -341,9 +314,7 @@
                         <div class="w-p-outer click">
                             <div class="w-p-wrap">
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-btn-2-warm"></use>
-                                    </svg>
+                                    <div class="anim"></div>
                                 </div>
                             </div>
                         </div>
@@ -354,9 +325,7 @@
                         <div class="w-p-outer click">
                             <div class="w-p-wrap">
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-btn-3-connection"></use>
-                                    </svg>
+                                    <div class="anim"></div>
                                 </div>
                             </div>
                         </div>
@@ -367,9 +336,7 @@
                         <div class="w-p-outer click">
                             <div class="w-p-wrap">
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-btn-4-food"></use>
-                                    </svg>
+                                    <div class="anim"></div>
                                 </div>
                             </div>
                         </div>
@@ -380,9 +347,7 @@
                         <div class="w-p-outer click">
                             <div class="w-p-wrap">
                                 <div class="w-p-cont">
-                                    <svg class="w-p-text">
-                                        <use xlink:href="#icon-ep4-btn-5-tree"></use>
-                                    </svg>
+                                    <div class="anim"></div>
                                 </div>
                             </div>
                         </div>
@@ -403,6 +368,7 @@
                 </svg>
                 <div class="the-t-text"></div>
                 <div class="the-t-pop"></div>
+                <div class="the-points">Счет:<span></span></div>
             </div>
             <div class="start-pop">
                 <div style="background-image: url(images/start-bg.svg);"></div>
@@ -430,11 +396,10 @@
         <div class="btn" style="width:<%= size %>em;height:<%= size %>em;left:<%= left %>%;top:<%= top %>%;"></div>
     </script>
        <script type="text/template" id="ext-player-template">
-            <div class="test-btns">
-                <div class="just-back">Назад на 10 секунд</div>
-                <div class="int-back">Назад на предыдущий интерактив</div>
-                <div class="int-ind-back">Назад на 1-й интерактив</div>
-            </div>
+           <div class="special-btns">
+               <div class="just-back"></div>
+               <div class="int-back"></div>
+           </div>
         </script>
         <div class="safe-hide-svg">
             @@include('components/ep4-sprite.svg')

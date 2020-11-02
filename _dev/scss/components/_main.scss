@@ -165,7 +165,7 @@
 
   .the-anim{
     @include abs($r:0,$t:0);
-    width:11.54%;
+    width:10em;
     opacity:0;
     z-index:1;
     @include trs('opacity #{$anim} ease-in-out #{$anim*5}');
@@ -215,23 +215,36 @@
         @include anim('timer-notif 6s linear reverse');
       }
     }
+    .the-points{
+      @include abs($t:2em,$r:2em);
+      span{
+        margin-left:.3em;
+        display:inline-block;
+        @include trs('transform #{$anim} ease-in-out');
+        &.change{
+          transform:rotateY(90deg);
+        }
+      }
+    }
   }
   //test
-  .test-btns{
-    @include abs($l:0,$r:0,$t:2em);
+  .special-btns{
+    @include abs($l:30%,$b:0);
+    margin-left:-8.5em;
+    height:3em;
+    background:rgba(#000,0.36);
     @include flx(display,flex);
-    @include flx(justify-content,space-around);
     z-index:1;
     .paused &{
       display:none;
     }
     div{
-      width:10em;
-      padding:.3em .5em;
-      border-radius:.5em;
-      background:#fff;
       cursor:pointer;
-      color:#000;
+      width:4em;
+      background: url(#{$path}icon-30.svg) center/70% 70% no-repeat;
+      &:nth-child(2){
+        background-image:url(#{$path}icon-back.svg);
+      }
     }
   }
   //other
@@ -260,14 +273,16 @@
   .orientation-pop{
     color:#fff;
     @include abs($l:0,$r:0,$t:0,$b:0);
-    display:none;
+    opacity:0;
+    visibility:hidden;
     font-size:30px;
     line-height:30px;
     z-index:1;
     @include flx(justify-content,center);
     @include flx(align-items,center);
     .too-small &{
-      @include flx(display,flex);
+      opacity:1;
+      visibility:visible;
     }
     .bg{
       position:absolute;

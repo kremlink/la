@@ -1,4 +1,5 @@
 export const data={
+ btnBack:0,
  timecodes:[],
  touchPlayRadius:20,
  testSpeedFile:'images/dl-speed.jpg',

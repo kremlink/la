@@ -14,7 +14,10 @@ export let PhotosView=BaseIntView.extend({
  done:false,
  ctr:0,
  indicies:[],
+ lottie:null,
  initialize:function(opts){
+  let $anim;
+
   BaseIntView.prototype.initialize.apply(this,[{
    data:data,
    opts:opts
@@ -28,6 +31,20 @@ export let PhotosView=BaseIntView.extend({
   this.$good=this.$(data.view.good).on('animationend',()=>this.$good.removeClass(data.view.shownCls));
 
   this.$items.eq(0).addClass(data.view.shownCls);
+
+  $anim=this.$(data.view.anim);
+
+  if($anim.length)
+  {
+   this.lottie=lottie.loadAnimation({
+    container:$anim[0],
+    renderer:'svg',
+    loop:false,
+    animationData:data.lottie,
+    autoplay:false
+   });
+   this.lottie.addEventListener('complete',()=>this.showNext(true));
+  }
  },
  clr:function(){
   this.done=false;
@@ -35,8 +52,9 @@ export let PhotosView=BaseIntView.extend({
   this.$el.removeClass(data.view.okCls+' '+data.view.doneCls);
   this.$items.eq(0).addClass(data.view.shownCls);
  },
- showNext:function(){
-  app.get('aggregator').trigger('sound','plus');
+ showNext:function(f){
+  if(f)
+   app.get('aggregator').trigger('sound','ph-plus');
   this.$items.eq(this.ctr).removeClass(data.view.shownCls);
   this.$items.eq(++this.ctr).addClass(data.view.shownCls);
   if(this.ctr===this.$items.length)
@@ -48,28 +66,31 @@ export let PhotosView=BaseIntView.extend({
   }
  },
  item:function(){
-  if(!this.done){
+  if(!this.done)
+  {
    this.$bad.addClass(data.view.shownCls);
-   app.get('aggregator').trigger('sound','minus');
+   app.get('aggregator').trigger('sound','ph-minus');
   }
  },
  click:function(e){
   this.$good.addClass(data.view.shownCls);
-  this.showNext();
+  if(this.lottie)
+   this.lottie.play();else
+   this.showNext(true);
 
   e.stopPropagation();
  },
  next:function(){
+  app.get('aggregator').trigger('sound','btn');
   if(!this.done)
   {
    if(this.indicies.includes(this.ctr))
    {
     this.$bad.addClass(data.view.shownCls);
-    app.get('aggregator').trigger('sound','minus');
    }else
    {
     this.$good.addClass(data.view.shownCls);
-    this.showNext();
+    this.showNext(false);
    }
   }
  },

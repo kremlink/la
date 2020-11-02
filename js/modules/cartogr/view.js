@@ -74,6 +74,7 @@ export let CartogrView=BaseIntView.extend({
    if(index===data.seq[this.current])
    {
     app.get('aggregator').trigger('sound','plus');
+    app.get('aggregator').trigger('board:score',{what:'cartogr-'+index,points:30});
     item.removeClass(data.view.item.badCls).addClass(data.view.item.goodCls+' '+data.view.doneCls);
     this.$previews.eq(this.current++).removeClass(data.view.item.activeCls);
     this.$previews.eq(this.current).addClass(data.view.item.activeCls);
@@ -91,6 +92,7 @@ export let CartogrView=BaseIntView.extend({
      item.removeClass(data.view.item.badCls);
      setTimeout(()=>item.addClass(data.view.item.badCls),100);
      app.get('aggregator').trigger('sound','minus');
+     app.get('aggregator').trigger('board:score',{what:'cartogr-'+index,points:-10});
     }
    }
   }

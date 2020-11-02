@@ -13,10 +13,7 @@ let data=app.configure({index:dat}).index,
 let events={};
 events[`click ${data.events.start}`]='start';
 
-export function init(app,modules){
- if(!~modules.indexOf('index'))
-  return;
-
+export function init(){
  new (Backbone.View.extend({
   events:events,
   el:data.view.el,
@@ -25,7 +22,7 @@ export function init(app,modules){
 
    epIndex=app.get('epIndex');
 
-   new Metrika;//app.get('aggregator').trigger('metrika','start:one');
+   new Metrika;
    new MainView;
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
@@ -43,29 +40,25 @@ export function init(app,modules){
    this.prepare();
   },
   prepare:function(){//inconsistent loadeddata event with multiple videos
-   let imgs=[],
+   let imgs,
    wait=[];
 
    for(let [x,y] of Object.entries(data.preload[epIndex]))
    {
-    if(y.imgs)
-    {
+    imgs=[];
+    if(y.imgs){
      imgs=y.imgs.map(t=>x+t);
     }
-    if(y.i)
+    if(y.j)
     {
-     imgs=[];
-     for(let i=1;i<=y.i;i++)
-     {
+     for(let i=1;i<=y.j.length;i++)
       for(let j=1;j<=y.j[i-1];j++)
-      {
-       imgs.push(x+y.tmpl1.replace('[i]',i).replace('[j]',j));
-       imgs.push(x+y.tmpl2.replace('[i]',i).replace('[j]',j));
-      }
-     }
+       for(let k=0;k<y.tmpl.length;k++)
+        imgs.push(x+y.tmpl[k].replace('[i]',i).replace('[j]',j));
     }
     wait.push(app.get('lib.utils.imgsReady')({src:imgs}));
    }
+
    $.when(wait).then(()=>{
     new PlayerView;
    });
@@ -79,6 +72,7 @@ export function init(app,modules){
   start:function(){
    this.$el.addClass(data.view.startCls);
    app.get('aggregator').trigger('player:play',{});
+   app.get('aggregator').trigger('player:pausable',true);
   },
   fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);

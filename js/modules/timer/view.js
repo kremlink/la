@@ -16,12 +16,12 @@ export let TimerView=Backbone.View.extend({
  time:null,
  timer:null,
  ctr:0,
- ls:null,
  initialize:function(){
+  let ls=JSON.parse(localStorage.getItem(app.get('ls')));
+
   epIndex=app.get('epIndex');
 
-  this.ls=JSON.parse(localStorage.getItem(app.get('ls')));
-  this.time=epIndex>1&&~this.ls.time[epIndex-2]?this.ls.time[epIndex-2]:data[epIndex].start;
+  this.time=epIndex>1&&~ls.time[epIndex-2]?ls.time[epIndex-2]:data[epIndex].start;
 
   /*$('#wrap').addClass('start loaded');//TODO:remove
   setTimeout(()=>{
@@ -34,14 +34,26 @@ export let TimerView=Backbone.View.extend({
   this.$pop=this.$(data.view.pop);
 
   this.timer=setInterval(()=>{
-   this.$timer.text(s2t(this.time+(--this.ctr)));
+   let t=this.time+(--this.ctr);
+
+   if(t===0||t===-1)
+   {
+    clearInterval(this.timer);
+    this.$timer.text(s2t(0));
+   }else
+   {
+    this.$timer.text(s2t(t));
+   }
   },1000);
   this.listenTo(app.get('aggregator'),'player:ended',this.ended);
   this.listenTo(app.get('aggregator'),'timer:update',this.change);
  },
- ended:function(){
-  this.ls.time[epIndex-1]=this.time+this.ctr;
-  localStorage.setItem(app.get('ls'),JSON.stringify(this.ls));
+ ended:function(opts){
+  let ls=JSON.parse(localStorage.getItem(app.get('ls')));
+
+  ls.time[epIndex-1]=this.time+this.ctr;
+  localStorage.setItem(app.get('ls'),JSON.stringify(ls));
+  fetch(data.url+(this.time+this.ctr)).then(()=>opts.cb());
  },
  change:function(opts){
   if(opts.time)

@@ -1,4 +1,9 @@
 export const data={
  defName:'',
- url:{}
+ //speed:40,
+ url:{},
+ view:{
+  sum:'.the-points span',
+  changeCls:'change'
+ }
 };

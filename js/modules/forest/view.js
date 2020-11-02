@@ -78,11 +78,13 @@ export let ForestView=BaseIntView.extend({
   if(item.hasClass(data.view.item.activeCls))
   {
    app.get('aggregator').trigger('sound','stone');
+   app.get('aggregator').trigger('board:score',{what:'forest-good-'+item.index(),points:30});
    item.addClass(data.view.item.doneCls);
    this.activate();
   }else
   {
    app.get('aggregator').trigger('sound','minus');
+   app.get('aggregator').trigger('board:score',{what:'forest-bad-'+item.index(),points:-10});
   }
 
 

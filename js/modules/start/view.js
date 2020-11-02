@@ -17,12 +17,8 @@ export let StartView=BaseIntView.extend({
    opts:opts
   }]);
 
-  switch(this.opts.data.type)
-  {
-   case 'two':
-    this.anim();
-    break;
-  }
+  if(this.opts.data.type==='two')
+   this.anim();
  },
  anim:function(){
   let btns=this.$(data.events.click);
@@ -40,6 +36,15 @@ export let StartView=BaseIntView.extend({
    animationData:data.twoLottie[1]
   });
  },
+ toggle:function(f){
+  if(f&&this.opts.data.type==='name')
+  {
+   this.$brdName=this.$(data.view.$brdName);
+   setTimeout(()=>this.$brdName.focus(),2000);
+  }
+
+  BaseIntView.prototype.toggle.apply(this,arguments);
+ },
  click:function(e){
   let corr;
 
@@ -49,11 +54,12 @@ export let StartView=BaseIntView.extend({
     this.away();
     break;
    case 'name':
-    app.get('aggregator').trigger('board:name',this.$(data.view.$brdName).val());
+    app.get('aggregator').trigger('board:name',this.$brdName.val().trim());
     this.away();
     break;
    case 'two':
     corr=$(e.currentTarget).is(data.view.corr);
+    app.get('aggregator').trigger('board:score',{what:'start-two',points:corr?30:-10});
     app.get('aggregator').trigger('sound',corr?'plus':'minus');
     this.away(false,corr?{end:'endGood'}:{});
   }

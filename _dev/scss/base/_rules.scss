@@ -1,5 +1,5 @@
 @include exports("@path:base\_rules.scss"){/*@path:base\_rules.scss*/
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&subset=cyrillic');
 
   .safe-hide-svg{
     @include abs($l:0,$t:-100px);
@@ -19,10 +19,12 @@
   body{
     height:100%;
     font:1.575vw/1.25 font();
-    @include no-sel();
     background:#000;
     @media (min-aspect-ratio:16/9){
       font-size:2.8vh;
+    }
+    &:not(.board){
+      @include no-sel();
     }
   }
 

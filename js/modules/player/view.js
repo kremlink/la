@@ -13,6 +13,7 @@ export let PlayerView=Backbone.View.extend({
  el:data.view.el,
  extTemplate:null,
  timecodes:null,
+ pausable:false,
  initialize:function(){
   let ext=$(data.view.extTemplate);
 
@@ -37,11 +38,15 @@ export let PlayerView=Backbone.View.extend({
   },()=>{
    this.prepare();
   });
+  this.listenTo(app.get('aggregator'),'player:pausable',this.setPausable);
   this.listenTo(app.get('aggregator'),'player:play',this.play);
   this.listenTo(app.get('aggregator'),'player:pause',this.pause);
  },
+ setPausable:function(f){
+  this.pausable=f;
+ },
  jBack:function(){
-  this.play({time:this.player.currentTime()-10});
+  this.play({time:this.player.currentTime()-data.btnBack});
  },
  iBack:function(){
   let where=this.timecodes.filter(o=>o.repeatable&&o.start<this.player.currentTime()),
@@ -93,12 +98,11 @@ export let PlayerView=Backbone.View.extend({
   });
   this.player.on('play',()=>{
    //app.get('aggregator').trigger('main:toggle',false);
-   if(!app.get('_dev'))
+   if(!app.get('_dev')&&!document.fullscreenElement&&document.documentElement.requestFullscreen)
     document.documentElement.requestFullscreen();
   });
   this.player.on('ended',()=>{
-   app.get('aggregator').trigger('player:ended');
-   location.href=data.redirect[epIndex];
+   app.get('aggregator').trigger('player:ended',{cb:()=>location.href=data.redirect[epIndex]});
   });
   /*document.addEventListener('fullscreenchange',()=>{
    app.get('aggregator').trigger('page:fs',document.fullscreenElement);
@@ -112,11 +116,7 @@ export let PlayerView=Backbone.View.extend({
    if(Math.sqrt((touched.x-e.changedTouches[0].pageX)*(touched.x-e.changedTouches[0].pageX)+(touched.y-e.changedTouches[0].pageY)*(touched.y-e.changedTouches[0].pageY))<data.touchPlayRadius)
    {
     if(e.target.nodeName==='VIDEO')
-    {
-     if(this.player.paused())
-      this.player.play();else
-      this.player.pause();
-    }
+     this.playPauseByCtrls();
    }
   });
 
@@ -135,24 +135,38 @@ export let PlayerView=Backbone.View.extend({
     app.get('aggregator').trigger('player:ready');
    firstTime=false;
   });
+
+  $(document).on('keypress',(e)=>{
+   if(e.which===32&&this.pausable)
+    this.playPauseByCtrls();
+  });
  },
- play:function({time=-1,clr=null}){
-  if(this.player.paused)
+ playPauseByCtrls:function(){
+  if(this.player.paused())
   {
-   if(~time)
-   {
-    this.player.currentTime(time);
-    this.timecodes.forEach((o)=>{
-     if(time<o.start&&o.repeatable)
-      o.invoked=false;
-    });
-    if(clr)
-     clr.invoked=false;
-   }
    this.player.play();
+  }else
+  {
+   if(!this.player.seeking())
+    this.player.pause();
   }
  },
+ play:function({time=-1,clr=null}){
+  if(~time)
+  {
+   this.player.currentTime(time);
+   this.timecodes.forEach((o)=>{
+    if(time<o.start&&o.repeatable)
+     o.invoked=false;
+   });
+   if(clr)
+    clr.invoked=false;
+  }
+  if(this.player.paused())
+   this.player.play();
+ },
  pause:function(){
-  this.player.pause();
+  if(!this.player.seeking())
+   this.player.pause();
  }
 });

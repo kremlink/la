@@ -39,6 +39,7 @@ export let MainView=Backbone.View.extend({
  events:events,
  el:data.view.el,
  timecodeData:null,
+ delayedPTimer:null,
  initialize:function(){
   this.listenTo(app.get('aggregator'),'main:toggle',this.toggle);
   this.listenTo(app.get('aggregator'),'main:step',this.step);
@@ -50,12 +51,19 @@ export let MainView=Backbone.View.extend({
   /*app.get('aggregator').trigger('board:score',{what:'test',points:5});*/
  },
  toggle:function({show:show,failed:failed,opts:opts}){
+  app.get('aggregator').trigger('player:pausable',!show);
+
   if(show)
   {
    if(~this.timecodeData.delayedPause)
-    setTimeout(()=>app.get('aggregator').trigger('player:pause'),this.timecodeData.delayedPause?this.timecodeData.delayedPause*1000:0);
+    this.delayedPTimer=setTimeout(()=>app.get('aggregator').trigger('player:pause'),this.timecodeData.delayedPause?this.timecodeData.delayedPause*1000:0);
+
+   /*if(this.timecodeData.delayedPause)
+    this.delayedPTimer=setTimeout(()=>app.get('aggregator').trigger('player:pause'),this.timecodeData.delayedPause*1000);else
+    app.get('aggregator').trigger('player:pause');*/
   }else
   {
+   clearTimeout(this.delayedPTimer);
    //setTimeout(()=>app.get('aggregator').trigger('player:pause'),data.time);else
    app.get('aggregator').trigger('player:play',{time:opts.end?this.timecodeData.data[opts.end]:
      (!('end' in this.timecodeData)?-1:this.timecodeData.end)});

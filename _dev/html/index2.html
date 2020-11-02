@@ -67,7 +67,7 @@
                     </div>-->
                 </div>
                 <div class="ov-wrap start v2">
-                    <video class="ov-video" preload="auto" muted loop>
+                    <video class="ov-video" preload="auto" loop muted playsinline>
                         <source src="../test.mp4" type="video/mp4" />
                     </video>
                     <div class="pulse-btn corr"></div>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="ov-wrap leaflet">
-                    <video class="ov-video" preload="auto" muted loop>
+                    <video class="ov-video" preload="auto" loop muted playsinline>
                         <source src="../test.mp4" type="video/mp4" />
                     </video>
                     <div class="ep3-block leaflet-block">
@@ -252,6 +252,7 @@
                 </svg>
                 <div class="the-t-text"></div>
                 <div class="the-t-pop"></div>
+                <div class="the-points">Счет:<span></span></div>
             </div>
             <div class="start-pop">
                 <div style="background-image: url(images/start-bg.svg);"></div>
@@ -279,7 +280,7 @@
         <script type="text/template" id="leaflet-good-template"><svg class="good"><use xlink:href="#icon-ep3-3-02-<%= i %>-r"></use></svg></script>
         <script type="text/template" id="leaflet-item-template"><div class="item shown" style="left:<%= left %>%;top:<%= top %>%;width:<%= width %>%;height:<%= height %>%;"></div></script>
         <script type="text/template" id="ext-player-template">
-            <div class="test-btns">
+            <div class="special-btns">
                 <div class="just-back">Назад на 10 секунд</div>
                 <div class="int-back">Назад на предыдущий интерактив</div>
                 <div class="int-ind-back">Назад на 1-й интерактив</div>

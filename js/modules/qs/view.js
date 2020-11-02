@@ -66,7 +66,8 @@ export let QsView=BaseIntView.extend({
   if(!this.changing)
   {
    app.get('aggregator').trigger('board:score',{what:'qs-'+this.ctr,points:i^data.choose[this.ctr].yes?30:-10});
-   app.get('aggregator').trigger('sound',i^data.choose[this.ctr].yes?'plus':'minus');
+   app.get('aggregator').trigger('sound',i^data.choose[this.ctr].yes?'q-plus':'q-minus');
+   app.get('aggregator').trigger('metrika',(i^data.choose[this.ctr].yes?'qs:win':'qs:fail')+this.ctr);
    this.changing=true;
    this.$msg.html(data.choose[this.ctr].msg[i]).addClass(data.view.shownCls);
    this.$chosen=$(e.currentTarget).addClass(i^data.choose[this.ctr].yes?data.view.goodCls:data.view.badCls);
