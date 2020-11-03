@@ -2326,10 +2326,14 @@ body:not(.board) {
   padding: 0.2em 0.3em;
   background: #000;
   cursor: pointer;
+  display: none;
   position: absolute;
   left: 50%;
   bottom: 1em;
   transform: translate(-50%, 0);
+}
+.goOn:not(.start) .continue {
+  display: block;
 }
 
 /*@path:components\_shared.scss*/

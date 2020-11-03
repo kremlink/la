@@ -123,7 +123,7 @@ export let PlayerView=Backbone.View.extend({
   this.player.on('timeupdate',()=>{
    let curr=this.player.currentTime();
 
-   app.get('aggregator').trigger('player:timeupdate');
+   app.get('aggregator').trigger('player:timeupdate',curr);
    this.timecodes.forEach((o)=>{
     if((o.start<0?curr>this.player.duration()+o.start:curr>o.start)&&!o.invoked)
     {
@@ -154,13 +154,20 @@ export let PlayerView=Backbone.View.extend({
     this.player.pause();
   }
  },
- play:function({time=-1,clr=null}){
+ play:function({time=-1,clr=null,goOn=false}){
   if(~time)
   {
    this.player.currentTime(time);
    this.timecodes.forEach((o)=>{
-    if(time<o.start&&o.repeatable)
-     o.invoked=false;
+    if(goOn)
+    {
+     if(time>o.start)
+      o.invoked=true;
+    }else
+    {
+     if(time<o.start&&o.repeatable)
+      o.invoked=false;
+    }
    });
    if(clr)
     clr.invoked=false;

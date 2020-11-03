@@ -55,11 +55,11 @@ export let config={
    '1':[//noAutoClose:true|repeatable:true
 
 
-    {start:1,repeatable:true,noAutoClose:true,time:-3600,iniTimer:true,data:{interactive:'Map',type:'learn'}},//обучение
-    {start:2,invoked:false,noAutoClose:true,data:{interactive:'Start',type:'name'}},//ввод позывного
-    {start:2,repeatable:true,time:-1800,checkpoint:true},
-    {start:4,end:5,invoked:false,time:-3600,repeatable:true,text:'Леший затянул с реакцией. Был потерян 1 час.',data:{interactive:'Vibrate',type:'one'}},
-    {start:6,time:-1800,checkpoint:true},
+    {start:3,repeatable:true,noAutoClose:true,time:-3600,iniTimer:true,data:{interactive:'Map',type:'learn'}},//обучение
+    {start:15,invoked:false,noAutoClose:true,data:{interactive:'Start',type:'name'}},//ввод позывного
+    //{start:2,repeatable:true,time:-1800,checkpoint:true},
+    {start:27,end:29,invoked:false,time:-3600,repeatable:true,text:'Леший затянул с реакцией. Был потерян 1 час.',data:{interactive:'Vibrate',type:'one'}},
+    /*{start:6,time:-1800,checkpoint:true},
     {start:7,time:-1800,checkpoint:true},
     {start:8,end:9,invoked:false,time:-3600,repeatable:true,text:'Сашка не ответила на телефон вовремя. Потерян 1 час.',data:{interactive:'Vibrate',type:'two'}},
     {start:10,end:43,invoked:false,time:-1800,repeatable:true,text:'Рюкзак не был собран вовремя. Потеряно 30 минут.',data:{interactive:'Catch'}},
@@ -67,7 +67,7 @@ export let config={
     {start:14,text:-3600,checkpoint:true},
     {start:15,end:16,invoked:false,time:-3600,text:'Не был принят начальный план действий. Потерян 1 час.',data:{interactive:'Qs'}},
     {start:17,end:18,invoked:false,repeatable:true,time:-7200,text:'Радиус поиска не был выбран. Потеряно 2 часа.',data:{interactive:'Map',type:'one'}},
-    {start:19,invoked:false,delayedPause:-1,noAutoClose:true,data:{interactive:'Start', type:'endRef'}}
+    {start:19,invoked:false,delayedPause:-1,noAutoClose:true,data:{interactive:'Start', type:'endRef'}}*/
 
 	   /*{start:445.0,repeatable:true,noAutoClose:true,time:-3600,iniTimer:true,data:{interactive:'Map',type:'learn'}},//обучение
 	   {start:448.5,invoked:false,noAutoClose:true,data:{interactive:'Start',type:'name'}},//ввод позывного

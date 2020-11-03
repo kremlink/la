@@ -4,6 +4,7 @@ export const data={
  '3':{start:0},
  '4':{start:0},
  url:'',
+ throttle:1000,
  view:{
   el:'.the-timer',
   txt:'.the-t-text',

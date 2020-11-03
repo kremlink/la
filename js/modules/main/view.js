@@ -1,6 +1,7 @@
 import {app} from '../../bf/base.js';
 import {SoundMgr} from '../soundMgr/view.js';
 import {BoardMgr} from '../boardMgr/view.js';
+import {LsMgr} from '../lsMgr/view.js';
 
 import {StartView} from '../start/view.js';
 import {VibrateView} from '../vibrate/view.js';
@@ -41,24 +42,15 @@ export let MainView=Backbone.View.extend({
  timecodeData:null,
  delayedPTimer:null,
  initialize:function(){
-  let lsName=data.ls,
-   lsIniVal={name:'',points:{ini:0},time:[-1,-1,-1,-1],current:0};
-
-  app.set({dest:'objects.ls',object:lsName,lib:false});
-  if(!localStorage.getItem(lsName))
-   localStorage.setItem(lsName,JSON.stringify(lsIniVal));
-
-  app.get('aggregator').on('ls:clr',(ls)=>{
-   for(let [x,y] of Object.entries(lsIniVal))
-    ls[x]=y;
-  });
+  this.lsMgr=new LsMgr;
 
   this.listenTo(app.get('aggregator'),'interactive:toggle',this.toggle);
   this.listenTo(app.get('aggregator'),'player:interactive',this.step);
 
-  new TimerView;
   new SoundMgr;
-  new BoardMgr;
+
+  new TimerView({lsMgr:this.lsMgr});
+  new BoardMgr({lsMgr:this.lsMgr});
 
   /*app.get('aggregator').trigger('board:score',{what:'test',points:5});*/
  },

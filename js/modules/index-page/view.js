@@ -12,21 +12,23 @@ let data=app.configure({index:dat}).index,
 
 let events={};
 events[`click ${data.events.start}`]='start';
+events[`click ${data.events.goOn}`]='goOn';
 
 export function init(){
  new (Backbone.View.extend({
   events:events,
   el:data.view.el,
+  curr:0,
+  main:null,
   initialize:function(){
    let mob=!matchMedia(data.minViewport).matches;
 
    epIndex=app.get('epIndex');
 
    new Metrika;
-   new MainView;
+   this.main=new MainView;
 
    this.$el.toggleClass(data.view.tooSmallCls,mob);
-   this.$continue=$(data.view.continue);
    $(window).on('resize',_.debounce(()=>{
     mob=!matchMedia(data.minViewport).matches;
     this.$el.toggleClass(data.view.tooSmallCls,mob);
@@ -38,6 +40,8 @@ export function init(){
    this.listenTo(app.get('aggregator'),'main:iniTimer',this.timer);
    this.listenTo(app.get('aggregator'),'player:interactive',this.pause);
    this.listenTo(app.get('aggregator'),'player:play',this.play);
+   this.listenTo(app.get('aggregator'),'ls:current',this.showGoOn);
+
    this.prepare();
   },
   prepare:function(){//inconsistent loadeddata event with multiple videos
@@ -64,6 +68,15 @@ export function init(){
     new PlayerView;
    });
   },
+  showGoOn:function(curr){
+   this.curr=curr;
+   this.$el.addClass(data.view.goOnCls);
+  },
+  goOn:function(){
+   this.$el.addClass(data.view.startCls);
+   app.get('aggregator').trigger('player:play',{time:this.curr,goOn:true});
+   app.get('aggregator').trigger('timer:ini',true);
+  },
   loaded:function(){
    this.$el.addClass(data.view.loadedCls);
   },
@@ -73,7 +86,7 @@ export function init(){
   start:function(){
    this.$el.addClass(data.view.startCls);
    app.get('aggregator').trigger('player:play',{});
-   app.get('aggregator').trigger('player:pausable',true);
+   app.get('aggregator').trigger('timer:ini');
   },
   /*fs:function(f){
    this.$el.toggleClass(data.view.fsCls,f);

@@ -3,16 +3,17 @@ export const data={
  waitBtn:1500,
  events:{
   'start':'.start-pop',
+  'goOn':'.continue'
  },
  view:{
   el:'#wrap',
-  goOn:'.continue',
   loadedCls:'loaded',
   tooSmallCls:'too-small',
   startCls:'start',
   //fsCls:'fs',
   timerCls:'timer',
-  pauseCls:'paused'
+  pauseCls:'paused',
+  goOnCls:'goOn'
  },
  minViewport:'(min-width:600px)',
  mobViewport:'(max-width:1023px)'

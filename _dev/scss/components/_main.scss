@@ -329,6 +329,10 @@
     padding:.2em .3em;
     background:#000;
     cursor:pointer;
+    display:none;
     @include center($b:1em);
+    .goOn:not(.start) &{
+      display:block;
+    }
   }
 }

@@ -2,10 +2,16 @@ import {app} from '../../bf/base.js';
 import {data as dat} from './data.js';
 let data=app.configure({board:dat}).board;
 
+let arrEpIndex;
+
 export let BoardMgr=Backbone.View.extend({
  data:{name:'',what:'',points:0,oldName:''},
  scoreAnim:false,
- initialize:function(){
+ initialize:function(opts){
+  arrEpIndex=app.get('epIndex')-1;
+
+  this.lsMgr=opts.lsMgr;
+
   this.listenTo(app.get('aggregator'),'board:name',this.name);
   this.listenTo(app.get('aggregator'),'board:score',this.score);
   this.$sum=$(data.view.sum);
@@ -22,32 +28,36 @@ export let BoardMgr=Backbone.View.extend({
   });
  },
  name:function(name=''){
-  let ls=JSON.parse(localStorage.getItem(app.get('ls')));
+  let ls=this.lsMgr.getData(),
+   pCurTime=ls.pCurTime[arrEpIndex],
+   curTime=ls.curTime[arrEpIndex];
 
   this.data.name=name?name:data.defName;
   if(ls.name)
   {
    this.data.oldName=ls.name;
-   app.get('aggregator').trigger('ls:clr',ls);
+   ls=this.lsMgr.resetData();
+   ls.pCurTime[arrEpIndex]=pCurTime;
+   ls.curTime[arrEpIndex]=curTime;
   }
   ls.name=this.data.name;
-  localStorage.setItem(app.get('ls'),JSON.stringify(ls));
+  this.lsMgr.setData(ls);
   this.req();
  },
  sum:function(){
-  let ls=JSON.parse(localStorage.getItem(app.get('ls')));
+  let ls=this.lsMgr.getData();
 
   return Object.values(ls.points).reduce((ac,cur)=>ac+cur);
  },
  score:function({what,points}){
-  let ls=JSON.parse(localStorage.getItem(app.get('ls')));
+  let ls=this.lsMgr.getData();
   /*oldSum=this.sum(),
   ctr,c=0;*/
 
   this.data.what=what;
   this.data.points=points;
   ls.points[what]=points;
-  localStorage.setItem(app.get('ls'),JSON.stringify(ls));
+  this.lsMgr.setData(ls);
   if(!this.scoreAnim)
   {
    this.$sum.addClass(data.view.changeCls);

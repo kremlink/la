@@ -13,6 +13,7 @@ export const data={
  },
  view:{
   el:'.video-js',
+  goOn:'.continue',
   extTemplate:'#ext-player-template'
  }
 };
